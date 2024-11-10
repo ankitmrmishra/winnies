@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 interface Stay {
   title: string;
@@ -122,10 +123,13 @@ export default function Navbar() {
                         href="#"
                         className="flex items-center space-x-4 px-4 py-3 hover:bg-gray-50"
                       >
-                        <img
+                        <Image
                           src={stay.image}
+                          objectFit="cover"
                           alt={stay.title}
                           className="w-20 h-20 object-cover rounded-lg"
+                          width={1}
+                          height={1}
                         />
                         <div>
                           <h3 className="font-medium text-white ">
@@ -199,8 +203,11 @@ export default function Navbar() {
                         href="#"
                         className="flex items-center space-x-4 px-4 py-3 hover:bg-gray-50"
                       >
-                        <img
+                        <Image
+                          width={1}
+                          height={1}
                           src={facility.image}
+                          objectFit="cover"
                           alt={facility.title}
                           className="w-20 h-20 object-cover rounded-lg"
                         />

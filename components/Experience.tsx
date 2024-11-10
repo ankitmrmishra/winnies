@@ -3,12 +3,9 @@
 import React from "react";
 import { Moon, Sun, Mountain, Wind, Droplets } from "lucide-react";
 import { Playfair_Display, Inter } from "next/font/google";
+import Image from "next/image";
 
 const playfair = Playfair_Display({ subsets: ["latin"] });
-const playfairitalic = Playfair_Display({
-  subsets: ["latin"],
-  style: ["italic"],
-});
 const inter = Inter({ subsets: ["latin"] });
 
 interface Experience {
@@ -71,10 +68,12 @@ const ExperiencesGrid = () => {
           {experiences.map((exp) => (
             <div
               key={exp.title}
-              className={`bg-white rounded-lg overflow-hidden shadow-lg ${playfairitalic.className}`}
+              className="bg-white rounded-lg overflow-hidden shadow-lg"
             >
               <div className="relative h-64 sm:h-80">
-                <img
+                <Image
+                  width={400}
+                  height={400}
                   src={exp.image}
                   alt={exp.title}
                   className="w-full h-full object-cover"

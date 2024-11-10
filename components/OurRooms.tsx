@@ -74,12 +74,12 @@ function RoomCard({ room }: { room: RoomData }) {
     >
       <div className="relative">
         <motion.img
+          src={room.imageUrl}
           whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.3 }}
-          src={room.imageUrl}
-          alt={room.title}
           className="w-full  h-[400px] object-cover"
         />
+
         <motion.button
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}

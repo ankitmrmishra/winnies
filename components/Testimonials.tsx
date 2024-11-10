@@ -2,6 +2,7 @@
 import React from "react";
 import { Playfair_Display } from "next/font/google";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 interface Testimonial {
   id: number;
@@ -90,8 +91,11 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
       className="bg-white rounded-3xl p-8 shadow-sm"
     >
       <div className="flex items-start gap-4 mb-6">
-        <img
+        <Image
+          width={100}
+          height={100}
           src={testimonial.image}
+          objectFit="cover"
           alt={testimonial.name}
           className="w-16 h-16 rounded-full object-cover"
         />

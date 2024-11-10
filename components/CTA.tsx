@@ -23,7 +23,6 @@ export default function CTA() {
               animate={isInView ? { scale: 1 } : { scale: 1.1 }}
               transition={{ duration: 8 }}
               src="https://images.unsplash.com/photo-1618140052121-39fc6db33972?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3"
-              alt="Luxury mountain cabin with scenic view"
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-black/50" />

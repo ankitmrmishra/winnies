@@ -20,6 +20,7 @@ import {
   Linkedin,
   Youtube,
 } from "lucide-react";
+import Image from "next/image";
 
 export const SocialMedia = () => {
   return (
@@ -162,8 +163,11 @@ export default function InfiniteGlampingCarousel() {
             className="flex-shrink-0 w-72 bg-white rounded-2xl overflow-hidden shadow-md"
           >
             <div className="p-4 flex items-center space-x-3">
-              <img
+              <Image
+                width={500}
+                height={500}
                 src={post.avatar}
+                objectFit="cover"
                 alt={post.username}
                 className="w-10 h-10 rounded-full object-cover"
               />
@@ -177,7 +181,10 @@ export default function InfiniteGlampingCarousel() {
             </div>
 
             <div className="relative aspect-square">
-              <img
+              <Image
+                width={500}
+                height={500}
+                objectFit="cover"
                 src={post.image}
                 alt="Glamping location"
                 className="w-full h-full object-cover"
