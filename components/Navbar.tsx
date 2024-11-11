@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import Link from "next/link";
 
 interface Stay {
   title: string;
@@ -83,12 +84,12 @@ export default function Navbar() {
 
   return (
     <div className="relative" ref={navRef}>
-      <nav className="backdrop-blur-sm bg-blend-difference fixed text-white  bg-black w-full z-50 top-0   ">
+      <nav className="backdrop-blur-sm bg-blend-difference  text-white  bg-black w-full z-50 top-0   ">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20 gap-6">
             {/* Logo */}
             <motion.a
-              href="#"
+              href="/"
               className="flex-shrink-0"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -144,9 +145,12 @@ export default function Navbar() {
                   </motion.div>
                 )}
               </div>
-              <a href="#" className="text-white  hover:text-emerald-700">
+              <Link
+                href="/Kasauli"
+                className="text-white  hover:text-emerald-700"
+              >
                 Kasauli
-              </a>
+              </Link>
               <div className="relative">
                 <motion.button
                   className="flex items-center space-x-1 text-white  hover:text-emerald-700 group"
@@ -257,7 +261,7 @@ export default function Navbar() {
         >
           <div className="flex flex-col h-full">
             <div className="p-4 border-b flex justify-between align-middle items-center gap-5">
-              <Button className="w-full bg-emerald-700 hover:bg-emerald-800 text-white md:hidden">
+              <Button className="w-full bg-white text-emerald-800 hover:bg-emerald-800  md:hidden">
                 Book Now
               </Button>
               <X
