@@ -156,7 +156,12 @@ export default function Navbar() {
                   className="flex items-center space-x-1 text-white  hover:text-emerald-700 group"
                   onClick={() => setIsJourneysOpen(!isJourneysOpen)}
                 >
-                  <span>Weddings</span>
+                  <Link
+                    href={"/Weddings"}
+                    className="text-white  hover:text-emerald-700"
+                  >
+                    Weddings
+                  </Link>
                   <ChevronDown
                     className={`w-4 h-4 transition-transform duration-300 ${
                       isJourneysOpen ? "rotate-180" : ""

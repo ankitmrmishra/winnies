@@ -6,6 +6,7 @@ const nextConfig: NextConfig = {
       "images.unsplash.com",
       "sjc6.discourse-cdn.com",
       "assets.aceternity.com",
+      "winnies.in",
     ],
   },
   /* other config options here */
