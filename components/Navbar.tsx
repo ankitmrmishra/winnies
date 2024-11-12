@@ -236,9 +236,12 @@ export default function Navbar() {
                   </motion.div>
                 )}
               </div>
-              <a href="#" className="text-white  hover:text-emerald-700">
+              <Link
+                href={"/ContactUs"}
+                className="text-white  hover:text-emerald-700"
+              >
                 Contact Us
-              </a>
+              </Link>
             </div>
 
             {/* Book Now Button (Desktop) */}
@@ -284,68 +287,68 @@ export default function Navbar() {
             <nav className="flex-1 overflow-y-auto p-4">
               <ul className="space-y-4">
                 <li>
-                  <a
-                    href="#"
-                    className="text-white  hover:text-emerald-700 block py-2"
+                  <Link
+                    href="/"
+                    className="text-white hover:text-emerald-700 block py-2"
                   >
                     Stays
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="#"
-                    className="text-white  hover:text-emerald-700 block py-2"
+                  <Link
+                    href="/Kasauli"
+                    className="text-white hover:text-emerald-700 block py-2"
                   >
                     Kasauli
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="#"
-                    className="text-white  hover:text-emerald-700 block py-2"
+                  <Link
+                    href="/Weddings"
+                    className="text-white hover:text-emerald-700 block py-2"
                   >
                     Weddings
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="#"
-                    className="text-white  hover:text-emerald-700 block py-2"
+                  <Link
+                    href="/Restaurant"
+                    className="text-white hover:text-emerald-700 block py-2"
                   >
                     Restaurant
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="#"
-                    className="text-white  hover:text-emerald-700 block py-2"
+                  <Link
+                    href="/Spa"
+                    className="text-white hover:text-emerald-700 block py-2"
                   >
                     Spa
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="#"
-                    className="text-white  hover:text-emerald-700 block py-2"
+                  <Link
+                    href="/Packages"
+                    className="text-white hover:text-emerald-700 block py-2"
                   >
                     Our Packages
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="#"
-                    className="text-white  hover:text-emerald-700 block py-2"
+                  <Link
+                    href="/Facilities"
+                    className="text-white hover:text-emerald-700 block py-2"
                   >
                     Facilities
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="#"
-                    className="text-white  hover:text-emerald-700 block py-2"
+                  <Link
+                    href="/ContactUs"
+                    className="text-white hover:text-emerald-700 block py-2"
                   >
                     Contact Us
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </nav>
