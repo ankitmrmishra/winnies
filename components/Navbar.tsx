@@ -182,12 +182,18 @@ export default function Navbar() {
                   />
                 </motion.button>
               </div>
-              <a href="#" className="text-white  hover:text-emerald-700">
+              <Link
+                href={"/Spa"}
+                className="text-white  hover:text-emerald-700"
+              >
                 Spa
-              </a>
-              <a href="#" className="text-white  hover:text-emerald-700">
+              </Link>
+              <Link
+                href={"/Packages"}
+                className="text-white  hover:text-emerald-700"
+              >
                 Our Packages
-              </a>
+              </Link>
               <div className="relative">
                 <motion.button
                   className="flex items-center space-x-1 text-white  hover:text-emerald-700 group"
