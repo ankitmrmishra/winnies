@@ -10,6 +10,38 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
 export default function Footer() {
+  const year = new Date().getFullYear();
+
+  // Link arrays matching navbar structure
+  const footerLinks = [
+    {
+      title: "Quick Links",
+      links: [
+        { name: "Home", href: "/" },
+        { name: "Kasauli", href: "/Kasauli" },
+        { name: "Weddings", href: "/Weddings" },
+        { name: "Restaurant", href: "/Restaurant" },
+        { name: "Spa", href: "/Spa" },
+      ],
+    },
+    {
+      title: "More",
+      links: [
+        { name: "Tariff", href: "/Packages" },
+        { name: "Adventure Activities", href: "/adventures" },
+        { name: "Events", href: "/events" },
+        { name: "Contact", href: "/ContactUs" },
+      ],
+    },
+  ];
+
+  const socialIcons = [
+    { Icon: Facebook, href: "#" },
+    { Icon: Twitter, href: "#" },
+    { Icon: Instagram, href: "#" },
+    { Icon: Linkedin, href: "#" },
+  ];
+
   return (
     <div className="lg:p-20 bg-[#faf9f6]">
       <footer className="bg-[#0B3B2D] text-white px-6 py-16 md:px-12 lg:px-24 md:rounded-lg rounded-t-lg">
@@ -44,18 +76,15 @@ export default function Footer() {
                 </Button>
               </div>
               <div className="flex gap-4">
-                <a href="#" className="hover:text-[#FFA500] transition-colors">
-                  <Facebook className="w-6 h-6" />
-                </a>
-                <a href="#" className="hover:text-[#FFA500] transition-colors">
-                  <Twitter className="w-6 h-6" />
-                </a>
-                <a href="#" className="hover:text-[#FFA500] transition-colors">
-                  <Instagram className="w-6 h-6" />
-                </a>
-                <a href="#" className="hover:text-[#FFA500] transition-colors">
-                  <Linkedin className="w-6 h-6" />
-                </a>
+                {socialIcons.map(({ Icon, href }, idx) => (
+                  <a
+                    key={idx}
+                    href={href}
+                    className="hover:text-[#FFA500] transition-colors"
+                  >
+                    <Icon className="w-6 h-6" />
+                  </a>
+                ))}
               </div>
             </div>
           </div>
@@ -86,91 +115,24 @@ export default function Footer() {
               </div>
             </div>
 
-            {/* Quick Links */}
-            <div>
-              <h3 className="text-xl font-semibold mb-4">Quick Links</h3>
-              <ul className="space-y-2 text-gray-300">
-                <li>
-                  <a
-                    href="#"
-                    className="hover:text-[#FFA500] transition-colors"
-                  >
-                    Home
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="hover:text-[#FFA500] transition-colors"
-                  >
-                    Kasauli
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="hover:text-[#FFA500] transition-colors"
-                  >
-                    Weddings
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="hover:text-[#FFA500] transition-colors"
-                  >
-                    Restaurant
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="hover:text-[#FFA500] transition-colors"
-                  >
-                    Spa
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            {/* More Links */}
-            <div>
-              <h3 className="text-xl font-semibold mb-4">More</h3>
-              <ul className="space-y-2 text-gray-300">
-                <li>
-                  <a
-                    href="#"
-                    className="hover:text-[#FFA500] transition-colors"
-                  >
-                    Tariff
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="hover:text-[#FFA500] transition-colors"
-                  >
-                    Adventure Activities
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="hover:text-[#FFA500] transition-colors"
-                  >
-                    Events
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="hover:text-[#FFA500] transition-colors"
-                  >
-                    Contact
-                  </a>
-                </li>
-              </ul>
-            </div>
+            {/* Footer Links */}
+            {footerLinks.map((section, idx) => (
+              <div key={idx}>
+                <h3 className="text-xl font-semibold mb-4">{section.title}</h3>
+                <ul className="space-y-2 text-gray-300">
+                  {section.links.map((link, linkIdx) => (
+                    <li key={linkIdx}>
+                      <a
+                        href={link.href}
+                        className="hover:text-[#FFA500] transition-colors"
+                      >
+                        {link.name}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
 
             {/* Logo and CTA */}
             <div className="space-y-4">
@@ -184,8 +146,7 @@ export default function Footer() {
           {/* Bottom Section */}
           <div className="pt-8 border-t border-gray-700 text-gray-400 flex flex-col md:flex-row justify-between items-center gap-4">
             <div>
-              © {new Date().getFullYear()} Winnies Holiday Resort & Spa. All
-              rights reserved.
+              © {year} Winnies Holiday Resort & Spa. All rights reserved.
             </div>
             <div className="flex gap-4">
               <a href="#" className="hover:text-[#FFA500] transition-colors">
