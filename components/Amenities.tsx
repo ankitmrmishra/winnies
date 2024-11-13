@@ -51,18 +51,19 @@ const amenities = [
     icon: <GiRobe className="w-8 h-8 text-[#C5B358]" />,
     title: "Spa",
     description:
-      "Luxurious spa treatments and wellness services for complete relaxation.",
+      "Experience pure relaxation with our luxurious spa treatments and tailored wellness rituals.",
   },
   {
     icon: <Dumbbell className="w-8 h-8 text-[#C5B358]" />,
     title: "Fitness center",
     description:
-      "State-of-the-art equipment and facilities for your workout needs.",
+      "Advanced equipment and premium facilities designed for your ultimate workout experience.",
   },
   {
     icon: <Monitor className="w-8 h-8 text-[#C5B358]" />,
     title: "Conference rooms",
-    description: "Professional meeting spaces equipped with modern amenities.",
+    description:
+      "Professional meeting spaces enhanced with modern amenities for seamless productivity.",
   },
   {
     icon: <Hotel className="w-8 h-8 text-[#C5B358]" />,
@@ -73,26 +74,31 @@ const amenities = [
   {
     icon: <Shield className="w-8 h-8 text-[#C5B358]" />,
     title: "Security 24/7",
-    description: "Round-the-clock security for your peace of mind.",
+    description:
+      "Safety is our priority with 24/7 security, giving you comfort day and night.",
   },
   {
     icon: <Bell className="w-8 h-8 text-[#C5B358]" />,
     title: "Reception 24/7",
-    description: "Always available to assist you with any requests.",
+    description:
+      "Available whenever you need, committed to making your experience smooth and enjoyable.",
   },
   {
     icon: <Hotel className="w-8 h-8 text-[#C5B358]" />,
     title: "28 Rooms",
-    description: "Comfortable and well-appointed rooms for your stay.",
+    description:
+      "Enjoy comfort in tastefully furnished rooms crafted to provide warmth, relaxation, and a memorable stay.",
   },
   {
     icon: <GiRobe className="w-8 h-8 text-[#C5B358]" />,
     title: "9 Amenities",
-    description: "Comprehensive facilities for an enhanced stay experience.",
+    description:
+      "Enhance your stay with our diverse facilities, designed to cater to every need and desire.",
   },
   {
     icon: <TreePine className="w-8 h-8 text-[#C5B358]" />,
     title: "12 Nature Sights",
-    description: "Beautiful natural attractions in close proximity.",
+    description:
+      "Discover stunning natural attractions just moments away, where breathtaking beauty awaits right outside your door.",
   },
 ];

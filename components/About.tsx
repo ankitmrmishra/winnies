@@ -20,13 +20,14 @@ export function About() {
         <h2
           className={`text-3xl italic md:text-7xl font-heading text-emerald-800 mb-6 ${playfair.className}`}
         >
-          Winnies Holiday Resort & Spa
+          Winnies <br />
+          <span className="md:text-5xl text-2xl">Holiday Resort & Spa</span>
         </h2>
         <p className="text-lg mb-8 max-w-2xl mx-auto font-body">
-          Nestled in the serene hills of Kasauli, Winnies Resort offers a
-          perfect blend of luxury and nature. Our resort provides a tranquil
-          escape from the hustle and bustle of city life, allowing you to
-          rejuvenate in the lap of nature while enjoying world-class amenities.
+          Set in the quiet beauty of Kasauli’s hills, Winnies Resort is your
+          retreat for peace and comfort. With luxurious amenities and stunning
+          natural surroundings, this haven offers the ideal escape from the
+          city, letting you unwind and revive in nature’s gentle embrace.
         </p>
         <Button
           variant="outline"

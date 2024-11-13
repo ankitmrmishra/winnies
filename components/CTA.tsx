@@ -35,7 +35,7 @@ export default function CTA() {
               transition={{ delay: 0.2, duration: 0.5 }}
               className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4 max-w-2xl"
             >
-              Experience nature in a new way.{" "}
+              Nature Reimagined{" "}
               <span className="text-amber-400">Visit us.</span>
             </motion.h2>
 
@@ -45,8 +45,8 @@ export default function CTA() {
               transition={{ delay: 0.4, duration: 0.5 }}
               className="text-lg sm:text-xl text-white/90 mb-8 max-w-xl"
             >
-              Lorem ipsum dolor sit amet consectetur adipiscing eli matis sit
-              phasellus mollis sit aliquam sit nullam.
+              Rediscover nature&apos;s wonders in a way you&apos;ve never
+              imagined. Visit us for a unique adventure.
             </motion.p>
 
             <motion.div

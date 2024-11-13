@@ -34,7 +34,7 @@ export const HeroComponent = () => {
           <h1
             className={`text-4xl md:text-8xl  font-bold mb-4 ${japan_sans.className}`}
           >
-            Experience Luxury <br />
+            Luxury Awaits <br />
             in <span className="text-emerald-500">Kasauli</span>
           </h1>
           <p className="text-xl md:text-4xl mb-8">

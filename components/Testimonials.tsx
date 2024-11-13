@@ -57,10 +57,12 @@ const Testimonials = () => {
           Take their word, not ours
         </span>
         <p className="lg:w-[40rem] text-center text-emerald-700/50">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur
-          animi quam nostrum. Voluptatum doloremque, commodi hic pariatur
-          ducimus quae laborum, odio expedita laudantium saepe, rem suscipit qui
-          aliquid vero quas!
+          Our promise is to create memorable experiences, but don’t just take
+          our word for it. The heartfelt stories shared by our guests capture
+          the essence of what makes our resort special. From treasured family
+          moments to peaceful escapes, these are the real experiences that bring
+          our resort to life. So, listen to those who have already made memories
+          here.
         </p>
         <div className="testimonial_grid">
           <div className="grid md:grid-cols-2 grid-cols-1 gap-3">

@@ -18,21 +18,24 @@ interface Experience {
 const experiences: Experience[] = [
   {
     title: "Stargazing Suites",
-    description: "Sleep under the stars in our glass-roofed luxury suites.",
+    description:
+      "Drift into dreams beneath a canopy of stars in our glass-roofed luxury suites, where the night sky becomes your ceiling and every moment feels magical",
     icon: Moon,
     image:
       "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80",
   },
   {
     title: "Sunrise Yoga",
-    description: "Start your day with invigorating yoga sessions at dawn.",
+    description:
+      "Rise with the sun and embrace the calm of dawn through empowering yoga, where every breath draws you closer to nature and inner peace.",
     icon: Sun,
     image:
       "https://images.unsplash.com/photo-1506126613408-eca07ce68773?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80",
   },
   {
     title: "Mountain Trails",
-    description: "Explore scenic hiking trails with breathtaking views.",
+    description:
+      "Discover hidden paths and scenic routes that open up to stunning horizons, offering an unforgettable journey through nature’s finest views.",
     icon: Mountain,
     image:
       "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80",
@@ -40,14 +43,15 @@ const experiences: Experience[] = [
   {
     title: "Forest Bathing",
     description:
-      "Immerse yourself in the healing atmosphere of our ancient forests.",
+      "Let the ancient forest cradle you in its quiet strength, where each towering tree and gentle play of light invites you to reconnect and rejuvenate.",
     icon: Wind,
     image:
       "https://images.unsplash.com/photo-1448375240586-882707db888b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80",
   },
   {
     title: "Natural Springs",
-    description: "Rejuvenate in our mineral-rich natural hot springs.",
+    description:
+      "Sink into the warmth of our mineral-packed hot springs, where nature’s healing waters envelop you, offering a restorative escape for body and soul.",
     icon: Droplets,
     image:
       "https://images.unsplash.com/photo-1576020799627-aeac74d58064?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2127&q=80",

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { MapPin, Plus, Users, Expand, DollarSign } from "lucide-react";
+import { Plus, Users } from "lucide-react";
 import Autoplay from "embla-carousel-autoplay";
 import { Playfair_Display } from "next/font/google";
 
@@ -91,28 +91,6 @@ function RoomCard({ room }: { room: RoomData }) {
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="bg-white/90 backdrop-blur-sm rounded-full px-4 py-2 flex items-center gap-2"
-          >
-            <Expand className="w-4 h-4 text-emerald-900" />
-            <span className="text-emerald-900 font-medium">
-              {room.squareFeet} sqft
-            </span>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-            className="bg-white/90 backdrop-blur-sm rounded-full px-4 py-2 flex items-center gap-2"
-          >
-            <DollarSign className="w-4 h-4 text-emerald-900" />
-            <span className="text-emerald-900 font-medium">
-              ${room.pricePerNight} /night
-            </span>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
             className="bg-white/90 backdrop-blur-sm rounded-full px-4 py-2 flex items-center gap-2"
           >
@@ -126,10 +104,6 @@ function RoomCard({ room }: { room: RoomData }) {
       <div className="p-6 space-y-4">
         <h3 className="text-3xl font-display text-white">{room.title}</h3>
         <p className="text-white/80">{room.description}</p>
-        <div className="flex items-center gap-2 text-white/80">
-          <MapPin className="w-5 h-5" />
-          <span>{room.location}</span>
-        </div>
       </div>
     </motion.div>
   );
@@ -138,9 +112,9 @@ function RoomCard({ room }: { room: RoomData }) {
 const rooms: RoomData[] = [
   {
     id: "1",
-    title: "Pine Ridge Glampsite",
+    title: "Deluxe Room",
     description:
-      "Lorem ipsum dolor sit amet consectetur. Ipsum habitasse leo molestie habitant rhoncus in.",
+      "Embrace simplicity with comfort in our Deluxe Room, a cozy retreat perfect for unwinding with nature right outside your window.",
     location: "123 El Capitan Meadows, El Capitan, CA",
     squareFeet: 2553,
     pricePerNight: 250,
@@ -150,9 +124,9 @@ const rooms: RoomData[] = [
   },
   {
     id: "2",
-    title: "Riverside Luxury Tent",
+    title: "Super Deluxe Room",
     description:
-      "Nestled by the rushing waters, this spacious tent offers the perfect blend of nature and comfort.",
+      "A touch of luxury awaits in our Super Deluxe Room. Spacious, stylish, and designed for relaxation, it’s an ideal escape.",
     location: "456 River View Road, Yosemite Valley, CA",
     squareFeet: 2200,
     pricePerNight: 275,
@@ -162,9 +136,9 @@ const rooms: RoomData[] = [
   },
   {
     id: "3",
-    title: "Pine Ridge Glampsite",
+    title: "Premium Room",
     description:
-      "Lorem ipsum dolor sit amet consectetur. Ipsum habitasse leo molestie habitant rhoncus in.",
+      "Bask in elegance with our Premium Room’s sweeping views and refined interiors. A serene, uplifting experience curated just for you.",
     location: "123 El Capitan Meadows, El Capitan, CA",
     squareFeet: 2553,
     pricePerNight: 250,
@@ -174,9 +148,33 @@ const rooms: RoomData[] = [
   },
   {
     id: "4",
-    title: "Riverside Luxury Tent",
+    title: "Two Bedroom Premium Suite",
     description:
-      "Nestled by the rushing waters, this spacious tent offers the perfect blend of nature and comfort.",
+      "Ideal for family or friends, this suite offers connected rooms for shared moments and personal space – all in cozy luxury.",
+    location: "456 River View Road, Yosemite Valley, CA",
+    squareFeet: 2200,
+    pricePerNight: 275,
+    maxGuests: 3,
+    imageUrl:
+      "https://images.unsplash.com/photo-1533090368676-1fd25485db88?q=80&w=1969&auto=format&fit=crop",
+  },
+  {
+    id: "5",
+    title: "Three Bedroom Suite",
+    description:
+      "Gather in style in our Three Bedroom Suite, designed to feel like a private retreat for larger groups to relax and connect.",
+    location: "456 River View Road, Yosemite Valley, CA",
+    squareFeet: 2200,
+    pricePerNight: 275,
+    maxGuests: 3,
+    imageUrl:
+      "https://images.unsplash.com/photo-1533090368676-1fd25485db88?q=80&w=1969&auto=format&fit=crop",
+  },
+  {
+    id: "6",
+    title: "Two Bedroom Family Room",
+    description:
+      "Perfect for families, this room combines private spaces with shared comfort. Enjoy quality time in a warm inviting setting.",
     location: "456 River View Road, Yosemite Valley, CA",
     squareFeet: 2200,
     pricePerNight: 275,

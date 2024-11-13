@@ -32,10 +32,10 @@ export const SocialMedia = () => {
           Follow Us On Social Media
         </span>
         <p className="lg:w-[40rem] text-center text-emerald-700/50">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur
-          animi quam nostrum. Voluptatum doloremque, commodi hic pariatur
-          ducimus quae laborum, odio expedita laudantium saepe, rem suscipit qui
-          aliquid vero quas!
+          “Let’s stay in touch! Follow us on social media to see the latest
+          happenings, stunning moments, and guest stories. Join our community
+          for exclusive insights and travel inspiration – you never know what
+          exciting surprise might be waiting for you.
         </p>
 
         <InfiniteGlampingCarousel />
