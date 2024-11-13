@@ -7,6 +7,7 @@ const nextConfig: NextConfig = {
       "sjc6.discourse-cdn.com",
       "assets.aceternity.com",
       "winnies.in",
+      "hebbkx1anhila5yf.public.blob.vercel-storage.com",
     ],
   },
   /* other config options here */

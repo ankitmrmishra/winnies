@@ -17,7 +17,7 @@ const japan_sans = Prompt({
 
 export const HeroComponent = () => {
   return (
-    <div className=" h-[200vh] relative   ">
+    <div className=" h-[200vh] relative -z-50  ">
       <div className="h-screen sticky inset-0 top-0 ">
         <Image
           src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80"
@@ -30,7 +30,7 @@ export const HeroComponent = () => {
         <div className="absolute inset-0 bg-black bg-opacity-50" />
 
         {/* Hero Content */}
-        <div className="absolute bottom-20 left-6 md:left-20 text-white z-40">
+        <div className="absolute bottom-56 left-6 md:left-20 text-white z-40">
           <h1
             className={`text-4xl md:text-8xl  font-bold mb-4 ${japan_sans.className}`}
           >

@@ -7,70 +7,64 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
 
-interface Stay {
-  title: string;
-  location: string;
-  image: string;
-}
-
-interface Facilities {
+interface Facility {
   title: string;
   image: string;
+  link: string;
 }
 
-const stays: Stay[] = [
+export const facilitiesData: Facility[] = [
   {
-    title: "Banjara Valley Retreat",
-    location: "Sangla, Himachal Pradesh",
-    image: "/placeholder.svg?height=80&width=80",
+    title: "Activities",
+    image:
+      "https://images.unsplash.com/photo-1526976668912-1a811878dd37?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+    link: "Activities",
   },
   {
-    title: "Banjara Orchard Retreat",
-    location: "Thanedar, Himachal Pradesh",
-    image: "/placeholder.svg?height=80&width=80",
+    title: "Bar",
+    image:
+      "https://images.unsplash.com/photo-1572116469696-31de0f17cc34?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80",
+    link: "Bar",
   },
   {
-    title: "Binsar Forest Retreat",
-    location: "Binsar, Uttarakhand",
-    image: "/placeholder.svg?height=80&width=80",
+    title: "Meeting Halls",
+    image:
+      "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80",
+    link: "Meetinghalls",
   },
   {
-    title: "Roots Stay",
-    location: "Kullu Valley",
-    image: "/placeholder.svg?height=80&width=80",
-  },
-];
-
-const facilitiesData: Facilities[] = [
-  {
-    title: "Adventure",
-    image: "/placeholder.svg?height=80&width=80",
+    title: "Pool Area",
+    image:
+      "https://images.unsplash.com/photo-1562778612-e1e0cda9915c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80",
+    link: "PoolSide",
   },
   {
-    title: "Events",
-    image: "/placeholder.svg?height=80&width=80",
+    title: "Sky Deck",
+    image:
+      "https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+    link: "SkyDeck",
+  },
+  {
+    title: "Cozy Corners",
+    image:
+      "https://images.unsplash.com/photo-1602872030219-ad2b9a54315c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80",
+    link: "CozyCorners",
   },
 ];
 
 export default function Navbar() {
-  const [isStaysOpen, setIsStaysOpen] = useState(false);
-  const [isJourneysOpen, setIsJourneysOpen] = useState(false);
-  const [isAboutOpen, setIsAboutOpen] = useState(false);
   const [isFacilitiesOpen, setIsFacilitiesOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navRef = useRef<HTMLDivElement>(null);
 
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
-  const toggleStays = () => setIsStaysOpen(!isStaysOpen);
+
   const toggleFacilities = () => setIsFacilitiesOpen(!isFacilitiesOpen);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (event) {
-        setIsStaysOpen(false);
-        setIsJourneysOpen(false);
-        setIsAboutOpen(false);
+      if (navRef.current && !navRef.current.contains(event.target as Node)) {
         setIsFacilitiesOpen(false);
         setIsMobileMenuOpen(false);
       }
@@ -83,7 +77,7 @@ export default function Navbar() {
   }, []);
 
   return (
-    <div className="relative" ref={navRef}>
+    <div className="relative z-50" ref={navRef}>
       <nav className="backdrop-blur-sm bg-blend-difference  text-white  bg-black w-full z-50 top-0   ">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20 gap-6">
@@ -99,52 +93,6 @@ export default function Navbar() {
 
             {/* Desktop Navigation Items */}
             <div className="hidden lg:flex items-center space-x-8">
-              <div className="relative text-white ">
-                <motion.button
-                  className="flex items-center space-x-1   hover:text-emerald-700 group "
-                  onClick={toggleStays}
-                >
-                  <span className="">Stays</span>
-                  <ChevronDown
-                    className={`w-4 h-4 transition-transform duration-300 ${
-                      isStaysOpen ? "rotate-180" : ""
-                    }`}
-                  />
-                </motion.button>
-
-                {isStaysOpen && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className="absolute top-full left-0 w-80 bg-white shadow-lg rounded-lg py-4 mt-2 h-96 overflow-scroll no-scrollbar"
-                  >
-                    {stays.map((stay) => (
-                      <a
-                        key={stay.title}
-                        href="#"
-                        className="flex items-center space-x-4 px-4 py-3 hover:bg-gray-50"
-                      >
-                        <Image
-                          src={stay.image}
-                          objectFit="cover"
-                          alt={stay.title}
-                          className="w-20 h-20 object-cover rounded-lg"
-                          width={1}
-                          height={1}
-                        />
-                        <div>
-                          <h3 className="font-medium text-white ">
-                            {stay.title}
-                          </h3>
-                          <p className="text-sm text-gray-500">
-                            {stay.location}
-                          </p>
-                        </div>
-                      </a>
-                    ))}
-                  </motion.div>
-                )}
-              </div>
               <Link
                 href="/Kasauli"
                 className="text-white  hover:text-emerald-700"
@@ -152,34 +100,23 @@ export default function Navbar() {
                 Kasauli
               </Link>
               <div className="relative">
-                <motion.button
-                  className="flex items-center space-x-1 text-white  hover:text-emerald-700 group"
-                  onClick={() => setIsJourneysOpen(!isJourneysOpen)}
-                >
+                <motion.button className="flex items-center space-x-1 text-white  hover:text-emerald-700 group">
                   <Link
                     href={"/Weddings"}
                     className="text-white  hover:text-emerald-700"
                   >
                     Weddings
                   </Link>
-                  <ChevronDown
-                    className={`w-4 h-4 transition-transform duration-300 ${
-                      isJourneysOpen ? "rotate-180" : ""
-                    }`}
-                  />
                 </motion.button>
               </div>
               <div className="relative">
-                <motion.button
-                  className="flex items-center space-x-1 text-white  hover:text-emerald-700 group"
-                  onClick={() => setIsAboutOpen(!isAboutOpen)}
-                >
-                  <span>Restaurant</span>
-                  <ChevronDown
-                    className={`w-4 h-4 transition-transform duration-300 ${
-                      isAboutOpen ? "rotate-180" : ""
-                    }`}
-                  />
+                <motion.button className="flex items-center space-x-1 text-white  hover:text-emerald-700 group">
+                  <Link
+                    href={"/Restaurant"}
+                    className="text-white  hover:text-emerald-700"
+                  >
+                    Restaurant
+                  </Link>
                 </motion.button>
               </div>
               <Link
@@ -199,7 +136,9 @@ export default function Navbar() {
                   className="flex items-center space-x-1 text-white  hover:text-emerald-700 group"
                   onClick={toggleFacilities}
                 >
-                  <span>Facilities</span>
+                  <span className="text-white  hover:text-emerald-700">
+                    Facilities
+                  </span>
                   <ChevronDown
                     className={`w-4 h-4 transition-transform duration-300 ${
                       isFacilitiesOpen ? "rotate-180" : ""
@@ -210,28 +149,30 @@ export default function Navbar() {
                   <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="absolute top-full left-0 w-80 bg-white shadow-lg rounded-lg py-4 mt-2 max-h-max overflow-scroll no-scrollbar"
+                    className="absolute top-full left-0 w-80 bg-emerald-800 shadow-lg rounded-lg py-4 mt-2 max-h-96 overflow-scroll no-scrollbar"
                   >
                     {facilitiesData.map((facility) => (
-                      <a
+                      <Link
                         key={facility.title}
-                        href="#"
-                        className="flex items-center space-x-4 px-4 py-3 hover:bg-gray-50"
+                        href={facility.link}
+                        className="flex items-center space-x-4 px-4 py-3 bg-blend-difference text-white hover:bg-emerald-700  "
                       >
-                        <Image
-                          width={1}
-                          height={1}
-                          src={facility.image}
-                          objectFit="cover"
-                          alt={facility.title}
-                          className="w-20 h-20 object-cover rounded-lg"
-                        />
+                        <div className="w-20 h-20 overflow-clip">
+                          <Image
+                            objectFit="cover"
+                            width={500}
+                            height={500}
+                            src={facility.image}
+                            alt={facility.title}
+                            className="w-20 h-20 object-cover  rounded-lg"
+                          />
+                        </div>
                         <div>
                           <h3 className="font-medium text-white ">
                             {facility.title}
                           </h3>
                         </div>
-                      </a>
+                      </Link>
                     ))}
                   </motion.div>
                 )}
@@ -265,6 +206,7 @@ export default function Navbar() {
       </nav>
 
       {/* Mobile Menu */}
+      {/* Mobile Menu */}
       {isMobileMenuOpen && (
         <motion.div
           initial={{ x: "100%" }}
@@ -275,7 +217,7 @@ export default function Navbar() {
         >
           <div className="flex flex-col h-full">
             <div className="p-4 border-b flex justify-between align-middle items-center gap-5">
-              <Button className="w-full bg-white text-emerald-800 hover:bg-emerald-800  md:hidden">
+              <Button className="w-full bg-white text-emerald-800 hover:bg-emerald-800 md:hidden">
                 Book Now
               </Button>
               <X
@@ -334,13 +276,38 @@ export default function Navbar() {
                     Our Packages
                   </Link>
                 </li>
+                {/* Facilities dropdown */}
                 <li>
-                  <Link
-                    href="/Facilities"
-                    className="text-white hover:text-emerald-700 block py-2"
+                  <button
+                    onClick={toggleFacilities}
+                    className="flex items-center justify-between w-full text-white hover:text-emerald-200 py-2"
                   >
                     Facilities
-                  </Link>
+                    <ChevronDown
+                      className={`w-4 h-4 transition-transform duration-300 ${
+                        isFacilitiesOpen ? "rotate-180" : ""
+                      }`}
+                    />
+                  </button>
+                  {isFacilitiesOpen && (
+                    <motion.ul
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="space-y-2 pl-4 mt-2 text-white"
+                    >
+                      {facilitiesData.map((facility) => (
+                        <li key={facility.title}>
+                          <Link
+                            href={facility.link}
+                            className="block py-2 hover:text-emerald-200"
+                          >
+                            {facility.title}
+                          </Link>
+                        </li>
+                      ))}
+                    </motion.ul>
+                  )}
                 </li>
                 <li>
                   <Link
