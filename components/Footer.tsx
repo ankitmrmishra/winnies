@@ -28,8 +28,7 @@ export default function Footer() {
       title: "More",
       links: [
         { name: "Tariff", href: "/Packages" },
-        { name: "Adventure Activities", href: "/adventures" },
-        { name: "Events", href: "/events" },
+        { name: "Adventure Activities", href: "/Activities" },
         { name: "Contact", href: "/ContactUs" },
       ],
     },
