@@ -7,9 +7,9 @@ import { motion } from "framer-motion";
 import { Playfair_Display } from "next/font/google";
 import { Leaf, Clock, DollarSign } from "lucide-react";
 import Spa from "../../public/assets/Spa/Spa2.JPG";
-import Spaa from "../../public/assets/Spa/Spa.jpg";
+import Spaa from "../../public/assets/Spa/Spa.JPG";
 import Spa1 from "../../public/assets/Spa/DSC02358.jpg";
-import Spa2 from "../../public/assets/Spa/DSC02367.JPG";
+import Spa2 from "../../public/assets/Spa/DSC02367.jpg";
 import Spa3 from "../../public/assets/Spa/DSC02371.jpg";
 
 const playfair = Playfair_Display({ subsets: ["latin"], style: ["italic"] });

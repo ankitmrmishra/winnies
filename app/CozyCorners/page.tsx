@@ -9,7 +9,7 @@ import { Flame, Moon, Wine, Star } from "lucide-react";
 import cozycorners from "../../public/assets/CozyCorners/K81A0416-HDR.JPG";
 import jamison from "@/public/assets/CozyCorners/Jamison.JPG";
 
-import SD from "../../public/assets/CozyCorners/SD.jpg";
+import SD from "../../public/assets/CozyCorners/SD.JPG";
 
 const playfair = Playfair_Display({ subsets: ["latin"], style: ["italic"] });
 
