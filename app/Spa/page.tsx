@@ -6,11 +6,11 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Playfair_Display } from "next/font/google";
 import { Leaf, Clock, DollarSign } from "lucide-react";
-import Spa from "@/public/assets/Spa/Spa2.jpg";
-// import Spaa from "@/public/assets/Spa/Spa.jpg";
-// import Spa1 from "@/public/assets/Spa/DSC02358.jpg";
-// import Spa2 from "@/public/assets/Spa/DSC02367.jpg";
-import Spa3 from "@/public/assets/Spa/DSC02371.jpg";
+import Spa from "../../public/assets/Spa/Spa2.jpg";
+import Spaa from "../../public/assets/Spa/Spa.jpg";
+import Spa1 from "../../public/assets/Spa/DSC02358.jpg";
+import Spa2 from "../../public/assets/Spa/DSC02367.jpg";
+import Spa3 from "../../public/assets/Spa/DSC02371.jpg";
 
 const playfair = Playfair_Display({ subsets: ["latin"], style: ["italic"] });
 
@@ -30,19 +30,19 @@ export default function SpaPage() {
 
   const images: ImageType[] = [
     {
-      src: Spa3,
+      src: Spaa,
+    },
+    {
+      src: Spa1,
+    },
+    {
+      src: Spa2,
     },
     {
       src: Spa3,
     },
     {
-      src: Spa3,
-    },
-    {
-      src: Spa3,
-    },
-    {
-      src: Spa3,
+      src: Spa,
     },
     {
       src: Spa3,
