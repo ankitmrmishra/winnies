@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Plus, Users } from "lucide-react";
 import Autoplay from "embla-carousel-autoplay";
 import { Playfair_Display } from "next/font/google";
+// import DelusRoom from "../public/assets/DelusxRooms/K81A0514.jpg";
 
 const playfair = Playfair_Display({ subsets: ["latin"], style: ["italic"] });
 
@@ -11,6 +12,8 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
 } from "@/components/ui/carousel";
 
 interface RoomData {
@@ -57,6 +60,10 @@ export const OurRooms = () => {
                 </CarouselItem>
               ))}
             </CarouselContent>
+            <div className="hidden md:block">
+              <CarouselPrevious className="bg-emerald-800 text-white" />
+              <CarouselNext className="bg-emerald-800 text-white" />
+            </div>
           </Carousel>
         </div>
       </div>

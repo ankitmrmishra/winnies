@@ -8,6 +8,9 @@ const nextConfig: NextConfig = {
       "assets.aceternity.com",
       "winnies.in",
       "hebbkx1anhila5yf.public.blob.vercel-storage.com",
+      "dynamic-media-cdn.tripadvisor.com",
+      "www.holidify.com",
+      "www.exoticmiles.com",
     ],
   },
   /* other config options here */

@@ -5,6 +5,9 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Playfair_Display } from "next/font/google";
 import { Users, Presentation, Wifi, Coffee } from "lucide-react";
+import Meetinghall from "../../public/assets/Confrenceroom/DSC02387.jpg";
+import Meetinghall2 from "../../public/assets/Confrenceroom/DSC02390.jpg";
+import theatre from "../../public/assets/Confrenceroom/theatre.png";
 
 const playfair = Playfair_Display({ subsets: ["latin"], style: ["italic"] });
 
@@ -37,22 +40,19 @@ export default function ConferencePage() {
       title: "U-Shape Setup",
       capacity: "Up to 50 delegates",
       description: "Perfect for interactive discussions and presentations",
-      image:
-        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-CF8UZ9GcYoZ6dnRjSVSSOyWg6tB1GL.png",
+      image: Meetinghall,
     },
     {
       title: "Theater Style",
       capacity: "Up to 150 delegates",
       description: "Ideal for large conferences and seminars",
-      image:
-        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-CF8UZ9GcYoZ6dnRjSVSSOyWg6tB1GL.png",
+      image: theatre,
     },
     {
       title: "Boardroom Setup",
       capacity: "Up to 40 delegates",
       description: "Suitable for executive meetings and workshops",
-      image:
-        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-CF8UZ9GcYoZ6dnRjSVSSOyWg6tB1GL.png",
+      image: Meetinghall2,
     },
   ];
 
@@ -60,7 +60,7 @@ export default function ConferencePage() {
     <div className="min-h-screen md:p-20">
       <section className="relative h-[100vh]">
         <Image
-          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-CF8UZ9GcYoZ6dnRjSVSSOyWg6tB1GL.png"
+          src={Meetinghall}
           alt="Conference Hall"
           layout="fill"
           objectFit="cover"
@@ -96,10 +96,10 @@ export default function ConferencePage() {
               Professional Meetings in Paradise
             </h2>
             <p className="text-lg text-gray-700 mb-8">
-              Elevate your corporate events at our sophisticated conference
-              facilities. Combining professional amenities with the serene
-              backdrop of Kasauli hills, we offer the perfect balance of
-              business and relaxation.
+              Transform your corporate events with our elegant conference
+              facilities, where modern amenities harmonize with the peaceful
+              allure of the Kasauli hills, creating the perfect fusion of
+              productivity and relaxation.
             </p>
           </motion.div>
         </div>

@@ -11,16 +11,14 @@ const japan_sans = Prompt({
   weight: ["500"],
 });
 
-// const images = [
-//   "https://images.unsplash.com/photo-1571896349842-33c89424de2d?q=80&w=1760&auto=format&fit=crop",
-// ];
+import MainImage from "../public/assets/MainImage.jpg";
 
 export const HeroComponent = () => {
   return (
     <div className=" h-[200vh] relative -z-50  ">
       <div className="h-screen sticky inset-0 top-0 ">
         <Image
-          src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80"
+          src={MainImage}
           alt="Winnies Resort"
           layout="fill"
           objectFit="cover"

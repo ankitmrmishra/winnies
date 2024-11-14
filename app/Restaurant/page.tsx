@@ -6,6 +6,12 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Playfair_Display } from "next/font/google";
 import { Coffee, Moon, Sun, Star } from "lucide-react";
+import Restaurant1 from "../../public/assets/Restaurant/DSC02111.jpg";
+// import Restaurant2 from "../../public/assets/Restaurant/DSC02112.jpg";
+import Restaurant3 from "../../public/assets/Restaurant/DSC02113.jpg";
+// import Restaurant4 from "../../public/assets/Restaurant/DSC02115.jpg";
+// import Restaurant5 from "../../public/assets/Restaurant/DSC02117.jpg";
+// import Restaurant6 from "../../public/assets/Restaurant/DSC02119.jpg";
 
 const playfair = Playfair_Display({ subsets: ["latin"], style: ["italic"] });
 
@@ -15,13 +21,13 @@ export default function RestaurantPage() {
       icon: Coffee,
       title: "Breakfast",
       description:
-        "Start your day with a delightful spread of local and international breakfast options.",
+        "Kickstart your day with a delightful blend of local delicacies and international breakfast favorites.",
     },
     {
       icon: Sun,
       title: "Lunch",
       description:
-        "Enjoy a leisurely lunch with a variety of dishes crafted from fresh, local ingredients.",
+        "Savor a relaxed lunch featuring vibrant dishes made from the freshest local ingredients, crafted to perfection.",
     },
     {
       icon: Moon,
@@ -33,7 +39,7 @@ export default function RestaurantPage() {
       icon: Star,
       title: "Signature Dishes",
       description:
-        "Savor our unique fusion of local Himachali flavors with contemporary cuisine.",
+        "Savor our unique fusion of local Himachali flavors with contemporary cuisine",
     },
   ];
 
@@ -41,7 +47,7 @@ export default function RestaurantPage() {
     <div className="min-h-screen md:p-20">
       <section className="relative min-h-screen">
         <Image
-          src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+          src={Restaurant3}
           alt="Winnies Resort Restaurant"
           layout="fill"
           objectFit="cover"
@@ -51,7 +57,7 @@ export default function RestaurantPage() {
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="text-center text-white">
             <h1 className={`text-5xl md:text-6xl font-bold mb-4 `}>
-              Dining at Winnies
+              THE WINNIES CULINARY AFFAIR
             </h1>
             <p className="text-xl mb-8">
               Exquisite cuisine with a view to match
@@ -80,9 +86,12 @@ export default function RestaurantPage() {
               A Culinary Journey
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Winnies Holiday Resort&apos;s restaurant offers an unforgettable
-              dining experience, combining elegant interiors, breathtaking
-              views, and delectable cuisine that will tantalize your taste buds.
+              Winnies Holiday Resort invites you to indulge in a truly
+              unforgettable dining experience, where elegant interiors, stunning
+              vistas, and an array of delectable dishes come together to awaken
+              your senses. Whether you&apos;re here for a romantic dinner, a
+              family gathering, or simply to enjoy a serene meal, we promise to
+              leave your taste buds delighted and your spirit refreshed.
             </p>
           </motion.div>
 
@@ -93,7 +102,7 @@ export default function RestaurantPage() {
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               <Image
-                src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                src={Restaurant3}
                 alt="Elegant Restaurant Interior"
                 width={600}
                 height={400}
@@ -111,23 +120,37 @@ export default function RestaurantPage() {
                 Elegant Interiors
               </h3>
               <p className="text-gray-600 mb-6">
-                Step into our restaurant and be greeted by an atmosphere of
-                refined elegance. The warm, inviting interiors create the
-                perfect setting for a memorable dining experience, whether
-                you&apos;re enjoying a romantic dinner or a family celebration.
+                Step into a world of refined elegance as you enter our
+                thoughtfully designed restaurant. Warm, inviting interiors
+                create a cozy haven, making every meal feel special and
+                memorable.
               </p>
               <ul className="space-y-2 text-gray-600">
-                <li className="flex items-center">
+                <li className="flex items-start">
                   <Star className="w-5 h-5 text-emerald-600 mr-2" />
-                  Sophisticated decor with local touches
+                  <div className="w-full">
+                    <span className="font-bold">
+                      Chic Decor with Local Charm:
+                    </span>{" "}
+                    Sophisticated decor accented with regional touches creates a
+                    space that’s both stylish and welcoming.
+                  </div>
                 </li>
-                <li className="flex items-center">
+                <li className="flex items-start">
                   <Star className="w-5 h-5 text-emerald-600 mr-2" />
-                  Ambient lighting for a cozy atmosphere
+                  <div className="w-full">
+                    <span className="font-bold">Ambient Lighting: </span> Enjoy
+                    a warm glow that enhances the intimate atmosphere, perfect
+                    for relaxed conversations and meaningful moments.
+                  </div>
                 </li>
-                <li className="flex items-center">
+                <li className="flex items-start">
                   <Star className="w-5 h-5 text-emerald-600 mr-2" />
-                  Comfortable seating for leisurely meals
+                  <div className="w-full">
+                    <span className="font-bold">Comfortable Seating: </span>{" "}
+                    Sink into plush seating, ideal for enjoying leisurely meals
+                    with loved ones.
+                  </div>
                 </li>
               </ul>
             </motion.div>
@@ -146,23 +169,36 @@ export default function RestaurantPage() {
                 Majestic Views
               </h3>
               <p className="text-gray-600 mb-6">
-                Dine with a backdrop of breathtaking vistas. Our restaurant
-                offers panoramic views of the surrounding hills and reserve
-                forest, creating an enchanting atmosphere that complements our
-                exquisite cuisine.
+                Dine with breathtaking views as your backdrop, losing yourself
+                in the natural beauty that surrounds Kasauli. Our restaurant is
+                designed to showcase panoramic views of rolling hills and
+                tranquil forests, providing a feast for the eyes to complement
+                the flavors on your plate.
               </p>
               <ul className="space-y-2 text-gray-600">
-                <li className="flex items-center">
+                <li className="flex items-start">
                   <Star className="w-5 h-5 text-emerald-600 mr-2" />
-                  Floor-to-ceiling windows for unobstructed views
+                  <div className="w-full">
+                    <span className="font-bold">Expansive Windows:</span>
+                    Floor-to-ceiling windows offer uninterrupted views, allowing
+                    nature to be part of your dining experience.
+                  </div>
                 </li>
-                <li className="flex items-center">
+                <li className="flex items-start">
                   <Star className="w-5 h-5 text-emerald-600 mr-2" />
-                  Outdoor seating area for al fresco dining
+                  <div className="w-full">
+                    <span className="font-bold">Al Fresco Dining:</span>
+                    For a closer connection with nature, our outdoor seating
+                    area provides the perfect setting to dine under open skies.
+                  </div>
                 </li>
-                <li className="flex items-center">
+                <li className="flex items-start">
                   <Star className="w-5 h-5 text-emerald-600 mr-2" />
-                  Sunset views that create a magical ambiance
+                  <div className="w-full">
+                    <span className="font-bold">Sunset Magic:</span>
+                    As evening descends, witness a golden sunset that adds a
+                    magical touch, creating an unforgettable dining ambiance
+                  </div>
                 </li>
               </ul>
             </motion.div>
@@ -173,7 +209,7 @@ export default function RestaurantPage() {
               className="order-1 md:order-2"
             >
               <Image
-                src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80"
+                src={Restaurant1}
                 alt="Majestic View from Restaurant"
                 width={600}
                 height={400}
@@ -194,9 +230,9 @@ export default function RestaurantPage() {
               Culinary Delights
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Indulge in a gastronomic adventure that celebrates local flavors
-              and international cuisine. Our talented chefs craft each dish with
-              passion and creativity, ensuring a memorable dining experience.
+              Delight in a symphony of flavors, where local ingredients and
+              global recipes harmonize under the creative hands of our chefs,
+              making each meal an extraordinary experience.
             </p>
           </motion.div>
 
@@ -244,17 +280,17 @@ export default function RestaurantPage() {
               {
                 title: "Sunset Dinner",
                 description:
-                  "Enjoy a romantic dinner as the sun sets over the hills.",
+                  "Enjoy an intimate dinner, watching the sun set over the hills, casting a magical glow.",
               },
               {
                 title: "Chef's Table",
                 description:
-                  "An intimate dining experience with our head chef.",
+                  "Enjoy an intimate meal crafted by our head chef’s expertise",
               },
               {
                 title: "Local Flavors Night",
                 description:
-                  "A weekly celebration of Himachali cuisine and culture.",
+                  "A weekly feast of Himachali flavors, culture, and timeless traditions",
               },
             ].map((experience, index) => (
               <motion.div

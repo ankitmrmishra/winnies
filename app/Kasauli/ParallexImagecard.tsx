@@ -57,7 +57,7 @@ export function ParallexImagecard() {
       alt: "Kasauli town",
     },
     {
-      src: "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23",
+      src: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/e5/03/8a/caption.jpg?w=1000&h=-1&s=1",
       alt: "Pine forests",
     },
   ];

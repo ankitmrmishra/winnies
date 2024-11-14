@@ -1,17 +1,21 @@
 "use client";
 
 import React, { useState } from "react";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Playfair_Display } from "next/font/google";
 import { Leaf, Clock, DollarSign } from "lucide-react";
+import Spa from "../../public/assets/Spa/Spa2.jpg";
+import Spaa from "../../public/assets/Spa/Spa.jpg";
+import Spa1 from "../../public/assets/Spa/DSC02358.jpg";
+import Spa2 from "../../public/assets/Spa/DSC02367.jpg";
+import Spa3 from "../../public/assets/Spa/DSC02371.jpg";
 
 const playfair = Playfair_Display({ subsets: ["latin"], style: ["italic"] });
 
 interface ImageType {
-  src: string;
-  alt: string;
+  src: string | StaticImageData;
 }
 
 interface MassageType {
@@ -26,51 +30,45 @@ export default function SpaPage() {
 
   const images: ImageType[] = [
     {
-      src: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-      alt: "Spa atmosphere",
+      src: Spaa,
     },
     {
-      src: "https://images.unsplash.com/photo-1600334129128-685c5582fd35?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-      alt: "Massage oils",
+      src: Spa1,
     },
     {
-      src: "https://images.unsplash.com/photo-1519823551278-64ac92734fb1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80",
-      alt: "Relaxation area",
+      src: Spa2,
     },
     {
-      src: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-      alt: "Spa treatment",
+      src: Spa3,
     },
     {
-      src: "https://images.unsplash.com/photo-1596178060671-7a80dc8059ea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80",
-      alt: "Aromatherapy",
+      src: Spa,
     },
     {
-      src: "https://images.unsplash.com/photo-1611072965169-e1e9d934bf1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80",
-      alt: "Hot stone massage",
+      src: Spa3,
     },
   ];
 
   const BasicMassages: MassageType[] = [
     {
-      name: "Relax Aromatherapy",
+      name: "Relaxing Aromatherapy",
       duration: "60 min / 90 min",
       price: "INR 2490 / INR 3490",
       description:
-        "Our special blended Balm is used to take you to the state of sublimity. The massage strokes are light and calming.",
+        "Our unique blended balm elevates you to sublime relaxation, with gentle, calming massage strokes throughout.",
     },
     {
       name: "Swedish Massage",
       duration: "60 min / 90 min",
       price: "INR 2490 / INR 3490",
-      description: `When a normal day's rigors have tired you, and a bit of relaxed "wake me up" is required. Your stress levels will greatly reduce after this therapy.`,
+      description: `When daily demands wear you down, rejuvenate with a gentle “wake-me-up” therapy, melting away stress and refreshing your spirit.`,
     },
     {
       name: "Thai Massage",
       duration: "60 min / 90 min",
       price: "INR 2490 / INR 3490",
       description:
-        "This is by far the world's most famous dry massage. Our well trained therapist will ensure that all parts of your body are individually stretched and relaxed completely.",
+        "Experience the world’s renowned dry massage, with expert therapists stretching and relaxing every part of you.",
     },
   ];
 
@@ -80,14 +78,14 @@ export default function SpaPage() {
       duration: "60 min / 90 min / 120 min",
       price: "INR 2890 / INR 3690 / INR 4690",
       description:
-        "When one really needs to relax the muscles and calm the mind. Natural Basalt, heated stones are used to deeply heat the relaxed muscles and open clogged chakras.",
+        "For deep muscle relaxation and a tranquil mind, warm basalt stones soothe muscles and release energy by unblocking chakras",
     },
     {
       name: "Feel like flying – Royal Thai Massage",
       duration: "60 min / 90 min / 120 min",
       price: "INR 2890 / INR 3690 / INR 4690",
       description:
-        "When one is physically very tired. Our well trained therapists will ensure that all parts and muscles of your body are first embalmed with our proprietary deep relaxation balm and then stretched and deeply relaxed.",
+        "When physical fatigue sets in, our expert therapists gently apply a deep relaxation balm, soothing each muscle before skillfully stretching and easing every part of your body into profound relaxation.",
     },
   ];
 
@@ -95,7 +93,7 @@ export default function SpaPage() {
     <div className="min-h-screen md:p-20">
       <section className="relative h-[100vh]">
         <Image
-          src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+          src={Spa}
           alt="Spa atmosphere"
           layout="fill"
           objectFit="cover"
@@ -272,16 +270,11 @@ export default function SpaPage() {
               >
                 <Image
                   src={image.src}
-                  alt={image.alt}
-                  width={600}
-                  height={400}
+                  alt="spa"
+                  objectFit="contain"
                   className="w-full h-64 object-cover"
                 />
-                <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
-                  <p className="text-white text-lg font-semibold">
-                    {image.alt}
-                  </p>
-                </div>
+                <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
               </motion.div>
             ))}
           </div>
@@ -303,7 +296,7 @@ export default function SpaPage() {
           >
             <Image
               src={selectedImage.src}
-              alt={selectedImage.alt}
+              alt=""
               width={1200}
               height={800}
               className="max-w-full max-h-[90vh] object-contain"

@@ -6,6 +6,8 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Playfair_Display } from "next/font/google";
 import { Cloud, Sunset, Users, UtensilsCrossed } from "lucide-react";
+import Skydeck from "../../public/assets/OpenDeck/DSC02105.jpg";
+import Skydeck1 from "../../public/assets/OpenDeck/DSC02106.jpg";
 
 const playfair = Playfair_Display({ subsets: ["latin"], style: ["italic"] });
 
@@ -37,7 +39,7 @@ export default function SkyDeckPage() {
     <div className="min-h-screen md:p-20">
       <section className="relative h-[100vh]">
         <Image
-          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-Owi8BBjmAVAz2zfWPURD3d6mkV1yxI.png"
+          src={Skydeck}
           alt="Open Sky Deck"
           layout="fill"
           objectFit="cover"
@@ -130,7 +132,7 @@ export default function SkyDeckPage() {
               transition={{ duration: 0.6 }}
             >
               <Image
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-Owi8BBjmAVAz2zfWPURD3d6mkV1yxI.png"
+                src={Skydeck1}
                 alt="Dining setup with mountain view"
                 width={600}
                 height={400}

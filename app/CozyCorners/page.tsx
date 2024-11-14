@@ -6,6 +6,10 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Playfair_Display } from "next/font/google";
 import { Flame, Moon, Wine, Star } from "lucide-react";
+import cozycorners from "../../public/assets/CozyCorners/K81A0416-HDR.jpg";
+import jamison from "../../public/assets/CozyCorners/Jamison.jpg";
+
+import SD from "../../public/assets/CozyCorners/SD.jpg";
 
 const playfair = Playfair_Display({ subsets: ["latin"], style: ["italic"] });
 
@@ -37,7 +41,7 @@ export default function CozyCornersPage() {
     <div className="min-h-screen md:p-20">
       <section className="relative h-[100vh]">
         <Image
-          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-Y5ZBOSnpY9xkhqaMKu3olagvaupHW7.png"
+          src={cozycorners}
           alt="Cozy Corner at Night"
           layout="fill"
           objectFit="cover"
@@ -93,7 +97,7 @@ export default function CozyCornersPage() {
               transition={{ duration: 0.6 }}
             >
               <Image
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-Y5ZBOSnpY9xkhqaMKu3olagvaupHW7.png"
+                src={jamison}
                 alt="Jameson Corner"
                 layout="fill"
                 objectFit="cover"
@@ -117,7 +121,7 @@ export default function CozyCornersPage() {
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               <Image
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-Y5ZBOSnpY9xkhqaMKu3olagvaupHW7.png"
+                src={SD}
                 alt="Romantic Dining Setup"
                 layout="fill"
                 objectFit="cover"
@@ -141,7 +145,7 @@ export default function CozyCornersPage() {
               transition={{ duration: 0.6, delay: 0.4 }}
             >
               <Image
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-Y5ZBOSnpY9xkhqaMKu3olagvaupHW7.png"
+                src={cozycorners}
                 alt="Evening Firepit"
                 layout="fill"
                 objectFit="cover"

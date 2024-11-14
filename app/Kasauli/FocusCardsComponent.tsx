@@ -4,28 +4,28 @@ import { FocusCards } from "@/components/ui/focus-cards";
 export function FocusCardsComponent() {
   const cards = [
     {
-      title: "Forest Adventure",
-      src: "https://images.unsplash.com/photo-1518710843675-2540dd79065c?q=80&w=3387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      title: "Sunset Point",
+      src: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/e5/03/8a/caption.jpg?w=1000&h=-1&s=1",
     },
     {
-      title: "Valley of life",
-      src: "https://images.unsplash.com/photo-1600271772470-bd22a42787b3?q=80&w=3072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      title: "Christ Church",
+      src: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0d/29/f8/12/christ-church.jpg?w=1000&h=-1&s=1",
     },
     {
-      title: "Sala behta hi jayega",
-      src: "https://images.unsplash.com/photo-1505142468610-359e7d316be0?q=80&w=3070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      title: "Monkey Point",
+      src: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/10/a1/43/07/img-20170517-082248-359.jpg?w=900&h=-1&s=1",
     },
     {
-      title: "Camping is for pros",
-      src: "https://images.unsplash.com/photo-1486915309851-b0cc1f8a0084?q=80&w=3387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      title: "Gilbert Nature Trail",
+      src: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/81/db/e6/gilbert-trail.jpg?w=1000&h=-1&s=1",
     },
     {
-      title: "The road not taken",
-      src: "https://images.unsplash.com/photo-1507041957456-9c397ce39c97?q=80&w=3456&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      title: "Mall Road",
+      src: "https://www.holidify.com/images/cmsuploads/compressed/4543_20220709112016.jpg",
     },
     {
-      title: "The First Rule",
-      src: "https://assets.aceternity.com/the-first-rule.png",
+      title: "Gurkha Fort",
+      src: "https://www.exoticmiles.com/wp-content/uploads/2020/06/Gurkha-Fort.jpg",
     },
   ];
 

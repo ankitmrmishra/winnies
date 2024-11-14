@@ -6,6 +6,10 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Playfair_Display } from "next/font/google";
 import { Wine, Clock, Mountain, Star } from "lucide-react";
+// import Bar1 from "../../public/assets/Bar/DSC02395.jpg";
+import Bar2 from "../../public/assets/Bar/DSC02396.jpg";
+import Bar3 from "../../public/assets/Bar/DSC02397.jpg";
+// import Bar4 from "../../public/assets/Bar/DSC02399.jpg";
 
 const playfair = Playfair_Display({ subsets: ["latin"], style: ["italic"] });
 
@@ -38,7 +42,7 @@ export default function BarPage() {
     <div className="min-h-screen md:p-20 ">
       <section className="relative h-[100vh]  ">
         <Image
-          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-EXXOidiR39HAKxAchQAj8YDKWYmjK5.png"
+          src={Bar2}
           alt="Cliffhouzz Bar"
           layout="fill"
           objectFit="cover"
@@ -78,10 +82,8 @@ export default function BarPage() {
               A Premium Bar Experience
             </h2>
             <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-              Discover our sophisticated bar where premium spirits meet
-              breathtaking views. Unwind in an atmosphere of refined comfort
-              while our expert bartenders craft the perfect drink for your
-              evening.
+              Elevate your evening at our sophisticated bar, where premium
+              drinks meet panoramic views and expert bartending.
             </p>
           </motion.div>
 
@@ -94,7 +96,7 @@ export default function BarPage() {
             >
               <div className="relative h-96 rounded-lg overflow-hidden">
                 <Image
-                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-EXXOidiR39HAKxAchQAj8YDKWYmjK5.png"
+                  src={Bar3}
                   alt="Bar interior"
                   layout="fill"
                   objectFit="cover"
@@ -116,9 +118,9 @@ export default function BarPage() {
               </h3>
               <p className="text-gray-700 mb-8">
                 At Cliffhouzz Bar, we take pride in our carefully curated
-                selection of spirits. From premium whiskeys to craft cocktails,
-                each drink is prepared with precision and served in an
-                atmosphere that combines rustic charm with modern
+                selection of spirits. From premium whiskeys to crafted
+                cocktails, each drink is prepared with precision and served in
+                an atmosphere that combines rustic charm with modern
                 sophistication.
               </p>
               <div className="grid grid-cols-2 gap-6">

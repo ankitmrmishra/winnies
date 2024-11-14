@@ -5,6 +5,16 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Playfair_Display } from "next/font/google";
+import Pool1 from "../../public/assets/Pool/DSC02120.jpg";
+import Pool2 from "../../public/assets/Pool/DSC02122.jpg";
+import Pool3 from "../../public/assets/Pool/DSC02123.jpg";
+import Pool4 from "../../public/assets/Pool/DSC02125.jpg";
+import Pool5 from "../../public/assets/Pool/DSC02129.jpg";
+import Pool6 from "../../public/assets/Pool/DSC02130.jpg";
+// import Pool7 from "../../public/assets/Pool/DSC02133.jpg";
+import Pool8 from "../../public/assets/Pool/DSC02135.jpg";
+import Pool9 from "../../public/assets/Pool/DSC02149.jpg";
+// import Pool10 from "../../public/assets/Pool/DSC02133.jpg"
 // import { Waves, Sun, Umbrella, TreePine } from "lucide-react";
 
 const playfair = Playfair_Display({ subsets: ["latin"], style: ["italic"] });
@@ -39,7 +49,7 @@ export default function PoolsidePage() {
     <div className="min-h-screen md:p-20">
       <section className="relative h-[80vh]">
         <Image
-          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-Ljhgq27b0O2qgXHXl3xFmJ6MLUtcnT.png"
+          src={Pool9}
           alt="Poolside at Winnies Resort"
           layout="fill"
           objectFit="cover"
@@ -78,23 +88,22 @@ export default function PoolsidePage() {
               A Serene Oasis
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Immerse yourself in tranquility at our stunning poolside retreat,
-              where nature meets luxury in perfect harmony. Surrounded by lush
-              greenery and mountain views, our pool area offers the perfect
-              escape.
+              Dive into serenity at our exquisite poolside retreat, where nature
+              and luxury blend seamlessly. Surrounded by lush greenery and
+              panoramic mountain views, it&apos;s your ultimate escape.
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-8 mb-20">
+          <div className="flex flex-col-reverse gap-8 ">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
-              className="space-y-6"
+              className="gap-3 grid md:grid-cols-2 grid-cols-1"
             >
               <div className="relative h-80 rounded-lg overflow-hidden">
                 <Image
-                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-Ljhgq27b0O2qgXHXl3xFmJ6MLUtcnT.png"
+                  src={Pool1}
                   alt="Pool with waterfall"
                   layout="fill"
                   objectFit="cover"
@@ -103,7 +112,61 @@ export default function PoolsidePage() {
               </div>
               <div className="relative h-80 rounded-lg overflow-hidden">
                 <Image
-                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-Ljhgq27b0O2qgXHXl3xFmJ6MLUtcnT.png"
+                  src={Pool2}
+                  alt="Poolside loungers"
+                  layout="fill"
+                  objectFit="cover"
+                  className="rounded-lg"
+                />
+              </div>
+              <div className="relative h-80 rounded-lg overflow-hidden">
+                <Image
+                  src={Pool3}
+                  alt="Poolside loungers"
+                  layout="fill"
+                  objectFit="cover"
+                  className="rounded-lg"
+                />
+              </div>
+              <div className="relative h-80 rounded-lg overflow-hidden">
+                <Image
+                  src={Pool4}
+                  alt="Poolside loungers"
+                  layout="fill"
+                  objectFit="cover"
+                  className="rounded-lg"
+                />
+              </div>
+              <div className="relative h-80 rounded-lg overflow-hidden">
+                <Image
+                  src={Pool5}
+                  alt="Poolside loungers"
+                  layout="fill"
+                  objectFit="cover"
+                  className="rounded-lg"
+                />
+              </div>
+              <div className="relative h-80 rounded-lg overflow-hidden">
+                <Image
+                  src={Pool6}
+                  alt="Poolside loungers"
+                  layout="fill"
+                  objectFit="cover"
+                  className="rounded-lg"
+                />
+              </div>
+              <div className="relative h-80 rounded-lg overflow-hidden">
+                <Image
+                  src={Pool8}
+                  alt="Poolside loungers"
+                  layout="fill"
+                  objectFit="cover"
+                  className="rounded-lg"
+                />
+              </div>
+              <div className="relative h-80 rounded-lg overflow-hidden">
+                <Image
+                  src={Pool9}
                   alt="Poolside loungers"
                   layout="fill"
                   objectFit="cover"

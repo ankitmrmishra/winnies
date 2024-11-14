@@ -85,20 +85,29 @@ export default function Weddings() {
               Your Dream Destination Wedding
             </h2>
             <p className="text-lg text-gray-700 mb-8">
-              Have you ever thought about a destination wedding? If you&apos;re
-              planning to have a destination wedding in India, you won&apos;t
-              find any place more suitable than Kasauli, a charming city in
-              Himachal Pradesh. Known for its serene beauty and featured in the
-              novels of Ruskin Bond, Kasauli offers a picturesque backdrop for
-              your special day.
+              Imagine a wedding surrounded by the lush, tranquil beauty of
+              Himachal&apos;s hills—a setting that feels like something out of a
+              fairytale. Kasauli, a charming hill station often evoking the
+              romance of a Ruskin Bond novel, is the perfect destination for a
+              magical wedding experience. With its misty mornings, endless
+              mountain views, and serene charm, Kasauli promises an
+              unforgettable ambiance for your big day. It&apos;s not just a
+              location but an experience, offering couples a unique blend of
+              intimacy and grandeur as they celebrate amidst nature&apos;s
+              splendor.
             </p>
             <p className="text-lg text-gray-700 mb-8">
-              Situated in the heart of Himachal Pradesh, this small cantonment
-              has everything to mesmerize your wedding experiences. Winnies
-              Holiday Resort and Spa is all set to enrich your marriage
-              experience, whether you&apos;re looking for a wedding in Himachal
-              or specifically a wedding in Kasauli. It&apos;s also a viable
-              option for those seeking a marriage destination near Chandigarh.
+              At the heart of Kasauli&apos;s stunning landscape, Winnies Holiday
+              Resort and Spa is an idyllic venue that elevates every moment of
+              your wedding. The resort&apos;s inviting and luxurious setting is
+              ideal for couples envisioning a Himachali ceremony or a
+              destination wedding near Chandigarh. Winnies&apos; exceptional
+              service and beautifully crafted spaces allow you and your guests
+              to drown fully in the joy of the occasion. Whether you&apos;re
+              dreaming of an elegant gathering or a cozy celebration, Winnies
+              ensures a seamless and unforgettable experience, where each moment
+              becomes a memory to treasure forever in Kasauli&apos;s peaceful
+              embrace.
             </p>
           </motion.div>
         </div>
@@ -117,34 +126,34 @@ export default function Weddings() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
-                title: "State-of-the-Art Banquet",
+                title: "Elegant Banquet Hall",
                 description:
-                  "Our marriage hall can accommodate up to 150 people, perfect for your dream wedding.",
+                  "Host your dream wedding in our spacious banquet hall, accommodating up to 150 guests in a setting that blends elegance and comfort for an unforgettable celebration.",
               },
               {
-                title: "Unparalleled Service",
+                title: "Impeccable Hospitality",
                 description:
-                  "Experience service that exceeds expectations, as evidenced by our glowing customer reviews.",
+                  "Our dedicated team delivers top-tier service with heart, going above and beyond to turn every moment into a cherished memory. Let us handle the details, so you can savor every moment.",
               },
               {
-                title: "Scenic Beauty",
+                title: "Breathtaking Scenery",
                 description:
-                  "Say your vows amidst the backdrop of hills, prevailing serenity, and enticing scenic beauty.",
+                  "Exchange vows against a breathtaking backdrop of rolling hills, tranquil greenery, and panoramic views that create a naturally romantic setting for your love story.",
               },
               {
-                title: "Luxury Accommodations",
+                title: "Luxurious Accomodation",
                 description:
-                  "Enjoy a perfect blend of nature and luxury for you and your guests.",
+                  "Enjoy a retreat that combines the best of comfort and nature. Our luxury rooms offer a serene and stylish space for you and your guests to relax and unwind.",
               },
               {
-                title: "Customized Packages",
+                title: "Tailored Wedding Packages",
                 description:
-                  "We offer tailored wedding packages to suit your specific needs and preferences.",
+                  "From intimate gatherings to grand celebrations, we offer customized wedding packages designed to match your vision, ensuring every detail aligns with your style and preferences.",
               },
               {
-                title: "Expert Planning",
+                title: "Expert Planning Support",
                 description:
-                  "Our experienced team will assist you in planning every detail of your special day.",
+                  "Our expert planning team is here to make your wedding day effortlessly perfect, handling every detail so you can focus on celebrating love with family and friends.",
               },
             ].map((service, index) => (
               <motion.div

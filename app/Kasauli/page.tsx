@@ -31,7 +31,9 @@ export default function KasauliPage() {
           <div className="absolute inset-0 bg-black/40" />
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="text-center text-white">
-              <h1 className="text-5xl font-bold mb-4">Welcome to Kasauli</h1>
+              <h1 className="text-5xl font-bold mb-4">
+                BEGIN YOUR JOURNEY IN KASAULI
+              </h1>
               <p className="text-xl mb-8">
                 Discover the picturesque hill station of Himachal Pradesh
               </p>
@@ -56,18 +58,22 @@ export default function KasauliPage() {
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div>
                 <p className="text-gray-600 leading-relaxed mb-4 text-xl">
-                  Kasauli is a small, beautiful hill station in Himachal
-                  Pradesh, located 77 km from Shimla at an altitude of 1,927
-                  meters above sea level. Built in the 19th century by the
-                  British, Kasauli retains its colonial charm and is known for
-                  its picturesque landscapes.
+                  Set in the misty hills of Himachal Pradesh, Kasauli is a
+                  captivating retreat located 77 km from Shimla at an altitude
+                  of 1,927 meters. Founded by the British in the 19th century,
+                  it retains colonial charm with cobbled streets and historic
+                  architecture. Surrounded by pine forests, Kasauli offers
+                  stunning views of the Dhauladhar ranges and plains.
                 </p>
                 <p className="text-gray-600 leading-relaxed mb-4 text-xl">
-                  Surrounded by lush pine forests and orchards, Kasauli offers
-                  breathtaking views of the Dhauladhar ranges and the plains of
-                  Punjab and Haryana. The town is famous for its serene
-                  atmosphere, making it a perfect getaway for nature lovers and
-                  those seeking tranquility.
+                  Kasauli is not just a destination, but an experience for those
+                  who seek tranquillity amidst nature&apos;s beauty. From scenic
+                  trails that weave through dense forests to panoramic
+                  viewpoints, every corner of Kasauli offers something special.
+                  The town&apos;s calm pace allows for reflection, while its
+                  natural charm promises a blissful escape. Whether you&apos;re
+                  hiking, sightseeing, or simply relaxing in the solitude,
+                  Kasauli&apos;s magical allure will captivate your heart.
                 </p>
               </div>
               <ParallexImagecard />
@@ -91,7 +97,7 @@ export default function KasauliPage() {
                 </h3>
 
                 <Image
-                  src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&q=80&w=800"
+                  src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/10/a1/43/07/img-20170517-082248-359.jpg?w=900&h=-1&s=1"
                   alt="Monkey Point in Kasauli"
                   fill
                   className="object-cover   h-96 rounded-2xl"
@@ -108,7 +114,7 @@ export default function KasauliPage() {
                   Christ Church
                 </h3>
                 <Image
-                  src="https://images.unsplash.com/photo-1598091383021-15ddea10925d?auto=format&fit=crop&q=80&w=800"
+                  src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0d/29/f8/12/christ-church.jpg?w=1000&h=-1&s=1"
                   alt="Christ Church in Kasauli"
                   fill
                   className="rounded-xl w-full aspect-4/3 object-cover mb-4"
@@ -124,7 +130,7 @@ export default function KasauliPage() {
                   Sunset Point
                 </h3>
                 <Image
-                  src="https://images.unsplash.com/photo-1598091383021-15ddea10925d"
+                  src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/e5/03/8a/caption.jpg?w=1000&h=-1&s=1"
                   alt="Sunset Point in Kasauli"
                   fill
                   className="rounded-xl w-full aspect-4/3 object-cover mb-4"
@@ -144,7 +150,7 @@ export default function KasauliPage() {
             <h2
               className={`md:text-7xl text-5xl ${playfair.className} text-emerald-800 text-center md:py-10 py-6`}
             >
-              Kasauli Weather
+              Kasauli Through Every Season
             </h2>
 
             <Tabs defaultValue="overview" className="max-w-4xl mx-auto">
@@ -180,10 +186,12 @@ export default function KasauliPage() {
                         className="space-y-6"
                       >
                         <p className="text-gray-600 text-lg">
-                          Kasauli enjoys a moderate climate throughout the year,
-                          making it a year-round destination. The weather is
-                          generally pleasant, with temperatures rarely reaching
-                          extremes.
+                          Kasauli enjoys a mild, temperate climate year-round,
+                          offering a perfect escape in every season. With its
+                          consistently pleasant weather and balanced
+                          temperatures, the town remains an inviting retreat,
+                          free from extreme conditions, for travelers seeking
+                          tranquility all year long.
                         </p>
                         <div className="grid md:grid-cols-2 gap-6 text-white">
                           <div className="flex items-center gap-4 bg-emerald-800 p-4 rounded-lg shadow-sm">
@@ -226,8 +234,12 @@ export default function KasauliPage() {
                         className="space-y-6"
                       >
                         <p className="text-gray-600 text-lg">
-                          Summers in Kasauli are mild and pleasant, perfect for
-                          outdoor activities and sightseeing.
+                          Summers in Kasauli are delightfully mild, with
+                          temperatures that make it ideal for outdoor
+                          adventures. The refreshing weather invites
+                          sightseeing, hiking, and leisurely strolls through the
+                          town&apos;s scenic landscapes, ensuring a memorable
+                          escape.
                         </p>
                         <div className="grid md:grid-cols-2 gap-6">
                           <div className="flex items-center gap-4 bg-emerald-800 p-4 rounded-lg shadow-sm">
@@ -274,8 +286,10 @@ export default function KasauliPage() {
                         className="space-y-6"
                       >
                         <p className="text-gray-600 text-lg">
-                          The monsoon season brings moderate rainfall, turning
-                          the landscape lush and green.
+                          During the monsoon season, Kasauli experiences
+                          moderate rainfall that transforms the landscape into a
+                          vibrant, lush paradise, with green forests and misty
+                          hills enhancing the town&apos;s charm.
                         </p>
                         <div className="grid md:grid-cols-2 gap-6">
                           <div className="flex items-center gap-4 bg-emerald-800 p-4 rounded-lg shadow-sm">
@@ -318,8 +332,10 @@ export default function KasauliPage() {
                         className="space-y-6"
                       >
                         <p className="text-gray-600 text-lg">
-                          Winters are cold with occasional snowfall, offering a
-                          picturesque view of the snow-capped mountains.
+                          Winters in Kasauli are crisp and cold, with occasional
+                          snowfall that blankets the town in a serene white
+                          layer. The snow-capped mountains create a stunning,
+                          picturesque landscape, perfect for winter enthusiasts.
                         </p>
                         <div className="grid md:grid-cols-2 gap-6">
                           <div className="flex items-center gap-4 bg-emerald-800 p-4 rounded-lg shadow-sm">
@@ -367,11 +383,12 @@ export default function KasauliPage() {
                         April to June and September to November
                       </h3>
                       <p className="text-gray-600 md:w-[40rem]">
-                        The best time to visit Kasauli is during the spring
-                        (April to June) and autumn (September to November)
-                        seasons. During these months, the weather is pleasant
-                        and ideal for outdoor activities, sightseeing, and
-                        enjoying the natural beauty of the hill station.
+                        Kasauli&apos;s charm shines brightest in spring (April
+                        to June) and autumn (September to November). The weather
+                        during these months is refreshing and mild, creating an
+                        ideal atmosphere for outdoor adventures, sightseeing,
+                        and soaking in the hill station&apos;s natural beauty
+                        and tranquility, far from the hustle of city life
                       </p>
                     </div>
                   </div>
@@ -401,9 +418,10 @@ export default function KasauliPage() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-gray-600">
-                    The nearest airport is Chandigarh International Airport,
-                    about 70 km from Kasauli. From there, you can take a taxi or
-                    bus to reach Kasauli.
+                    The nearest airport to Kasauli is Chandigarh International
+                    Airport, located approximately 70 km away. From there, taxis
+                    and buses are readily available for a scenic drive to the
+                    hill station, ensuring a comfortable and convenient journey.
                   </p>
                 </CardContent>
               </Card>
@@ -417,9 +435,10 @@ export default function KasauliPage() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-gray-600">
-                    The nearest railway station is Kalka, about 40 km from
-                    Kasauli. Regular trains connect Kalka to major cities like
-                    Delhi and Chandigarh.
+                    Kalka, located 40 km from Kasauli, is the nearest railway
+                    station. It is well-connected to major cities like Delhi and
+                    Chandigarh, with regular trains ensuring easy access to
+                    Kasauli.
                   </p>
                 </CardContent>
               </Card>
@@ -433,9 +452,10 @@ export default function KasauliPage() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-gray-600">
-                    Kasauli is well-connected by road. You can drive from Delhi
-                    (310 km) or take a bus from Chandigarh (65 km) or Shimla (77
-                    km).
+                    Kasauli is easily accessible by road, with a 310 km drive
+                    from Delhi. Buses also connect the hill station from
+                    Chandigarh (65 km) and Shimla (77 km), offering convenient
+                    travel options.
                   </p>
                 </CardContent>
               </Card>

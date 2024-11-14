@@ -6,7 +6,21 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Playfair_Display } from "next/font/google";
 import { Mountain, GamepadIcon, Dumbbell } from "lucide-react";
-
+import Gym1 from "../../public/assets/Activities/gym.jpg";
+import Gym2 from "../../public/assets/Activities/gym2.jpg";
+// import Gym3 from "../../public/assets/Activities/gym3.jpg";
+import Pooltable1 from "../../public/assets/Activities/pool.jpg";
+// import Pooltable2 from "../../public/assets/Activities/pool2.jpg";
+// import Pooltable3 from "../../public/assets/Activities/pool3.jpg";
+import childrenplay from "../../public/assets/Activities/childrenplay.jpg";
+import ftbl from "../../public/assets/Activities/ftbl.jpg";
+// import Manwalking from "../../public/assets/Activities/Manwalking.jpg";
+// import Manwalking2 from "../../public/assets/Activities/ManWalking2.jpg";
+import ropewalking from "../../public/assets/Activities/ropewalking.jpg";
+import ropewalking1 from "../../public/assets/Activities/ropewalking1.jpg";
+// import ropewalking2 from "../../public/assets/Activities/ropewalking2.jpg";
+// import ropewalking3 from "../../public/assets/Activities/ropewalking3.jpg";
+// import tt from "../../public/assets/Activities/tt.jpg";
 const playfair = Playfair_Display({ subsets: ["latin"], style: ["italic"] });
 
 export default function ActivitiesPage() {
@@ -15,21 +29,19 @@ export default function ActivitiesPage() {
       category: "Adventure Activities",
       icon: Mountain,
       description:
-        "Challenge yourself with our exciting outdoor activities set against the backdrop of stunning mountain views.",
+        "Test your limits with exhilarating outdoor activities, surrounded by majestic mountain views",
       items: [
         {
           title: "High Ropes Course",
           description:
-            "Test your courage on our professional high ropes course with safety equipment and trained instructors.",
-          image:
-            "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-kmRDnrBpcAlgMfO2dUJBOSTsEHI0DU.png",
+            "Conquer your fears on our high ropes course, with expert instructors and fully secure safety equipment.",
+          image: ropewalking,
         },
         {
           title: "Children's Play Area",
           description:
             "A safe and fun environment for children to play and explore.",
-          image:
-            "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-kmRDnrBpcAlgMfO2dUJBOSTsEHI0DU.png",
+          image: childrenplay,
         },
       ],
     },
@@ -37,21 +49,19 @@ export default function ActivitiesPage() {
       category: "Indoor Recreation",
       icon: GamepadIcon,
       description:
-        "Enjoy our variety of indoor games and recreational facilities perfect for leisure time.",
+        "Explore our diverse indoor games and recreational spaces, crafted for maximum fun and leisure.",
       items: [
         {
           title: "Games Room",
           description:
-            "Challenge friends and family to foosball and other exciting games.",
-          image:
-            "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-kmRDnrBpcAlgMfO2dUJBOSTsEHI0DU.png",
+            "Gather your friends and family for a friendly foosball showdown and other thrilling games of fun!",
+          image: ftbl,
         },
         {
           title: "Billiards Room",
           description:
-            "Elegant pool room with professional tables in a sophisticated setting.",
-          image:
-            "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-kmRDnrBpcAlgMfO2dUJBOSTsEHI0DU.png",
+            "Step into an elegant pool room, where professional tables meet a refined, sophisticated atmosphere for ultimate enjoyment.",
+          image: Pooltable1,
         },
       ],
     },
@@ -59,21 +69,20 @@ export default function ActivitiesPage() {
       category: "Fitness Center",
       icon: Dumbbell,
       description:
-        "Stay fit during your vacation in our well-equipped fitness center.",
+        "Stay fit during your vacation in our well-equipped fitness centre",
       items: [
         {
           title: "Modern Gym",
           description:
-            "State-of-the-art equipment for a complete workout experience.",
-          image:
-            "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-kmRDnrBpcAlgMfO2dUJBOSTsEHI0DU.png",
+            "Achieve your best with cutting-edge equipment for a complete workout experience.",
+          image: Gym1,
         },
+
         {
-          title: "Modern Gym",
+          title: "High-Performance Gym",
           description:
-            "State-of-the-art equipment for a complete workout experience.",
-          image:
-            "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-kmRDnrBpcAlgMfO2dUJBOSTsEHI0DU.png",
+            "Elevate your fitness journey with advanced training zones and personalized workout options.",
+          image: Gym2,
         },
       ],
     },
@@ -83,7 +92,7 @@ export default function ActivitiesPage() {
     <div className="min-h-screen md:p-20 ">
       <section className="relative h-[80vh]">
         <Image
-          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-kmRDnrBpcAlgMfO2dUJBOSTsEHI0DU.png"
+          src={ropewalking1}
           alt="Adventure Activities at Winnies"
           layout="fill"
           objectFit="cover"
@@ -95,7 +104,7 @@ export default function ActivitiesPage() {
             <h1 className={`text-5xl md:text-6xl font-bold mb-4 `}>
               Activities & Adventures
             </h1>
-            <p className="text-xl mb-8">Discover excitement at every corner</p>
+            <p className="text-xl mb-8">Experience surprises at each step</p>
             <Button
               size="lg"
               className="bg-emerald-800 hover:bg-emerald-700 text-white"
@@ -146,6 +155,7 @@ export default function ActivitiesPage() {
                         alt={item.title}
                         layout="fill"
                         objectFit="cover"
+                        className="w-full h-full"
                       />
                     </div>
                     <div className="p-6">
