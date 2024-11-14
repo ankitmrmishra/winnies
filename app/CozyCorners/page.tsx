@@ -6,8 +6,8 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Playfair_Display } from "next/font/google";
 import { Flame, Moon, Wine, Star } from "lucide-react";
-import cozycorners from "../../public/assets/CozyCorners/K81A0416-HDR.jpg";
-import jamison from "../../public/assets/CozyCorners/Jamison.jpg";
+import cozycorners from "../../public/assets/CozyCorners/K81A0416-HDR.JPG";
+import jamison from "@/public/assets/CozyCorners/Jamison.JPG";
 
 import SD from "../../public/assets/CozyCorners/SD.jpg";
 
