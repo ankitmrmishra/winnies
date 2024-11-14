@@ -6,8 +6,8 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Playfair_Display } from "next/font/google";
 import { Flame, Moon, Wine, Star } from "lucide-react";
-import cozycorners from "@/public/assets/CozyCorners/K81A0416-HDR.jpg";
-import jamison from "@/public/assets/CozyCorners/Jamison.jpg";
+// import cozycorners from "@/public/assets/CozyCorners/K81A0416-HDR.jpg";
+// import jamison from "@/public/assets/CozyCorners/Jamison.jpg";
 
 import SD from "@/public/assets/CozyCorners/SD.jpg";
 
@@ -41,7 +41,7 @@ export default function CozyCornersPage() {
     <div className="min-h-screen md:p-20">
       <section className="relative h-[100vh]">
         <Image
-          src={cozycorners}
+          src={SD}
           alt="Cozy Corner at Night"
           layout="fill"
           objectFit="cover"
@@ -97,7 +97,7 @@ export default function CozyCornersPage() {
               transition={{ duration: 0.6 }}
             >
               <Image
-                src={jamison}
+                src={SD}
                 alt="Jameson Corner"
                 layout="fill"
                 objectFit="cover"
@@ -145,7 +145,7 @@ export default function CozyCornersPage() {
               transition={{ duration: 0.6, delay: 0.4 }}
             >
               <Image
-                src={cozycorners}
+                src={SD}
                 alt="Evening Firepit"
                 layout="fill"
                 objectFit="cover"
