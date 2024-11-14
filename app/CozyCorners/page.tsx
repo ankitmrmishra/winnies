@@ -6,10 +6,10 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Playfair_Display } from "next/font/google";
 import { Flame, Moon, Wine, Star } from "lucide-react";
-import cozycorners from "@/public/assets/CozyCorners/K81A0416-HDR.jpg";
+import cozycorners from "@/public/assets/CozyCorners/K81A0416-HDR.png";
 import jamison from "@/public/assets/CozyCorners/image.png";
 
-import SD from "@/public/assets/CozyCorners/SD.jpg";
+import SD from "@/public/assets/CozyCorners/SD.png";
 
 const playfair = Playfair_Display({ subsets: ["latin"], style: ["italic"] });
 
