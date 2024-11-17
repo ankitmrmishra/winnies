@@ -1,7 +1,14 @@
 "use client";
 
 import React from "react";
-import { Moon, Sun, Mountain, Wind, Droplets } from "lucide-react";
+import {
+  Moon,
+  Sun,
+  Mountain,
+  Wind,
+  Droplets,
+  UtensilsCrossed,
+} from "lucide-react";
 import { Playfair_Display, Inter } from "next/font/google";
 import Image from "next/image";
 
@@ -51,16 +58,24 @@ const experiences: Experience[] = [
   {
     title: "Natural Springs",
     description:
-      "Sink into the warmth of our mineral-packed hot springs, where nature’s healing waters envelop you, offering a restorative escape for body and soul.",
+      "Sink into the warmth of our mineral-packed hot springs, where nature's healing waters envelop you, offering a restorative escape for body and soul.",
     icon: Droplets,
     image:
       "https://images.unsplash.com/photo-1576020799627-aeac74d58064?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2127&q=80",
+  },
+  {
+    title: "Farm-to-Table Feasts",
+    description:
+      "Indulge in exquisite culinary journeys at winnies, where locally-sourced ingredients transform into gourmet delights, connecting you to the land through every flavorful bite.",
+    icon: UtensilsCrossed,
+    image:
+      "https://images.unsplash.com/photo-1543353071-087092ec393a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80",
   },
 ];
 
 const ExperiencesGrid = () => {
   return (
-    <div className="bg-[#faf9f6] px-4 sm:px-6 lg:px-10 py-16 sm:py-24">
+    <div className="bg-[#faf9f6] px-4 ">
       <div className="mx-auto max-w-7xl">
         <h2
           className={`text-3xl sm:text-5xl lg:text-6xl italic text-center text-emerald-800 font-heading mb-12 sm:mb-16 ${playfair.className}`}

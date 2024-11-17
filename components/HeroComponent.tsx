@@ -15,7 +15,7 @@ import MainImage from "../public/assets/MainImage.jpg";
 
 export const HeroComponent = () => {
   return (
-    <div className=" h-[200vh] relative -z-50  ">
+    <div className=" md:h-[200vh]  relative -z-50  ">
       <div className="h-screen sticky inset-0 top-0 ">
         <Image
           src={MainImage}
