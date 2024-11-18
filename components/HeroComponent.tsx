@@ -28,7 +28,7 @@ export const HeroComponent = () => {
         <div className="absolute inset-0 bg-black bg-opacity-50" />
 
         {/* Hero Content */}
-        <div className="absolute bottom-56 left-6 md:left-20 text-white z-40">
+        <div className="absolute bottom-16 left-6 md:left-20 text-white z-40">
           <h1
             className={`text-4xl md:text-8xl  font-bold mb-4 ${japan_sans.className}`}
           >

@@ -46,8 +46,8 @@ export default function PoolsidePage() {
   // ];
 
   return (
-    <div className="min-h-screen md:p-20">
-      <section className="relative h-[80vh]">
+    <div className="min-h-screen ">
+      <section className="relative h-screen">
         <Image
           src={Pool9}
           alt="Poolside at Winnies Resort"

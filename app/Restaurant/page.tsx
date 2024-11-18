@@ -44,7 +44,7 @@ export default function RestaurantPage() {
   ];
 
   return (
-    <div className="min-h-screen md:p-20">
+    <div className="min-h-screen ">
       <section className="relative min-h-screen">
         <Image
           src={Restaurant3}
@@ -72,7 +72,7 @@ export default function RestaurantPage() {
         </div>
       </section>
 
-      <section className="py-20 px-4 md:px-0">
+      <section className="py-20 px-4 md:px-20">
         <div className="container mx-auto max-w-5xl">
           <motion.div
             className="text-center mb-16"

@@ -39,7 +39,7 @@ export default function BarPage() {
   ];
 
   return (
-    <div className="min-h-screen md:p-20 ">
+    <div className="min-h-screen  ">
       <section className="relative h-[100vh]  ">
         <Image
           src={Bar2}

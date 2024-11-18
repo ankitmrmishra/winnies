@@ -17,7 +17,7 @@ import { FocusCardsComponent } from "./FocusCardsComponent";
 
 export default function KasauliPage() {
   return (
-    <div className="min-h-screen  md:p-20">
+    <div className="min-h-screen  ">
       <main>
         {/* Hero Section */}
         <section className="relative h-[100vh]">
@@ -48,7 +48,7 @@ export default function KasauliPage() {
         </section>
 
         {/* About Kasauli Section */}
-        <section id="about" className="py-16">
+        <section id="about" className="py-16 md:px-20">
           <div className="container mx-auto px-4">
             <h2
               className={`md:text-7xl text-5xl ${playfair.className} text-emerald-800 text-center md:py-10`}
@@ -82,7 +82,7 @@ export default function KasauliPage() {
         </section>
 
         {/* Attractions Section */}
-        <section id="attractions" className="py-16">
+        <section id="attractions" className="py-16 md:px-20">
           <div className="container mx-auto px-4">
             <h2
               className={`md:text-7xl text-5xl ${playfair.className} text-emerald-800 text-center md:py-10 py-6`}
@@ -400,7 +400,7 @@ export default function KasauliPage() {
         </section>
 
         {/* How to Reach */}
-        <section className="py-16">
+        <section className="py-16 md:px-20">
           <div className="container mx-auto px-4">
             <h2
               className={`md:text-7xl text-5xl ${playfair.className} text-emerald-800 text-center md:py-10 py-3`}

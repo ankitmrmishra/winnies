@@ -113,7 +113,7 @@ export default function Navbar() {
             <div className="hidden lg:flex items-center space-x-8 ">
               <div className="relative">
                 <motion.button
-                  className="flex items-center space-x-1 hover:text-emerald-700 group"
+                  className="flex items-center space-x-1 hover:text-emerald-400 group"
                   onClick={toggleRooms}
                 >
                   <span>Rooms</span>

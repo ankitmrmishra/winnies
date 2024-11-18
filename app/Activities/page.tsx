@@ -89,8 +89,8 @@ export default function ActivitiesPage() {
   ];
 
   return (
-    <div className="min-h-screen md:p-20 ">
-      <section className="relative h-[80vh]">
+    <div className="min-h-screen  ">
+      <section className="relative h-[100vh]">
         <Image
           src={ropewalking1}
           alt="Adventure Activities at Winnies"

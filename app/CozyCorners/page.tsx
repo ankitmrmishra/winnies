@@ -38,7 +38,7 @@ export default function CozyCornersPage() {
   ];
 
   return (
-    <div className="min-h-screen md:p-20">
+    <div className="min-h-screen ">
       <section className="relative h-[100vh]">
         <Image
           src={cozycorners}
@@ -62,7 +62,7 @@ export default function CozyCornersPage() {
         </div>
       </section>
 
-      <section className="py-20">
+      <section className="py-20 md:px-20">
         <div className="container mx-auto px-4">
           <motion.div
             className="max-w-3xl mx-auto text-center"
@@ -164,7 +164,7 @@ export default function CozyCornersPage() {
         </div>
       </section>
 
-      <section className="py-20 bg-emerald-50 rounded-2xl">
+      <section className="py-20 bg-emerald-50 rounded-2xl md:px-20">
         <div className="container mx-auto px-4">
           <motion.h2
             className={`md:text-7xl text-5xl ${playfair.className} text-emerald-800 text-center md:py-10 py-5`}

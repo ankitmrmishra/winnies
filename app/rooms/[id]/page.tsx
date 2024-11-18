@@ -1,21 +1,32 @@
 "use client";
 
 import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import {
   ChevronLeft,
-  ChevronRight,
   Users,
   Calendar,
   Bath,
   Wind,
   Sun,
   Moon,
+  Coffee,
+  Wifi,
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
 import { Playfair_Display } from "next/font/google";
+import { cn } from "@/lib/utils";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
 
 const playfair = Playfair_Display({ subsets: ["latin"] });
 
@@ -40,12 +51,15 @@ const roomsData: RoomData[] = [
     description:
       "Our Luxury Villas offer both Two Bedroom & Three Bedroom suites, meticulously designed to provide warmth, comfort, and luxury. Guests can enjoy a serene retreat where the beauty of nature intertwines with the comfort of home.",
     location: "Winnie's Retreat, Kasauli, Himachal Pradesh, India",
-    squareFeet: 1200, // Example size, can adjust as needed
+    squareFeet: 1200,
     pricePerNight: 12000,
     maxGuests: 6,
     imageUrl: [
       "https://images.unsplash.com/photo-1597262975002-c5c3b14bbd62?q=80&w=1969&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1615570780411-7ecf05c91dbd?q=80&w=2070&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1597262975002-c5c3b14bbd62?q=80&w=1969&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1597262975002-c5c3b14bbd62?q=80&w=1969&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1597262975002-c5c3b14bbd62?q=80&w=1969&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1597262975002-c5c3b14bbd62?q=80&w=1969&auto=format&fit=crop",
     ],
     amenities: [
       "Two/Three bedrooms",
@@ -82,6 +96,9 @@ const roomsData: RoomData[] = [
     maxGuests: 2,
     imageUrl: [
       "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?q=80&w=2070&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1597262975002-c5c3b14bbd62?q=80&w=1969&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1597262975002-c5c3b14bbd62?q=80&w=1969&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1597262975002-c5c3b14bbd62?q=80&w=1969&auto=format&fit=crop",
     ],
     amenities: [
       "King-size bed",
@@ -115,6 +132,9 @@ const roomsData: RoomData[] = [
     maxGuests: 2,
     imageUrl: [
       "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=2070&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1597262975002-c5c3b14bbd62?q=80&w=1969&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1597262975002-c5c3b14bbd62?q=80&w=1969&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1597262975002-c5c3b14bbd62?q=80&w=1969&auto=format&fit=crop",
     ],
     amenities: [
       "Valley-facing sit-out",
@@ -144,6 +164,10 @@ const roomsData: RoomData[] = [
     maxGuests: 2,
     imageUrl: [
       "https://images.unsplash.com/photo-1559599189-0c3b7d2f8021?q=80&w=1969&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1597262975002-c5c3b14bbd62?q=80&w=1969&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1597262975002-c5c3b14bbd62?q=80&w=1969&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1597262975002-c5c3b14bbd62?q=80&w=1969&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1597262975002-c5c3b14bbd62?q=80&w=1969&auto=format&fit=crop",
     ],
     amenities: [
       "Valley view",
@@ -173,6 +197,11 @@ const roomsData: RoomData[] = [
     maxGuests: 6,
     imageUrl: [
       "https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=1969&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1597262975002-c5c3b14bbd62?q=80&w=1969&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1597262975002-c5c3b14bbd62?q=80&w=1969&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1597262975002-c5c3b14bbd62?q=80&w=1969&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1597262975002-c5c3b14bbd62?q=80&w=1969&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1597262975002-c5c3b14bbd62?q=80&w=1969&auto=format&fit=crop",
     ],
     amenities: [
       "Three bedrooms",
@@ -192,37 +221,138 @@ const roomsData: RoomData[] = [
   },
 ];
 
+const iconMap = {
+  "King-size bed": Bath,
+  "Jacuzzi-equipped bathroom": Wind,
+  "Natural pinewood interiors": Sun,
+  "Free Wi-Fi": Wifi,
+  "Daily housekeeping": Moon,
+  "Complimentary breakfast": Coffee,
+};
+
 interface PageProps {
   params: Promise<{
     id: string;
   }>;
 }
 
+function DynamicRoomInfo({ room }: { room: RoomData }) {
+  const [hoveredItem, setHoveredItem] = useState<string | null>(null);
+
+  const renderIcon = (item: string) => {
+    const IconComponent = iconMap[item as keyof typeof iconMap] || Sun;
+    return <IconComponent className="w-5 h-5" />;
+  };
+
+  return (
+    <div className="grid gap-6 lg:grid-cols-3 max-w-5xl mx-auto">
+      <Card className="relative overflow-hidden group">
+        <div className="absolute inset-0 bg-gradient-to-br from-emerald-900 to-emerald-800 transition-transform group-hover:scale-105" />
+        <div className="relative p-6 text-white">
+          <h2 className="text-2xl font-semibold mb-4">Amenities</h2>
+          <div className="space-y-4">
+            {room.amenities.map((amenity, index) => (
+              <div
+                key={index}
+                className="flex items-center space-x-3 group/item hover:translate-x-1 transition-transform"
+                onMouseEnter={() => setHoveredItem(amenity)}
+                onMouseLeave={() => setHoveredItem(null)}
+              >
+                <div
+                  className={cn(
+                    "p-2 rounded-lg transition-colors",
+                    hoveredItem === amenity
+                      ? "bg-emerald-700/50"
+                      : "bg-emerald-800/50"
+                  )}
+                >
+                  {renderIcon(amenity)}
+                </div>
+                <div className="space-y-0.5">
+                  <p className="font-medium">{amenity}</p>
+                  <p className="text-sm text-emerald-100/80">
+                    {hoveredItem === amenity ? "Hover description" : ""}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </Card>
+
+      <Card className="relative overflow-hidden group">
+        <div className="absolute inset-0 bg-gradient-to-br from-emerald-900 to-emerald-800 transition-transform group-hover:scale-105" />
+        <div className="relative p-6 text-white">
+          <h2 className="text-2xl font-semibold mb-4">Room Features</h2>
+          <div className="space-y-4">
+            {room.features.map((feature, index) => (
+              <div
+                key={index}
+                className="flex items-center space-x-3 group/item hover:translate-x-1 transition-transform"
+                onMouseEnter={() => setHoveredItem(feature)}
+                onMouseLeave={() => setHoveredItem(null)}
+              >
+                <div
+                  className={cn(
+                    "p-2 rounded-lg transition-colors",
+                    hoveredItem === feature
+                      ? "bg-emerald-700/50"
+                      : "bg-emerald-800/50"
+                  )}
+                >
+                  {renderIcon(feature)}
+                </div>
+                <div className="space-y-0.5">
+                  <p className="font-medium">{feature}</p>
+                  <p className="text-sm text-emerald-100/80">
+                    {hoveredItem === feature ? "Feature description" : ""}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </Card>
+
+      <Card className="relative overflow-hidden group">
+        <div className="absolute inset-0 bg-gradient-to-br from-emerald-900 to-emerald-800 transition-transform group-hover:scale-105" />
+        <div className="relative p-6 text-white">
+          <h2 className="text-2xl font-semibold mb-4">Policies</h2>
+          <div className="space-y-4">
+            {Object.entries(room.policies).map(([key, value]) => (
+              <div
+                key={key}
+                className="group/item hover:translate-x-1 transition-transform"
+                onMouseEnter={() => setHoveredItem(key)}
+                onMouseLeave={() => setHoveredItem(null)}
+              >
+                <div className="space-y-1">
+                  <p className="font-medium">{key}</p>
+                  <p className="text-sm text-emerald-100/80">{value}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </Card>
+    </div>
+  );
+}
+
 export default function RoomPage({ params }: PageProps) {
+  const plugin = React.useRef(
+    Autoplay({ delay: 2000, stopOnInteraction: true })
+  );
   const { id } = React.use(params);
-  const [isBookingOpen, setIsBookingOpen] = useState(false);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const room = roomsData.find((r) => r.id === id);
 
   if (!room) {
     return <div>Room not found</div>;
   }
 
-  const nextImage = () => {
-    setCurrentImageIndex((prevIndex) =>
-      prevIndex === room.imageUrl.length - 1 ? 0 : prevIndex + 1
-    );
-  };
-
-  const prevImage = () => {
-    setCurrentImageIndex((prevIndex) =>
-      prevIndex === 0 ? room.imageUrl.length - 1 : prevIndex - 1
-    );
-  };
-
   return (
     <div className="min-h-screen bg-[#faf9f6]">
-      <header className="bg-emerald-900 text-white py-6">
+      <div className="bg-emerald-900 text-white py-6">
         <div className="mt-20 mx-auto px-4">
           <Link
             href="/"
@@ -232,59 +362,38 @@ export default function RoomPage({ params }: PageProps) {
             Back to Rooms
           </Link>
         </div>
-      </header>
+      </div>
 
-      <main className="container mx-auto px-4 py-12 md:px-20">
-        <div className="grid lg:grid-cols-2 gap-12">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5 }}
-            className="relative aspect-w-16 aspect-h-9 rounded-lg overflow-hidden shadow-xl"
+      <main className="container mx-auto px-4 py-12 md:px-20 ">
+        <div className="grid lg:grid-cols-2 gap-12 w-full">
+          <Carousel
+            plugins={[plugin.current]}
+            onMouseEnter={plugin.current.stop}
+            onMouseLeave={plugin.current.reset}
+            className="w-full h-full"
           >
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={currentImageIndex}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.5 }}
-                className="md:absolute relative inset-0"
-              >
-                <Image
-                  src={room.imageUrl[currentImageIndex]}
-                  alt={`${room.title} - Image ${currentImageIndex + 1}`}
-                  layout="fill"
-                  objectFit="cover"
-                />
-              </motion.div>
-            </AnimatePresence>
-            <button
-              onClick={prevImage}
-              className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-50 rounded-full p-2 hover:bg-opacity-75 transition-all"
-            >
-              <ChevronLeft className="text-emerald-900 w-6 h-6" />
-            </button>
-            <button
-              onClick={nextImage}
-              className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-50 rounded-full p-2 hover:bg-opacity-75 transition-all"
-            >
-              <ChevronRight className="text-emerald-900 w-6 h-6" />
-            </button>
-            <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
-              {room.imageUrl.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentImageIndex(index)}
-                  className={`w-3 h-3 rounded-full transition-colors ${
-                    index === currentImageIndex
-                      ? "bg-emerald-700"
-                      : "bg-white bg-opacity-50 hover:bg-opacity-75"
-                  }`}
-                />
+            <CarouselContent>
+              {room.imageUrl.map((imageUrl, index) => (
+                <CarouselItem key={index}>
+                  <div className="relative w-full ">
+                    <Image
+                      src={imageUrl}
+                      alt={`${room.title} - Image ${index + 1}`}
+                      objectFit="cover"
+                      width={800}
+                      height={1000}
+                      className="rounded-lg"
+                    />
+                  </div>
+                </CarouselItem>
               ))}
+            </CarouselContent>
+            <div className="absolute right-[50%] justify-center md:bottom-2 -bottom-5 space-x-2 ">
+              <CarouselPrevious variant="outline" size="icon" />
+              <CarouselNext variant="outline" size="icon" />
             </div>
-          </motion.div>
+          </Carousel>
+
           <div>
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
@@ -328,142 +437,16 @@ export default function RoomPage({ params }: PageProps) {
                   / night
                 </span>
               </p>
-              <Button
-                onClick={() => setIsBookingOpen(true)}
-                className="bg-emerald-700 hover:bg-emerald-800 text-white px-6 py-3 rounded-full transition-colors text-lg"
-              >
+              <Button className="bg-emerald-700 hover:bg-emerald-800 text-white px-6 py-3 rounded-full transition-colors text-lg">
                 Book Now
               </Button>
             </div>
           </div>
         </div>
 
-        <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-8 md:px-72">
-          <div className="bg-emerald-800 p-4 rounded-lg ">
-            <h2 className={`${playfair.className} text-2xl text-white mb-4`}>
-              Amenities
-            </h2>
-            <ul className="space-y-2">
-              {room.amenities.map((amenity, index) => (
-                <li key={index} className="flex items-center text-white">
-                  <Sun className="w-5 h-5 mr-2 text-emerald-200" />
-                  {amenity}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="bg-emerald-800 p-4 rounded-lg ">
-            <h2 className={`${playfair.className} text-2xl text-white mb-4`}>
-              Room Features
-            </h2>
-            <ul className="space-y-2">
-              {room.features.map((feature, index) => (
-                <li key={index} className="flex items-center text-white">
-                  <Moon className="w-5 h-5 mr-2 text-emerald-200" />
-                  {feature}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="bg-emerald-800 p-4 rounded-lg ">
-            <h2 className={`${playfair.className} text-2xl text-white mb-4`}>
-              Policies
-            </h2>
-            <ul className="space-y-2">
-              {Object.entries(room.policies).map(([key, value]) => (
-                <li key={key} className="text-white">
-                  <span className="font-semibold">{key}:</span> {value}
-                </li>
-              ))}
-            </ul>
-          </div>
+        <div className="mt-12">
+          <DynamicRoomInfo room={room} />
         </div>
-
-        {isBookingOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="mt-12 p-8 bg-white rounded-lg shadow-lg"
-          >
-            <h2
-              className={`${playfair.className} text-3xl text-emerald-900 mb-6`}
-            >
-              Book Your Stay
-            </h2>
-            <form className="grid md:grid-cols-2 gap-6">
-              <div>
-                <label
-                  htmlFor="checkIn"
-                  className="block text-sm font-medium text-gray-700 mb-1"
-                >
-                  Check-in Date
-                </label>
-                <input
-                  type="date"
-                  id="checkIn"
-                  name="checkIn"
-                  className="w-full rounded-md border-gray-300 shadow-sm focus:border-emerald-300 focus:ring focus:ring-emerald-200 focus:ring-opacity-50"
-                />
-              </div>
-              <div>
-                <label
-                  htmlFor="checkOut"
-                  className="block text-sm font-medium text-gray-700 mb-1"
-                >
-                  Check-out Date
-                </label>
-                <input
-                  type="date"
-                  id="checkOut"
-                  name="checkOut"
-                  className="w-full rounded-md border-gray-300 shadow-sm focus:border-emerald-300 focus:ring focus:ring-emerald-200 focus:ring-opacity-50"
-                />
-              </div>
-              <div>
-                <label
-                  htmlFor="guests"
-                  className="block text-sm font-medium text-gray-700 mb-1"
-                >
-                  Number of Guests
-                </label>
-                <select
-                  id="guests"
-                  name="guests"
-                  className="w-full rounded-md border-gray-300 shadow-sm focus:border-emerald-300 focus:ring focus:ring-emerald-200 focus:ring-opacity-50"
-                >
-                  {[...Array(room.maxGuests)].map((_, i) => (
-                    <option key={i} value={i + 1}>
-                      {i + 1} Guest{i !== 0 ? "s" : ""}
-                    </option>
-                  ))}
-                </select>
-              </div>
-              <div>
-                <label
-                  htmlFor="specialRequests"
-                  className="block text-sm font-medium text-gray-700 mb-1"
-                >
-                  Special Requests
-                </label>
-                <textarea
-                  id="specialRequests"
-                  name="specialRequests"
-                  rows={3}
-                  className="w-full rounded-md border-gray-300 shadow-sm focus:border-emerald-300 focus:ring focus:ring-emerald-200 focus:ring-opacity-50"
-                  placeholder="Any special requests or preferences?"
-                ></textarea>
-              </div>
-              <div className="md:col-span-2">
-                <Button
-                  type="submit"
-                  className="w-full bg-emerald-700 hover:bg-emerald-800 text-white px-6 py-3 rounded-full transition-colors text-lg"
-                >
-                  Confirm Booking
-                </Button>
-              </div>
-            </form>
-          </motion.div>
-        )}
       </main>
     </div>
   );

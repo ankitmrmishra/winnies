@@ -57,7 +57,7 @@ export default function ConferencePage() {
   ];
 
   return (
-    <div className="min-h-screen md:p-20">
+    <div className="min-h-screen  ">
       <section className="relative h-[100vh]">
         <Image
           src={Meetinghall}
@@ -81,7 +81,7 @@ export default function ConferencePage() {
         </div>
       </section>
 
-      <section className="py-20">
+      <section className="py-20 md:px-20">
         <div className="container mx-auto px-4">
           <motion.div
             className="max-w-3xl mx-auto text-center"
@@ -105,7 +105,7 @@ export default function ConferencePage() {
         </div>
       </section>
 
-      <section className="py-20  rounded-2xl">
+      <section className="py-20 md:px-20  rounded-2xl">
         <div className="container mx-auto px-4">
           <motion.h2
             className={`md:text-7xl text-5xl ${playfair.className} text-emerald-800 text-center md:py-10 py-5`}
@@ -151,7 +151,7 @@ export default function ConferencePage() {
         </div>
       </section>
 
-      <section className="py-20">
+      <section className="py-20 md:px-20">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map((feature, index) => (
@@ -176,7 +176,7 @@ export default function ConferencePage() {
         </div>
       </section>
 
-      <section className="py-20 bg-emerald-800 text-white rounded-2xl">
+      <section className="py-20 bg-emerald-800 text-white rounded-2xl max-w-4xl relative md:left-[20%]">
         <div className="container mx-auto px-4">
           <motion.div
             className="text-center"
