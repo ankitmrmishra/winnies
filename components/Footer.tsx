@@ -1,5 +1,6 @@
 import {
   Facebook,
+  Globe,
   Instagram,
   Linkedin,
   Mail,
@@ -103,7 +104,8 @@ export default function Footer() {
                   sales@winniesholidayresort.com
                 </a>
               </div>
-              <div className="text-gray-300">
+              <div className="text-gray-300 flex items-center gap-2">
+                <Globe className="w-5 h-5" />
                 <a
                   href="https://www.winnies.in"
                   target="_blank"
