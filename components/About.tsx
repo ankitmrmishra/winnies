@@ -11,9 +11,9 @@ const inter = Inter({ subsets: ["latin"] });
 export function About() {
   return (
     <section
-      className={`py-20 md:py-10 sticky px-6 md:px-20 bg-[#faf9f6] text-black  h-[100vh]  gap-5 flex flex-col justify-start align-middle items-start overflow-hidden ${inter.className}`}
+      className={`py-20 md:py-10  px-6 md:px-20 bg-[#faf9f6] text-black  max-h-max  gap-5 flex flex-col justify-start align-middle items-start overflow-hidden ${inter.className}`}
     >
-      <div className="max-w-4xl mx-auto text-center relative z-10">
+      <div className="max-w-4xl mx-auto text-center  z-10">
         <span className="italic font-medium">
           Experience the Essence of Nature, Wrapped in Luxury
         </span>

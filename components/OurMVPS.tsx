@@ -16,7 +16,7 @@ import Room from "../public/assets/DELUXE 3-BEDROOM APARTMENT/image.png";
 import Link from "next/link";
 export const OurMVPS = () => {
   return (
-    <div className="py-10 md:-mt-60 -mt-32">
+    <div className="py-10  ">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
         <Card className="bg-white shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden flex flex-col justify-between align-middle items-start ">
           <div className="relative h-48 w-full">
