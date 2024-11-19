@@ -4,6 +4,13 @@ import { motion } from "framer-motion";
 import { Plus, Users } from "lucide-react";
 import Autoplay from "embla-carousel-autoplay";
 import { Playfair_Display } from "next/font/google";
+import premiumroom from "../public/assets/PREMIUM ROOMS/room1.png";
+import deluxroom from "../public/assets/DelusxRooms/room1.png";
+import PREMIUM2BEDROOMAPARTMENT from "../public/assets/PREMIUM 2-BEDROOM APARTMENT/room1.png";
+import POOLDECKPREMIUMROOMS from "../public/assets/POOL DECK PREMIUM ROOMS/room1.png";
+import superdeluxrooms from "../public/assets/superdeluxrooms/room1.png";
+import deluxs3bedroom from "../public/assets/DELUXE 3-BEDROOM APARTMENT/image.png";
+
 // import DelusRoom from "../public/assets/DelusxRooms/K81A0514.jpg";
 
 const playfair = Playfair_Display({ subsets: ["latin"], style: ["italic"] });
@@ -15,6 +22,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import Image, { StaticImageData } from "next/image";
 
 interface RoomData {
   id: string;
@@ -24,7 +32,7 @@ interface RoomData {
   squareFeet: number;
   pricePerNight: number;
   maxGuests: number;
-  imageUrl: string;
+  imageUrl: string | StaticImageData;
 }
 
 export const OurRooms = () => {
@@ -80,10 +88,10 @@ function RoomCard({ room }: { room: RoomData }) {
       className="bg-emerald-900 rounded-3xl overflow-hidden "
     >
       <div className="relative">
-        <motion.img
+        <Image
           src={room.imageUrl}
-          whileHover={{ scale: 1.05 }}
-          transition={{ duration: 0.3 }}
+          alt={room.title}
+          objectFit="cover"
           className="w-full  h-[400px] object-cover"
         />
 
@@ -126,8 +134,7 @@ const rooms: RoomData[] = [
     squareFeet: 2553,
     pricePerNight: 250,
     maxGuests: 2,
-    imageUrl:
-      "https://images.unsplash.com/photo-1619631428091-1eaa03c3bdf1?q=80&w=2069&auto=format&fit=crop",
+    imageUrl: deluxroom,
   },
   {
     id: "2",
@@ -138,8 +145,7 @@ const rooms: RoomData[] = [
     squareFeet: 2200,
     pricePerNight: 275,
     maxGuests: 3,
-    imageUrl:
-      "https://images.unsplash.com/photo-1533090368676-1fd25485db88?q=80&w=1969&auto=format&fit=crop",
+    imageUrl: superdeluxrooms,
   },
   {
     id: "3",
@@ -150,8 +156,7 @@ const rooms: RoomData[] = [
     squareFeet: 2553,
     pricePerNight: 250,
     maxGuests: 2,
-    imageUrl:
-      "https://images.unsplash.com/photo-1619631428091-1eaa03c3bdf1?q=80&w=2069&auto=format&fit=crop",
+    imageUrl: premiumroom,
   },
   {
     id: "4",
@@ -162,8 +167,7 @@ const rooms: RoomData[] = [
     squareFeet: 2200,
     pricePerNight: 275,
     maxGuests: 3,
-    imageUrl:
-      "https://images.unsplash.com/photo-1533090368676-1fd25485db88?q=80&w=1969&auto=format&fit=crop",
+    imageUrl: PREMIUM2BEDROOMAPARTMENT,
   },
   {
     id: "5",
@@ -174,8 +178,7 @@ const rooms: RoomData[] = [
     squareFeet: 2200,
     pricePerNight: 275,
     maxGuests: 3,
-    imageUrl:
-      "https://images.unsplash.com/photo-1533090368676-1fd25485db88?q=80&w=1969&auto=format&fit=crop",
+    imageUrl: deluxs3bedroom,
   },
   {
     id: "6",
@@ -186,7 +189,6 @@ const rooms: RoomData[] = [
     squareFeet: 2200,
     pricePerNight: 275,
     maxGuests: 3,
-    imageUrl:
-      "https://images.unsplash.com/photo-1533090368676-1fd25485db88?q=80&w=1969&auto=format&fit=crop",
+    imageUrl: POOLDECKPREMIUMROOMS,
   },
 ];

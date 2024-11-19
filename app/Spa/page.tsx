@@ -149,7 +149,7 @@ export default function SpaPage() {
               ].map((ingredient, index) => (
                 <div
                   key={index}
-                  className="flex items-center justify-center bg-emerald-50 p-3 rounded-lg"
+                  className="flex md:flex-row flex-col items-center justify-center bg-emerald-50 p-3 rounded-lg"
                 >
                   <Leaf className="w-5 h-5 text-emerald-600 mr-2" />
                   <span className="text-sm">{ingredient}</span>

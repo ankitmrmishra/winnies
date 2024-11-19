@@ -4,8 +4,15 @@ import { useState, useEffect, useRef } from "react";
 import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
+
+import premiumroom from "../public/assets/PREMIUM ROOMS/room1.png";
+import deluxroom from "../public/assets/DelusxRooms/room1.png";
+import PREMIUM2BEDROOMAPARTMENT from "../public/assets/PREMIUM 2-BEDROOM APARTMENT/room1.png";
+import POOLDECKPREMIUMROOMS from "../public/assets/POOL DECK PREMIUM ROOMS/room1.png";
+import superdeluxrooms from "../public/assets/superdeluxrooms/room1.png";
+import deluxs3bedroom from "../public/assets/DELUXE 3-BEDROOM APARTMENT/image.png";
 
 interface Facility {
   title: string;
@@ -372,44 +379,38 @@ export default function Navbar() {
 interface Room {
   id: string;
   title: string;
-  imageUrl: string;
+  imageUrl: string | StaticImageData;
 }
 
 export const roomsData: Room[] = [
   {
     id: "1",
     title: "Deluxe Room",
-    imageUrl:
-      "https://images.unsplash.com/photo-1619631428091-1eaa03c3bdf1?q=80&w=2069&auto=format&fit=crop",
+    imageUrl: deluxroom,
   },
   {
     id: "2",
     title: "Super Deluxe Room",
-    imageUrl:
-      "https://images.unsplash.com/photo-1533090368676-1fd25485db88?q=80&w=1969&auto=format&fit=crop",
+    imageUrl: superdeluxrooms,
   },
   {
     id: "3",
     title: "Premium Room",
-    imageUrl:
-      "https://images.unsplash.com/photo-1619631428091-1eaa03c3bdf1?q=80&w=2069&auto=format&fit=crop",
+    imageUrl: premiumroom,
   },
   {
     id: "4",
     title: "Two Bedroom Premium Suite",
-    imageUrl:
-      "https://images.unsplash.com/photo-1533090368676-1fd25485db88?q=80&w=1969&auto=format&fit=crop",
+    imageUrl: PREMIUM2BEDROOMAPARTMENT,
   },
   {
     id: "5",
     title: "Three Bedroom Suite",
-    imageUrl:
-      "https://images.unsplash.com/photo-1533090368676-1fd25485db88?q=80&w=1969&auto=format&fit=crop",
+    imageUrl: deluxs3bedroom,
   },
   {
     id: "6",
     title: "Two Bedroom Family Room",
-    imageUrl:
-      "https://images.unsplash.com/photo-1533090368676-1fd25485db88?q=80&w=1969&auto=format&fit=crop",
+    imageUrl: POOLDECKPREMIUMROOMS,
   },
 ];

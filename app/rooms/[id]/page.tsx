@@ -219,6 +219,39 @@ const roomsData: RoomData[] = [
       Smoking: "Non-smoking room",
     },
   },
+  {
+    id: "6",
+    title: "Two Bedroom Family Room(AC Rooms)",
+    description:
+      "Ideal for bigger families, these suites provide spacious living areas with three bedrooms, individual sit-outs, and air-conditioned comfort, ensuring a relaxing stay for all members.",
+    location: "Winnie's Retreat, Kasauli, Himachal Pradesh, India",
+    squareFeet: 1000,
+    pricePerNight: 15000,
+    maxGuests: 6,
+    imageUrl: [
+      "https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=1969&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1597262975002-c5c3b14bbd62?q=80&w=1969&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1597262975002-c5c3b14bbd62?q=80&w=1969&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1597262975002-c5c3b14bbd62?q=80&w=1969&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1597262975002-c5c3b14bbd62?q=80&w=1969&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1597262975002-c5c3b14bbd62?q=80&w=1969&auto=format&fit=crop",
+    ],
+    amenities: [
+      "Three bedrooms",
+      "Individual sit-outs",
+      "AC in all rooms",
+      "LED TV",
+      "Room service",
+    ],
+    features: ["Daily housekeeping", "Complimentary breakfast"],
+    policies: {
+      "Check-in": "2:00 PM",
+      "Check-out": "12:00 PM",
+      Cancellation: "Free cancellation up to 72 hours before check-in",
+      Pets: "Allowed (on request)",
+      Smoking: "Non-smoking room",
+    },
+  },
 ];
 
 const iconMap = {
