@@ -2,9 +2,16 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import { Playfair_Display, Inter } from "next/font/google";
 import { ChevronRight } from "lucide-react";
+import premiumroom from "../../public/assets/PREMIUM ROOMS/room1.png";
+import deluxroom from "../../public/assets/DelusxRooms/room1.png";
+
+import PREMIUM2BEDROOMAPARTMENT from "../../public/assets/PREMIUM 2-BEDROOM APARTMENT/room1.png";
+import POOLDECKPREMIUMROOMS from "../../public/assets/POOL DECK PREMIUM ROOMS/room1.png";
+import superdeluxrooms from "../../public/assets/superdeluxrooms/room1.png";
+import deluxs3bedroom from "../../public/assets/DELUXE 3-BEDROOM APARTMENT/image.png";
 
 const playfair = Playfair_Display({ subsets: ["latin"] });
 const inter = Inter({ subsets: ["latin"] });
@@ -17,7 +24,7 @@ interface RoomData {
   squareFeet: number;
   pricePerNight: number;
   maxGuests: number;
-  imageUrl: string[];
+  imageUrl: string | StaticImageData;
   amenities: string[];
   features: string[];
   policies: { [key: string]: string };
@@ -33,10 +40,7 @@ const roomsData: RoomData[] = [
     squareFeet: 1200,
     pricePerNight: 12000,
     maxGuests: 6,
-    imageUrl: [
-      "https://images.unsplash.com/photo-1597262975002-c5c3b14bbd62?q=80&w=1969&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1615570780411-7ecf05c91dbd?q=80&w=2070&auto=format&fit=crop",
-    ],
+    imageUrl: PREMIUM2BEDROOMAPARTMENT,
     amenities: [
       "Two/Three bedrooms",
       "Fully equipped kitchen",
@@ -70,9 +74,7 @@ const roomsData: RoomData[] = [
     squareFeet: 450,
     pricePerNight: 8000,
     maxGuests: 2,
-    imageUrl: [
-      "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?q=80&w=2070&auto=format&fit=crop",
-    ],
+    imageUrl: premiumroom,
     amenities: [
       "King-size bed",
       "Jacuzzi-equipped bathroom",
@@ -103,9 +105,7 @@ const roomsData: RoomData[] = [
     squareFeet: 400,
     pricePerNight: 6500,
     maxGuests: 2,
-    imageUrl: [
-      "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=2070&auto=format&fit=crop",
-    ],
+    imageUrl: superdeluxrooms,
     amenities: [
       "Valley-facing sit-out",
       "European Pine wood ceilings",
@@ -132,9 +132,7 @@ const roomsData: RoomData[] = [
     squareFeet: 350,
     pricePerNight: 5000,
     maxGuests: 2,
-    imageUrl: [
-      "https://images.unsplash.com/photo-1559599189-0c3b7d2f8021?q=80&w=1969&auto=format&fit=crop",
-    ],
+    imageUrl: deluxroom,
     amenities: [
       "Valley view",
       "Sit-out balcony",
@@ -161,9 +159,7 @@ const roomsData: RoomData[] = [
     squareFeet: 1000,
     pricePerNight: 15000,
     maxGuests: 6,
-    imageUrl: [
-      "https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=1969&auto=format&fit=crop",
-    ],
+    imageUrl: deluxs3bedroom,
     amenities: [
       "Three bedrooms",
       "Individual sit-outs",
@@ -177,6 +173,37 @@ const roomsData: RoomData[] = [
       "Check-out": "12:00 PM",
       Cancellation: "Free cancellation up to 72 hours before check-in",
       Pets: "Allowed (on request)",
+      Smoking: "Non-smoking room",
+    },
+  },
+  {
+    id: "6",
+    title: "Pool Deck Premium Rooms",
+    description:
+      "Experience luxury with our Pool Deck Premium Rooms, offering direct access to the pool area and stunning views. These rooms combine comfort with convenience for an unforgettable stay.",
+    location: "Winnie's Retreat, Kasauli, Himachal Pradesh, India",
+    squareFeet: 400,
+    pricePerNight: 7500,
+    maxGuests: 2,
+    imageUrl: POOLDECKPREMIUMROOMS,
+    amenities: [
+      "Direct pool access",
+      "Private deck",
+      "King-size bed",
+      "Luxurious bathroom",
+      "Free Wi-Fi",
+      "Mini-bar",
+    ],
+    features: [
+      "Daily housekeeping",
+      "Complimentary breakfast",
+      "Pool towels provided",
+    ],
+    policies: {
+      "Check-in": "2:00 PM",
+      "Check-out": "12:00 PM",
+      Cancellation: "Free cancellation up to 48 hours before check-in",
+      Pets: "Not allowed",
       Smoking: "Non-smoking room",
     },
   },
@@ -204,14 +231,14 @@ export default function RoomsPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="bg-white rounded-lg shadow-lg overflow-hidden"
+              className="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col justify-between items-start align-middle"
             >
               <div className="relative h-64">
                 <Image
-                  src={room.imageUrl[0]}
+                  src={room.imageUrl}
                   alt={room.title}
-                  layout="fill"
                   objectFit="cover"
+                  className="h-64"
                 />
               </div>
               <div className="p-6">

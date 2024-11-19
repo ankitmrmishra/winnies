@@ -13,6 +13,7 @@ import PREMIUM2BEDROOMAPARTMENT from "../public/assets/PREMIUM 2-BEDROOM APARTME
 import POOLDECKPREMIUMROOMS from "../public/assets/POOL DECK PREMIUM ROOMS/room1.png";
 import superdeluxrooms from "../public/assets/superdeluxrooms/room1.png";
 import deluxs3bedroom from "../public/assets/DELUXE 3-BEDROOM APARTMENT/image.png";
+import Logo from "../public/assets/LOGO.png";
 
 interface Facility {
   title: string;
@@ -109,11 +110,17 @@ export default function Navbar() {
             {/* Logo */}
             <motion.a
               href="/"
-              className="flex-shrink-0"
+              className="flex-shrink-0 md:mt-2  flex justify-center align-middle items-start mt-4 -ml-5"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <div className="w-12 h-12 bg-emerald-700 rounded-full" />
+              <Image
+                src={Logo}
+                objectFit="cover"
+                width={200}
+                height={200}
+                alt=""
+              />
             </motion.a>
 
             {/* Desktop Navigation */}
