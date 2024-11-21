@@ -3,7 +3,7 @@ import React from "react";
 
 import { Button } from "./ui/button";
 import { ChevronRight } from "lucide-react";
-import { About } from "./About";
+
 import { Prompt } from "next/font/google";
 import Image from "next/image";
 const japan_sans = Prompt({

@@ -41,7 +41,9 @@ export const SocialMedia = () => {
         <InfiniteGlampingCarousel />
         <div className="medialinks flex justify-center align-middle items-center gap-3 text-emerald-800 ">
           <div className="border border-emerald-800 rounded-full p-2">
-            <Instagram size={24} className="size-10 hover:cursor-pointer" />
+            <a href="http://" target="_blank" rel="noopener noreferrer">
+              <Instagram size={24} className="size-10 hover:cursor-pointer" />
+            </a>
           </div>{" "}
           <div className="border border-emerald-800 rounded-full p-2">
             <Twitter size={24} className="size-10 hover:cursor-pointer" />{" "}
@@ -56,6 +58,8 @@ export const SocialMedia = () => {
             <Youtube size={24} className="size-10 hover:cursor-pointer" />
           </div>
         </div>
+
+        <script async src="//www.instagram.com/embed.js"></script>
       </div>
     </div>
   );
