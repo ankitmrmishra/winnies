@@ -12,7 +12,7 @@ import Spa1 from "../../public/assets/Spa/DSC02358.jpg";
 import Spa2 from "../../public/assets/Spa/DSC02367.jpg";
 import Spa3 from "../../public/assets/Spa/DSC02371.jpg";
 
-const playfair = Playfair_Display({ subsets: ["latin"], style: ["italic"] });
+const playfair = Playfair_Display({ subsets: ["latin"] });
 
 interface ImageType {
   src: string | StaticImageData;
@@ -29,24 +29,12 @@ export default function SpaPage() {
   const [selectedImage, setSelectedImage] = useState<ImageType | null>(null);
 
   const images: ImageType[] = [
-    {
-      src: Spaa,
-    },
-    {
-      src: Spa1,
-    },
-    {
-      src: Spa2,
-    },
-    {
-      src: Spa3,
-    },
-    {
-      src: Spa,
-    },
-    {
-      src: Spa3,
-    },
+    { src: Spaa },
+    { src: Spa1 },
+    { src: Spa2 },
+    { src: Spa3 },
+    { src: Spa },
+    { src: Spa3 },
   ];
 
   const BasicMassages: MassageType[] = [
@@ -61,14 +49,14 @@ export default function SpaPage() {
       name: "Swedish Massage",
       duration: "60 min / 90 min",
       price: "INR 2490 / INR 3490",
-      description: `When daily demands wear you down, rejuvenate with a gentle “wake-me-up” therapy, melting away stress and refreshing your spirit.`,
+      description: `When daily demands wear you down, rejuvenate with a gentle "wake-me-up" therapy, melting away stress and refreshing your spirit.`,
     },
     {
       name: "Thai Massage",
       duration: "60 min / 90 min",
       price: "INR 2490 / INR 3490",
       description:
-        "Experience the world’s renowned dry massage, with expert therapists stretching and relaxing every part of you.",
+        "Experience the world's renowned dry massage, with expert therapists stretching and relaxing every part of you.",
     },
   ];
 
@@ -90,7 +78,7 @@ export default function SpaPage() {
   ];
 
   return (
-    <div className="min-h-screen ">
+    <div className="min-h-screen">
       <section className="relative h-[100vh]">
         <Image
           src={Spa}
@@ -102,7 +90,9 @@ export default function SpaPage() {
         <div className="absolute inset-0 bg-black/40" />
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="text-center text-white">
-            <h1 className="text-5xl font-bold mb-4">Gold Leaf Spa</h1>
+            <h1 className={`text-4xl md:text-5xl font-bold mb-4 `}>
+              Gold Leaf Spa
+            </h1>
             <p className="text-xl mb-8">
               Indulge in pure relaxation and rejuvenation
             </p>
@@ -116,7 +106,7 @@ export default function SpaPage() {
         </div>
       </section>
 
-      <section id="about" className="py-20 md:px-20 ">
+      <section id="about" className="py-20 md:px-20">
         <div className="container mx-auto px-4">
           <motion.div
             className="max-w-3xl mx-auto text-center"
@@ -126,7 +116,7 @@ export default function SpaPage() {
             transition={{ duration: 0.8 }}
           >
             <h2
-              className={`md:text-7xl text-5xl ${playfair.className} text-emerald-800 text-center md:py-10 py-5`}
+              className={`text-4xl md:text-5xl ${playfair.className} text-emerald-800 text-center mb-6`}
             >
               Premium Massage Creme
             </h2>
@@ -163,7 +153,7 @@ export default function SpaPage() {
       <section id="basic-massages" className="py-20 md:px-20 md:-mt-24">
         <div className="container mx-auto px-4">
           <motion.h2
-            className={`md:text-7xl text-5xl ${playfair.className} text-emerald-800 text-center md:py-10 py-5`}
+            className={`text-4xl md:text-5xl ${playfair.className} text-emerald-800 text-center mb-6`}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -182,7 +172,7 @@ export default function SpaPage() {
                 transition={{ delay: index * 0.1, duration: 0.6 }}
               >
                 <h3
-                  className={`text-xl font-semibold mb-2 ${playfair.className} text-emerald-800`}
+                  className={`text-2xl font-semibold mb-2 ${playfair.className} text-emerald-800`}
                 >
                   {massage.name}
                 </h3>
@@ -207,7 +197,7 @@ export default function SpaPage() {
       >
         <div className="container mx-auto px-4">
           <motion.h2
-            className={`md:text-7xl text-5xl ${playfair.className} text-emerald-800 text-center md:py-10 py-5`}
+            className={`text-4xl md:text-5xl ${playfair.className} text-emerald-800 text-center mb-6`}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -226,7 +216,7 @@ export default function SpaPage() {
                 transition={{ delay: index * 0.1, duration: 0.6 }}
               >
                 <h3
-                  className={`text-xl font-semibold mb-2 ${playfair.className} text-emerald-800`}
+                  className={`text-2xl font-semibold mb-2 ${playfair.className} text-emerald-800`}
                 >
                   {massage.name}
                 </h3>
@@ -245,10 +235,10 @@ export default function SpaPage() {
         </div>
       </section>
 
-      <section id="gallery" className="py-20  rounded-2xl md:px-20">
+      <section id="gallery" className="py-20 rounded-2xl md:px-20">
         <div className="container mx-auto px-4">
           <motion.h2
-            className={`md:text-7xl text-5xl ${playfair.className} text-emerald-800 text-center md:py-10 py-5`}
+            className={`text-4xl md:text-5xl ${playfair.className} text-emerald-800 text-center mb-6`}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -271,7 +261,9 @@ export default function SpaPage() {
                 <Image
                   src={image.src}
                   alt="spa"
-                  objectFit="contain"
+                  width={500}
+                  height={300}
+                  objectFit="cover"
                   className="w-full h-64 object-cover"
                 />
                 <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300"></div>

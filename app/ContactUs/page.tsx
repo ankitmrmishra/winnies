@@ -14,10 +14,40 @@ import {
   Plane,
   Train,
 } from "lucide-react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { submitContactForm, ContactFormState } from "../actions/Contact";
+import { useFormState } from "react-dom";
 
 const playfair = Playfair_Display({ subsets: ["latin"], style: ["italic"] });
 
+const schema = z.object({
+  name: z.string().min(2, "Name must be at least 2 characters"),
+  email: z.string().email("Invalid email address"),
+  message: z.string().min(10, "Message must be at least 10 characters"),
+});
+
+type FormData = z.infer<typeof schema>;
+
+const initialState: ContactFormState = {
+  success: false,
+  errors: undefined,
+  message: undefined,
+};
+
 export default function ContactPage() {
+  const [state, formAction] = useFormState(submitContactForm, initialState);
+  const {
+    register,
+    formState: { errors },
+  } = useForm<FormData>({
+    resolver: zodResolver(schema),
+  });
+
   const contactInfo = [
     { name: "Mr Ravinder Rai", phones: ["+91-9805613130", "+91-9418141218"] },
     { name: "Mr Surender Singh", phones: ["+91-9805633007", "+91-9418020218"] },
@@ -142,76 +172,145 @@ export default function ContactPage() {
               <h2
                 className={`text-3xl ${playfair.className} text-emerald-800 mb-6`}
               >
-                Location & Details
+                Send us a Message
               </h2>
-              <div className="bg-white p-6 rounded-lg shadow-md mb-6">
-                <h3 className="text-xl font-semibold mb-2 text-emerald-800">
-                  Address
-                </h3>
-                <div className="flex items-start">
-                  <MapPin className="w-5 h-5 text-emerald-600 mr-2 mt-1 flex-shrink-0" />
-                  <p className="text-gray-600">
-                    Winnies Holiday Resort
-                    <br />
-                    on Main Dharampur Kasauli Road
-                    <br />
-                    1 Km after Pinegrove School
-                    <br />
-                    Sanawar Resorts, Sanawar Tehsil Kasauli,
-                    <br />
-                    Distt.Solan
-                    <br />
-                    173202 H.P
-                  </p>
+              <form action={formAction} className="space-y-4">
+                <div>
+                  <Label htmlFor="name">Name</Label>
+                  <Input
+                    id="name"
+                    type="text"
+                    {...register("name")}
+                    className="w-full"
+                  />
+                  {errors.name && (
+                    <p className="text-red-500 text-sm mt-1">
+                      {errors.name.message}
+                    </p>
+                  )}
                 </div>
-              </div>
-              <div className="bg-white p-6 rounded-lg shadow-md mb-6">
-                <h3 className="text-xl font-semibold mb-2 text-emerald-800">
-                  Bank Account Details
-                </h3>
-                <div className="flex items-start">
-                  <CreditCard className="w-5 h-5 text-emerald-600 mr-2 mt-1 flex-shrink-0" />
-                  <div className="text-gray-600">
-                    <p className="font-semibold">HDFC Bank</p>
-                    <p>Account Name: Winnies Holiday Inn</p>
-                    <p>Account No: 03872000001938</p>
-                    <p>IFSC code: HDFC0000387</p>
-                    <p>Current Account</p>
-                  </div>
+                <div>
+                  <Label htmlFor="email">Email</Label>
+                  <Input
+                    id="email"
+                    type="email"
+                    {...register("email")}
+                    className="w-full"
+                  />
+                  {errors.email && (
+                    <p className="text-red-500 text-sm mt-1">
+                      {errors.email.message}
+                    </p>
+                  )}
                 </div>
-              </div>
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <h3 className="text-xl font-semibold mb-2 text-emerald-800">
-                  How to Reach Us
-                </h3>
-                <div className="space-y-4">
+                <div>
+                  <Label htmlFor="message">Message</Label>
+                  <Textarea
+                    id="message"
+                    {...register("message")}
+                    className="w-full"
+                    rows={4}
+                  />
+                  {errors.message && (
+                    <p className="text-red-500 text-sm mt-1">
+                      {errors.message.message}
+                    </p>
+                  )}
+                </div>
+                <Button
+                  type="submit"
+                  className="w-full bg-emerald-800 hover:bg-emerald-700 text-white"
+                >
+                  Send Message
+                </Button>
+              </form>
+              {state.success && (
+                <p className="mt-4 text-green-600">{state.message}</p>
+              )}
+              {state.errors && (
+                <ul className="mt-4 text-red-500">
+                  {Object.entries(state.errors).map(([field, errors]) => (
+                    <li key={field}>{errors}</li>
+                  ))}
+                </ul>
+              )}
+
+              <div className="mt-8">
+                <h2
+                  className={`text-3xl ${playfair.className} text-emerald-800 mb-6`}
+                >
+                  Location & Details
+                </h2>
+                <div className="bg-white p-6 rounded-lg shadow-md mb-6">
+                  <h3 className="text-xl font-semibold mb-2 text-emerald-800">
+                    Address
+                  </h3>
                   <div className="flex items-start">
-                    <Car className="w-5 h-5 text-emerald-600 mr-2 mt-1 flex-shrink-0" />
+                    <MapPin className="w-5 h-5 text-emerald-600 mr-2 mt-1 flex-shrink-0" />
                     <p className="text-gray-600">
-                      From Kalka-Shimla Highway, take a left turn at Dharampur
-                      (after Dharampur Police Station). Drive for about 4 km on
-                      Dharampur to Kasauli Road. Nearest landmark is Pinegrove
-                      School.
+                      Winnies Holiday Resort
+                      <br />
+                      on Main Dharampur Kasauli Road
+                      <br />
+                      1 Km after Pinegrove School
+                      <br />
+                      Sanawar Resorts, Sanawar Tehsil Kasauli,
+                      <br />
+                      Distt.Solan
+                      <br />
+                      173202 H.P
                     </p>
                   </div>
-                  <div className="flex items-center">
-                    <Plane className="w-5 h-5 text-emerald-600 mr-2 flex-shrink-0" />
-                    <p className="text-gray-600">
-                      Nearest Airports: Chandigarh (55 KM), Shimla (65 KM)
-                    </p>
+                </div>
+                <div className="bg-white p-6 rounded-lg shadow-md mb-6">
+                  <h3 className="text-xl font-semibold mb-2 text-emerald-800">
+                    Bank Account Details
+                  </h3>
+                  <div className="flex items-start">
+                    <CreditCard className="w-5 h-5 text-emerald-600 mr-2 mt-1 flex-shrink-0" />
+                    <div className="text-gray-600">
+                      <p className="font-semibold">HDFC Bank</p>
+                      <p>Account Name: Winnies Holiday Inn</p>
+                      <p>Account No: 03872000001938</p>
+                      <p>IFSC code: HDFC0000387</p>
+                      <p>Current Account</p>
+                    </div>
                   </div>
-                  <div className="flex items-center">
-                    <Train className="w-5 h-5 text-emerald-600 mr-2 flex-shrink-0" />
-                    <p className="text-gray-600">
-                      Nearest Railway Stations: Dharampur (6 KM), Kalka (30 KM)
-                    </p>
-                  </div>
-                  <div className="flex items-center">
-                    <Car className="w-5 h-5 text-emerald-600 mr-2 flex-shrink-0" />
-                    <p className="text-gray-600">
-                      Distances: Chandigarh (55 KM), Shimla (65 KM), Solan (25
-                      KM), Delhi (300 KM)
-                    </p>
+                </div>
+                <div className="bg-white p-6 rounded-lg shadow-md">
+                  <h3 className="text-xl font-semibold mb-2 text-emerald-800">
+                    How to Reach Us
+                  </h3>
+                  <div className="space-y-4">
+                    <div className="flex items-start">
+                      <Car className="w-5 h-5 text-emerald-600 mr-2 mt-1 flex-shrink-0" />
+                      <p className="text-gray-600">
+                        From Kalka-Shimla Highway, take a left turn at Dharampur
+                        (after Dharampur Police Station). Drive for about 4 km
+                        on Dharampur to Kasauli Road. Nearest landmark is
+                        Pinegrove School.
+                      </p>
+                    </div>
+                    <div className="flex items-center">
+                      <Plane className="w-5 h-5 text-emerald-600 mr-2 flex-shrink-0" />
+                      <p className="text-gray-600">
+                        Nearest Airports: Chandigarh (55 KM), Shimla (65 KM)
+                      </p>
+                    </div>
+                    <div className="flex items-center">
+                      <Train className="w-5 h-5 text-emerald-600 mr-2 flex-shrink-0" />
+                      <p className="text-gray-600">
+                        Nearest Railway Stations: Dharampur (6 KM), Kalka (30
+                        KM)
+                      </p>
+                    </div>
+                    <div className="flex items-center">
+                      <Car className="w-5 h-5 text-emerald-600 mr-2 flex-shrink-0" />
+                      <p className="text-gray-600">
+                        Distances: Chandigarh (55 KM), Shimla (65 KM), Solan (25
+                        KM), Delhi (300 KM)
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>

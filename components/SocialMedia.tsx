@@ -7,8 +7,6 @@ import {
   useMotionValue,
   useTransform,
 } from "framer-motion";
-const playfair = Playfair_Display({ subsets: ["latin"], style: ["italic"] });
-
 import {
   Heart,
   MessageCircle,
@@ -22,48 +20,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 
-export const SocialMedia = () => {
-  return (
-    <div className="bg-[#faf9f6] lg:p-20 p-5">
-      <div className="flex justify-center align-middle items-center gap-3 flex-col">
-        <span
-          className={`md:text-7xl text-5xl text-center ${playfair.className} text-emerald-800`}
-        >
-          Follow Us On Social Media
-        </span>
-        <p className="lg:w-[40rem] text-center text-emerald-700/50">
-          “Let’s stay in touch! Follow us on social media to see the latest
-          happenings, stunning moments, and guest stories. Join our community
-          for exclusive insights and travel inspiration – you never know what
-          exciting surprise might be waiting for you.
-        </p>
-
-        <InfiniteGlampingCarousel />
-        <div className="medialinks flex justify-center align-middle items-center gap-3 text-emerald-800 ">
-          <div className="border border-emerald-800 rounded-full p-2">
-            <a href="http://" target="_blank" rel="noopener noreferrer">
-              <Instagram size={24} className="size-10 hover:cursor-pointer" />
-            </a>
-          </div>{" "}
-          <div className="border border-emerald-800 rounded-full p-2">
-            <Twitter size={24} className="size-10 hover:cursor-pointer" />{" "}
-          </div>{" "}
-          <div className="border border-emerald-800 rounded-full p-2">
-            <Facebook size={24} className="size-10 hover:cursor-pointer" />{" "}
-          </div>{" "}
-          <div className="border border-emerald-800 rounded-full p-2">
-            <Linkedin size={24} className="size-10 hover:cursor-pointer" />{" "}
-          </div>{" "}
-          <div className="border border-emerald-800 rounded-full p-2">
-            <Youtube size={24} className="size-10 hover:cursor-pointer" />
-          </div>
-        </div>
-
-        <script async src="//www.instagram.com/embed.js"></script>
-      </div>
-    </div>
-  );
-};
+const playfair = Playfair_Display({ subsets: ["latin"] });
 
 interface GlampingPost {
   id: string;
@@ -110,10 +67,52 @@ const glampingPosts: GlampingPost[] = [
       "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=200&auto=format&fit=crop",
   },
 ];
-const CARD_WIDTH = 288; // w-72 = 18rem = 288px
-const CARD_GAP = 16; // space-x-4 = 1rem = 16px
 
-export default function InfiniteGlampingCarousel() {
+const CARD_WIDTH = 288;
+const CARD_GAP = 16;
+
+export const SocialMedia = () => {
+  return (
+    <div className="bg-[#faf9f6] lg:p-20 p-5">
+      <div className="flex justify-center align-middle items-center gap-3 flex-col">
+        <h2
+          className={`text-4xl md:text-5xl text-center ${playfair.className} text-emerald-800 mb-6`}
+        >
+          Follow Us On Social Media
+        </h2>
+        <p className="lg:w-[40rem] text-center text-emerald-700/50 mb-8">
+          Let&apos;s stay in touch! Follow us on social media to see the latest
+          happenings, stunning moments, and guest stories. Join our community
+          for exclusive insights and travel inspiration – you never know what
+          exciting surprise might be waiting for you.
+        </p>
+
+        <InfiniteGlampingCarousel />
+        <div className="medialinks flex justify-center align-middle items-center gap-3 text-emerald-800 mt-8">
+          <div className="border border-emerald-800 rounded-full p-2">
+            <a href="http://" target="_blank" rel="noopener noreferrer">
+              <Instagram size={24} className="size-10 hover:cursor-pointer" />
+            </a>
+          </div>
+          <div className="border border-emerald-800 rounded-full p-2">
+            <Twitter size={24} className="size-10 hover:cursor-pointer" />
+          </div>
+          <div className="border border-emerald-800 rounded-full p-2">
+            <Facebook size={24} className="size-10 hover:cursor-pointer" />
+          </div>
+          <div className="border border-emerald-800 rounded-full p-2">
+            <Linkedin size={24} className="size-10 hover:cursor-pointer" />
+          </div>
+          <div className="border border-emerald-800 rounded-full p-2">
+            <Youtube size={24} className="size-10 hover:cursor-pointer" />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+function InfiniteGlampingCarousel() {
   const [posts] = React.useState<GlampingPost[]>([
     ...glampingPosts,
     ...glampingPosts,
@@ -171,7 +170,6 @@ export default function InfiniteGlampingCarousel() {
                 width={500}
                 height={500}
                 src={post.avatar}
-                objectFit="cover"
                 alt={post.username}
                 className="w-10 h-10 rounded-full object-cover"
               />
@@ -188,7 +186,6 @@ export default function InfiniteGlampingCarousel() {
               <Image
                 width={500}
                 height={500}
-                objectFit="cover"
                 src={post.image}
                 alt="Glamping location"
                 className="w-full h-full object-cover"

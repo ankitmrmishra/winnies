@@ -1,24 +1,22 @@
 "use client";
 
 import { ChevronRight } from "lucide-react";
-
 import { Playfair_Display } from "next/font/google";
-
-const playfair = Playfair_Display({ subsets: ["latin"] });
-
 import React from "react";
 import { Card, CardContent, CardFooter } from "./ui/card";
 import Image from "next/image";
 import Spa3 from "../public/assets/Spa/Spa2.png";
 import Restaurant3 from "../public/assets/Restaurant/DSC02113.jpg";
-
 import Room from "../public/assets/DELUXE 3-BEDROOM APARTMENT/image.png";
 import Link from "next/link";
+
+const playfair = Playfair_Display({ subsets: ["latin"] });
+
 export const OurMVPS = () => {
   return (
-    <div className="py-10  ">
+    <div className="py-10">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-        <Card className="bg-white shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden flex flex-col justify-between align-middle items-start ">
+        <Card className="bg-white shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden flex flex-col justify-between align-middle items-start">
           <div className="relative h-48 w-full">
             <Image
               src={Room}

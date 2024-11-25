@@ -1,50 +1,9 @@
 import React from "react";
 import { Playfair_Display } from "next/font/google";
-
-const playfair = Playfair_Display({ subsets: ["latin"] });
-const playfairItalic = Playfair_Display({
-  style: ["italic"],
-  subsets: ["cyrillic"],
-});
-
 import { Bell, Dumbbell, Hotel, Monitor, Shield, TreePine } from "lucide-react";
 import { GiRobe } from "react-icons/gi";
 
-function Amenities() {
-  return (
-    <div className="bg-[#faf9f6] lg:px-24 md:px-10 px-3 py-16">
-      <h3
-        className={`text-5xl italic md:text-7xl text-center text-emerald-800 font-heading md:mb-6 mb-4 ${playfair.className}`}
-      >
-        Amenities & Facilities
-      </h3>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {amenities.map((amenity, index) => (
-          <div
-            key={index}
-            className="bg-white rounded-lg p-6 transition-transform hover:scale-[1.02]"
-          >
-            <div className="flex items-start gap-4">
-              <div className="flex-shrink-0">{amenity.icon}</div>
-              <div className="space-y-2">
-                <h3
-                  className={`text-2xl font-semibold text-emerald-800 italic ${playfairItalic.className}`}
-                >
-                  {amenity.title}
-                </h3>
-                <p className="text-zinc-400 leading-relaxed">
-                  {amenity.description}
-                </p>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-export default Amenities;
+const playfair = Playfair_Display({ subsets: ["latin"] });
 
 const amenities = [
   {
@@ -102,3 +61,39 @@ const amenities = [
       "Discover stunning natural attractions just moments away, where breathtaking beauty awaits right outside your door.",
   },
 ];
+
+function Amenities() {
+  return (
+    <div className="bg-[#faf9f6] lg:px-24 md:px-10 px-3 py-16">
+      <h2
+        className={`text-4xl md:text-5xl text-center text-emerald-800 font-heading mb-12 ${playfair.className}`}
+      >
+        Amenities & Facilities
+      </h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {amenities.map((amenity, index) => (
+          <div
+            key={index}
+            className="bg-white rounded-lg p-6 transition-transform hover:scale-[1.02]"
+          >
+            <div className="flex items-start gap-4">
+              <div className="flex-shrink-0">{amenity.icon}</div>
+              <div className="space-y-2">
+                <h3
+                  className={`text-2xl font-semibold text-emerald-800 ${playfair.className}`}
+                >
+                  {amenity.title}
+                </h3>
+                <p className="text-zinc-400 leading-relaxed">
+                  {amenity.description}
+                </p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export default Amenities;

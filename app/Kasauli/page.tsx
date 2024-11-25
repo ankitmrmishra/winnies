@@ -31,8 +31,8 @@ export default function KasauliPage() {
           <div className="absolute inset-0 bg-black/40" />
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="text-center text-white">
-              <h1 className="text-5xl font-bold mb-4">
-                BEGIN YOUR JOURNEY IN KASAULI
+              <h1 className="text-5xl font-bold mb-4 ">
+                Begin Your Journey in Kasauli
               </h1>
               <p className="text-xl mb-8">
                 Discover the picturesque hill station of Himachal Pradesh

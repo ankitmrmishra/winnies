@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { Whatsapp } from "@/components/ui/Whatsapp";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -91,7 +92,10 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#faf9f6]`}
       >
         <Navbar />
-        <main>{children}</main>
+        <main>
+          <Whatsapp />
+          {children}
+        </main>
         <Footer />
       </body>
     </html>
