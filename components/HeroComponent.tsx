@@ -22,7 +22,7 @@ export const HeroComponent = () => {
       />
       <div className="absolute inset-0 bg-black bg-opacity-50" />
 
-      <div className="absolute bottom-16 left-6 md:left-20 text-white z-40">
+      <div className="absolute md:bottom-16 bottom-40 left-6 md:left-20 text-white z-40">
         <h1
           className={`text-4xl md:text-6xl font-bold mb-4 ${playfair.className}`}
         >
