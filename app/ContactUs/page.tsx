@@ -71,6 +71,7 @@ export default function ContactPage() {
         success: true,
         message: "Message sent successfully!",
       });
+      console.log(result);
 
       // Reset the form
       reset();
