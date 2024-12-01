@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
@@ -20,8 +20,7 @@ import { z } from "zod";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { submitContactForm, ContactFormState } from "../actions/Contact";
-import { useFormState } from "react-dom";
+import emailjs from "@emailjs/browser";
 
 const playfair = Playfair_Display({ subsets: ["latin"], style: ["italic"] });
 
@@ -33,16 +32,16 @@ const schema = z.object({
 
 type FormData = z.infer<typeof schema>;
 
-const initialState: ContactFormState = {
-  success: false,
-  errors: undefined,
-  message: undefined,
-};
-
 export default function ContactPage() {
-  const [state, formAction] = useFormState(submitContactForm, initialState);
+  const [submitStatus, setSubmitStatus] = useState<{
+    success: boolean;
+    message: string;
+  } | null>(null);
+
   const {
     register,
+    handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<FormData>({
     resolver: zodResolver(schema),
@@ -52,6 +51,37 @@ export default function ContactPage() {
     { name: "Mr Ravinder Rai", phones: ["+91-9805613130", "+91-9418141218"] },
     { name: "Mr Surender Singh", phones: ["+91-9805633007", "+91-9418020218"] },
   ];
+
+  const onSubmit = async (data: FormData) => {
+    try {
+      // Replace with your actual EmailJS service ID, template ID, and public key
+      const result = await emailjs.send(
+        "service_trpydjs",
+        "template_ad8nctu",
+
+        {
+          from_name: data.name,
+          from_email: data.email,
+          message: data.message,
+        },
+        "5-LMOJkK5EWs-8oJf"
+      );
+
+      setSubmitStatus({
+        success: true,
+        message: "Message sent successfully!",
+      });
+
+      // Reset the form
+      reset();
+    } catch (error) {
+      console.error("Failed to send email:", error);
+      setSubmitStatus({
+        success: false,
+        message: "Failed to send message. Please try again.",
+      });
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -174,7 +204,7 @@ export default function ContactPage() {
               >
                 Send us a Message
               </h2>
-              <form action={formAction} className="space-y-4">
+              <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
                 <div>
                   <Label htmlFor="name">Name</Label>
                   <Input
@@ -224,15 +254,15 @@ export default function ContactPage() {
                   Send Message
                 </Button>
               </form>
-              {state.success && (
-                <p className="mt-4 text-green-600">{state.message}</p>
-              )}
-              {state.errors && (
-                <ul className="mt-4 text-red-500">
-                  {Object.entries(state.errors).map(([field, errors]) => (
-                    <li key={field}>{errors}</li>
-                  ))}
-                </ul>
+
+              {submitStatus && (
+                <p
+                  className={`mt-4 ${
+                    submitStatus.success ? "text-green-600" : "text-red-500"
+                  }`}
+                >
+                  {submitStatus.message}
+                </p>
               )}
 
               <div className="mt-8">

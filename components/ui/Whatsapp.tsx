@@ -9,11 +9,11 @@ export const Whatsapp = () => {
       <div className="mt-8">
         <Button
           size="icon"
-          className="w-full bg-emerald-500 hover:bg-emerald-700 text-white px-1"
+          className="w-full bg-emerald-500 hover:bg-emerald-700 text-white px-2 py-3"
           onClick={() => window.open("https://wa.me/919805613130", "_blank")}
         >
           <BsWhatsapp />
-          Message us on WhatsApp
+          Message us
         </Button>
       </div>
     </div>
