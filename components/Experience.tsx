@@ -142,20 +142,6 @@ const ResortExperiences: React.FC = () => {
               </div>
             </motion.div>
           </AnimatePresence>
-          <button
-            onClick={prevExperience}
-            className="absolute md:left-0 md:top-1/2 left-1/3 -bottom-32 transform -translate-y-1/2 bg-white bg-opacity-50 hover:bg-opacity-75 rounded-full p-2 focus:outline-none focus:ring-2 focus:ring-emerald-500 transition-all duration-300"
-            aria-label="Previous experience"
-          >
-            <ChevronLeft className="w-6 h-6 text-emerald-700" />
-          </button>
-          <button
-            onClick={nextExperience}
-            className="absolute md:right-0 md:top-1/2 left-1/2 -bottom-32 transform -translate-y-1/2 bg-white bg-opacity-50 hover:bg-opacity-75 rounded-full p-2 focus:outline-none focus:ring-2 focus:ring-emerald-500 transition-all duration-300"
-            aria-label="Next experience"
-          >
-            <ChevronRight className="w-6 h-6 text-emerald-700" />
-          </button>
         </div>
         <div className="flex justify-center mt-8 space-x-2">
           {experiences.map((_, index) => (
@@ -170,6 +156,22 @@ const ResortExperiences: React.FC = () => {
               aria-label={`Go to experience ${index + 1}`}
             />
           ))}
+        </div>
+        <div className="w-full flex justify-center align-middle items-center gap-8 mt-9">
+          <button
+            onClick={prevExperience}
+            className="  bg-opacity-50 hover:bg-opacity-75 rounded-full p-2  transition-all duration-300"
+            aria-label="Previous experience"
+          >
+            <ChevronLeft className="w-6 h-6 text-emerald-700" />
+          </button>
+          <button
+            onClick={nextExperience}
+            className="left-28 transform   bg-opacity-50 hover:bg-opacity-75 rounded-full p-2  transition-all duration-300"
+            aria-label="Next experience"
+          >
+            <ChevronRight className="w-6 h-6 text-emerald-700" />
+          </button>
         </div>
       </div>
     </section>

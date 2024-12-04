@@ -226,7 +226,7 @@ export default function Navbar() {
             </div>
 
             {/* Book Now Button */}
-            <Button className="hidden md:block bg-emerald-700 text-white hover:bg-emerald-800">
+            <Button className=" bg-emerald-700 text-white hover:bg-emerald-800">
               Book Now
             </Button>
 
@@ -249,9 +249,6 @@ export default function Navbar() {
         >
           <div className="flex flex-col h-full">
             <div className="p-4 border-b flex justify-between align-middle items-center gap-5">
-              <Button className="w-full bg-white text-emerald-800 hover:bg-emerald-800 md:hidden">
-                Book Now
-              </Button>
               <X
                 size={24}
                 className="text-white ease-in-out"

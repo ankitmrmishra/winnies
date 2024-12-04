@@ -279,9 +279,9 @@ function DynamicRoomInfo({ room }: { room: RoomData }) {
                 </div>
                 <div className="space-y-0.5">
                   <p className="font-medium">{amenity}</p>
-                  <p className="text-sm text-emerald-100/80">
+                  {/* <p className="text-sm text-emerald-100/80">
                     {hoveredItem === amenity ? "Hover description" : ""}
-                  </p>
+                  </p> */}
                 </div>
               </div>
             ))}
@@ -313,9 +313,9 @@ function DynamicRoomInfo({ room }: { room: RoomData }) {
                 </div>
                 <div className="space-y-0.5">
                   <p className="font-medium">{feature}</p>
-                  <p className="text-sm text-emerald-100/80">
+                  {/* <p className="text-sm text-emerald-100/80">
                     {hoveredItem === feature ? "Feature description" : ""}
-                  </p>
+                  </p> */}
                 </div>
               </div>
             ))}
