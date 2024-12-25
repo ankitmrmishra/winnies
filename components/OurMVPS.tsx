@@ -7,7 +7,7 @@ import { Card, CardContent, CardFooter } from "./ui/card";
 import Image from "next/image";
 import Spa3 from "../public/assets/Spa/Spa2.png";
 import Restaurant3 from "../public/assets/Restaurant/DSC02113.jpg";
-import Room from "../public/assets/DELUXE 3-BEDROOM APARTMENT/image.png";
+import Room from "../public/assets/PREMIUM ROOMS/room1.png";
 import Link from "next/link";
 
 const playfair = Playfair_Display({ subsets: ["latin"] });
@@ -47,6 +47,37 @@ export const OurMVPS = () => {
             </Link>
           </CardFooter>
         </Card>
+        <Card className="bg-white shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden flex flex-col justify-between align-middle items-start">
+          <div className="relative h-48 w-full">
+            <Image
+              src={Restaurant3}
+              alt="Elegant dining area with a view"
+              layout="fill"
+              objectFit="cover"
+            />
+          </div>
+          <CardContent className="p-6">
+            <h3
+              className={`${playfair.className} text-2xl text-emerald-800 mb-4`}
+            >
+              Exquisite Dining
+            </h3>
+            <p className="text-gray-600 mb-4">
+              Savor delectable cuisines at our on-site restaurants, featuring a
+              blend of local and international flavors. Enjoy your meals with
+              panoramic views of the Kasauli hills.
+            </p>
+          </CardContent>
+          <CardFooter>
+            <Link
+              href={"/Restaurant"}
+              className="text-emerald-700 hover:text-emerald-900 p-0 flex justify-center align-middle items-center"
+            >
+              Discover Dining Options
+              <ChevronRight className="ml-1 h-4 w-4" />
+            </Link>
+          </CardFooter>
+        </Card>
 
         <Card className="bg-white shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden flex flex-col justify-between align-middle items-start">
           <div className="relative h-48 w-full">
@@ -75,38 +106,6 @@ export const OurMVPS = () => {
               className="text-emerald-700 hover:text-emerald-900 p-0 flex justify-center align-middle items-center"
             >
               View Spa Services
-              <ChevronRight className="ml-1 h-4 w-4" />
-            </Link>
-          </CardFooter>
-        </Card>
-
-        <Card className="bg-white shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden flex flex-col justify-between align-middle items-start">
-          <div className="relative h-48 w-full">
-            <Image
-              src={Restaurant3}
-              alt="Elegant dining area with a view"
-              layout="fill"
-              objectFit="cover"
-            />
-          </div>
-          <CardContent className="p-6">
-            <h3
-              className={`${playfair.className} text-2xl text-emerald-800 mb-4`}
-            >
-              Exquisite Dining
-            </h3>
-            <p className="text-gray-600 mb-4">
-              Savor delectable cuisines at our on-site restaurants, featuring a
-              blend of local and international flavors. Enjoy your meals with
-              panoramic views of the Kasauli hills.
-            </p>
-          </CardContent>
-          <CardFooter>
-            <Link
-              href={"/Restaurant"}
-              className="text-emerald-700 hover:text-emerald-900 p-0 flex justify-center align-middle items-center"
-            >
-              Discover Dining Options
               <ChevronRight className="ml-1 h-4 w-4" />
             </Link>
           </CardFooter>

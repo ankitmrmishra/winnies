@@ -44,7 +44,7 @@ const amenities = [
   },
   {
     icon: <Hotel className="w-8 h-8 text-[#C5B358]" />,
-    title: "28 Rooms",
+    title: "65 Rooms",
     description:
       "Enjoy comfort in tastefully furnished rooms crafted to provide warmth, relaxation, and a memorable stay.",
   },

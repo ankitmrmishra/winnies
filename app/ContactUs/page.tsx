@@ -48,8 +48,8 @@ export default function ContactPage() {
   });
 
   const contactInfo = [
-    { name: "Mr Ravinder Rai", phones: ["+91-9805613130", "+91-9418141218"] },
     { name: "Mr Surender Singh", phones: ["+91-9805633007", "+91-9418020218"] },
+    { name: "Mr Ravinder Rai", phones: ["+91-9805613130", "+91-9418141218"] },
   ];
 
   const onSubmit = async (data: FormData) => {
@@ -187,7 +187,7 @@ export default function ContactPage() {
                   size="lg"
                   className="w-full bg-emerald-800 hover:bg-emerald-700 text-white"
                   onClick={() =>
-                    window.open("https://wa.me/919805613130", "_blank")
+                    window.open("https://wa.me/9805633007", "_blank")
                   }
                 >
                   Message us on WhatsApp

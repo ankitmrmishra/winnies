@@ -66,7 +66,7 @@ export const metadata: Metadata = {
     description:
       "Experience luxury and serenity at Winnies Holiday Resort and Spa in Kasauli. Perfect for vacations, weddings, and rejuvenating retreats.",
     images: ["https://winniesresort.vercel.app/og-image.jpg"],
-    creator: "@winniesresort",
+    creator: "@Ankitmishraexe",
   },
   robots: {
     index: true,
