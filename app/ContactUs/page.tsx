@@ -303,7 +303,9 @@ export default function ContactPage() {
                       <p className="font-semibold">HDFC Bank</p>
                       <p>Account Name: Winnies Holiday Inn</p>
                       <p>Account No: 03872000001938</p>
-                      <p>IFSC code: HDFC0000387</p>
+                      <p>IFSC code: HDFC0002900</p>
+
+                      <p>Branch: Dharampur</p>
                       <p>Current Account</p>
                     </div>
                   </div>

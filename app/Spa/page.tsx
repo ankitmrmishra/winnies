@@ -91,7 +91,7 @@ export default function SpaPage() {
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="text-center text-white">
             <h1 className={`text-4xl md:text-5xl font-bold mb-4 `}>
-              Gold Leaf Spa
+              Tender Leaves Spa & Wellness
             </h1>
             <p className="text-xl mb-8">
               Indulge in pure relaxation and rejuvenation

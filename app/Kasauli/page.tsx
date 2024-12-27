@@ -58,12 +58,12 @@ export default function KasauliPage() {
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div>
                 <p className="text-gray-600 leading-relaxed mb-4 text-xl">
-                  Set in the misty hills of Himachal Pradesh, Kasauli is a
-                  captivating retreat located 77 km from Shimla at an altitude
-                  of 1,927 meters. Founded by the British in the 19th century,
-                  it retains colonial charm with cobbled streets and historic
-                  architecture. Surrounded by pine forests, Kasauli offers
-                  stunning views of the Dhauladhar ranges and plains.
+                  Kasauli is a serene hill station in Himachal Pradesh, India,
+                  located at an altitude of approximately 1,927 meters (6,322
+                  feet). Known for its tranquil environment, colonial charm, and
+                  lush greenery, it is a popular destination for nature lovers
+                  and those seeking a peaceful getaway. Here are some key
+                  highlights about Kasauli:
                 </p>
                 <p className="text-gray-600 leading-relaxed mb-4 text-xl">
                   Kasauli is not just a destination, but an experience for those
@@ -103,9 +103,9 @@ export default function KasauliPage() {
                   className="object-cover   h-96 rounded-2xl"
                 />
                 <p className="text-xl text-white hidden group-hover:block font-semibold mb-4 absolute z-40 bottom-0">
-                  The highest point in Kasauli, offering panoramic views of
-                  Chandigarh and Kalka. It&apos;s especially beautiful during
-                  sunset.
+                  The highest point in Kasauli, offering breathtaking views of
+                  the surrounding valleys and the Sutlej River. It houses a
+                  temple dedicated to Lord Hanuman.
                 </p>
               </div>
               <div className="rounded-2xl p-6 bg-gray-50 relative group hover:cursor-pointer h-96">
@@ -120,8 +120,24 @@ export default function KasauliPage() {
                   className="rounded-xl w-full aspect-4/3 object-cover mb-4"
                 />
                 <p className="text-xl text-white hidden group-hover:block font-semibold mb-4 absolute z-40 bottom-0">
-                  A beautiful Anglican church built in 1844, featuring stained
-                  glass windows and a clock tower.
+                  A beautiful Anglican church built in 1853, showcasing
+                  neo-Gothic architecture.
+                </p>
+              </div>
+              <div className="rounded-2xl p-6 bg-gray-50 relative group hover:cursor-pointer h-96 ">
+                <div className="absolute inset-0 bg-black bg-opacity-50 group-hover:z-40 rounded-2xl" />
+                <h3 className="text-xl text-white hidden group-hover:block font-semibold mb-4 absolute z-40">
+                  Gilbert Trail
+                </h3>
+                <Image
+                  src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/81/db/e6/gilbert-trail.jpg?w=1000&h=-1&s=1"
+                  alt="Gilbert Trail"
+                  fill
+                  className="rounded-xl w-full aspect-4/3 object-cover mb-4"
+                />
+                <p className="text-xl text-white hidden group-hover:block font-semibold mb-4 absolute z-40 bottom-0">
+                  A picturesque nature trail ideal for birdwatching and walking
+                  amidst dense forests.
                 </p>
               </div>
               <div className="rounded-2xl p-6 bg-gray-50 relative group hover:cursor-pointer h-96 ">
@@ -136,8 +152,23 @@ export default function KasauliPage() {
                   className="rounded-xl w-full aspect-4/3 object-cover mb-4"
                 />
                 <p className="text-xl text-white hidden group-hover:block font-semibold mb-4 absolute z-40 bottom-0">
-                  A popular spot to watch the sun set over the Dhauladhar
-                  ranges, offering breathtaking views.
+                  Famous for its mesmerizing sunset views and tranquil ambiance.
+                </p>
+              </div>
+              <div className="rounded-2xl p-6 bg-gray-50 relative group hover:cursor-pointer h-96 ">
+                <div className="absolute inset-0 bg-black bg-opacity-50 group-hover:z-40 rounded-2xl" />
+                <h3 className="text-xl text-white hidden group-hover:block font-semibold mb-4 absolute z-40">
+                  Mall Road
+                </h3>
+                <Image
+                  src="https://www.holidify.com/images/cmsuploads/compressed/4543_20220709112016.jpg"
+                  alt="Sunset Point in Kasauli"
+                  fill
+                  className="rounded-xl w-full aspect-4/3 object-cover mb-4"
+                />
+                <p className="text-xl text-white hidden group-hover:block font-semibold mb-4 absolute z-40 bottom-0">
+                  A small stretch filled with shops, cafes, and local
+                  handicrafts, perfect for leisurely strolls and shopping.
                 </p>
               </div>
             </div>
@@ -186,12 +217,10 @@ export default function KasauliPage() {
                         className="space-y-6"
                       >
                         <p className="text-gray-600 text-lg">
-                          Kasauli enjoys a mild, temperate climate year-round,
-                          offering a perfect escape in every season. With its
-                          consistently pleasant weather and balanced
-                          temperatures, the town remains an inviting retreat,
-                          free from extreme conditions, for travelers seeking
-                          tranquility all year long.
+                          Kasauli enjoys a pleasant climate throughout the year.
+                          Summers (March to June) are mild and perfect for
+                          sightseeing, while winters (November to February)
+                          bring chilly weather, with occasional snowfall.
                         </p>
                         <div className="grid md:grid-cols-2 gap-6 text-white">
                           <div className="flex items-center gap-4 bg-emerald-800 p-4 rounded-lg shadow-sm">
