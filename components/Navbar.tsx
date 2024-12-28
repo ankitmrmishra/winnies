@@ -389,32 +389,37 @@ interface Room {
 export const roomsData: Room[] = [
   {
     id: "1",
-    title: "Deluxe Room",
+    title: "Deluxe Rooms",
     imageUrl: deluxroom,
   },
   {
     id: "2",
-    title: "Super Deluxe Room",
+    title: "Super Deluxe Rooms",
     imageUrl: superdeluxrooms,
   },
   {
     id: "3",
-    title: "Premium Room",
+    title: "Premium Valley View Rooms",
     imageUrl: premiumroom,
   },
   {
     id: "4",
-    title: "Two Bedroom Premium Suite",
-    imageUrl: PREMIUM2BEDROOMAPARTMENT,
+    title: "Premium Pool Deck Rooms",
+    imageUrl: POOLDECKPREMIUMROOMS,
   },
   {
     id: "5",
-    title: "Three Bedroom Suite",
-    imageUrl: deluxs3bedroom,
+    title: "2-Bedroom Premium Suite",
+    imageUrl: PREMIUM2BEDROOMAPARTMENT,
   },
   {
     id: "6",
-    title: "Two Bedroom Family Room",
-    imageUrl: POOLDECKPREMIUMROOMS,
+    title: "3-Bedroom Deluxe Suite",
+    imageUrl: deluxs3bedroom,
+  },
+  {
+    id: "7",
+    title: "Family Room",
+    imageUrl: deluxroom, // Using deluxe room image as a placeholder
   },
 ];

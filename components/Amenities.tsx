@@ -70,15 +70,20 @@ function Amenities() {
       >
         Amenities & Facilities
       </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-2 md:grid-cols-9 md:gap-6 gap-1 w-[85vw]  md:w-[85rem]">
         {amenities.map((amenity, index) => (
           <div
             key={index}
-            className="bg-white rounded-lg p-6 transition-transform hover:scale-[1.02]"
+            className="bg-green-800 rounded-lg p-6 transition-transform hover:scale-[1.02] hover:-translate-y-4 ease-in-out duration-500 hover:bg-white w-40 border border-white hover:border-green-800 group"
           >
-            <div className="flex items-start gap-4">
+            <div className="flex text-center flex-col justify-center align-middle items-center ">
               <div className="flex-shrink-0">{amenity.icon}</div>
-              <div className="space-y-2">
+              <h3
+                className={`text-2xl font-semibold text-white group-hover:text-green-800 ease-in-out duration-100  ${playfair.className}`}
+              >
+                {amenity.title}
+              </h3>
+              {/* <div className="space-y-2">
                 <h3
                   className={`text-2xl font-semibold text-emerald-800 ${playfair.className}`}
                 >
@@ -87,7 +92,7 @@ function Amenities() {
                 <p className="text-zinc-400 leading-relaxed">
                   {amenity.description}
                 </p>
-              </div>
+              </div> */}
             </div>
           </div>
         ))}

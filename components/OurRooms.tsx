@@ -4,14 +4,14 @@ import { motion } from "framer-motion";
 import { Plus, Users } from "lucide-react";
 import Autoplay from "embla-carousel-autoplay";
 import { Playfair_Display } from "next/font/google";
-import premiumroom from "../public/assets/PREMIUM ROOMS/room1.png";
-import deluxroom from "../public/assets/DelusxRooms/room1.png";
-import PREMIUM2BEDROOMAPARTMENT from "../public/assets/PREMIUM 2-BEDROOM APARTMENT/room1.png";
-import POOLDECKPREMIUMROOMS from "../public/assets/POOL DECK PREMIUM ROOMS/room1.png";
-import superdeluxrooms from "../public/assets/superdeluxrooms/room1.png";
-import deluxs3bedroom from "../public/assets/DELUXE 3-BEDROOM APARTMENT/image.png";
-
-// import DelusRoom from "../public/assets/DelusxRooms/K81A0514.jpg";
+import { useRouter } from "next/navigation";
+import deluxeRoom from "../public/assets/DelusxRooms/room1.png";
+import superDeluxeRoom from "../public/assets/superdeluxrooms/room1.png";
+import premiumValleyViewRoom from "../public/assets/PREMIUM ROOMS/room1.png";
+import premiumPoolDeckRoom from "../public/assets/POOL DECK PREMIUM ROOMS/room1.png";
+import twoBedroom from "../public/assets/PREMIUM 2-BEDROOM APARTMENT/room1.png";
+import threeBedroom from "../public/assets/DELUXE 3-BEDROOM APARTMENT/image.png";
+import familyRoom from "../public/assets/DelusxRooms/room1.png"; // Using deluxe room image as placeholder for family room
 
 const playfair = Playfair_Display({ subsets: ["latin"], style: ["italic"] });
 
@@ -32,21 +32,20 @@ interface RoomData {
   squareFeet: number;
   pricePerNight: number;
   maxGuests: number;
-  imageUrl: string | StaticImageData;
+  imageUrl: StaticImageData;
 }
 
 export const OurRooms = () => {
   return (
     <div className="bg-[#faf9f6] lg:p-20 md:p-10">
-      {" "}
-      <div className=" bg-emerald-900 md:rounded-lg rounded-t-lg text-white md:p-10 p-5 flex flex-col justify-center align-middle items-start gap-4 relative py-10">
+      <div className="bg-emerald-900 md:rounded-lg rounded-t-lg text-white md:p-10 p-5 flex flex-col justify-center align-middle items-start gap-4 relative py-10">
         <div className="text-green-300">Our Rooms</div>
         <div
-          className={`text-white md:text-5xl md:w-[30rem] font-bold text-3xl ${playfair.className} `}
+          className={`text-white md:text-5xl md:w-[30rem] font-bold text-3xl ${playfair.className}`}
         >
           Carefully designed luxury Rooms
         </div>
-        <div className=" w-full max-w-max     ">
+        <div className="w-full max-w-max">
           <Carousel
             opts={{
               align: "start",
@@ -56,13 +55,13 @@ export const OurRooms = () => {
                 delay: 2000,
               }),
             ]}
-            className=" max-w-max"
+            className="max-w-max"
           >
             <CarouselContent>
               {rooms.map((room, index) => (
                 <CarouselItem
                   key={index}
-                  className=" lg:basis-1/2 flex justify-center items-center "
+                  className="lg:basis-1/2 flex justify-center items-center"
                 >
                   <RoomCard room={room} />
                 </CarouselItem>
@@ -80,21 +79,26 @@ export const OurRooms = () => {
 };
 
 function RoomCard({ room }: { room: RoomData }) {
+  const router = useRouter();
+
+  const handleClick = () => {
+    router.push(`/rooms/${room.id}`);
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="bg-emerald-900 rounded-3xl overflow-hidden "
+      className="bg-emerald-900 rounded-3xl overflow-hidden cursor-pointer"
+      onClick={handleClick}
     >
       <div className="relative">
         <Image
           src={room.imageUrl}
           alt={room.title}
-          objectFit="cover"
-          className="w-full  h-[400px] object-cover"
+          className="w-full h-[400px] object-cover"
         />
-
         <motion.button
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
@@ -127,68 +131,79 @@ function RoomCard({ room }: { room: RoomData }) {
 const rooms: RoomData[] = [
   {
     id: "1",
-    title: "Deluxe Room",
+    title: "Deluxe Rooms",
     description:
-      "Embrace simplicity with comfort in our Deluxe Room, a cozy retreat perfect for unwinding with nature right outside your window.",
-    location: "123 El Capitan Meadows, El Capitan, CA",
-    squareFeet: 2553,
-    pricePerNight: 250,
+      "Experience comfort and style in our Deluxe Rooms, offering a perfect blend of modern amenities and cozy ambiance for a relaxing stay.",
+    location: "Main Building, 1st Floor",
+    squareFeet: 300,
+    pricePerNight: 200,
     maxGuests: 2,
-    imageUrl: deluxroom,
+    imageUrl: deluxeRoom,
   },
   {
     id: "2",
-    title: "Super Deluxe Room",
+    title: "Super Deluxe Rooms",
     description:
-      "A touch of luxury awaits in our Super Deluxe Room. Spacious, stylish, and designed for relaxation, it’s an ideal escape.",
-    location: "456 River View Road, Yosemite Valley, CA",
-    squareFeet: 2200,
-    pricePerNight: 275,
-    maxGuests: 3,
-    imageUrl: superdeluxrooms,
+      "Indulge in luxury with our Super Deluxe Rooms, featuring spacious interiors, premium furnishings, and enhanced amenities for an elevated experience.",
+    location: "Main Building, 2nd Floor",
+    squareFeet: 400,
+    pricePerNight: 250,
+    maxGuests: 2,
+    imageUrl: superDeluxeRoom,
   },
   {
     id: "3",
-    title: "Premium Room",
+    title: "Premium Valley View Rooms",
     description:
-      "Bask in elegance with our Premium Room’s sweeping views and refined interiors. A serene, uplifting experience curated just for you.",
-    location: "123 El Capitan Meadows, El Capitan, CA",
-    squareFeet: 2553,
-    pricePerNight: 250,
+      "Wake up to breathtaking valley views in our Premium Valley View Rooms, combining luxury with nature for an unforgettable stay.",
+    location: "East Wing, 3rd-5th Floors",
+    squareFeet: 450,
+    pricePerNight: 300,
     maxGuests: 2,
-    imageUrl: premiumroom,
+    imageUrl: premiumValleyViewRoom,
   },
   {
     id: "4",
-    title: "Two Bedroom Premium Suite",
+    title: "Premium Pool Deck Rooms",
     description:
-      "Ideal for family or friends, this suite offers connected rooms for shared moments and personal space – all in cozy luxury.",
-    location: "456 River View Road, Yosemite Valley, CA",
-    squareFeet: 2200,
+      "Enjoy direct access to our stunning pool area from these Premium Pool Deck Rooms, perfect for those who love to lounge and swim.",
+    location: "West Wing, Ground Floor",
+    squareFeet: 400,
     pricePerNight: 275,
-    maxGuests: 3,
-    imageUrl: PREMIUM2BEDROOMAPARTMENT,
+    maxGuests: 2,
+    imageUrl: premiumPoolDeckRoom,
   },
   {
     id: "5",
-    title: "Three Bedroom Suite",
+    title: "2-Bedroom Premium Suite",
     description:
-      "Gather in style in our Three Bedroom Suite, designed to feel like a private retreat for larger groups to relax and connect.",
-    location: "456 River View Road, Yosemite Valley, CA",
-    squareFeet: 2200,
-    pricePerNight: 275,
-    maxGuests: 3,
-    imageUrl: deluxs3bedroom,
+      "Ideal for families or groups, our 2-Bedroom Premium Suite offers ample space and luxury amenities for a comfortable and memorable stay.",
+    location: "North Tower, 6th-8th Floors",
+    squareFeet: 800,
+    pricePerNight: 500,
+    maxGuests: 4,
+    imageUrl: twoBedroom,
   },
   {
     id: "6",
-    title: "Two Bedroom Family Room",
+    title: "3-Bedroom Deluxe Suite",
     description:
-      "Perfect for families, this room combines private spaces with shared comfort. Enjoy quality time in a warm inviting setting.",
-    location: "456 River View Road, Yosemite Valley, CA",
-    squareFeet: 2200,
-    pricePerNight: 275,
-    maxGuests: 3,
-    imageUrl: POOLDECKPREMIUMROOMS,
+      "Experience the pinnacle of luxury in our spacious 3-Bedroom Deluxe Suite, perfect for larger groups or those seeking extra space and privacy.",
+    location: "North Tower, 9th-10th Floors",
+    squareFeet: 1200,
+    pricePerNight: 750,
+    maxGuests: 6,
+    imageUrl: threeBedroom,
+  },
+  {
+    id: "7",
+    title: "Family Room",
+    description:
+      "Our Family Rooms are designed with comfort and convenience in mind, offering a welcoming space for families to relax and create lasting memories together.",
+    location: "South Wing, 2nd-4th Floors",
+    squareFeet: 500,
+    pricePerNight: 350,
+    maxGuests: 4,
+    imageUrl: familyRoom,
   },
 ];

@@ -1,77 +1,107 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Playfair_Display, Inter } from "next/font/google";
 import { ChevronRight, ChevronLeft } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 
 const playfair = Playfair_Display({ subsets: ["latin"] });
 const inter = Inter({ subsets: ["latin"] });
 
-interface Experience {
-  id: string;
+interface Facility {
   title: string;
-  description: string;
-  activities: string[];
   image: string;
+  link: string;
+  description: string;
+  features: string[];
 }
 
-const experiences: Experience[] = [
+export const facilitiesData: Facility[] = [
   {
-    id: "nature",
-    title: "Nature Immersion",
-    description:
-      "Reconnect with the natural world through our curated outdoor experiences.",
-    activities: [
-      "Forest Bathing",
-      "Guided Nature Walks",
-      "Birdwatching Tours",
-      "Stargazing Nights",
-    ],
+    title: "Activities",
     image:
-      "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2560&q=80",
+      "https://images.unsplash.com/photo-1526976668912-1a811878dd37?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+    link: "Activities",
+    description:
+      "Experience a wide range of thrilling activities amidst the beautiful Kasauli hills.",
+    features: [
+      "High Ropes Course",
+      "Children's Play Area",
+      "Indoor Games Room",
+      "Modern Fitness Center",
+    ],
   },
   {
-    id: "wellness",
-    title: "Wellness & Relaxation",
-    description:
-      "Rejuvenate your body and mind with our range of wellness activities.",
-    activities: [
-      "Yoga Retreats",
-      "Meditation Sessions",
-      "Spa Treatments",
-      "Hot Spring Soaks",
-    ],
+    title: "Bar",
     image:
-      "https://images.unsplash.com/photo-1600334129128-685c5582fd35?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2560&q=80",
+      "https://images.unsplash.com/photo-1572116469696-31de0f17cc34?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80",
+    link: "Bar",
+    description:
+      "Enjoy premium spirits and stunning views at our sophisticated Cliffhouzz Bar.",
+    features: [
+      "Curated selection of fine whiskeys",
+      "Signature cocktails",
+      "Panoramic mountain vistas",
+      "Evening ambiance",
+    ],
   },
   {
-    id: "adventure",
-    title: "Adventure Pursuits",
-    description:
-      "Challenge yourself with exciting outdoor adventures in breathtaking landscapes.",
-    activities: [
-      "Mountain Biking",
-      "Rock Climbing",
-      "Whitewater Rafting",
-      "Zip-lining",
-    ],
+    title: "Meeting Halls",
     image:
-      "https://images.unsplash.com/photo-1551632811-561732d1e306?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2560&q=80",
+      "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80",
+    link: "Meetinghalls",
+    description:
+      "Transform your corporate events with our elegant conference facilities.",
+    features: [
+      "Flexible layouts for up to 150 attendees",
+      "State-of-the-art audiovisual equipment",
+      "High-speed internet",
+      "Customizable corporate packages",
+    ],
   },
   {
-    id: "culinary",
-    title: "Culinary Delights",
-    description:
-      "Embark on a gastronomic journey with our farm-to-table experiences.",
-    activities: [
-      "Cooking Classes",
-      "Wine Tasting",
-      "Foraging Expeditions",
-      "Gourmet Dinners",
-    ],
+    title: "Pool Area",
     image:
-      "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2560&q=80",
+      "https://images.unsplash.com/photo-1562778612-e1e0cda9915c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80",
+    link: "PoolSide",
+    description:
+      "Dive into serenity at our exquisite poolside retreat surrounded by nature.",
+    features: [
+      "Temperature-controlled pool",
+      "Comfortable loungers",
+      "Poolside service",
+      "Lush greenery surroundings",
+    ],
+  },
+  {
+    title: "Sky Deck",
+    image:
+      "https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+    link: "SkyDeck",
+    description:
+      "Experience dining at its finest with breathtaking views of Kasauli hills.",
+    features: [
+      "Open-air dining",
+      "Panoramic vistas",
+      "Fine cuisine",
+      "Perfect for special events",
+    ],
+  },
+  {
+    title: "Cozy Corners",
+    image:
+      "https://images.unsplash.com/photo-1602872030219-ad2b9a54315c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80",
+    link: "CozyCorners",
+    description:
+      "Discover intimate spaces designed for memorable moments and relaxation.",
+    features: [
+      "Fireside conversations",
+      "Private dining setups",
+      "Starlight experiences",
+      "Themed comfort zones",
+    ],
   },
 ];
 
@@ -79,14 +109,22 @@ const ResortExperiences: React.FC = () => {
   const [currentExperience, setCurrentExperience] = useState(0);
 
   const nextExperience = () => {
-    setCurrentExperience((prev) => (prev + 1) % experiences.length);
+    setCurrentExperience((prev) => (prev + 1) % facilitiesData.length);
   };
 
   const prevExperience = () => {
     setCurrentExperience(
-      (prev) => (prev - 1 + experiences.length) % experiences.length
+      (prev) => (prev - 1 + facilitiesData.length) % facilitiesData.length
     );
   };
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      nextExperience();
+    }, 5000); // Change experience every 5 seconds
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <section className="bg-[#faf9f6] py-16 px-4 md:px-0">
@@ -94,12 +132,12 @@ const ResortExperiences: React.FC = () => {
         <h2
           className={`text-4xl md:text-5xl text-center text-emerald-800 mb-12 ${playfair.className}`}
         >
-          Unforgettable Experiences
+          Resort Facilities
         </h2>
         <div className="relative">
           <AnimatePresence mode="wait">
             <motion.div
-              key={experiences[currentExperience].id}
+              key={facilitiesData[currentExperience].title}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
@@ -107,44 +145,50 @@ const ResortExperiences: React.FC = () => {
               className="flex flex-col md:flex-row items-center gap-8"
             >
               <div className="w-full md:w-1/2 aspect-video relative overflow-hidden rounded-lg shadow-xl">
-                <motion.img
-                  src={experiences[currentExperience].image}
-                  alt={experiences[currentExperience].title}
-                  className="w-full h-full object-cover"
-                  initial={{ scale: 1.1 }}
-                  animate={{ scale: 1 }}
-                  transition={{ duration: 0.5 }}
+                <Image
+                  src={facilitiesData[currentExperience].image}
+                  alt={facilitiesData[currentExperience].title}
+                  layout="fill"
+                  objectFit="cover"
                 />
               </div>
               <div className="w-full md:w-1/2 space-y-4">
                 <h3
                   className={`text-3xl text-emerald-700 ${playfair.className}`}
                 >
-                  {experiences[currentExperience].title}
+                  {facilitiesData[currentExperience].title}
                 </h3>
-                <p className={`text-lg text-gray-600 ${inter.className}`}>
-                  {experiences[currentExperience].description}
+                <p className={`text-gray-600 ${inter.className}`}>
+                  {facilitiesData[currentExperience].description}
                 </p>
                 <ul className={`space-y-2 ${inter.className}`}>
-                  {experiences[currentExperience].activities.map((activity) => (
-                    <motion.li
-                      key={activity}
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.5 }}
-                      className="flex items-center text-gray-700"
-                    >
-                      <ChevronRight className="w-5 h-5 text-emerald-500 mr-2" />
-                      {activity}
-                    </motion.li>
-                  ))}
+                  {facilitiesData[currentExperience].features.map(
+                    (feature, index) => (
+                      <motion.li
+                        key={index}
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.5, delay: index * 0.1 }}
+                        className="flex items-center text-gray-700"
+                      >
+                        <ChevronRight className="w-5 h-5 text-emerald-500 mr-2" />
+                        {feature}
+                      </motion.li>
+                    )
+                  )}
                 </ul>
+                <Link
+                  href={`/${facilitiesData[currentExperience].link}`}
+                  className={`inline-block bg-emerald-600 text-white px-6 py-2 rounded-full transition-colors hover:bg-emerald-700 ${inter.className}`}
+                >
+                  Learn More
+                </Link>
               </div>
             </motion.div>
           </AnimatePresence>
         </div>
         <div className="flex justify-center mt-8 space-x-2">
-          {experiences.map((_, index) => (
+          {facilitiesData.map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentExperience(index)}
@@ -153,22 +197,22 @@ const ResortExperiences: React.FC = () => {
                   ? "bg-emerald-600 scale-125"
                   : "bg-emerald-200"
               }`}
-              aria-label={`Go to experience ${index + 1}`}
+              aria-label={`Go to facility ${index + 1}`}
             />
           ))}
         </div>
         <div className="w-full flex justify-center align-middle items-center gap-8 mt-9">
           <button
             onClick={prevExperience}
-            className="  bg-opacity-50 hover:bg-opacity-75 rounded-full p-2  transition-all duration-300"
-            aria-label="Previous experience"
+            className="bg-opacity-50 hover:bg-opacity-75 rounded-full p-2 transition-all duration-300"
+            aria-label="Previous facility"
           >
             <ChevronLeft className="w-6 h-6 text-emerald-700" />
           </button>
           <button
             onClick={nextExperience}
-            className="left-28 transform   bg-opacity-50 hover:bg-opacity-75 rounded-full p-2  transition-all duration-300"
-            aria-label="Next experience"
+            className="bg-opacity-50 hover:bg-opacity-75 rounded-full p-2 transition-all duration-300"
+            aria-label="Next facility"
           >
             <ChevronRight className="w-6 h-6 text-emerald-700" />
           </button>

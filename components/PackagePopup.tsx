@@ -104,7 +104,7 @@ function PackageCard({ pkg }: { pkg: Package }) {
         <h3 className="text-xl font-semibold mb-4 text-emerald-800 italic">
           {pkg.title}
         </h3>
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-4">
+        <div className="flex md:flex-col flex-row items-start justify-between mb-4">
           <div className="flex items-center mb-2 sm:mb-0">
             <span className="text-2xl sm:text-3xl font-bold text-emerald-800">
               ₹{pkg.price}
