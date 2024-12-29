@@ -1,21 +1,55 @@
 "use client";
-
-import React from "react";
-import Image from "next/image";
+import React, { useState } from "react";
+import Image, { StaticImageData } from "next/image";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Playfair_Display } from "next/font/google";
-import { Coffee, Moon, Sun, Star } from "lucide-react";
+import { Coffee, Moon, Sun, Star, X } from "lucide-react";
 import Restaurant1 from "../../public/assets/Restaurant/DSC02111.jpg";
-// import Restaurant2 from "../../public/assets/Restaurant/DSC02112.jpg";
+
 import Restaurant3 from "../../public/assets/Restaurant/DSC02113.jpg";
-// import Restaurant4 from "../../public/assets/Restaurant/DSC02115.jpg";
-// import Restaurant5 from "../../public/assets/Restaurant/DSC02117.jpg";
-// import Restaurant6 from "../../public/assets/Restaurant/DSC02119.jpg";
+
+// Import all 16 menu images
+
+import Menu2 from "../../public/assets/Restaurant/2.jpg";
+import Menu3 from "../../public/assets/Restaurant/3.jpg";
+import Menu4 from "../../public/assets/Restaurant/4.jpg";
+import Menu5 from "../../public/assets/Restaurant/5.jpg";
+import Menu6 from "../../public/assets/Restaurant/6.jpg";
+import Menu7 from "../../public/assets/Restaurant/7.jpg";
+import Menu8 from "../../public/assets/Restaurant/8.jpg";
+import Menu9 from "../../public/assets/Restaurant/9.jpg";
+import Menu10 from "../../public/assets/Restaurant/10.jpg";
+import Menu11 from "../../public/assets/Restaurant/11.jpg";
+import Menu12 from "../../public/assets/Restaurant/12.jpg";
+import Menu13 from "../../public/assets/Restaurant/13.jpg";
+import Menu14 from "../../public/assets/Restaurant/14.jpg";
+import Menu15 from "../../public/assets/Restaurant/15.jpg";
+import Menu16 from "../../public/assets/Restaurant/16.jpg";
+import { Dialog } from "@/components/ui/dialog";
 
 const playfair = Playfair_Display({ subsets: ["latin"], style: ["italic"] });
 
+const menuImages = [
+  Menu2,
+  Menu3,
+  Menu4,
+  Menu5,
+  Menu6,
+  Menu7,
+  Menu8,
+  Menu9,
+  Menu10,
+  Menu11,
+  Menu12,
+  Menu13,
+  Menu14,
+  Menu15,
+  Menu16,
+];
+
 export default function RestaurantPage() {
+  const [selectedImage, setSelectedImage] = useState<StaticImageData>();
   const features = [
     {
       icon: Coffee,
@@ -44,10 +78,11 @@ export default function RestaurantPage() {
   ];
 
   return (
-    <div className="min-h-screen ">
+    <div className="min-h-screen">
+      {/* Hero Section */}
       <section className="relative min-h-screen">
         <Image
-          src={Restaurant3}
+          src={Restaurant1}
           alt="Winnies Resort Restaurant"
           layout="fill"
           objectFit="cover"
@@ -62,18 +97,13 @@ export default function RestaurantPage() {
             <p className="text-xl mb-8">
               Exquisite cuisine with a view to match
             </p>
-            {/* <Button
-              size="lg"
-              className="bg-emerald-800 hover:bg-emerald-700 text-white"
-            >
-              Reserve a Table
-            </Button> */}
           </div>
         </div>
       </section>
 
+      {/* Culinary Journey Section */}
       <section className="py-20 px-4 md:px-20">
-        <div className="container mx-auto max-w-5xl">
+        <div className="container mx-auto max-w-7xl">
           <motion.div
             className="text-center mb-16"
             initial={{ opacity: 0, y: 20 }}
@@ -89,9 +119,7 @@ export default function RestaurantPage() {
               Winnies Holiday Resort invites you to indulge in a truly
               unforgettable dining experience, where elegant interiors, stunning
               vistas, and an array of delectable dishes come together to awaken
-              your senses. Whether you&apos;re here for a romantic dinner, a
-              family gathering, or simply to enjoy a serene meal, we promise to
-              leave your taste buds delighted and your spirit refreshed.
+              your senses.
             </p>
           </motion.div>
 
@@ -133,7 +161,7 @@ export default function RestaurantPage() {
                       Chic Decor with Local Charm:
                     </span>{" "}
                     Sophisticated decor accented with regional touches creates a
-                    space that’s both stylish and welcoming.
+                    space that&apos;s both stylish and welcoming.
                   </div>
                 </li>
                 <li className="flex items-start">
@@ -258,6 +286,7 @@ export default function RestaurantPage() {
         </div>
       </section>
 
+      {/* Unique Dining Experiences Section */}
       <section className="py-20 bg-emerald-800 text-white md:px-20 px-5">
         <div className="container mx-auto max-w-5xl px-4 md:px-0">
           <motion.div
@@ -285,7 +314,7 @@ export default function RestaurantPage() {
               {
                 title: "Chef's Table",
                 description:
-                  "Enjoy an intimate meal crafted by our head chef’s expertise",
+                  "Enjoy an intimate meal crafted by our head chef's expertise",
               },
               {
                 title: "Local Flavors Night",
@@ -324,7 +353,62 @@ export default function RestaurantPage() {
             </Button>
           </motion.div>
         </div>
+        {/* Menu Gallery */}
+        <div className="mb-20 mt-20">
+          <h3
+            className={` ${playfair.className} text-white mb-8 text-center text-5xl`}
+          >
+            Our Menu
+          </h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {menuImages.map((img, index) => (
+              <motion.div
+                key={index}
+                className="relative aspect-[3/4] h-full w-full overflow-hidden rounded-lg shadow-lg hover:cursor-pointer "
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                onClick={() => setSelectedImage(img)}
+              >
+                <div className=" absolute w-full h-full bg-black/75 hover:opacity-100 z-10 opacity-0 text-center flex justify-center align-middle items-center ">
+                  OPEN
+                </div>
+                <Image
+                  src={img}
+                  alt={`Menu Image ${index + 1}`}
+                  layout="fill"
+                  objectFit="cover"
+                  className="transition-transform duration-300 hover:scale-110"
+                />
+              </motion.div>
+            ))}
+          </div>
+        </div>
       </section>
+      {selectedImage && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center">
+          <Dialog open={selectedImage !== null}>
+            <div className="fixed inset-0 bg-black/70" aria-hidden="true" />
+            <div className="relative bg-white rounded-lg max-w-3xl max-h-[100vh] overflow-hidden">
+              <button
+                onClick={() => setSelectedImage(undefined)}
+                className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
+              >
+                <X className="w-6 h-6" />
+              </button>
+              {selectedImage && (
+                <Image
+                  src={selectedImage}
+                  alt="Selected menu"
+                  width={500}
+                  height={500}
+                  className="object-contain"
+                />
+              )}
+            </div>
+          </Dialog>
+        </div>
+      )}
     </div>
   );
 }
