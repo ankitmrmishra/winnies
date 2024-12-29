@@ -4,15 +4,20 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Playfair_Display, Inter } from "next/font/google";
 import { ChevronRight, ChevronLeft } from "lucide-react";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
+import Activities from "../public/assets/Activities/ropewalking1.jpg";
+import Bar from "../public/assets/Bar/DSC02396.jpg";
+import cozycorners from "@/public/assets/CozyCorners/K81A0416-HDR.png";
+import Pool from "../public/assets/Pool/DSC02149.jpg";
+import Skydeck from "../public/assets/OpenDeck/DSC02105.jpg";
 
 const playfair = Playfair_Display({ subsets: ["latin"] });
 const inter = Inter({ subsets: ["latin"] });
 
 interface Facility {
   title: string;
-  image: string;
+  image: StaticImageData;
   link: string;
   description: string;
   features: string[];
@@ -21,8 +26,7 @@ interface Facility {
 export const facilitiesData: Facility[] = [
   {
     title: "Activities",
-    image:
-      "https://images.unsplash.com/photo-1526976668912-1a811878dd37?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+    image: Activities,
     link: "Activities",
     description:
       "Experience a wide range of thrilling activities amidst the beautiful Kasauli hills.",
@@ -35,8 +39,7 @@ export const facilitiesData: Facility[] = [
   },
   {
     title: "Bar",
-    image:
-      "https://images.unsplash.com/photo-1572116469696-31de0f17cc34?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80",
+    image: Bar,
     link: "Bar",
     description:
       "Enjoy premium spirits and stunning views at our sophisticated Cliffhouzz Bar.",
@@ -47,24 +50,10 @@ export const facilitiesData: Facility[] = [
       "Evening ambiance",
     ],
   },
-  {
-    title: "Meeting Halls",
-    image:
-      "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80",
-    link: "Meetinghalls",
-    description:
-      "Transform your corporate events with our elegant conference facilities.",
-    features: [
-      "Flexible layouts for up to 150 attendees",
-      "State-of-the-art audiovisual equipment",
-      "High-speed internet",
-      "Customizable corporate packages",
-    ],
-  },
+
   {
     title: "Pool Area",
-    image:
-      "https://images.unsplash.com/photo-1562778612-e1e0cda9915c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80",
+    image: Pool,
     link: "PoolSide",
     description:
       "Dive into serenity at our exquisite poolside retreat surrounded by nature.",
@@ -77,8 +66,7 @@ export const facilitiesData: Facility[] = [
   },
   {
     title: "Sky Deck",
-    image:
-      "https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+    image: Skydeck,
     link: "SkyDeck",
     description:
       "Experience dining at its finest with breathtaking views of Kasauli hills.",
@@ -91,8 +79,7 @@ export const facilitiesData: Facility[] = [
   },
   {
     title: "Cozy Corners",
-    image:
-      "https://images.unsplash.com/photo-1602872030219-ad2b9a54315c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80",
+    image: cozycorners,
     link: "CozyCorners",
     description:
       "Discover intimate spaces designed for memorable moments and relaxation.",

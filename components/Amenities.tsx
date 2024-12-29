@@ -48,12 +48,7 @@ const amenities = [
     description:
       "Enjoy comfort in tastefully furnished rooms crafted to provide warmth, relaxation, and a memorable stay.",
   },
-  {
-    icon: <GiRobe className="w-8 h-8 text-[#C5B358]" />,
-    title: "9 Amenities",
-    description:
-      "Enhance your stay with our diverse facilities, designed to cater to every need and desire.",
-  },
+
   {
     icon: <TreePine className="w-8 h-8 text-[#C5B358]" />,
     title: "12 Nature Sights",
@@ -64,19 +59,19 @@ const amenities = [
 
 function Amenities() {
   return (
-    <div className="bg-[#faf9f6] lg:px-24 md:px-10 px-3 py-16">
+    <div className="bg-[#faf9f6] lg:px-24 md:px-10 px-3 py-16 flex flex-col justify-center align-middle items-center">
       <h2
         className={`text-4xl md:text-5xl text-center text-emerald-800 font-heading mb-12 ${playfair.className}`}
       >
         Amenities & Facilities
       </h2>
-      <div className="grid grid-cols-2 md:grid-cols-9 md:gap-6 gap-1 w-[85vw]  md:w-[85rem]">
+      <div className="grid grid-cols-2 md:grid-cols-4 md:gap-6 gap-1 w-[85vw]  md:w-[40rem]">
         {amenities.map((amenity, index) => (
           <div
             key={index}
-            className="bg-green-800 rounded-lg p-6 transition-transform hover:scale-[1.02] hover:-translate-y-4 ease-in-out duration-500 hover:bg-white w-40 border border-white hover:border-green-800 group"
+            className="bg-green-800 rounded-lg p-6 transition-transform hover:scale-[1.02] hover:-translate-y-4 ease-in-out duration-500 hover:bg-white w-40 border border-white hover:border-green-800 group flex justify-center align-middle items-center"
           >
-            <div className="flex text-center flex-col justify-center align-middle items-center ">
+            <div className="flex text-center flex-col justify-center align-middle items-center  ">
               <div className="flex-shrink-0">{amenity.icon}</div>
               <h3
                 className={`text-2xl font-semibold text-white group-hover:text-green-800 ease-in-out duration-100  ${playfair.className}`}
