@@ -116,7 +116,7 @@ export default function Navbar() {
             >
               <Image
                 src={Logo}
-                className="size-20 ml-6"
+                className="md:size-20 size-16 ml-6"
                 objectFit="cover"
                 width={500}
                 height={500}
