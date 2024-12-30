@@ -50,6 +50,7 @@ const menuImages = [
 
 export default function RestaurantPage() {
   const [selectedImage, setSelectedImage] = useState<StaticImageData>();
+  const [showAllImages, setShowAllImages] = useState(false);
   const features = [
     {
       icon: Coffee,
@@ -169,7 +170,7 @@ export default function RestaurantPage() {
                   <div className="w-full">
                     <span className="font-bold">Ambient Lighting: </span> Enjoy
                     a warm glow that enhances the intimate atmosphere, perfect
-                    for relaxed conversations and meaningful moments.
+                    for relaxed conversations and meaningful moments
                   </div>
                 </li>
                 <li className="flex items-start">
@@ -361,28 +362,41 @@ export default function RestaurantPage() {
             Our Menu
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {menuImages.map((img, index) => (
-              <motion.div
-                key={index}
-                className="relative aspect-[3/4] h-full w-full overflow-hidden rounded-lg shadow-lg hover:cursor-pointer "
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                onClick={() => setSelectedImage(img)}
-              >
-                <div className=" absolute w-full h-full bg-black/75 hover:opacity-100 z-10 opacity-0 text-center flex justify-center align-middle items-center ">
-                  OPEN
-                </div>
-                <Image
-                  src={img}
-                  alt={`Menu Image ${index + 1}`}
-                  layout="fill"
-                  objectFit="cover"
-                  className="transition-transform duration-300 hover:scale-110"
-                />
-              </motion.div>
-            ))}
+            {menuImages
+              .slice(0, showAllImages ? menuImages.length : 6)
+              .map((img, index) => (
+                <motion.div
+                  key={index}
+                  className="relative aspect-[3/4] h-full w-full overflow-hidden rounded-lg shadow-lg hover:cursor-pointer"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  onClick={() => setSelectedImage(img)}
+                >
+                  <div className="absolute w-full h-full bg-black/75 hover:opacity-100 z-10 opacity-0 text-center flex justify-center align-middle items-center">
+                    OPEN
+                  </div>
+                  <Image
+                    src={img}
+                    alt={`Menu Image ${index + 1}`}
+                    layout="fill"
+                    objectFit="cover"
+                    className="transition-transform duration-300 hover:scale-110"
+                  />
+                </motion.div>
+              ))}
           </div>
+          {!showAllImages && (
+            <div className="text-center mt-8">
+              <Button
+                onClick={() => setShowAllImages(true)}
+                size="lg"
+                className="bg-white text-emerald-800 hover:bg-gray-100"
+              >
+                See More
+              </Button>
+            </div>
+          )}
         </div>
       </section>
       {selectedImage && (
