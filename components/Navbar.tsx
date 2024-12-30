@@ -116,9 +116,10 @@ export default function Navbar() {
             >
               <Image
                 src={Logo}
+                className="size-20 ml-6"
                 objectFit="cover"
-                width={200}
-                height={200}
+                width={500}
+                height={500}
                 alt=""
               />
             </motion.a>
