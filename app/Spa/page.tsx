@@ -5,12 +5,23 @@ import Image, { StaticImageData } from "next/image";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Playfair_Display } from "next/font/google";
-import { Leaf, Clock, DollarSign } from "lucide-react";
+import { Leaf, Clock, DollarSign, X } from "lucide-react";
 import Spa from "../../public/assets/Spa/Spa2.png";
 import Spaa from "../../public/assets/Spa/image.png";
 import Spa1 from "../../public/assets/Spa/DSC02358.jpg";
 import Spa2 from "../../public/assets/Spa/DSC02367.jpg";
 import Spa3 from "../../public/assets/Spa/DSC02371.jpg";
+import Menu1 from "../../public/assets/Spa/1.jpg";
+import Menu2 from "../../public/assets/Spa/2.jpg";
+import Menu3 from "../../public/assets/Spa/3.jpg";
+import Menu4 from "../../public/assets/Spa/4.jpg";
+import Menu5 from "../../public/assets/Spa/5.jpg";
+import Menu6 from "../../public/assets/Spa/6.jpg";
+import Menu7 from "../../public/assets/Spa/7.jpg";
+import Menu8 from "../../public/assets/Spa/8.jpg";
+import Menu9 from "../../public/assets/Spa/9.jpg";
+import Menu10 from "../../public/assets/Spa/10.jpg";
+import { Dialog } from "@/components/ui/dialog";
 
 const playfair = Playfair_Display({ subsets: ["latin"] });
 
@@ -25,8 +36,24 @@ interface MassageType {
   description: string;
 }
 
+const menuImages = [
+  Menu1,
+  Menu2,
+  Menu3,
+  Menu4,
+  Menu5,
+  Menu6,
+  Menu7,
+  Menu8,
+  Menu9,
+  Menu10,
+];
+
 export default function SpaPage() {
   const [selectedImage, setSelectedImage] = useState<ImageType | null>(null);
+  const [showAllMenuImages, setShowAllMenuImages] = useState(false);
+  const [selectedMenuImage, setSelectedMenuImage] =
+    useState<StaticImageData | null>(null);
 
   const images: ImageType[] = [
     { src: Spaa },
@@ -235,6 +262,56 @@ export default function SpaPage() {
         </div>
       </section>
 
+      <section id="menu" className="py-20 md:px-20 bg-emerald-800 text-white">
+        <div className="container mx-auto px-4">
+          <motion.h2
+            className={`text-4xl md:text-5xl ${playfair.className} text-center mb-6`}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            Our Spa Menu
+          </motion.h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+            {menuImages
+              .slice(0, showAllMenuImages ? menuImages.length : 6)
+              .map((img, index) => (
+                <motion.div
+                  key={index}
+                  className="relative aspect-[3/4] h-full w-full overflow-hidden rounded-lg shadow-lg hover:cursor-pointer"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  onClick={() => setSelectedMenuImage(img)}
+                >
+                  <div className="absolute w-full h-full bg-black/75 hover:opacity-100 z-10 opacity-0 text-center flex justify-center align-middle items-center">
+                    OPEN
+                  </div>
+                  <Image
+                    src={img}
+                    alt={`Menu Image ${index + 1}`}
+                    layout="fill"
+                    objectFit="cover"
+                    className="transition-transform duration-300 hover:scale-110 h-full"
+                  />
+                </motion.div>
+              ))}
+          </div>
+          {!showAllMenuImages && (
+            <div className="text-center mt-8">
+              <Button
+                onClick={() => setShowAllMenuImages(true)}
+                size="lg"
+                className="bg-white text-emerald-800 hover:bg-gray-100"
+              >
+                See More
+              </Button>
+            </div>
+          )}
+        </div>
+      </section>
+
       <section id="gallery" className="py-20 rounded-2xl md:px-20">
         <div className="container mx-auto px-4">
           <motion.h2
@@ -301,6 +378,31 @@ export default function SpaPage() {
             </button>
           </motion.div>
         </motion.div>
+      )}
+
+      {selectedMenuImage && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center">
+          <Dialog open={selectedMenuImage !== null}>
+            <div className="fixed inset-0 bg-black/70" aria-hidden="true" />
+            <div className="relative bg-white/75 rounded-lg max-w-3xl max-h-[100vh] overflow-hidden">
+              <button
+                onClick={() => setSelectedMenuImage(null)}
+                className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
+              >
+                <X className="w-6 h-6" />
+              </button>
+              {selectedMenuImage && (
+                <Image
+                  src={selectedMenuImage}
+                  alt="Selected menu"
+                  width={500}
+                  height={500}
+                  className="object-contain size-[45rem]"
+                />
+              )}
+            </div>
+          </Dialog>
+        </div>
       )}
     </div>
   );
