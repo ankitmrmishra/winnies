@@ -367,7 +367,7 @@ export default function RestaurantPage() {
               .map((img, index) => (
                 <motion.div
                   key={index}
-                  className="relative aspect-[3/4] h-full w-full overflow-hidden rounded-lg shadow-lg hover:cursor-pointer"
+                  className="relative aspect-[3/4] h-full w-full overflow-hidden rounded-lg  hover:cursor-pointer"
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -379,9 +379,9 @@ export default function RestaurantPage() {
                   <Image
                     src={img}
                     alt={`Menu Image ${index + 1}`}
-                    layout="fill"
-                    objectFit="cover"
-                    className="transition-transform duration-300 hover:scale-110"
+                    width={800}
+                    height={800}
+                    className="transition-transform duration-300 hover:scale-110 object-contain h-full"
                   />
                 </motion.div>
               ))}

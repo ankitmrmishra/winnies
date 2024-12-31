@@ -279,7 +279,7 @@ export default function SpaPage() {
               .map((img, index) => (
                 <motion.div
                   key={index}
-                  className="relative aspect-[3/4] h-full w-full overflow-hidden rounded-lg shadow-lg hover:cursor-pointer"
+                  className="relative aspect-[3/4] h-[50rem] w-full overflow-hidden rounded-lg hover:cursor-pointer"
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -291,9 +291,9 @@ export default function SpaPage() {
                   <Image
                     src={img}
                     alt={`Menu Image ${index + 1}`}
-                    layout="fill"
-                    objectFit="cover"
-                    className="transition-transform duration-300 hover:scale-110 h-full"
+                    height={800}
+                    width={800}
+                    className="transition-transform duration-300 hover:scale-110 h-full object-contain"
                   />
                 </motion.div>
               ))}
@@ -397,7 +397,7 @@ export default function SpaPage() {
                   alt="Selected menu"
                   width={500}
                   height={500}
-                  className="object-contain size-[45rem]"
+                  className="object-contain h-[45rem] max-w-max"
                 />
               )}
             </div>
