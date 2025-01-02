@@ -1,5 +1,6 @@
 import { About } from "@/components/About";
 import Amenities from "@/components/Amenities";
+import BookingForm from "@/components/CalenderBook";
 import CTA from "@/components/CTA";
 import ExperiencesGrid from "@/components/Experience";
 
@@ -13,6 +14,7 @@ export default function Home() {
   return (
     <div className="">
       <HeroComponent />
+      <BookingForm />
       <About />
       <OurMVPS />
       <ExperiencesGrid />
