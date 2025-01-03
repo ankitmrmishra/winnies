@@ -12,6 +12,7 @@ import {
   Moon,
   Coffee,
   Wifi,
+  ChevronRight,
 } from "lucide-react";
 import Link from "next/link";
 import Image, { StaticImageData } from "next/image";
@@ -34,6 +35,7 @@ import PREMIUM2BEDROOMAPARTMENT from "../../../public/assets/PREMIUM 2-BEDROOM A
 import POOLDECKPREMIUMROOMS from "../../../public/assets/POOL DECK PREMIUM ROOMS/room1.png";
 import superdeluxrooms from "../../../public/assets/superdeluxrooms/room1.png";
 import deluxs3bedroom from "../../../public/assets/DELUXE 3-BEDROOM APARTMENT/image.png";
+import { useRouter } from "next/navigation";
 
 const playfair = Playfair_Display({ subsets: ["latin"] });
 
@@ -375,6 +377,7 @@ function DynamicRoomInfo({ room }: { room: RoomData }) {
 }
 
 export default function RoomPage({ params }: PageProps) {
+  const router = useRouter();
   const plugin = React.useRef(
     Autoplay({ delay: 2000, stopOnInteraction: true })
   );
@@ -470,8 +473,16 @@ export default function RoomPage({ params }: PageProps) {
                   / night
                 </span>
               </p>
-              <Button className="bg-emerald-700 hover:bg-emerald-800 text-white px-6 py-3 rounded-full transition-colors text-lg">
+              <Button
+                onClick={() =>
+                  router.push(
+                    "https://bookings.resavenue.com/resBooking/availsearch?regCode=GATE0402"
+                  )
+                }
+                className="w-full bg-emerald-800 hover:bg-emerald-700 text-white"
+              >
                 Book Now
+                <ChevronRight className="ml-2 h-4 w-4" />
               </Button>
             </div>
           </div>

@@ -5,7 +5,15 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Playfair_Display } from "next/font/google";
-import { Calendar, Coffee, Utensils, Users, Clock } from "lucide-react";
+import {
+  Calendar,
+  Coffee,
+  Utensils,
+  Users,
+  Clock,
+  ChevronRight,
+} from "lucide-react";
+import { useRouter } from "next/navigation";
 
 const playfair = Playfair_Display({ subsets: ["latin"], style: ["italic"] });
 
@@ -100,6 +108,8 @@ export default function PackagePage() {
     },
   ];
 
+  const router = useRouter();
+
   return (
     <div className="min-h-screen ">
       <section className="relative h-[100vh]">
@@ -118,10 +128,15 @@ export default function PackagePage() {
               Experience luxury at Winnies Resort and Spa
             </p>
             <Button
-              size="lg"
-              className="text-white border-white bg-emerald-800 hover:bg-white hover:text-black"
+              onClick={() =>
+                router.push(
+                  "https://bookings.resavenue.com/resBooking/availsearch?regCode=GATE0402"
+                )
+              }
+              className="w-full bg-emerald-800 hover:bg-emerald-700 text-white"
             >
               Book Now
+              <ChevronRight className="ml-2 h-4 w-4" />
             </Button>
           </div>
         </div>
@@ -190,8 +205,16 @@ export default function PackagePage() {
                     </li>
                   ))}
                 </ul>
-                <Button className="w-full bg-emerald-800 hover:bg-emerald-700">
+                <Button
+                  onClick={() =>
+                    router.push(
+                      "https://bookings.resavenue.com/resBooking/availsearch?regCode=GATE0402"
+                    )
+                  }
+                  className="w-full bg-emerald-800 hover:bg-emerald-700 text-white"
+                >
                   Book Now
+                  <ChevronRight className="ml-2 h-4 w-4" />
                 </Button>
               </motion.div>
             ))}
@@ -240,8 +263,16 @@ export default function PackagePage() {
                     </li>
                   ))}
                 </ul>
-                <Button className="w-full bg-emerald-800 hover:bg-emerald-700">
+                <Button
+                  onClick={() =>
+                    router.push(
+                      "https://bookings.resavenue.com/resBooking/availsearch?regCode=GATE0402"
+                    )
+                  }
+                  className="w-full bg-emerald-800 hover:bg-emerald-700 text-white"
+                >
                   Book Now
+                  <ChevronRight className="ml-2 h-4 w-4" />
                 </Button>
               </motion.div>
             ))}

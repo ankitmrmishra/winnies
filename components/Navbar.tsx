@@ -14,6 +14,7 @@ import POOLDECKPREMIUMROOMS from "../public/assets/POOL DECK PREMIUM ROOMS/room1
 import superdeluxrooms from "../public/assets/superdeluxrooms/room1.png";
 import deluxs3bedroom from "../public/assets/DELUXE 3-BEDROOM APARTMENT/image.png";
 import Logo from "../public/assets/LOGO.png";
+import { useRouter } from "next/navigation";
 
 interface Facility {
   title: string;
@@ -92,6 +93,7 @@ export default function Navbar() {
     };
   }, []);
 
+  const router = useRouter();
   return (
     <div className="sticky z-50 " ref={navRef}>
       <motion.nav
@@ -227,7 +229,14 @@ export default function Navbar() {
             </div>
 
             {/* Book Now Button */}
-            <Button className=" bg-emerald-700 text-white hover:bg-emerald-800">
+            <Button
+              onClick={() =>
+                router.push(
+                  "https://bookings.resavenue.com/resBooking/availsearch?regCode=GATE0402"
+                )
+              }
+              className=" bg-emerald-800 hover:bg-emerald-700 text-white"
+            >
               Book Now
             </Button>
 

@@ -60,7 +60,7 @@ const BookingForm = () => {
   };
 
   return (
-    <div className="md:px-[10rem]px-2 mt-3">
+    <div className="md:px-[10rem] px-2 mt-3">
       <div className="w-full bg-[#0B3B2D] text-white rounded-lg shadow-xl overflow-hidden">
         <form onSubmit={handleSubmit} className="p-6 md:p-8 lg:p-10">
           <div className="grid gap-2 md:grid-cols-[1fr_auto_1fr_auto_1fr]">

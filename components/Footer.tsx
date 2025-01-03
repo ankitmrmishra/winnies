@@ -1,3 +1,4 @@
+"use client";
 import {
   Facebook,
   Globe,
@@ -9,6 +10,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { useRouter } from "next/navigation";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -41,6 +43,8 @@ export default function Footer() {
     { Icon: Instagram, href: "#" },
     { Icon: Linkedin, href: "#" },
   ];
+
+  const router = useRouter();
 
   return (
     <div className="lg:p-20 bg-[#faf9f6]">
@@ -138,7 +142,14 @@ export default function Footer() {
             {/* Logo and CTA */}
             <div className="space-y-4">
               <div className="text-2xl font-bold">Winnies</div>
-              <Button className="bg-white text-[#0B3B2D] hover:bg-gray-100">
+              <Button
+                onClick={() =>
+                  router.push(
+                    "https://bookings.resavenue.com/resBooking/availsearch?regCode=GATE0402"
+                  )
+                }
+                className="bg-white text-[#0B3B2D] hover:bg-gray-100"
+              >
                 Reserve now
               </Button>
             </div>

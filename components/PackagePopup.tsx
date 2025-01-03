@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { packages } from "@/data/packages";
+import { useRouter } from "next/navigation";
 
 export function PackageModal() {
   const [isOpen, setIsOpen] = useState(false);
@@ -93,6 +94,7 @@ export interface Package {
 }
 
 function PackageCard({ pkg }: { pkg: Package }) {
+  const router = useRouter();
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -125,7 +127,14 @@ function PackageCard({ pkg }: { pkg: Package }) {
           ))}
         </ul>
       </div>
-      <Button className="w-full bg-emerald-800 hover:bg-emerald-700 text-white">
+      <Button
+        onClick={() =>
+          router.push(
+            "https://bookings.resavenue.com/resBooking/availsearch?regCode=GATE0402"
+          )
+        }
+        className="w-full bg-emerald-800 hover:bg-emerald-700 text-white"
+      >
         Book Now
       </Button>
     </motion.div>

@@ -2,10 +2,13 @@
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { useRouter } from "next/navigation";
 
 export default function CTA() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
+
+  const router = useRouter();
 
   return (
     <div className="lg:p-20 md:p-20 bg-[#faf9f6] p-5 ">
@@ -55,10 +58,18 @@ export default function CTA() {
               transition={{ delay: 0.6, duration: 0.5 }}
               className="flex flex-col sm:flex-row gap-4"
             >
-              <Button className="bg-white text-black hover:bg-white/90 text-base px-8 py-3 rounded-full">
-                Reserve now
+              <Button
+                className="bg-white text-black hover:bg-white/90 text-base px-8 py-3 rounded-full"
+                onClick={() =>
+                  router.push(
+                    "https://bookings.resavenue.com/resBooking/availsearch?regCode=GATE0402"
+                  )
+                }
+              >
+                Reserve Now
               </Button>
               <Button
+                onClick={() => router.push("/rooms")}
                 variant="outline"
                 className="border-2 border-emerald-800 text-white bg-transparent hover:bg-white text-base px-8 py-3 rounded-full"
               >

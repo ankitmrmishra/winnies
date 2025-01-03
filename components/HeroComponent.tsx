@@ -8,8 +8,10 @@ import Image from "next/image";
 const playfair = Playfair_Display({ subsets: ["latin"] });
 
 import MainImage from "../public/assets/MainImage.jpg";
+import { useRouter } from "next/navigation";
 
 export const HeroComponent = () => {
+  const router = useRouter();
   return (
     <div className="h-screen relative">
       <Image
@@ -33,7 +35,14 @@ export const HeroComponent = () => {
           Discover serenity at{" "}
           <span className="text-emerald-400">Winnies Resort</span>
         </p>
-        <Button className="bg-emerald-700 text-white hover:bg-emerald-500">
+        <Button
+          onClick={() =>
+            router.push(
+              "https://bookings.resavenue.com/resBooking/availsearch?regCode=GATE0402"
+            )
+          }
+          className=" bg-emerald-800 hover:bg-emerald-700 text-white"
+        >
           Book Now
           <ChevronRight className="ml-2 h-4 w-4" />
         </Button>
