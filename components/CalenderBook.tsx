@@ -60,20 +60,20 @@ const BookingForm = () => {
   };
 
   return (
-    <div className="md:px-[10rem] px-2 mt-3">
-      <div className="w-full bg-[#0B3B2D] text-white rounded-lg shadow-xl overflow-hidden">
-        <form onSubmit={handleSubmit} className="p-6 md:p-8 lg:p-10">
-          <div className="grid gap-2 md:grid-cols-[1fr_auto_1fr_auto_1fr]">
+    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-3">
+      <div className="bg-[#0B3B2D] text-white rounded-lg shadow-xl overflow-hidden">
+        <form onSubmit={handleSubmit} className="p-4 sm:p-6">
+          <div className="grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1fr_auto_1fr_auto_1fr] items-end">
             {/* Heading */}
-            <div className="md:col-span-1">
-              <h2 className="text-lg md:text-xl font-bold mb-2">
+            <div className="sm:col-span-2 lg:col-span-1 mb-2 lg:mb-0">
+              <h2 className="text-lg sm:text-xl font-bold leading-tight">
                 BOOK YOUR
                 <span className="block text-[#FFA500]">IDEAL STAY</span>
               </h2>
             </div>
 
             {/* Check-in Date */}
-            <div className="relative md:col-span-1">
+            <div className="relative">
               <label className="block text-sm font-medium mb-1">CHECK-IN</label>
               <div className="relative">
                 <input
@@ -81,26 +81,26 @@ const BookingForm = () => {
                   value={checkInDate}
                   onChange={handleCheckInChange}
                   min={format(today, "yyyy-MM-dd")}
-                  className={`w-full bg-transparent border-2 rounded-lg px-4 py-2 appearance-none ${
+                  className={`w-full bg-transparent border rounded-md px-3 py-2 appearance-none text-sm ${
                     error.checkIn ? "border-red-500" : "border-gray-400"
                   }`}
                 />
-                <Calendar className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none" />
+                <Calendar className="absolute right-2 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
               </div>
               {error.checkIn && (
-                <p className="mt-1 text-sm text-red-500">
+                <p className="mt-1 text-xs text-red-500">
                   Check-in date is required.
                 </p>
               )}
             </div>
 
             {/* Separator */}
-            <div className="hidden md:flex items-center justify-center">
-              <div className="w-px h-10 bg-gray-400"></div>
+            <div className="hidden lg:flex items-center justify-center">
+              <div className="w-px h-8 bg-gray-400"></div>
             </div>
 
             {/* Check-out Date */}
-            <div className="relative md:col-span-1">
+            <div className="relative">
               <label className="block text-sm font-medium mb-1">
                 CHECK-OUT
               </label>
@@ -110,14 +110,14 @@ const BookingForm = () => {
                   value={checkOutDate}
                   onChange={handleCheckOutChange}
                   min={format(addDays(parseISO(checkInDate), 1), "yyyy-MM-dd")}
-                  className={`w-full bg-transparent border-2 rounded-lg px-4 py-2 appearance-none ${
+                  className={`w-full bg-transparent border rounded-md px-3 py-2 appearance-none text-sm ${
                     error.checkOut ? "border-red-500" : "border-gray-400"
                   }`}
                 />
-                <Calendar className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none" />
+                <Calendar className="absolute right-2 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
               </div>
               {error.checkOut && (
-                <p className="mt-1 text-sm text-red-500">
+                <p className="mt-1 text-xs text-red-500">
                   Check-out date is required.
                 </p>
               )}
@@ -126,7 +126,7 @@ const BookingForm = () => {
             {/* Book Now Button */}
             <button
               type="submit"
-              className="md:col-span-1 bg-[#FFA500] text-white px-8 py-3 rounded-lg hover:bg-[#ff9100] transition-colors duration-200 font-semibold text-center h-fit self-end"
+              className="w-full sm:w-auto bg-[#FFA500] text-white px-6 py-2 rounded-md hover:bg-[#ff9100] transition-colors duration-200 font-semibold text-sm"
             >
               BOOK NOW
             </button>
