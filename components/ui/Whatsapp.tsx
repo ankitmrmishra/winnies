@@ -10,7 +10,7 @@ export const Whatsapp = () => {
         <Button
           size="icon"
           className="w-full bg-emerald-500 hover:bg-emerald-700 text-white px-2 py-3"
-          onClick={() => window.open("https://wa.me/9805633007", "_blank")}
+          onClick={() => window.open("https://wa.me/+919805633007", "_blank")}
         >
           <BsWhatsapp />
           Message us
