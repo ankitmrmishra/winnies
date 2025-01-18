@@ -53,47 +53,47 @@ interface RoomData {
   policies: { [key: string]: string };
 }
 
-const roomsData: RoomData[] = [
+const roomsData = [
   {
     id: "1",
-    title: "Deluxe Rooms with Valley View (AC Rooms)",
+    title: "Deluxe Rooms",
     description:
-      "Located in a separate block, these rooms offer valley views from the sit-outs. Each room is equipped with modern amenities such as LED TVs, tea/coffee makers, and air conditioning.",
+      "A cozy and comfortable space with essential amenities for a relaxing stay.",
     location: "Winnie's Retreat, Kasauli, Himachal Pradesh, India",
-    squareFeet: 350,
-    pricePerNight: 5000,
+    squareFeet: 144,
+    pricePerNight: 6000,
+    priceDetails: "+ Taxes",
     maxGuests: 2,
     imageUrl: deluxroom,
     amenities: [
       "Valley view",
       "Sit-out balcony",
       "AC rooms",
-      "LED TV with Tata Sky",
-      "Tea/coffee maker",
+      "LED TV",
       "Room service",
     ],
     features: ["Daily housekeeping", "Complimentary breakfast"],
     policies: {
-      "Check-in": "2:00 PM",
-      "Check-out": "12:00 PM",
-      Cancellation: "Free cancellation up to 48 hours before check-in",
-      Pets: "Not allowed",
+      "Check-in": "1:00 PM",
+      "Check-out": "11:00 AM",
+      Cancellation: "Free cancellation up to 72 hours before check-in",
+      Pets: "Allowed",
       Smoking: "Non-smoking room",
     },
   },
   {
     id: "2",
-    title: "Super Deluxe Valley Facing (Centrally Heated/Cooled Rooms)",
+    title: "Super Deluxe Rooms",
     description:
-      "These rooms offer stunning valley views from the sit-outs, with ceilings crafted from imported European Pine wood that perfectly complements the wooden flooring, creating a warm and luxurious atmosphere.",
+      "Spacious and luxurious rooms with elegant interiors and valley views.",
     location: "Winnie's Retreat, Kasauli, Himachal Pradesh, India",
-    squareFeet: 400,
+    squareFeet: 210,
     pricePerNight: 6500,
+    priceDetails: "+ Taxes",
     maxGuests: 2,
     imageUrl: superdeluxrooms,
     amenities: [
       "Valley-facing sit-out",
-      "European Pine wood ceilings",
       "Wooden flooring",
       "Centrally heated/cooled",
       "Free Wi-Fi",
@@ -101,27 +101,26 @@ const roomsData: RoomData[] = [
     ],
     features: ["Daily housekeeping", "Complimentary breakfast"],
     policies: {
-      "Check-in": "2:00 PM",
-      "Check-out": "12:00 PM",
-      Cancellation: "Free cancellation up to 48 hours before check-in",
+      "Check-in": "1:00 PM",
+      "Check-out": "11:00 AM",
+      Cancellation: "Free cancellation up to 72 hours before check-in",
       Pets: "Not allowed",
       Smoking: "Non-smoking room",
     },
   },
   {
     id: "3",
-    title: "All Wooden Premium Rooms with Jacuzzi (Valley Facing)",
-    description:
-      "Located at the top of the hill, these centrally heated/cooled rooms offer unmatched views of the valley. Made entirely of natural pine wood, the rooms feature luxurious washrooms equipped with Jacuzzis, creating a perfect blend of luxury and nature.",
+    title: "Premium Valley View Room",
+    description: "Stylish and luxurious rooms offering stunning valley views.",
     location: "Winnie's Retreat, Kasauli, Himachal Pradesh, India",
-    squareFeet: 450,
-    pricePerNight: 8000,
+    squareFeet: 215,
+    pricePerNight: 7499,
+    priceDetails: "+ Taxes",
     maxGuests: 2,
     imageUrl: premiumroom,
     amenities: [
       "King-size bed",
       "Jacuzzi-equipped bathroom",
-      "Natural pinewood interiors",
       "Valley-facing sit-out",
       "Centrally heated/cooled",
       "Free Wi-Fi",
@@ -132,21 +131,22 @@ const roomsData: RoomData[] = [
       "In-room dining",
     ],
     policies: {
-      "Check-in": "2:00 PM",
-      "Check-out": "12:00 PM",
-      Cancellation: "Free cancellation up to 48 hours before check-in",
+      "Check-in": "1:00 PM",
+      "Check-out": "11:00 AM",
+      Cancellation: "Free cancellation up to 72 hours before check-in",
       Pets: "Not allowed",
       Smoking: "Non-smoking room",
     },
   },
   {
     id: "4",
-    title: "Pool Deck Premium Rooms",
+    title: "Premium Pool Deck Rooms",
     description:
-      "Experience luxury with our Pool Deck Premium Rooms, offering direct access to the pool area and stunning views. These rooms combine comfort with convenience for an unforgettable stay.",
+      "Rooms with direct pool access and private decks for an exquisite stay.",
     location: "Winnie's Retreat, Kasauli, Himachal Pradesh, India",
-    squareFeet: 400,
-    pricePerNight: 7500,
+    squareFeet: 195,
+    pricePerNight: 7499,
+    priceDetails: "+ Taxes",
     maxGuests: 2,
     imageUrl: POOLDECKPREMIUMROOMS,
     amenities: [
@@ -155,7 +155,6 @@ const roomsData: RoomData[] = [
       "King-size bed",
       "Luxurious bathroom",
       "Free Wi-Fi",
-      "Mini-bar",
     ],
     features: [
       "Daily housekeeping",
@@ -163,21 +162,22 @@ const roomsData: RoomData[] = [
       "Pool towels provided",
     ],
     policies: {
-      "Check-in": "2:00 PM",
-      "Check-out": "12:00 PM",
-      Cancellation: "Free cancellation up to 48 hours before check-in",
+      "Check-in": "1:00 PM",
+      "Check-out": "11:00 AM",
+      Cancellation: "Free cancellation up to 72 hours before check-in",
       Pets: "Not allowed",
       Smoking: "Non-smoking room",
     },
   },
   {
     id: "5",
-    title: "Luxury Villas (Two Bedroom Suites)",
+    title: "2 Bedroom Premium Apartment",
     description:
-      "Our Luxury Villas offer Two Bedroom suites, meticulously designed to provide warmth, comfort, and luxury. Guests can enjoy a serene retreat where the beauty of nature intertwines with the comfort of home.",
+      "Spacious apartments with premium amenities, perfect for families.",
     location: "Winnie's Retreat, Kasauli, Himachal Pradesh, India",
-    squareFeet: 1000,
-    pricePerNight: 12000,
+    squareFeet: 650,
+    pricePerNight: 18000,
+    priceDetails: "+ Taxes",
     maxGuests: 4,
     imageUrl: PREMIUM2BEDROOMAPARTMENT,
     amenities: [
@@ -185,33 +185,30 @@ const roomsData: RoomData[] = [
       "Fully equipped kitchen",
       "Independent living area",
       "Private balconies",
-      "Luxurious interiors",
       "Free Wi-Fi",
-      "Room service",
-      "Flat-screen TV",
     ],
     features: [
       "Daily housekeeping",
       "Complimentary breakfast",
       "Dedicated parking",
-      "24/7 concierge service",
     ],
     policies: {
-      "Check-in": "2:00 PM",
-      "Check-out": "12:00 PM",
+      "Check-in": "1:00 PM",
+      "Check-out": "11:00 AM",
       Cancellation: "Free cancellation up to 72 hours before check-in",
-      Pets: "Allowed (on request)",
+      Pets: "Not allowed",
       Smoking: "Non-smoking room",
     },
   },
   {
     id: "6",
-    title: "3 Bedroom Family Suites (AC Rooms)",
+    title: "3 Bedroom Deluxe Apartment",
     description:
-      "Ideal for bigger families, these suites provide spacious living areas with three bedrooms, individual sit-outs, and air-conditioned comfort, ensuring a relaxing stay for all members.",
+      "Elegant and spacious apartments for larger families or groups.",
     location: "Winnie's Retreat, Kasauli, Himachal Pradesh, India",
-    squareFeet: 1200,
-    pricePerNight: 15000,
+    squareFeet: 900,
+    pricePerNight: 19000,
+    priceDetails: "+ Taxes",
     maxGuests: 6,
     imageUrl: deluxs3bedroom,
     amenities: [
@@ -223,10 +220,10 @@ const roomsData: RoomData[] = [
     ],
     features: ["Daily housekeeping", "Complimentary breakfast"],
     policies: {
-      "Check-in": "2:00 PM",
-      "Check-out": "12:00 PM",
+      "Check-in": "1:00 PM",
+      "Check-out": "11:00 AM",
       Cancellation: "Free cancellation up to 72 hours before check-in",
-      Pets: "Allowed (on request)",
+      Pets: "Allowed",
       Smoking: "Non-smoking room",
     },
   },
@@ -234,25 +231,25 @@ const roomsData: RoomData[] = [
     id: "7",
     title: "Family Room",
     description:
-      "Our Family Rooms are designed with comfort and convenience in mind, offering a welcoming space for families to relax and create lasting memories together.",
+      "Comfortable and spacious rooms for families to relax and unwind.",
     location: "Winnie's Retreat, Kasauli, Himachal Pradesh, India",
     squareFeet: 500,
-    pricePerNight: 9000,
+    pricePerNight: 10000,
+    priceDetails: "+ Taxes",
     maxGuests: 4,
-    imageUrl: deluxroom, // Using deluxe room image as a placeholder
+    imageUrl: deluxroom, // Placeholder image
     amenities: [
       "Spacious layout",
       "Multiple beds",
-      "Family-friendly amenities",
       "Free Wi-Fi",
       "Room service",
     ],
     features: ["Daily housekeeping", "Complimentary breakfast"],
     policies: {
-      "Check-in": "2:00 PM",
-      "Check-out": "12:00 PM",
-      Cancellation: "Free cancellation up to 48 hours before check-in",
-      Pets: "Allowed (on request)",
+      "Check-in": "1:00 PM",
+      "Check-out": "11:00 AM",
+      Cancellation: "Free cancellation up to 72 hours before check-in",
+      Pets: "Allowed",
       Smoking: "Non-smoking room",
     },
   },
@@ -466,9 +463,9 @@ export default function RoomPage({ params }: PageProps) {
             <p className="text-gray-600 mb-6">
               <strong>Size:</strong> {room.squareFeet} sq ft
             </p>
-            <div className="flex items-center justify-between mb-6">
+            <div className="flex flex-col items-start gap-4 justify-between mb-6">
               <p className="text-emerald-700 font-bold text-3xl">
-                ${room.pricePerNight}{" "}
+                ₹{room.pricePerNight}{" "}
                 <span className="text-sm text-gray-500 font-normal">
                   / night
                 </span>
@@ -479,7 +476,7 @@ export default function RoomPage({ params }: PageProps) {
                     "https://bookings.resavenue.com/resBooking/availsearch?regCode=GATE0402"
                   )
                 }
-                className="w-full bg-emerald-800 hover:bg-emerald-700 text-white"
+                className=" bg-emerald-800 hover:bg-emerald-700 text-white"
               >
                 Book Now
                 <ChevronRight className="ml-2 h-4 w-4" />
