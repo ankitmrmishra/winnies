@@ -7,6 +7,13 @@ body {
 }
 
 @layer base {
+  @font-face {
+    font-family: "Magillo";
+    src: url("../app//fonts//MagilioRegular-8Mxvg.otf") format("opentype");
+  }
+}
+
+@layer base {
   :root {
     --background: 0 0% 100%;
     --foreground: 240 10% 3.9%;

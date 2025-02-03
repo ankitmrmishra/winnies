@@ -5,13 +5,32 @@ import Link from "next/link";
 import Image from "next/image";
 import { Playfair_Display, Inter } from "next/font/google";
 import { ChevronRight } from "lucide-react";
-import premiumroom from "../../public/assets/PREMIUM ROOMS/room1.png";
-import deluxroom from "../../public/assets/DelusxRooms/room1.png";
 
-import PREMIUM2BEDROOMAPARTMENT from "../../public/assets/PREMIUM 2-BEDROOM APARTMENT/room1.png";
-import POOLDECKPREMIUMROOMS from "../../public/assets/POOL DECK PREMIUM ROOMS/room1.png";
-import superdeluxrooms from "../../public/assets/superdeluxrooms/room1.png";
-import deluxs3bedroom from "../../public/assets/DELUXE 3-BEDROOM APARTMENT/image.png";
+// Pool Deck rooms
+import PoolDeckRoom1 from "./PollDeck Rooms/DSC01173-Enhanced-NR.jpg";
+
+// Delux Room
+
+import DeluxRoom1 from "./DeluxRoom/DSC03073-Enhanced-NR.jpg";
+
+// Super delux room
+
+import SuperDeluxRoom2 from "./Superdeluxroom/DSC01159-Enhanced-NR.jpg";
+
+// Premium Valley Room
+import PremiumValleyRooms1 from "./PremiumValleyRooms/DSC03111-Enhanced-NR.jpg";
+
+// Two Bedroom apartments
+
+import TwoBedroom3 from "./twoBedRoom/DSC03266-Enhanced-NR.jpg";
+
+// 3 bedroom aprtments
+
+import ThreeBedroom3 from "./ThreeBedroom/DSC03371-Enhanced-NR.jpg";
+
+// Family Room
+
+import FamilyRoom1 from "./FamilyRoom/DSC03154-Enhanced-NR.jpg";
 
 const playfair = Playfair_Display({ subsets: ["latin"] });
 const inter = Inter({ subsets: ["latin"] });
@@ -41,7 +60,7 @@ const roomsData = [
     pricePerNight: 6000,
     priceDetails: "+ Taxes",
     maxGuests: 2,
-    imageUrl: deluxroom,
+    imageUrl: DeluxRoom1,
     amenities: [
       "Valley view",
       "Sit-out balcony",
@@ -68,7 +87,7 @@ const roomsData = [
     pricePerNight: 6500,
     priceDetails: "+ Taxes",
     maxGuests: 2,
-    imageUrl: superdeluxrooms,
+    imageUrl: SuperDeluxRoom2,
     amenities: [
       "Valley-facing sit-out",
       "Wooden flooring",
@@ -94,7 +113,7 @@ const roomsData = [
     pricePerNight: 7499,
     priceDetails: "+ Taxes",
     maxGuests: 2,
-    imageUrl: premiumroom,
+    imageUrl: PremiumValleyRooms1,
     amenities: [
       "King-size bed",
       "Jacuzzi-equipped bathroom",
@@ -125,7 +144,7 @@ const roomsData = [
     pricePerNight: 7499,
     priceDetails: "+ Taxes",
     maxGuests: 2,
-    imageUrl: POOLDECKPREMIUMROOMS,
+    imageUrl: PoolDeckRoom1,
     amenities: [
       "Direct pool access",
       "Private deck",
@@ -156,7 +175,7 @@ const roomsData = [
     pricePerNight: 18000,
     priceDetails: "+ Taxes",
     maxGuests: 4,
-    imageUrl: PREMIUM2BEDROOMAPARTMENT,
+    imageUrl: TwoBedroom3,
     amenities: [
       "Two bedrooms",
       "Fully equipped kitchen",
@@ -187,7 +206,7 @@ const roomsData = [
     pricePerNight: 19000,
     priceDetails: "+ Taxes",
     maxGuests: 6,
-    imageUrl: deluxs3bedroom,
+    imageUrl: ThreeBedroom3,
     amenities: [
       "Three bedrooms",
       "Individual sit-outs",
@@ -214,7 +233,7 @@ const roomsData = [
     pricePerNight: 10000,
     priceDetails: "+ Taxes",
     maxGuests: 4,
-    imageUrl: deluxroom, // Placeholder image
+    imageUrl: FamilyRoom1, // Placeholder image
     amenities: [
       "Spacious layout",
       "Multiple beds",

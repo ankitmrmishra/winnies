@@ -28,13 +28,110 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
-import premiumroom from "../../../public/assets/PREMIUM ROOMS/room1.png";
+
 import deluxroom from "../../../public/assets/DelusxRooms/room1.png";
 
-import PREMIUM2BEDROOMAPARTMENT from "../../../public/assets/PREMIUM 2-BEDROOM APARTMENT/room1.png";
 import POOLDECKPREMIUMROOMS from "../../../public/assets/POOL DECK PREMIUM ROOMS/room1.png";
 import superdeluxrooms from "../../../public/assets/superdeluxrooms/room1.png";
-import deluxs3bedroom from "../../../public/assets/DELUXE 3-BEDROOM APARTMENT/image.png";
+
+// Pool Deck rooms
+import PoolDeckRoom1 from "../PollDeck Rooms/DSC01173-Enhanced-NR.jpg";
+import PoolDeckRoom2 from "../PollDeck Rooms/DSC01184-Enhanced-NR.jpg";
+import PoolDeckRoom3 from "../PollDeck Rooms/DSC01196-Enhanced-NR.jpg";
+import PoolDeckRoom4 from "../PollDeck Rooms/DSC01206-Enhanced-NR.jpg";
+import PoolDeckRoom5 from "../PollDeck Rooms/DSC03019-Enhanced-NR.jpg";
+import PoolDeckRoom6 from "../PollDeck Rooms/DSC03020-Enhanced-NR.jpg";
+import PoolDeckRoom7 from "../PollDeck Rooms/DSC03021-Enhanced-NR.jpg";
+import PoolDeckRoom8 from "../PollDeck Rooms/DSC03032-Enhanced-NR.jpg";
+import PoolDeckRoom9 from "../PollDeck Rooms/DSC03022-Enhanced-NR.jpg";
+import PoolDeckRoom10 from "../PollDeck Rooms/DSC03034-Enhanced-NR.jpg";
+
+// Delux Room
+
+import DeluxRoom1 from "../DeluxRoom/DSC03073-Enhanced-NR.jpg";
+import DeluxRoom2 from "../DeluxRoom/DSC03074-Enhanced-NR.jpg";
+import DeluxRoom3 from "../DeluxRoom/DSC03078-Enhanced-NR.jpg";
+import DeluxRoom4 from "../DeluxRoom/DSC03082-Enhanced-NR.jpg";
+import DeluxRoom5 from "../DeluxRoom/DSC03085-Enhanced-NR.jpg";
+import DeluxRoom6 from "../DeluxRoom/DSC03087.jpg";
+
+// Super delux room
+import SuperDeluxRoom1 from "../Superdeluxroom/DSC01157-Enhanced-NR.jpg";
+import SuperDeluxRoom2 from "../Superdeluxroom/DSC01159-Enhanced-NR.jpg";
+import SuperDeluxRoom3 from "../Superdeluxroom/DSC01163-Enhanced-NR.jpg";
+import SuperDeluxRoom4 from "../Superdeluxroom/DSC01164-Enhanced-NR.jpg";
+import SuperDeluxRoom5 from "../Superdeluxroom/DSC01165-Enhanced-NR.jpg";
+import SuperDeluxRoom6 from "../Superdeluxroom/DSC01166-Enhanced-NR.jpg";
+import SuperDeluxRoom7 from "../Superdeluxroom/DSC01168-Enhanced-NR.jpg";
+import SuperDeluxRoom10 from "../Superdeluxroom/DSC01169-Enhanced-NR.jpg";
+import SuperDeluxRoom11 from "../Superdeluxroom/DSC01172-Enhanced-NR.jpg";
+import SuperDeluxRoom12 from "../Superdeluxroom/DSC03004-Enhanced-NR-1.jpg";
+import SuperDeluxRoom13 from "../Superdeluxroom/DSC03005-Enhanced-NR.jpg";
+import SuperDeluxRoom14 from "../Superdeluxroom/DSC03006-Enhanced-NR.jpg";
+import SuperDeluxRoom15 from "../Superdeluxroom/DSC03007-Enhanced-NR.jpg";
+import SuperDeluxRoom9 from "../Superdeluxroom/DSC03010-Enhanced-NR.jpg";
+import SuperDeluxRoom8 from "../Superdeluxroom/DSC03014-Enhanced-NR.jpg";
+
+// Premium Valley Room
+import PremiumValleyRooms1 from "../PremiumValleyRooms/DSC03111-Enhanced-NR.jpg";
+
+import PremiumValleyRooms4 from "../PremiumValleyRooms/DSC03133-Enhanced-NR.jpg";
+import PremiumValleyRooms5 from "../PremiumValleyRooms/DSC03134-Enhanced-NR.jpg";
+import PremiumValleyRooms6 from "../PremiumValleyRooms/DSC03136-Enhanced-NR.jpg";
+import PremiumValleyRooms7 from "../PremiumValleyRooms/DSC03140-Enhanced-NR.jpg";
+import PremiumValleyRooms8 from "../PremiumValleyRooms/DSC03141-Enhanced-NR.jpg";
+import PremiumValleyRooms9 from "../PremiumValleyRooms/DSC03144-Enhanced-NR.jpg";
+import PremiumValleyRooms10 from "../PremiumValleyRooms/DSC03146-Enhanced-NR.jpg";
+import PremiumValleyRooms11 from "../PremiumValleyRooms/DSC03151-Enhanced-NR.jpg";
+
+// Two Bedroom apartments
+
+import TwoBedroom1 from "../twoBedRoom/DSC03259-Enhanced-NR.jpg";
+import TwoBedroom2 from "../twoBedRoom/DSC03263-Enhanced-NR.jpg";
+import TwoBedroom3 from "../twoBedRoom/DSC03266-Enhanced-NR.jpg";
+import TwoBedroom4 from "../twoBedRoom/DSC03267-Enhanced-NR.jpg";
+import TwoBedroom5 from "../twoBedRoom/DSC03270-Enhanced-NR.jpg";
+import TwoBedroom6 from "../twoBedRoom/DSC03271-Enhanced-NR.jpg";
+import TwoBedroom7 from "../twoBedRoom/DSC03272-Enhanced-NR.jpg";
+import TwoBedroom8 from "../twoBedRoom/DSC03274-Enhanced-NR.jpg";
+import TwoBedroom9 from "../twoBedRoom/DSC03282-Enhanced-NR.jpg";
+import TwoBedroom10 from "../twoBedRoom/DSC03285-Enhanced-NR.jpg";
+import TwoBedroom11 from "../twoBedRoom/DSC03287-Enhanced-NR.jpg";
+import TwoBedroom12 from "../twoBedRoom/DSC03289-Enhanced-NR.jpg";
+import TwoBedroom13 from "../twoBedRoom/DSC03291-Enhanced-NR.jpg";
+import TwoBedroom14 from "../twoBedRoom/DSC03295-HDR.jpg";
+import TwoBedroom15 from "../twoBedRoom/DSC03296-Enhanced-NR.jpg";
+import TwoBedroom16 from "../twoBedRoom/DSC03302-Enhanced-NR.jpg";
+
+// 3 bedroom aprtments
+
+import ThreeBedroom1 from "../ThreeBedroom/DSC03369-Enhanced-NR.jpg";
+import ThreeBedroom2 from "../ThreeBedroom/DSC03370-Enhanced-NR.jpg";
+import ThreeBedroom3 from "../ThreeBedroom/DSC03371-Enhanced-NR.jpg";
+import ThreeBedroom4 from "../ThreeBedroom/DSC03372-Enhanced-NR.jpg";
+import ThreeBedroom5 from "../ThreeBedroom/DSC03373-Enhanced-NR.jpg";
+import ThreeBedroom6 from "../ThreeBedroom/DSC03376-Enhanced-NR.jpg";
+import ThreeBedroom7 from "../ThreeBedroom/DSC03377.jpg";
+import ThreeBedroom8 from "../ThreeBedroom/DSC03378-Enhanced-NR.jpg";
+import ThreeBedroom9 from "../ThreeBedroom/DSC03379-Enhanced-NR.jpg";
+import ThreeBedroom10 from "../ThreeBedroom/DSC03384-Enhanced-NR.jpg";
+import ThreeBedroom11 from "../ThreeBedroom/DSC03386-Enhanced-NR.jpg";
+import ThreeBedroom12 from "../ThreeBedroom/DSC03389-Enhanced-NR.jpg";
+import ThreeBedroom13 from "../ThreeBedroom/DSC03390-Enhanced-NR.jpg";
+import ThreeBedroom14 from "../ThreeBedroom/DSC03395.jpg";
+import ThreeBedroom15 from "../ThreeBedroom/DSC03393.jpg";
+import ThreeBedroom16 from "../ThreeBedroom/DSC03395.jpg";
+
+// Family Room
+
+import FamilyRoom1 from "../FamilyRoom/DSC03154-Enhanced-NR.jpg";
+import FamilyRoom2 from "../FamilyRoom/DSC03155.jpg";
+import FamilyRoom3 from "../FamilyRoom/DSC03157.jpg";
+import FamilyRoom4 from "../FamilyRoom/DSC03165-Enhanced-NR.jpg";
+import FamilyRoom5 from "../FamilyRoom/DSC03168-Enhanced-NR.jpg";
+import FamilyRoom6 from "../FamilyRoom/DSC03169-Enhanced-NR.jpg";
+import FamilyRoom7 from "../FamilyRoom/DSC03174.jpg";
+
 import { useRouter } from "next/navigation";
 
 const playfair = Playfair_Display({ subsets: ["latin"] });
@@ -47,7 +144,7 @@ interface RoomData {
   squareFeet: number;
   pricePerNight: number;
   maxGuests: number;
-  imageUrl: string | StaticImageData;
+  imageUrl: string[] | StaticImageData[];
   amenities: string[];
   features: string[];
   policies: { [key: string]: string };
@@ -64,7 +161,15 @@ const roomsData = [
     pricePerNight: 6000,
     priceDetails: "+ Taxes",
     maxGuests: 2,
-    imageUrl: deluxroom,
+    imageUrl: [
+      deluxroom,
+      DeluxRoom1,
+      DeluxRoom2,
+      DeluxRoom3,
+      DeluxRoom4,
+      DeluxRoom5,
+      DeluxRoom6,
+    ],
     amenities: [
       "Valley view",
       "Sit-out balcony",
@@ -91,7 +196,28 @@ const roomsData = [
     pricePerNight: 6500,
     priceDetails: "+ Taxes",
     maxGuests: 2,
-    imageUrl: superdeluxrooms,
+    imageUrl: [
+      superdeluxrooms,
+      SuperDeluxRoom1,
+      SuperDeluxRoom2,
+      SuperDeluxRoom3,
+      SuperDeluxRoom4,
+      SuperDeluxRoom5,
+      SuperDeluxRoom6,
+      SuperDeluxRoom6,
+      SuperDeluxRoom7,
+      SuperDeluxRoom8,
+
+      SuperDeluxRoom9,
+
+      SuperDeluxRoom10,
+
+      SuperDeluxRoom11,
+      SuperDeluxRoom12,
+      SuperDeluxRoom13,
+      SuperDeluxRoom14,
+      SuperDeluxRoom15,
+    ],
     amenities: [
       "Valley-facing sit-out",
       "Wooden flooring",
@@ -117,7 +243,17 @@ const roomsData = [
     pricePerNight: 7499,
     priceDetails: "+ Taxes",
     maxGuests: 2,
-    imageUrl: premiumroom,
+    imageUrl: [
+      PremiumValleyRooms1,
+      PremiumValleyRooms4,
+      PremiumValleyRooms5,
+      PremiumValleyRooms6,
+      PremiumValleyRooms7,
+      PremiumValleyRooms8,
+      PremiumValleyRooms9,
+      PremiumValleyRooms10,
+      PremiumValleyRooms11,
+    ],
     amenities: [
       "King-size bed",
       "Jacuzzi-equipped bathroom",
@@ -148,7 +284,19 @@ const roomsData = [
     pricePerNight: 7499,
     priceDetails: "+ Taxes",
     maxGuests: 2,
-    imageUrl: POOLDECKPREMIUMROOMS,
+    imageUrl: [
+      POOLDECKPREMIUMROOMS,
+      PoolDeckRoom1,
+      PoolDeckRoom2,
+      PoolDeckRoom3,
+      PoolDeckRoom4,
+      PoolDeckRoom5,
+      PoolDeckRoom6,
+      PoolDeckRoom7,
+      PoolDeckRoom8,
+      PoolDeckRoom9,
+      PoolDeckRoom10,
+    ],
     amenities: [
       "Direct pool access",
       "Private deck",
@@ -179,7 +327,29 @@ const roomsData = [
     pricePerNight: 18000,
     priceDetails: "+ Taxes",
     maxGuests: 4,
-    imageUrl: PREMIUM2BEDROOMAPARTMENT,
+    imageUrl: [
+      TwoBedroom1,
+      TwoBedroom2,
+      TwoBedroom3,
+      TwoBedroom4,
+      TwoBedroom5,
+      TwoBedroom6,
+      TwoBedroom7,
+      TwoBedroom8,
+      TwoBedroom9,
+      TwoBedroom10,
+      TwoBedroom11,
+
+      TwoBedroom12,
+
+      TwoBedroom13,
+
+      TwoBedroom14,
+
+      TwoBedroom15,
+
+      TwoBedroom16,
+    ],
     amenities: [
       "Two bedrooms",
       "Fully equipped kitchen",
@@ -210,7 +380,29 @@ const roomsData = [
     pricePerNight: 19000,
     priceDetails: "+ Taxes",
     maxGuests: 6,
-    imageUrl: deluxs3bedroom,
+    imageUrl: [
+      ThreeBedroom1,
+      ThreeBedroom2,
+      ThreeBedroom3,
+      ThreeBedroom4,
+      ThreeBedroom5,
+      ThreeBedroom6,
+      ThreeBedroom7,
+      ThreeBedroom8,
+      ThreeBedroom9,
+      ThreeBedroom10,
+      ThreeBedroom11,
+
+      ThreeBedroom12,
+
+      ThreeBedroom13,
+
+      ThreeBedroom14,
+
+      ThreeBedroom15,
+
+      ThreeBedroom16,
+    ],
     amenities: [
       "Three bedrooms",
       "Individual sit-outs",
@@ -237,7 +429,15 @@ const roomsData = [
     pricePerNight: 10000,
     priceDetails: "+ Taxes",
     maxGuests: 4,
-    imageUrl: deluxroom, // Placeholder image
+    imageUrl: [
+      FamilyRoom1,
+      FamilyRoom2,
+      FamilyRoom3,
+      FamilyRoom4,
+      FamilyRoom5,
+      FamilyRoom6,
+      FamilyRoom7,
+    ],
     amenities: [
       "Spacious layout",
       "Multiple beds",
@@ -402,24 +602,31 @@ export default function RoomPage({ params }: PageProps) {
       <main className="container mx-auto px-4 py-12 md:px-20 ">
         <div className="grid lg:grid-cols-2 gap-12 w-full">
           <Carousel
-            plugins={[plugin.current]}
+            plugins={[
+              plugin.current,
+              Autoplay({
+                delay: 5000,
+              }),
+            ]}
             onMouseEnter={plugin.current.stop}
             onMouseLeave={plugin.current.reset}
             className="w-full h-full"
           >
             <CarouselContent>
-              <CarouselItem>
-                <div className="relative w-full ">
-                  <Image
-                    src={room.imageUrl}
-                    alt={`${room.title} }`}
-                    objectFit="cover"
-                    width={800}
-                    height={1000}
-                    className="rounded-lg"
-                  />
-                </div>
-              </CarouselItem>
+              {room.imageUrl.map((image, index) => (
+                <CarouselItem key={index}>
+                  <div className="relative w-full">
+                    <Image
+                      src={image || "/placeholder.svg"}
+                      alt={`${room.title} - Image ${index + 1}`}
+                      objectFit="cover"
+                      width={800}
+                      height={800}
+                      className="rounded-lg max-h-96 object-cover"
+                    />
+                  </div>
+                </CarouselItem>
+              ))}
             </CarouselContent>
             <div className="absolute right-[50%] justify-center md:bottom-2 -bottom-5 space-x-2 ">
               <CarouselPrevious variant="outline" size="icon" />
