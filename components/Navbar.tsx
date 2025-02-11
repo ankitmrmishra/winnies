@@ -6,6 +6,12 @@ import { ChevronDown, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
+import Bar from "../public/assets/Bar/DSC02395.jpg";
+import Activities from "../public/assets/Activities/childrenplay.jpg";
+import MeetingHalls from "../public/assets/Confrenceroom/DSC02387.jpg";
+import PoolImages from "../public/assets/Pool/DSC02120.jpg";
+import SkyDeck from "../public/assets/OpenDeck/DSC02105.jpg";
+import CozyCorners from "../public/assets/CozyCorners/K81A0982-HDR.jpg";
 
 import premiumroom from "../public/assets/PREMIUM ROOMS/room1.png";
 import deluxroom from "../public/assets/DelusxRooms/room1.png";
@@ -18,45 +24,39 @@ import { useRouter } from "next/navigation";
 
 interface Facility {
   title: string;
-  image: string;
+  image: StaticImageData;
   link: string;
 }
 
 export const facilitiesData: Facility[] = [
   {
     title: "Activities",
-    image:
-      "https://images.unsplash.com/photo-1526976668912-1a811878dd37?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+    image: Activities,
     link: "Activities",
   },
   {
     title: "Bar",
-    image:
-      "https://images.unsplash.com/photo-1572116469696-31de0f17cc34?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80",
+    image: Bar,
     link: "Bar",
   },
   {
     title: "Meeting Halls",
-    image:
-      "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80",
+    image: MeetingHalls,
     link: "Meetinghalls",
   },
   {
     title: "Pool Area",
-    image:
-      "https://images.unsplash.com/photo-1562778612-e1e0cda9915c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80",
+    image: PoolImages,
     link: "PoolSide",
   },
   {
     title: "Sky Deck",
-    image:
-      "https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+    image: SkyDeck,
     link: "SkyDeck",
   },
   {
     title: "Cozy Corners",
-    image:
-      "https://images.unsplash.com/photo-1602872030219-ad2b9a54315c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80",
+    image: CozyCorners,
     link: "CozyCorners",
   },
 ];

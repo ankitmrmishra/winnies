@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { Playfair_Display } from "next/font/google";
 import { Coffee, Moon, Sun, Star, X } from "lucide-react";
 import Restaurant1 from "../../public/assets/Restaurant/DSC02111.jpg";
+import RestaurantImage from "./DSC03223.jpg";
 
 import Restaurant3 from "../../public/assets/Restaurant/DSC02113.jpg";
 
@@ -83,7 +84,7 @@ export default function RestaurantPage() {
       {/* Hero Section */}
       <section className="relative min-h-screen">
         <Image
-          src={Restaurant1}
+          src={RestaurantImage}
           alt="Winnies Resort Restaurant"
           layout="fill"
           objectFit="cover"
