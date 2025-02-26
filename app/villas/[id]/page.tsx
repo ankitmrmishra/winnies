@@ -1,5 +1,3 @@
-"use client";
-
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import {
@@ -31,11 +29,8 @@ import { useRouter } from "next/navigation";
 
 // Import Villa 601 (Enchanted) images
 import Villa601_1 from "../Room601/20220120-_DSC4399.jpeg";
-
 import Villa601_6 from "../Room601/20220120-_DSC4555.jpg";
-
 import Villa601_8 from "../Room601/20220120-_DSC4561.jpg";
-
 import Villa601_11 from "../Room601/20220120-_DSC4571.jpg";
 import Villa601_12 from "../Room601/20220120-_DSC4854.jpg";
 import Villa601_13 from "../Room601/20220120-_DSC4857.jpg";
@@ -44,19 +39,14 @@ import Villa601_13 from "../Room601/20220120-_DSC4857.jpg";
 import Villa602_1 from "../Room602/20220120-_DSC4399.jpeg";
 import Villa602_3 from "../Room602/20220120-_DSC4483.jpg";
 import Villa602_5 from "../Room602/20220120-_DSC4492.jpg";
-
 import Villa602_7 from "../Room602/20220120-_DSC4505.jpg";
-
 import Villa602_11 from "../Room602/20220120-_DSC4543.jpg";
 
 // Import Villa 603 (Nook) images
-
 import Villa603_2 from "../Room603/20220120-_DSC4699.jpg";
 import Villa603_3 from "../Room603/20220120-_DSC4722.jpg";
-
 import Villa603_5 from "../Room603/20220120-_DSC4755.jpg";
 import Villa603_6 from "../Room603/20220120-_DSC4770.jpg";
-
 import Villa603_10 from "../Room603/20220120-_DSC4782.jpg";
 
 // Import Villa 604 (Bloom) images
@@ -89,11 +79,8 @@ const villasData = [
     bedrooms: 2,
     imageUrl: [
       Villa601_1,
-
       Villa601_6,
-
       Villa601_8,
-
       Villa601_11,
       Villa601_12,
       Villa601_13,
@@ -422,18 +409,20 @@ function DynamicVillaInfo({ villa }: { villa: VillaData }) {
   );
 }
 
+type ParamsType = Promise<{ id: string }>;
+
 interface Props {
-  params: {
-    id: string;
-  };
+  params: ParamsType;
   searchParams?: { [key: string]: string | string[] | undefined };
 }
-export default function VillaPage({ params }: Props) {
+
+export default async function VillaPage({ params }: Props) {
   const router = useRouter();
   const plugin = React.useRef(
     Autoplay({ delay: 2000, stopOnInteraction: true })
   );
-  const villa = villasData.find((v) => v.id === params.id);
+  const { id } = await params;
+  const villa = villasData.find((v) => v.id === id);
 
   if (!villa) {
     return <div>Villa not found</div>;
