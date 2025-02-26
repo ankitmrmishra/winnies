@@ -410,19 +410,18 @@ function DynamicVillaInfo({ villa }: { villa: VillaData }) {
   );
 }
 
-type ParamsType = Promise<{ id: string }>;
-
-interface Props {
-  params: ParamsType;
-  searchParams?: { [key: string]: string | string[] | undefined };
+interface PageProps {
+  params: Promise<{
+    id: string;
+  }>;
 }
 
-export default async function VillaPage({ params }: Props) {
+export default function VillaPage({ params }: PageProps) {
   const router = useRouter();
   const plugin = React.useRef(
     Autoplay({ delay: 2000, stopOnInteraction: true })
   );
-  const { id } = await params;
+  const { id } = React.use(params);
   const villa = villasData.find((v) => v.id === id);
 
   if (!villa) {
