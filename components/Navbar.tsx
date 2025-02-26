@@ -14,7 +14,7 @@ import PoolImages from "@/public/assets/Pool/DSC02120.jpg";
 import SkyDeck from "@/public/assets/OpenDeck/DSC02105.jpg";
 import CozyCorners from "@/public/assets/CozyCorners/K81A0982-HDR.jpg";
 
-import premiumroom from "@/public/assets/PREMIUM ROOMS/room1.png";
+import Premiumroom from "@/public/assets/PREMIUM ROOMS/room1.png";
 import deluxroom from "@/public/assets/DelusxRooms/room1.png";
 import PREMIUM2BEDROOMAPARTMENT from "@/public/assets/PREMIUM 2-BEDROOM APARTMENT/room1.png";
 import POOLDECKPREMIUMROOMS from "@/public/assets/POOL DECK PREMIUM ROOMS/room1.png";
@@ -411,7 +411,7 @@ export const roomsData: Room[] = [
   {
     id: "3",
     title: "Premium Valley View Rooms",
-    imageUrl: premiumroom,
+    imageUrl: Premiumroom,
   },
   {
     id: "4",
