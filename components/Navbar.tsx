@@ -12,7 +12,7 @@ import Activities from "@/public/assets/Activities/childrenplay.jpg";
 import MeetingHalls from "@/public/assets/Confrenceroom/DSC02387.jpg";
 import PoolImages from "@/public/assets/Pool/DSC02120.jpg";
 import SkyDeck from "@/public/assets/OpenDeck/DSC02105.jpg";
-import CozyCorners from "@/public/assets/CozyCorners/K81A0982-HDR.jpg";
+import CozyCorners from "@/public/assets/CozyCorners/Screenshot 2025-02-26 230417.png";
 
 import Premiumroom from "@/public/assets/PREMIUM ROOMS/room1.png";
 import deluxroom from "@/public/assets/DelusxRooms/room1.png";
