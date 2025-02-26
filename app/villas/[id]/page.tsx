@@ -422,14 +422,13 @@ function DynamicVillaInfo({ villa }: { villa: VillaData }) {
   );
 }
 
-interface VillaPageProps {
+interface Props {
   params: {
     id: string;
   };
-  searchParams?: Record<string, string | string[] | undefined>;
+  searchParams?: { [key: string]: string | string[] | undefined };
 }
-
-export default function VillaPage({ params }: VillaPageProps) {
+export default function VillaPage({ params, searchParams }: Props) {
   const router = useRouter();
   const plugin = React.useRef(
     Autoplay({ delay: 2000, stopOnInteraction: true })
