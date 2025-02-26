@@ -6,19 +6,20 @@ import { ChevronDown, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
-import Bar from "../public/assets/Bar/DSC02395.jpg";
-import Activities from "../public/assets/Activities/childrenplay.jpg";
-import MeetingHalls from "../public/assets/Confrenceroom/DSC02387.jpg";
-import PoolImages from "../public/assets/Pool/DSC02120.jpg";
-import SkyDeck from "../public/assets/OpenDeck/DSC02105.jpg";
-import CozyCorners from "../public/assets/CozyCorners/K81A0982-HDR.jpg";
 
-import premiumroom from "../public/assets/PREMIUM ROOMS/room1.png";
-import deluxroom from "../public/assets/DelusxRooms/room1.png";
-import PREMIUM2BEDROOMAPARTMENT from "../public/assets/PREMIUM 2-BEDROOM APARTMENT/room1.png";
-import POOLDECKPREMIUMROOMS from "../public/assets/POOL DECK PREMIUM ROOMS/room1.png";
-import superdeluxrooms from "../public/assets/superdeluxrooms/room1.png";
-import deluxs3bedroom from "../public/assets/DELUXE 3-BEDROOM APARTMENT/image.png";
+import Bar from "@/public/assets/Bar/DSC02395.jpg";
+import Activities from "@/public/assets/Activities/childrenplay.jpg";
+import MeetingHalls from "@/public/assets/Confrenceroom/DSC02387.jpg";
+import PoolImages from "@/public/assets/Pool/DSC02120.jpg";
+import SkyDeck from "@/public/assets/OpenDeck/DSC02105.jpg";
+import CozyCorners from "@/public/assets/CozyCorners/K81A0982-HDR.jpg";
+
+import premiumroom from "@/public/assets/PREMIUM ROOMS/room1.png";
+import deluxroom from "@/public/assets/DelusxRooms/room1.png";
+import PREMIUM2BEDROOMAPARTMENT from "@/public/assets/PREMIUM 2-BEDROOM APARTMENT/room1.png";
+import POOLDECKPREMIUMROOMS from "@/public/assets/POOL DECK PREMIUM ROOMS/room1.png";
+import superdeluxrooms from "@/public/assets/superdeluxrooms/room1.png";
+import deluxs3bedroom from "@/public/assets/DELUXE 3-BEDROOM APARTMENT/image.png";
 import Logo from "../public/assets/LOGO.png";
 import { useRouter } from "next/navigation";
 
