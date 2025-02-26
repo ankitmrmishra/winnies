@@ -428,7 +428,7 @@ interface Props {
   };
   searchParams?: { [key: string]: string | string[] | undefined };
 }
-export default function VillaPage({ params, searchParams }: Props) {
+export default function VillaPage({ params }: Props) {
   const router = useRouter();
   const plugin = React.useRef(
     Autoplay({ delay: 2000, stopOnInteraction: true })
