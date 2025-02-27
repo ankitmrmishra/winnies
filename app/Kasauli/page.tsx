@@ -14,6 +14,7 @@ import Image from "next/image";
 import { BsAirplane } from "react-icons/bs";
 import { ParallexImagecard } from "./ParallexImagecard";
 import { FocusCardsComponent } from "./FocusCardsComponent";
+import Imagekasuali from "./Kasauli 1.png";
 
 export default function KasauliPage() {
   return (
@@ -22,7 +23,7 @@ export default function KasauliPage() {
         {/* Hero Section */}
         <section className="relative h-[100vh]">
           <Image
-            src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&q=80&w=2070"
+            src={Imagekasuali}
             alt="Scenic view of Kasauli"
             layout="fill"
             objectFit="cover"

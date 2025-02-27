@@ -14,6 +14,7 @@ import {
   ChevronRight,
 } from "lucide-react";
 import { useRouter } from "next/navigation";
+import PackageImage from "../../public/4.png";
 
 const playfair = Playfair_Display({ subsets: ["latin"], style: ["italic"] });
 
@@ -114,7 +115,7 @@ export default function PackagePage() {
     <div className="min-h-screen ">
       <section className="relative h-[100vh]">
         <Image
-          src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+          src={PackageImage}
           alt="Luxury Resort Room"
           layout="fill"
           objectFit="cover"
@@ -133,7 +134,7 @@ export default function PackagePage() {
                   "https://bookings.resavenue.com/resBooking/availsearch?regCode=GATE0402"
                 )
               }
-              className="w-full bg-emerald-800 hover:bg-emerald-700 text-white"
+              className="w-full md:max-w-max bg-emerald-800 hover:bg-emerald-700 text-white"
             >
               Book Now
               <ChevronRight className="ml-2 h-4 w-4" />

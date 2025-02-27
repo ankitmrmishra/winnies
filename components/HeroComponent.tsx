@@ -7,7 +7,7 @@ import Image from "next/image";
 
 const playfair = Playfair_Display({ subsets: ["latin"] });
 
-import MainImage from "../public/assets/MainImage.jpg";
+import MainImage from "../public/WINNIWS.jpg";
 import { useRouter } from "next/navigation";
 
 export const HeroComponent = () => {

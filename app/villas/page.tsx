@@ -7,9 +7,10 @@ import { Playfair_Display, Inter } from "next/font/google";
 import { ChevronRight } from "lucide-react";
 import Room604 from "./Room604/20220120-_DSC4337.jpg";
 import Room605 from "./Room605/20220121-_DSC4953.jpg";
-import Room601 from "./Room601/20220120-_DSC4399.jpeg";
+import Room601 from "./Room601/20220120-_DSC4555.jpg";
 import Room602 from "./Room602/20220120-_DSC4483.jpg";
-import Room603 from "./Room603/20220120-_DSC4699.jpg";
+import Room603 from "./Room603/20220120-_DSC4782.jpg";
+
 const playfair = Playfair_Display({ subsets: ["latin"] });
 const inter = Inter({ subsets: ["latin"] });
 

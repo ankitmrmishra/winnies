@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Playfair_Display } from "next/font/google";
@@ -8,36 +8,53 @@ import { useState } from "react";
 
 const playfair = Playfair_Display({ subsets: ["latin"], style: ["italic"] });
 interface ImageType {
-  src: string;
+  src: StaticImageData;
   alt: string;
 }
+
+import Image1 from "./1.png";
+import Image2 from "./2.png";
+import Image3 from "./3.png";
+import Image4 from "./4.png";
+import Image5 from "./5.png";
+import Image6 from "./6.png";
+import Image7 from "./7.png";
+import Image8 from "./8.png";
 
 export default function Weddings() {
   const [selectedImage, setSelectedImage] = useState<ImageType | null>(null);
 
   const images: ImageType[] = [
     {
-      src: "https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+      src: Image1,
       alt: "Elegant wedding setup",
     },
     {
-      src: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80",
+      src: Image2,
       alt: "Bride and groom",
     },
     {
-      src: "https://images.unsplash.com/photo-1583939003579-730e3918a45a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80",
+      src: Image3,
       alt: "Wedding rings",
     },
     {
-      src: "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+      src: Image4,
       alt: "Mountain wedding venue",
     },
     {
-      src: "https://images.unsplash.com/photo-1606800052052-a08af7148866?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+      src: Image5,
       alt: "Wedding table setup",
     },
     {
-      src: "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+      src: Image6,
+      alt: "Wedding bouquet",
+    },
+    {
+      src: Image7,
+      alt: "Wedding bouquet",
+    },
+    {
+      src: Image8,
       alt: "Wedding bouquet",
     },
   ];
@@ -45,10 +62,11 @@ export default function Weddings() {
     <div className="min-h-screen  ">
       <section className="relative h-[100vh]">
         <Image
-          src="https://winnies.in/wp-content/uploads/2023/10/Kasauli-weddings-winnies.jpg"
+          src={Image6}
           alt="Scenic view of Kasauli"
-          layout="fill"
-          objectFit="cover"
+          width={800}
+          height={800}
+          className="w-full h-full object-cover blur-[2px]"
           priority
         />
         <div className="absolute inset-0 bg-black/40" />
@@ -207,11 +225,7 @@ export default function Weddings() {
                   height={400}
                   className="w-full h-64 object-cover"
                 />
-                <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
-                  <p className="text-white text-lg font-semibold">
-                    {image.alt}
-                  </p>
-                </div>
+                <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
               </motion.div>
             ))}
           </div>

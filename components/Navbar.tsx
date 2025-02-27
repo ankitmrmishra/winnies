@@ -23,10 +23,28 @@ import deluxs3bedroom from "@/public/assets/DELUXE 3-BEDROOM APARTMENT/image.png
 import Logo from "../public/assets/LOGO.png";
 import { useRouter } from "next/navigation";
 
+import Room604 from "../app/villas/Room604/20220120-_DSC4337.jpg";
+import Room605 from "../app/villas/Room605/20220121-_DSC4953.jpg";
+import Room601 from "../app/villas/Room601/20220120-_DSC4555.jpg";
+import Room602 from "../app/villas/Room602/20220120-_DSC4483.jpg";
+import Room603 from "../app/villas/Room603/20220120-_DSC4782.jpg";
+
 interface Facility {
   title: string;
   image: StaticImageData;
   link: string;
+}
+
+interface Room {
+  id: string;
+  title: string;
+  imageUrl: string | StaticImageData;
+}
+
+interface Villa {
+  id: string;
+  title: string;
+  imageUrl: string | StaticImageData;
 }
 
 export const facilitiesData: Facility[] = [
@@ -62,9 +80,76 @@ export const facilitiesData: Facility[] = [
   },
 ];
 
+export const roomsData: Room[] = [
+  {
+    id: "1",
+    title: "Deluxe Rooms",
+    imageUrl: deluxroom,
+  },
+  {
+    id: "2",
+    title: "Super Deluxe Rooms",
+    imageUrl: superdeluxrooms,
+  },
+  {
+    id: "3",
+    title: "Premium Valley View Rooms",
+    imageUrl: Premiumroom,
+  },
+  {
+    id: "4",
+    title: "Premium Pool Deck Rooms",
+    imageUrl: POOLDECKPREMIUMROOMS,
+  },
+  {
+    id: "5",
+    title: "2-Bedroom Premium Suite",
+    imageUrl: PREMIUM2BEDROOMAPARTMENT,
+  },
+  {
+    id: "6",
+    title: "3-Bedroom Deluxe Suite",
+    imageUrl: deluxs3bedroom,
+  },
+  {
+    id: "7",
+    title: "Family Room",
+    imageUrl: deluxroom, // Using deluxe room image as a placeholder
+  },
+];
+
+export const villasData: Villa[] = [
+  {
+    id: "601",
+    title: "Enchanted",
+    imageUrl: Room601,
+  },
+  {
+    id: "602",
+    title: "Perch",
+    imageUrl: Room602,
+  },
+  {
+    id: "603",
+    title: "Nook",
+    imageUrl: Room603,
+  },
+  {
+    id: "604",
+    title: "Bloom",
+    imageUrl: Room604,
+  },
+  {
+    id: "605",
+    title: "Elevate",
+    imageUrl: Room605,
+  },
+];
+
 export default function Navbar() {
   const [isFacilitiesOpen, setIsFacilitiesOpen] = useState(false);
   const [isRoomsOpen, setIsRoomsOpen] = useState(false);
+  const [isVillasOpen, setIsVillasOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -74,6 +159,7 @@ export default function Navbar() {
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
   const toggleFacilities = () => setIsFacilitiesOpen(!isFacilitiesOpen);
   const toggleRooms = () => setIsRoomsOpen(!isRoomsOpen);
+  const toggleVillas = () => setIsVillasOpen(!isVillasOpen);
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     setIsScrolled(latest > 50);
@@ -85,6 +171,7 @@ export default function Navbar() {
         setIsFacilitiesOpen(false);
         setIsMobileMenuOpen(false);
         setIsRoomsOpen(false);
+        setIsVillasOpen(false);
       }
     };
 
@@ -166,6 +253,51 @@ export default function Navbar() {
                         <div>
                           <h3 className="font-medium text-white">
                             {room.title}
+                          </h3>
+                        </div>
+                      </Link>
+                    ))}
+                  </motion.div>
+                )}
+              </div>
+
+              <div className="relative">
+                <motion.button
+                  className="flex items-center space-x-1 hover:text-emerald-400 group"
+                  onClick={toggleVillas}
+                >
+                  <span>Villas</span>
+                  <ChevronDown
+                    className={`w-4 h-4 transition-transform duration-300 ${
+                      isVillasOpen ? "rotate-180" : ""
+                    }`}
+                  />
+                </motion.button>
+                {isVillasOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="absolute top-full left-0 w-80 bg-emerald-800 shadow-lg rounded-lg py-4 mt-2 max-h-96 overflow-scroll no-scrollbar"
+                  >
+                    {villasData.map((villa) => (
+                      <Link
+                        key={villa.id}
+                        href={`/villas/${villa.id}`}
+                        className="flex items-center space-x-4 px-4 py-3 bg-blend-difference text-white hover:bg-emerald-700"
+                      >
+                        <div className="w-20 h-20 overflow-clip">
+                          <Image
+                            objectFit="cover"
+                            width={500}
+                            height={500}
+                            src={villa.imageUrl}
+                            alt={villa.title}
+                            className="w-20 h-20 object-cover rounded-lg"
+                          />
+                        </div>
+                        <div>
+                          <h3 className="font-medium text-white">
+                            {villa.title}
                           </h3>
                         </div>
                       </Link>
@@ -301,6 +433,38 @@ export default function Navbar() {
                   )}
                 </li>
                 <li>
+                  <button
+                    onClick={toggleVillas}
+                    className="flex items-center justify-between w-full text-white hover:text-emerald-200 py-2"
+                  >
+                    Villas
+                    <ChevronDown
+                      className={`w-4 h-4 transition-transform duration-300 ${
+                        isVillasOpen ? "rotate-180" : ""
+                      }`}
+                    />
+                  </button>
+                  {isVillasOpen && (
+                    <motion.ul
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="space-y-2 pl-4 mt-2 text-white"
+                    >
+                      {villasData.map((villa) => (
+                        <li key={villa.id}>
+                          <Link
+                            href={`/villas/${villa.id}`}
+                            className="block py-2 hover:text-emerald-200"
+                          >
+                            {villa.title}
+                          </Link>
+                        </li>
+                      ))}
+                    </motion.ul>
+                  )}
+                </li>
+                <li>
                   <Link
                     href="/Kasauli"
                     className="text-white hover:text-emerald-200 block py-2"
@@ -390,47 +554,3 @@ export default function Navbar() {
     </div>
   );
 }
-
-interface Room {
-  id: string;
-  title: string;
-  imageUrl: string | StaticImageData;
-}
-
-export const roomsData: Room[] = [
-  {
-    id: "1",
-    title: "Deluxe Rooms",
-    imageUrl: deluxroom,
-  },
-  {
-    id: "2",
-    title: "Super Deluxe Rooms",
-    imageUrl: superdeluxrooms,
-  },
-  {
-    id: "3",
-    title: "Premium Valley View Rooms",
-    imageUrl: Premiumroom,
-  },
-  {
-    id: "4",
-    title: "Premium Pool Deck Rooms",
-    imageUrl: POOLDECKPREMIUMROOMS,
-  },
-  {
-    id: "5",
-    title: "2-Bedroom Premium Suite",
-    imageUrl: PREMIUM2BEDROOMAPARTMENT,
-  },
-  {
-    id: "6",
-    title: "3-Bedroom Deluxe Suite",
-    imageUrl: deluxs3bedroom,
-  },
-  {
-    id: "7",
-    title: "Family Room",
-    imageUrl: deluxroom, // Using deluxe room image as a placeholder
-  },
-];

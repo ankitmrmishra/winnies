@@ -66,41 +66,42 @@ export default function SpaPage() {
 
   const BasicMassages: MassageType[] = [
     {
-      name: "Relaxing Aromatherapy",
+      name: "Aromatherapy",
       duration: "60 min / 90 min",
-      price: "INR 2490 / INR 3490",
+      price: "INR 2990 / INR 3990",
       description:
-        "Our unique blended balm elevates you to sublime relaxation, with gentle, calming massage strokes throughout.",
+        "Choose from a range of aroma-infused massage oils, which are warmed and massaged onto the body. This therapy works on tight muscles and lymph drainage, combating tension in stiff aching muscles and improves circulation.",
     },
     {
       name: "Swedish Massage",
       duration: "60 min / 90 min",
-      price: "INR 2490 / INR 3490",
-      description: `When daily demands wear you down, rejuvenate with a gentle "wake-me-up" therapy, melting away stress and refreshing your spirit.`,
+      price: "INR 2990 / INR 3990",
+      description:
+        "Using warm oil, heated up in a bottle and poured all over your body, the Swedish massage is designed to harmonize the corporal functions, such as blood circulation, breathing, and mind relaxation. Soft and long strokes envelop all the body from feet to head creating an overall relaxation of the body and soothing effect.",
     },
     {
       name: "Thai Massage",
       duration: "60 min / 90 min",
-      price: "INR 2490 / INR 3490",
+      price: "INR 2990 / INR 3990",
       description:
-        "Experience the world's renowned dry massage, with expert therapists stretching and relaxing every part of you.",
+        "Thai massage is a rhythmic oil-free massage, using a combination of stretching and deep pressure points along the body's major energy channels, restoring the flow of energy in the body and increasing awareness and spirit. Tension is relieved as flexibility is enhanced, inducing a deep state of tranquility.",
     },
   ];
 
   const RecommendedMassages: MassageType[] = [
     {
-      name: "Calming Lava",
-      duration: "60 min / 90 min / 120 min",
-      price: "INR 2890 / INR 3690 / INR 4690",
+      name: "Hot Stone Massage",
+      duration: "60 min / 90 min",
+      price: "INR 3490 / INR 4490",
       description:
-        "For deep muscle relaxation and a tranquil mind, warm basalt stones soothe muscles and release energy by unblocking chakras",
+        "This full body massage uses heated basalt stones to release stress and tension, and increase blood flow to the affected area. The heat from the stones provides extra relaxation for fatigued and overworked muscles and has a healing effect on damaged soft tissue. It is also known to promote better sleep.",
     },
     {
-      name: "Feel like flying – Royal Thai Massage",
-      duration: "60 min / 90 min / 120 min",
-      price: "INR 2890 / INR 3690 / INR 4690",
+      name: "Deep Tissue Massage",
+      duration: "60 min / 90 min",
+      price: "INR 3490 / INR 4490",
       description:
-        "When physical fatigue sets in, our expert therapists gently apply a deep relaxation balm, soothing each muscle before skillfully stretching and easing every part of your body into profound relaxation.",
+        "This massage releases stress, eases muscle tension, boosts circulation, and improves mobility, as well as muscle and skin tone. It targets the areas of concern specified by a guest and works therapeutically into deeper muscle layers, addressing trigger points with gentle pressure and release techniques.",
     },
   ];
 
@@ -166,7 +167,7 @@ export default function SpaPage() {
               ].map((ingredient, index) => (
                 <div
                   key={index}
-                  className="flex md:flex-row flex-col items-center justify-center bg-emerald-50 p-3 rounded-lg"
+                  className="flex md:flex-row flex-col items-center justify-center bg-emerald-50 p-3 rounded-lg border border-emerald-400"
                 >
                   <Leaf className="w-5 h-5 text-emerald-600 mr-2" />
                   <span className="text-sm">{ingredient}</span>
