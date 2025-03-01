@@ -196,17 +196,17 @@ export default function Navbar() {
         transition={{ duration: 0.3 }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-24 gap-6">
+          <div className="flex justify-between items-center h-24 gap-6 ">
             {/* Logo */}
             <motion.a
               href="/"
-              className="flex-shrink-0 md:mt-2  flex justify-center align-middle items-center"
+              className="flex md:mt-2   justify-center align-middle items-center  p-2"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
               <Image
                 src={Logo}
-                className="md:size-20 size-16 ml-6   "
+                className="md:size-20 size-16 ml-6  bg-[#faf9f6] p-2  "
                 objectFit="cover"
                 width={500}
                 height={500}

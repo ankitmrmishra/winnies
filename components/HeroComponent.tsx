@@ -17,8 +17,8 @@ export const HeroComponent = () => {
       <Image
         src={MainImage}
         alt="Winnies Resort"
-        layout="fill"
-        objectFit="cover"
+        width={1000}
+        height={1000}
         priority
         className="object-cover w-full h-full inset-0 top-0"
       />

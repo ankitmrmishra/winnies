@@ -11,18 +11,18 @@ import PoolDeckRoom1 from "./PollDeck Rooms/DSC01173-Enhanced-NR.jpg";
 
 // Delux Room
 
-import DeluxRoom1 from "./DeluxRoom/DSC03073-Enhanced-NR.jpg";
+// import DeluxRoom1 from "./DeluxRoom/DSC03073-Enhanced-NR.jpg";
 
 // Super delux room
 
 import SuperDeluxRoom2 from "./Superdeluxroom/DSC01159-Enhanced-NR.jpg";
 
 // Premium Valley Room
-import PremiumValleyRooms1 from "./PremiumValleyRooms/DSC03111-Enhanced-NR.jpg";
+// import PremiumValleyRooms1 from "./PremiumValleyRooms/DSC03111-Enhanced-NR.jpg";
 
 // Two Bedroom apartments
 
-import TwoBedroom3 from "./twoBedRoom/DSC03266-Enhanced-NR.jpg";
+// import TwoBedroom3 from "./twoBedRoom/DSC03266-Enhanced-NR.jpg";
 
 // 3 bedroom aprtments
 
@@ -30,8 +30,12 @@ import ThreeBedroom3 from "./ThreeBedroom/DSC03371-Enhanced-NR.jpg";
 
 // Family Room
 
-import FamilyRoom1 from "./FamilyRoom/DSC03154-Enhanced-NR.jpg";
+// import FamilyRoom1 from "./FamilyRoom/DSC03154-Enhanced-NR.jpg";
 
+import DeluxRoom1 from "../rooms/DeluxRoom/DSC03074-Enhanced-NR.jpg";
+import PremiumValleyRooms1 from "../rooms/PremiumValleyRooms/DSC03131-Enhanced-NR.jpg";
+import TwoBedroom3 from "../rooms/twoBedRoom/DSC03285-Enhanced-NR.jpg";
+import FamilyRoom1 from "../rooms/FamilyRoom/DSC03157.jpg";
 const playfair = Playfair_Display({ subsets: ["latin"] });
 const inter = Inter({ subsets: ["latin"] });
 
