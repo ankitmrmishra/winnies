@@ -21,6 +21,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import emailjs from "@emailjs/browser";
+import ContactUsImage from "../../public/4.png";
 
 const playfair = Playfair_Display({ subsets: ["latin"], style: ["italic"] });
 
@@ -88,7 +89,7 @@ export default function ContactPage() {
     <div className="min-h-screen bg-gray-50">
       <section className="relative h-[60vh]">
         <Image
-          src="https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+          src={ContactUsImage}
           alt="Winnies Resort Contact"
           layout="fill"
           objectFit="cover"
