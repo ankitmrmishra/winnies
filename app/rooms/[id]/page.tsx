@@ -158,7 +158,7 @@ const roomsData = [
       "A cozy and comfortable space with essential amenities for a relaxing stay.",
     location: "Winnie's Retreat, Kasauli, Himachal Pradesh, India",
     squareFeet: 144,
-    pricePerNight: 6000,
+    pricePerNight: 7000,
     priceDetails: "+ Taxes",
     maxGuests: 2,
     imageUrl: [
@@ -193,7 +193,7 @@ const roomsData = [
       "Spacious and luxurious rooms with elegant interiors and valley views.",
     location: "Winnie's Retreat, Kasauli, Himachal Pradesh, India",
     squareFeet: 210,
-    pricePerNight: 6500,
+    pricePerNight: 8500,
     priceDetails: "+ Taxes",
     maxGuests: 2,
     imageUrl: [
@@ -235,7 +235,7 @@ const roomsData = [
     description: "Stylish and luxurious rooms offering stunning valley views.",
     location: "Winnie's Retreat, Kasauli, Himachal Pradesh, India",
     squareFeet: 215,
-    pricePerNight: 7499,
+    pricePerNight: 9600,
     priceDetails: "+ Taxes",
     maxGuests: 2,
     imageUrl: [
@@ -274,7 +274,7 @@ const roomsData = [
       "Rooms with direct pool access and private decks for an exquisite stay.",
     location: "Winnie's Retreat, Kasauli, Himachal Pradesh, India",
     squareFeet: 195,
-    pricePerNight: 7499,
+    pricePerNight: 9600,
     priceDetails: "+ Taxes",
     maxGuests: 2,
     imageUrl: [
@@ -317,7 +317,7 @@ const roomsData = [
       "Spacious apartments with premium amenities, perfect for families.",
     location: "Winnie's Retreat, Kasauli, Himachal Pradesh, India",
     squareFeet: 650,
-    pricePerNight: 18000,
+    pricePerNight: 20500,
     priceDetails: "+ Taxes",
     maxGuests: 4,
     imageUrl: [
@@ -364,7 +364,7 @@ const roomsData = [
       "Elegant and spacious apartments for larger families or groups.",
     location: "Winnie's Retreat, Kasauli, Himachal Pradesh, India",
     squareFeet: 900,
-    pricePerNight: 19000,
+    pricePerNight: 21500,
     priceDetails: "+ Taxes",
     maxGuests: 6,
     imageUrl: [
@@ -407,7 +407,7 @@ const roomsData = [
       "Comfortable and spacious rooms for families to relax and unwind.",
     location: "Winnie's Retreat, Kasauli, Himachal Pradesh, India",
     squareFeet: 500,
-    pricePerNight: 10000,
+    pricePerNight: 11500,
     priceDetails: "+ Taxes",
     maxGuests: 4,
     imageUrl: [
