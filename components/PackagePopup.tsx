@@ -9,10 +9,11 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+
 import { Button } from "@/components/ui/button";
 // import { packages } from "@/data/packages";
 // import { useRouter } from "next/navigation";
-import HoliPopoUp from "../public/holi.jpg";
+import HoliPopoUp from "../public/holipng.png";
 import Image from "next/image";
 export function PackageModal() {
   const [isOpen, setIsOpen] = useState(false);
