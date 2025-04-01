@@ -12,7 +12,7 @@ import Gym2 from "../../public/assets/Activities/gym2.jpg";
 import Pooltable1 from "../../public/assets/Activities/pool.jpg";
 // import Pooltable2 from "../../public/assets/Activities/pool2.jpg";
 // import Pooltable3 from "../../public/assets/Activities/pool3.jpg";
-import childrenplay from "../../public/assets/Activities/childrenplay.jpg";
+// import childrenplay from "../../public/assets/Activities/childrenplay.jpg";
 import ftbl from "../../public/assets/Activities/ftbl.jpg";
 // import Manwalking from "../../public/assets/Activities/Manwalking.jpg";
 // import Manwalking2 from "../../public/assets/Activities/ManWalking2.jpg";
@@ -37,12 +37,12 @@ export default function ActivitiesPage() {
             "Conquer your fears on our high ropes course, with expert instructors and fully secure safety equipment.",
           image: ropewalking,
         },
-        {
-          title: "Children's Play Area",
-          description:
-            "A safe and fun environment for children to play and explore.",
-          image: childrenplay,
-        },
+        // {
+        //   title: "Children's Play Area",
+        //   description:
+        //     "A safe and fun environment for children to play and explore.",
+        //   image: childrenplay,
+        // },
       ],
     },
     {
@@ -137,11 +137,11 @@ export default function ActivitiesPage() {
                 </p>
               </div>
 
-              <div className="grid md:grid-cols-2 gap-8">
+              <div className="flex flex-wrap justify-center align-middle items-center gap-8">
                 {activity.items.map((item, itemIndex) => (
                   <motion.div
                     key={itemIndex}
-                    className="bg-white rounded-lg shadow-lg overflow-hidden"
+                    className="bg-white rounded-lg shadow-lg overflow-hidden max-w-xl"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{

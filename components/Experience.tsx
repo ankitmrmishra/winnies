@@ -32,7 +32,7 @@ export const facilitiesData: Facility[] = [
       "Experience a wide range of thrilling activities amidst the beautiful Kasauli hills.",
     features: [
       "High Ropes Course",
-      "Children's Play Area",
+
       "Indoor Games Room",
       "Modern Fitness Center",
     ],
