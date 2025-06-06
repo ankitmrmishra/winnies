@@ -72,7 +72,7 @@ const villasData = [
     id: "601",
     title: "Enchanted",
     description:
-      "A luxurious two-bedroom villa offering enchanting valley views and modern amenities. Perfect for small families or couples seeking a magical getaway in the serene hills of Kasauli. Features spacious living areas, fully equipped kitchen, and private balconies to enjoy the natural surroundings.",
+      "A luxurious two-bedroom villa offering enchanting valley views and modern amenities. Perfect for small families or couples seeking a magical getaway in the serene hills of Kasauli. Features spacious living areas, and private balconies to enjoy the natural surroundings.",
     location: "Winnie's Retreat, Kasauli, Himachal Pradesh, India",
     squareFeet: 1200,
     pricePerNight: 35000,
@@ -89,7 +89,7 @@ const villasData = [
     amenities: [
       "Valley view",
       "Private balcony",
-      "Fully equipped kitchen",
+
       "Free Wi-Fi",
       "Air conditioning",
       "LED TV",
@@ -126,7 +126,7 @@ const villasData = [
     amenities: [
       "Panoramic mountain view",
       "Multiple private balconies",
-      "Fully equipped kitchen",
+
       "Free Wi-Fi",
       "Air conditioning",
       "Multiple LED TVs",
@@ -164,7 +164,7 @@ const villasData = [
     amenities: [
       "Garden view",
       "Private sit-out",
-      "Fully equipped kitchen",
+
       "Free Wi-Fi",
       "Air conditioning",
       "LED TV",
@@ -201,7 +201,7 @@ const villasData = [
     amenities: [
       "Garden view",
       "Multiple balconies",
-      "Fully equipped kitchen",
+
       "Free Wi-Fi",
       "Air conditioning",
       "Multiple LED TVs",
@@ -246,7 +246,7 @@ const villasData = [
     amenities: [
       "Valley view",
       "Private balcony",
-      "Fully equipped kitchen",
+
       "Free Wi-Fi",
       "Air conditioning",
       "LED TV",
@@ -291,7 +291,7 @@ const iconMap: {
 } = {
   "Valley view": Sun,
   "Private balcony": Home,
-  "Fully equipped kitchen": Coffee,
+
   "Free Wi-Fi": Wifi,
   "Air conditioning": Wind,
   "LED TV": Sun,

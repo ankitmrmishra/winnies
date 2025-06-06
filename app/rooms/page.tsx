@@ -182,7 +182,7 @@ const roomsData = [
     imageUrl: TwoBedroom3,
     amenities: [
       "Two bedrooms",
-      "Fully equipped kitchen",
+
       "Independent living area",
       "Private balconies",
       "Free Wi-Fi",

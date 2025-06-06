@@ -339,7 +339,7 @@ const roomsData = [
     ],
     amenities: [
       "Two bedrooms",
-      "Fully equipped kitchen",
+
       "Independent living area",
       "Private balconies",
       "Free Wi-Fi",
