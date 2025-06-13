@@ -1,13 +1,13 @@
 export const packages = [
   {
-    title: "Premium Valley Facing with Jacuzzi",
-    price: "23,000",
+    title: "Premium Room with Jacuzzi",
+    price: "36,000/- ",
     occupancy: "Double Occupancy",
     description: [
+      "2 Adults 2 Nights",
       "Breakfast & Dinner included",
       "Welcome Drink on Arrival",
       "Fruit Basket & Cookies",
-      "Valley View",
       "Private Jacuzzi",
     ],
   },
@@ -22,10 +22,11 @@ export const packages = [
     ],
   },
   {
-    title: "Premium Room with Jacuzzi Pool Deck Facing",
-    price: "23,000",
+    title: "Luxury Room with Private Pool",
+    price: "46,000/-",
     occupancy: "Double Occupancy",
     description: [
+      "2 Adults 2 Nights",
       "Breakfast & Dinner included",
       "Welcome Drink on Arrival",
       "Fruit Basket & Cookies",

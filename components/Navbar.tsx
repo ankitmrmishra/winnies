@@ -28,6 +28,8 @@ import Room605 from "../app/villas/Room605/20220121-_DSC4953.jpg";
 import Room601 from "../app/villas/Room601/20220120-_DSC4555.jpg";
 import Room602 from "../app/villas/Room602/20220120-_DSC4483.jpg";
 import Room603 from "../app/villas/Room603/20220120-_DSC4782.jpg";
+import Luxurywithpool from "../app/rooms/Luxryroomwithpool/IMG20250610163200.jpg";
+import Luxurywithjacuzi from "../app/rooms/Luxuryroomsiwthjcuzzi/8.jpg";
 
 interface Facility {
   title: string;
@@ -81,6 +83,16 @@ export const facilitiesData: Facility[] = [
 ];
 
 export const roomsData: Room[] = [
+  {
+    id: "8",
+    title: "Luxury Rooms with Pool",
+    imageUrl: Luxurywithpool,
+  },
+  {
+    id: "9",
+    title: "Luxury Rooms with Jacuzzi",
+    imageUrl: Luxurywithjacuzi,
+  },
   {
     id: "1",
     title: "Deluxe Rooms",

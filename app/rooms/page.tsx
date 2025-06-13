@@ -36,6 +36,8 @@ import DeluxRoom1 from "../rooms/DeluxRoom/DSC03074-Enhanced-NR.jpg";
 import PremiumValleyRooms1 from "../rooms/PremiumValleyRooms/DSC03131-Enhanced-NR.jpg";
 import TwoBedroom3 from "../rooms/twoBedRoom/DSC03285-Enhanced-NR.jpg";
 import FamilyRoom1 from "../rooms/FamilyRoom/DSC03157.jpg";
+import LuxuryRoomWithprivatepool from "../rooms/Luxryroomwithpool/IMG20250610163200.jpg";
+import LuxurywithJacizzi from "../rooms/Luxuryroomsiwthjcuzzi/8.jpg";
 const playfair = Playfair_Display({ subsets: ["latin"] });
 const inter = Inter({ subsets: ["latin"] });
 
@@ -238,6 +240,58 @@ const roomsData = [
     priceDetails: "+ Taxes",
     maxGuests: 4,
     imageUrl: FamilyRoom1, // Placeholder image
+    amenities: [
+      "Spacious layout",
+      "Multiple beds",
+      "Free Wi-Fi",
+      "Room service",
+    ],
+    features: ["Daily housekeeping", "Complimentary breakfast"],
+    policies: {
+      "Check-in": "1:00 PM",
+      "Check-out": "11:00 AM",
+      Cancellation: "Free cancellation up to 72 hours before check-in",
+      Pets: "Allowed",
+      Smoking: "Non-smoking room",
+    },
+  },
+  {
+    id: "8",
+    title: "Luxury Room with Private Pool",
+    description:
+      "Indulge in luxury with your very own private pool. Perfect for families seeking privacy, comfort, and relaxation in a scenic retreat.",
+    location: "Winnie's Retreat, Kasauli, Himachal Pradesh, India",
+    squareFeet: 500,
+    pricePerNight: 20000,
+    priceDetails: "+ Taxes with breakfast. 2 Adults ",
+    maxGuests: 2,
+    imageUrl: LuxuryRoomWithprivatepool, // Placeholder image
+    amenities: [
+      "Spacious layout",
+      "Multiple beds",
+      "Free Wi-Fi",
+      "Room service",
+    ],
+    features: ["Daily housekeeping", "Complimentary breakfast"],
+    policies: {
+      "Check-in": "1:00 PM",
+      "Check-out": "11:00 AM",
+      Cancellation: "Free cancellation up to 72 hours before check-in",
+      Pets: "Allowed",
+      Smoking: "Non-smoking room",
+    },
+  },
+  {
+    id: "9",
+    title: "Luxury Room with Jacuzzi",
+    description:
+      "Unwind in style with a private in-room Jacuzzi. Ideal for families or couples seeking a cozy escape with added indulgence and comfort.",
+    location: "Winnie's Retreat, Kasauli, Himachal Pradesh, India",
+    squareFeet: 500,
+    pricePerNight: 15000,
+    priceDetails: "+ Taxes and breakfast for 2 adults per night",
+    maxGuests: 2,
+    imageUrl: LuxurywithJacizzi, // Placeholder image
     amenities: [
       "Spacious layout",
       "Multiple beds",
