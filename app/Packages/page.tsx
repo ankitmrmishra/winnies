@@ -28,6 +28,31 @@ interface PackageType {
 export default function PackagePage() {
   const packages: PackageType[] = [
     {
+      title: "Luxury Room with Jacuzzi",
+      price: "36,000/- ",
+      occupancy: "Double Occupancy",
+      description: [
+        "2 Adults 2 Nights",
+        "Breakfast & Dinner included",
+        "Welcome Drink on Arrival",
+        "Fruit Basket & Cookies",
+        "Private Jacuzzi",
+      ],
+    },
+    {
+      title: "Luxury Room with Private Pool",
+      price: "46,000/-",
+      occupancy: "Double Occupancy",
+      description: [
+        "2 Adults 2 Nights",
+        "Breakfast & Dinner included",
+        "Welcome Drink on Arrival",
+        "Fruit Basket & Cookies",
+        "Pool Deck View",
+        "Private Jacuzzi",
+      ],
+    },
+    {
       title: "Premium Valley Facing with Jacuzzi",
       price: "23,000",
       occupancy: "Double Occupancy",

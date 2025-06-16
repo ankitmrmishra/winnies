@@ -1,6 +1,6 @@
 export const packages = [
   {
-    title: "Premium Room with Jacuzzi",
+    title: "Luxury Room with Jacuzzi",
     price: "36,000/- ",
     occupancy: "Double Occupancy",
     description: [
