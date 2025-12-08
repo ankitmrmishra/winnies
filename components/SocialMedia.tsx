@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import { Playfair_Display } from "next/font/google";
 import {
   motion,
@@ -7,68 +7,21 @@ import {
   useMotionValue,
   useTransform,
 } from "framer-motion";
-import {
-  Heart,
-  MessageCircle,
-  MoreHorizontal,
-  Bookmark,
-  Instagram,
-  Twitter,
-  Facebook,
-  Linkedin,
-  Youtube,
-} from "lucide-react";
-import Image from "next/image";
+import { Instagram, Twitter, Facebook, Linkedin, Youtube } from "lucide-react";
 
 const playfair = Playfair_Display({ subsets: ["latin"] });
 
-interface GlampingPost {
-  id: string;
-  username: string;
-  handle: string;
-  image: string;
-  likes: string;
-  comments: string;
-  avatar: string;
-}
-
-const glampingPosts: GlampingPost[] = [
-  {
-    id: "1",
-    username: "Winnies Resort",
-    handle: "@winniesresort",
-    image:
-      "https://images.unsplash.com/photo-1619631428091-1eaa03c3bdf1?q=80&w=2069&auto=format&fit=crop",
-    likes: "126k",
-    comments: "2.4k",
-    avatar:
-      "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=200&auto=format&fit=crop",
-  },
-  {
-    id: "2",
-    username: "Winnies Resort",
-    handle: "@winniesresort",
-    image:
-      "https://images.unsplash.com/photo-1533090368676-1fd25485db88?q=80&w=1969&auto=format&fit=crop",
-    likes: "95k",
-    comments: "1.8k",
-    avatar:
-      "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=200&auto=format&fit=crop",
-  },
-  {
-    id: "3",
-    username: "Winnies Resort",
-    handle: "@winniesresort",
-    image:
-      "https://images.unsplash.com/photo-1533090368676-1fd25485db88?q=80&w=1969&auto=format&fit=crop",
-    likes: "83k",
-    comments: "1.5k",
-    avatar:
-      "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=200&auto=format&fit=crop",
-  },
+// Your client's Instagram post URLs
+const instagramPostUrls = [
+  "https://www.instagram.com/p/DR4TUN1kpuU/",
+  "https://www.instagram.com/p/DR3RJInD8MM/",
+  "https://www.instagram.com/p/DRzOPJmD3Yt/",
+  "https://www.instagram.com/p/DRuMQpkD2OQ/",
+  "https://www.instagram.com/p/DRoWg3uD8s0/",
+  "https://www.instagram.com/reel/DRoVD8gD1ve/",
 ];
 
-const CARD_WIDTH = 288;
+const CARD_WIDTH = 400;
 const CARD_GAP = 16;
 
 export const SocialMedia = () => {
@@ -87,60 +40,112 @@ export const SocialMedia = () => {
           exciting surprise might be waiting for you.
         </p>
 
-        <InfiniteGlampingCarousel />
+        <InfiniteInstagramCarousel posts={instagramPostUrls} />
+
         <div className="medialinks flex justify-center align-middle items-center gap-3 text-emerald-800 mt-8">
           <div className="border border-emerald-800 rounded-full p-2">
-            <a href="http://" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://www.instagram.com/winniesresorts/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Instagram size={24} className="size-10 hover:cursor-pointer" />
             </a>
           </div>
           <div className="border border-emerald-800 rounded-full p-2">
-            <Twitter size={24} className="size-10 hover:cursor-pointer" />
+            <a
+              href="https://x.com/WKasauli"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Twitter size={24} className="size-10 hover:cursor-pointer" />
+            </a>
           </div>
           <div className="border border-emerald-800 rounded-full p-2">
-            <Facebook size={24} className="size-10 hover:cursor-pointer" />
+            <a
+              href="https://www.facebook.com/winnies.resorts"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Facebook size={24} className="size-10 hover:cursor-pointer" />
+            </a>
+          </div>
+          {/* <div className="border border-emerald-800 rounded-full p-2">
+            <a
+              href="https://linkedin.com/company/winniesresort"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Linkedin size={24} className="size-10 hover:cursor-pointer" />
+            </a>
           </div>
           <div className="border border-emerald-800 rounded-full p-2">
-            <Linkedin size={24} className="size-10 hover:cursor-pointer" />
-          </div>
-          <div className="border border-emerald-800 rounded-full p-2">
-            <Youtube size={24} className="size-10 hover:cursor-pointer" />
-          </div>
+            <a
+              href="https://youtube.com/@winniesresort"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Youtube size={24} className="size-10 hover:cursor-pointer" />
+            </a>
+          </div> */}
         </div>
       </div>
     </div>
   );
 };
 
-function InfiniteGlampingCarousel() {
-  const [posts] = React.useState<GlampingPost[]>([
-    ...glampingPosts,
-    ...glampingPosts,
-    ...glampingPosts,
-    ...glampingPosts,
-    ...glampingPosts,
-    ...glampingPosts,
-    ...glampingPosts,
-  ]);
+interface InfiniteInstagramCarouselProps {
+  posts: string[];
+}
 
+function InfiniteInstagramCarousel({ posts }: InfiniteInstagramCarouselProps) {
   const carouselRef = React.useRef<HTMLDivElement>(null);
-  const [carouselWidth, setCarouselWidth] = React.useState(0);
   const [contentWidth, setContentWidth] = React.useState(0);
+
+  // Duplicate posts for seamless loop
+  const duplicatedPosts = [...posts, ...posts, ...posts];
 
   React.useEffect(() => {
     if (carouselRef.current) {
-      setCarouselWidth(carouselRef.current.offsetWidth);
-      setContentWidth(posts.length * (CARD_WIDTH + CARD_GAP));
+      setContentWidth(duplicatedPosts.length * (CARD_WIDTH + CARD_GAP));
     }
-  }, [posts]);
+  }, [duplicatedPosts.length]);
+
+  // Load Instagram embed script
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://www.instagram.com/embed.js";
+    script.async = true;
+    document.body.appendChild(script);
+
+    // Process embeds whenever they're added
+    const processEmbeds = () => {
+      if (window.instgrm) {
+        window.instgrm.Embeds.process();
+      }
+    };
+
+    // Initial process
+    processEmbeds();
+
+    // Reprocess after a delay to ensure DOM is ready
+    const timer = setTimeout(processEmbeds, 1000);
+
+    return () => {
+      clearTimeout(timer);
+      if (document.body.contains(script)) {
+        document.body.removeChild(script);
+      }
+    };
+  }, []);
 
   const x = useMotionValue(0);
-  const baseVelocity = -100;
+  const baseVelocity = -50;
 
   useAnimationFrame((t, delta) => {
     const moveBy = baseVelocity * (delta / 1000);
 
-    if (x.get() <= -contentWidth / 2) {
+    if (x.get() <= -contentWidth / 3) {
       x.set(0);
     }
 
@@ -156,67 +161,44 @@ function InfiniteGlampingCarousel() {
       ref={carouselRef}
       className="w-full max-w-screen mx-auto py-12 px-4 overflow-hidden"
     >
-      <motion.div
-        style={{ x: xTransform, width: carouselWidth }}
-        className="flex space-x-4"
-      >
-        {posts.map((post, index) => (
+      <motion.div style={{ x: xTransform }} className="flex space-x-4">
+        {duplicatedPosts.map((postUrl, index) => (
           <motion.div
-            key={`${post.id}-${index}`}
-            className="flex-shrink-0 w-72 bg-white rounded-2xl overflow-hidden shadow-md"
+            key={`${postUrl}-${index}`}
+            className="flex-shrink-0"
+            style={{ width: CARD_WIDTH }}
           >
-            <div className="p-4 flex items-center space-x-3">
-              <Image
-                width={500}
-                height={500}
-                src={post.avatar}
-                alt={post.username}
-                className="w-10 h-10 rounded-full object-cover"
-              />
-              <div className="flex-1">
-                <h3 className="font-semibold text-gray-900">{post.username}</h3>
-                <p className="text-gray-500 text-sm">{post.handle}</p>
-              </div>
-              <button className="text-gray-500 hover:text-gray-700">
-                <MoreHorizontal className="w-5 h-5" />
-              </button>
-            </div>
-
-            <div className="relative aspect-square">
-              <Image
-                width={500}
-                height={500}
-                src={post.image}
-                alt="Glamping location"
-                className="w-full h-full object-cover"
-              />
-            </div>
-
-            <div className="p-4">
-              <div className="flex justify-between items-center mb-2">
-                <div className="flex space-x-4">
-                  <button className="text-gray-500 hover:text-red-500 transition-colors">
-                    <Heart className="w-6 h-6" />
-                  </button>
-                  <button className="text-gray-500 hover:text-gray-700 transition-colors">
-                    <MessageCircle className="w-6 h-6" />
-                  </button>
-                </div>
-                <button className="text-gray-500 hover:text-gray-700 transition-colors">
-                  <Bookmark className="w-6 h-6" />
-                </button>
-              </div>
-              <div className="text-sm">
-                <span className="font-semibold">{post.likes}</span>
-                <span className="text-gray-500"> likes</span>
-              </div>
-              <div className="text-sm text-gray-500">
-                View all {post.comments} comments
-              </div>
-            </div>
+            <blockquote
+              className="instagram-media"
+              data-instgrm-permalink={postUrl}
+              data-instgrm-version="14"
+              style={{
+                background: "#FFF",
+                border: "0",
+                borderRadius: "3px",
+                boxShadow:
+                  "0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15)",
+                margin: "1px",
+                maxWidth: "540px",
+                minWidth: "326px",
+                padding: "0",
+                width: "99.375%",
+              }}
+            />
           </motion.div>
         ))}
       </motion.div>
     </div>
   );
+}
+
+// TypeScript declaration for Instagram embed
+declare global {
+  interface Window {
+    instgrm?: {
+      Embeds: {
+        process: () => void;
+      };
+    };
+  }
 }

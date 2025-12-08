@@ -11,6 +11,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -38,10 +39,10 @@ export default function Footer() {
   ];
 
   const socialIcons = [
-    { Icon: Facebook, href: "#" },
-    { Icon: Twitter, href: "#" },
-    { Icon: Instagram, href: "#" },
-    { Icon: Linkedin, href: "#" },
+    { Icon: Facebook, href: "https://www.facebook.com/winnies.resorts" },
+    { Icon: Twitter, href: "https://x.com/WKasauli" },
+    { Icon: Instagram, href: "https://www.instagram.com/winniesresorts/" },
+    // { Icon: Linkedin, href: "#" },
   ];
 
   const router = useRouter();
@@ -161,9 +162,12 @@ export default function Footer() {
               © {year} Winnies Holiday Resort & Spa. All rights reserved.
             </div>
             <div className="flex gap-4">
-              <a href="#" className="hover:text-[#FFA500] transition-colors">
+              <Link
+                href="/privacy-policy"
+                className="hover:text-[#FFA500] transition-colors"
+              >
                 Privacy Policy
-              </a>
+              </Link>
               <a href="#" className="hover:text-[#FFA500] transition-colors">
                 Terms of Service
               </a>
