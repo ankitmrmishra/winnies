@@ -1,13 +1,5 @@
 "use client";
-import {
-  Facebook,
-  Globe,
-  Instagram,
-  Linkedin,
-  Mail,
-  Phone,
-  Twitter,
-} from "lucide-react";
+import { Facebook, Globe, Instagram, Mail, Phone, Twitter } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useRouter } from "next/navigation";

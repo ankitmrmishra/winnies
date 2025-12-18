@@ -7,7 +7,7 @@ import {
   useMotionValue,
   useTransform,
 } from "framer-motion";
-import { Instagram, Twitter, Facebook, Linkedin, Youtube } from "lucide-react";
+import { Instagram, Twitter, Facebook } from "lucide-react";
 
 const playfair = Playfair_Display({ subsets: ["latin"] });
 
