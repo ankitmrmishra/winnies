@@ -301,13 +301,22 @@ export default function ContactPage() {
                   <div className="flex items-start">
                     <CreditCard className="w-5 h-5 text-emerald-600 mr-2 mt-1 flex-shrink-0" />
                     <div className="text-gray-600">
-                      <p className="font-semibold">HDFC Bank</p>
+                      <p className="font-semibold">Paytm: 9816041218</p>
+                      <p className="font-semibold">Google Pay: 7018115489</p>
+                      <p className="font-semibold">PNB Bank</p>
                       <p>Account Name: Winnies Holiday Inn</p>
-                      <p>Account No: 03872000001938</p>
-                      <p>IFSC code: HDFC0002900</p>
+                      <p>Account No: 0356009300014328</p>
+                      <p>IFSC code: PUNB0035600</p>
 
-                      <p>Branch: Dharampur</p>
+                      <p>Branch: Nahan</p>
                       <p>Current Account</p>
+                      <p className="font-semibold py-3">QR CODE</p>
+                      <Image
+                        src={"/qrcode.jpeg"}
+                        alt="qrcode"
+                        height={500}
+                        width={500}
+                      />
                     </div>
                   </div>
                 </div>

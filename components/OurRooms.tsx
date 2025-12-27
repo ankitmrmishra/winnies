@@ -128,7 +128,7 @@ function RoomCard({ room }: { room: RoomData }) {
   );
 }
 
-const rooms: RoomData[] = [
+export const rooms: RoomData[] = [
   {
     id: "1",
     title: "Deluxe Rooms",

@@ -2,12 +2,16 @@ import { About } from "@/components/About";
 import Amenities from "@/components/Amenities";
 import { CallbackForm } from "@/components/booking-form";
 import BookingForm from "@/components/CalenderBook";
+import { CallbackBanner } from "@/components/callback-banner";
 import CTA from "@/components/CTA";
 import ExperiencesGrid from "@/components/Experience";
 
 import { HeroComponent } from "@/components/HeroComponent";
+import { OurVillasBooking } from "@/components/open-villas-card";
+import { OurRoomsBooking } from "@/components/our-rooms-card";
 import { OurMVPS } from "@/components/OurMVPS";
-import { OurRooms } from "@/components/OurRooms";
+
+import { RefundPolicy } from "@/components/refund-policy";
 import { SocialMedia } from "@/components/SocialMedia";
 import Testimonials from "@/components/Testimonials";
 
@@ -30,8 +34,12 @@ export default function Home() {
             <About />
             <OurMVPS />
             <ExperiencesGrid />
+            <CallbackBanner />
             <Amenities />
-            <OurRooms />
+            <OurRoomsBooking />
+            <OurVillasBooking />
+            <RefundPolicy />
+            <CallbackBanner />
             <Testimonials />
             <SocialMedia />
             <CTA />
