@@ -80,7 +80,7 @@ interface OurRoomsProps {
 }
 
 export const OurVillasBooking = ({
-  subtitle = "Carefully designed luxury Villas",
+  subtitle = "Luxury Villas",
   items = villasData,
   className = "",
 }: OurRoomsProps) => {
@@ -127,7 +127,7 @@ function RoomCard({ room }: { room: RoomData }) {
     <motion.div
       whileHover={{ y: -5 }}
       className="bg-white rounded-xl overflow-hidden h-full flex flex-col shadow-sm border border-gray-100 cursor-pointer"
-      onClick={() => router.push(`/rooms/${room.id}`)}
+      onClick={() => router.push(`/villas/${room.id}`)}
     >
       <div className="relative aspect-[16/10]">
         <Image

@@ -7,7 +7,7 @@ import { Playfair_Display, Inter } from "next/font/google";
 const playfair = Playfair_Display({ subsets: ["latin"] });
 const inter = Inter({ subsets: ["latin"] });
 
-export function About() {
+export function About({ onRequest }: { onRequest: () => void }) {
   return (
     <section
       className={`py-20 md:py-10 px-6 md:px-20 bg-[#faf9f6] text-black max-h-max gap-5 flex flex-col justify-start align-middle items-start overflow-hidden ${inter.className}`}
@@ -29,6 +29,7 @@ export function About() {
           embrace.
         </p>
         <Button
+          onClick={onRequest}
           variant="outline"
           className="border-emerald-700 text-black hover:bg-emerald-600 hover:text-white transition-colors duration-300"
         >

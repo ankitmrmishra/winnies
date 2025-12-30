@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 // import { packages } from "@/data/packages";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import Image from "next/image";
 
 export function PackageModal() {
@@ -36,6 +36,10 @@ export function PackageModal() {
   //   );
   // };
   const router = useRouter();
+
+  const pathname = usePathname();
+
+  if (pathname.startsWith("/booking")) return null;
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogContent className=" bg-transparent border-none  flex justify-center align-middle overflow-y-auto">

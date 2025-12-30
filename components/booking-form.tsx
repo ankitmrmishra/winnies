@@ -1,6 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import {
+  forwardRef,
+  useImperativeHandle,
+  useRef,
+  useState,
+  useEffect,
+} from "react";
+import { motion, useAnimationControls } from "framer-motion";
 import { Playfair_Display } from "next/font/google";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -25,153 +32,220 @@ import { cn } from "@/lib/utils";
 
 const playfair = Playfair_Display({ subsets: ["latin"] });
 
-export function CallbackForm() {
-  const [checkIn, setCheckIn] = useState<Date>();
-  const [checkOut, setCheckOut] = useState<Date>();
+export type CallbackFormHandle = {
+  focus: () => void;
+  scrollIntoView: (options?: ScrollIntoViewOptions) => void;
+};
 
-  return (
-    <div className="bg-white p-6 rounded-2xl shadow-2xl border border-emerald-100 w-full max-w-md">
-      <h3
-        className={`${playfair.className} text-2xl text-emerald-800 mb-6 text-center`}
+type Props = {
+  active: boolean;
+  triggerKey: number;
+  onUserInteraction: () => void;
+};
+
+const variants = {
+  idle: {
+    x: 0,
+    boxShadow: "0 0 0 0 rgba(0,0,0,0)",
+  },
+  shake: {
+    x: [-10, 10, -8, 8, -4, 4, 0],
+    boxShadow: "0 0 0 6px rgba(16,185,129,0.35)",
+    transition: {
+      x: { duration: 0.5 },
+      boxShadow: {
+        duration: 0.6,
+        repeat: 2,
+        repeatType: "mirror" as const,
+      },
+    },
+  },
+};
+
+export const CallbackForm = forwardRef<CallbackFormHandle, Props>(
+  ({ active, triggerKey, onUserInteraction }, ref) => {
+    const containerRef = useRef<HTMLDivElement>(null);
+    const inputRef = useRef<HTMLInputElement>(null);
+    const controls = useAnimationControls();
+    const [checkIn, setCheckIn] = useState<Date>();
+    const [checkOut, setCheckOut] = useState<Date>();
+
+    useImperativeHandle(ref, () => ({
+      focus() {
+        inputRef.current?.focus();
+      },
+      scrollIntoView(options) {
+        containerRef.current?.scrollIntoView({
+          behavior: "smooth",
+          block: "center",
+          ...options,
+        });
+      },
+    }));
+
+    /* ✅ Trigger animation when active changes */
+    useEffect(() => {
+      if (active) {
+        controls.start("shake");
+      } else {
+        controls.start("idle");
+      }
+    }, [active, triggerKey, controls]);
+
+    return (
+      <motion.div
+        ref={containerRef}
+        animate={controls}
+        variants={variants}
+        className={cn(
+          "bg-white p-6 rounded-2xl shadow-2xl border w-full max-w-md",
+          active ? "border-emerald-600" : "border-emerald-100"
+        )}
       >
-        Book Your Stay
-      </h3>
-      <form className="space-y-4">
-        <div className="space-y-2">
-          <Label htmlFor="name">Full Name</Label>
-          <Input
-            id="name"
-            placeholder="John Doe"
-            className="border-emerald-100 focus-visible:ring-emerald-500"
-          />
-        </div>
-
-        <div className="space-y-2">
-          <Label htmlFor="email">Email Address</Label>
-          <Input
-            id="email"
-            type="email"
-            placeholder="john@example.com"
-            className="border-emerald-100 focus-visible:ring-emerald-500"
-          />
-        </div>
-
-        <div className="space-y-2">
-          <Label htmlFor="phone">Phone Number</Label>
-          <Input
-            id="phone"
-            type="tel"
-            placeholder="+1 (555) 000-0000"
-            className="border-emerald-100 focus-visible:ring-emerald-500"
-          />
-        </div>
-
-        <div className="grid grid-cols-2 gap-4">
+        <h3
+          className={`${playfair.className} text-2xl text-emerald-800 mb-6 text-center`}
+        >
+          Request a Callback
+        </h3>
+        <form className="space-y-4">
+          {/* Full Name */}
           <div className="space-y-2">
-            <Label>Check-in Date</Label>
-            <Popover>
-              <PopoverTrigger asChild>
-                <Button
-                  variant="outline"
-                  className={cn(
-                    "w-full justify-start text-left font-normal border-emerald-100",
-                    !checkIn && "text-muted-foreground"
-                  )}
-                >
-                  <CalendarIcon className="mr-2 h-4 w-4" />
-                  {checkIn ? format(checkIn, "PPP") : <span>Pick a date</span>}
-                </Button>
-              </PopoverTrigger>
-              <PopoverContent className="w-auto p-0">
-                <Calendar
-                  mode="single"
-                  selected={checkIn}
-                  onSelect={setCheckIn}
-                  initialFocus
-                />
-              </PopoverContent>
-            </Popover>
+            <Label htmlFor="name">Full Name</Label>
+            <Input
+              ref={inputRef}
+              id="name"
+              placeholder="Manav Kaul"
+              onChange={onUserInteraction}
+              className="border-emerald-100 focus-visible:ring-emerald-500"
+            />
           </div>
-          <div className="space-y-2">
-            <Label>Check-out Date</Label>
-            <Popover>
-              <PopoverTrigger asChild>
-                <Button
-                  variant="outline"
-                  className={cn(
-                    "w-full justify-start text-left font-normal border-emerald-100",
-                    !checkOut && "text-muted-foreground"
-                  )}
-                >
-                  <CalendarIcon className="mr-2 h-4 w-4" />
-                  {checkOut ? (
-                    format(checkOut, "PPP")
-                  ) : (
-                    <span>Pick a date</span>
-                  )}
-                </Button>
-              </PopoverTrigger>
-              <PopoverContent className="w-auto p-0">
-                <Calendar
-                  mode="single"
-                  selected={checkOut}
-                  onSelect={setCheckOut}
-                  initialFocus
-                />
-              </PopoverContent>
-            </Popover>
-          </div>
-        </div>
 
-        <div className="grid grid-cols-2 gap-4">
+          {/* Email */}
           <div className="space-y-2">
-            <Label htmlFor="guests">Total Guests</Label>
-            <Select>
-              <SelectTrigger id="guests" className="border-emerald-100">
-                <SelectValue placeholder="Select" />
-              </SelectTrigger>
-              <SelectContent>
-                {[1, 2, 3, 4, 5, 6].map((num) => (
-                  <SelectItem key={num} value={num.toString()}>
-                    {num} {num === 1 ? "Guest" : "Guests"}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
+            <Label htmlFor="email">Email Address</Label>
+            <Input
+              id="email"
+              type="email"
+              placeholder="manav@example.com"
+              onChange={onUserInteraction}
+              className="border-emerald-100 focus-visible:ring-emerald-500"
+            />
           </div>
+
+          {/* Phone */}
           <div className="space-y-2">
-            <Label htmlFor="room-type">Room/Villa</Label>
-            <Select>
-              <SelectTrigger id="room-type" className="border-emerald-100">
-                <SelectValue placeholder="Select" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="deluxe">Deluxe Room</SelectItem>
-                <SelectItem value="super-deluxe">Super Deluxe</SelectItem>
-                <SelectItem value="premium">Premium Suite</SelectItem>
-                <SelectItem value="villa">Luxury Villa</SelectItem>
-              </SelectContent>
-            </Select>
+            <Label htmlFor="phone">Phone Number</Label>
+            <Input
+              id="phone"
+              type="tel"
+              placeholder="+91 9876543210"
+              onChange={onUserInteraction}
+              className="border-emerald-100 focus-visible:ring-emerald-500"
+            />
           </div>
-        </div>
 
-        <div className="flex items-center space-x-2 pt-2">
-          <Checkbox
-            id="terms"
-            className="border-emerald-300 data-[state=checked]:bg-emerald-600"
-          />
-          <Label
-            htmlFor="terms"
-            className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-          >
-            I agree to the privacy policy
-          </Label>
-        </div>
+          {/* Dates */}
+          <div className="grid grid-cols-2 gap-4">
+            <div className="space-y-2">
+              <Label>Check-in Date</Label>
+              <Popover>
+                <PopoverTrigger asChild>
+                  <Button
+                    variant="outline"
+                    className={cn(
+                      "w-full justify-start text-left font-normal border-emerald-100",
+                      !checkIn && "text-muted-foreground"
+                    )}
+                  >
+                    <CalendarIcon className="mr-2 h-4 w-4" />
+                    {checkIn ? format(checkIn, "dd MMM") : "Pick a date"}
+                  </Button>
+                </PopoverTrigger>
+                <PopoverContent className="w-auto p-0">
+                  <Calendar
+                    mode="single"
+                    selected={checkIn}
+                    onSelect={setCheckIn}
+                    initialFocus
+                  />
+                </PopoverContent>
+              </Popover>
+            </div>
 
-        <Button className="w-full bg-emerald-800 hover:bg-emerald-700 text-white mt-4 h-12 text-lg font-semibold">
-          Submit Booking Request
-        </Button>
-      </form>
-    </div>
-  );
-}
+            <div className="space-y-2">
+              <Label>Check-out Date</Label>
+              <Popover>
+                <PopoverTrigger asChild>
+                  <Button
+                    variant="outline"
+                    className={cn(
+                      "w-full justify-start text-left font-normal border-emerald-100",
+                      !checkOut && "text-muted-foreground"
+                    )}
+                  >
+                    <CalendarIcon className="mr-2 h-4 w-4" />
+                    {checkOut ? format(checkOut, "dd MMM") : "Pick a date"}
+                  </Button>
+                </PopoverTrigger>
+                <PopoverContent className="w-auto p-0">
+                  <Calendar
+                    mode="single"
+                    selected={checkOut}
+                    onSelect={setCheckOut}
+                    initialFocus
+                  />
+                </PopoverContent>
+              </Popover>
+            </div>
+          </div>
+
+          {/* Guests + Room */}
+          <div className="grid grid-cols-2 gap-4">
+            <div className="space-y-2">
+              <Label>Total Guests</Label>
+              <Select>
+                <SelectTrigger className="border-emerald-100">
+                  <SelectValue placeholder="Select" />
+                </SelectTrigger>
+                <SelectContent>
+                  {[1, 2, 3, "4+"].map((n) => (
+                    <SelectItem key={n} value={n.toString()}>
+                      {n}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+
+            <div className="space-y-2">
+              <Label>Room / Villa</Label>
+              <Select>
+                <SelectTrigger className="border-emerald-100">
+                  <SelectValue placeholder="Select" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="room">Room</SelectItem>
+                  <SelectItem value="villa">Villa</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+          </div>
+
+          {/* Terms */}
+          <div className="flex items-center space-x-2 pt-2">
+            <Checkbox checked id="terms" />
+            <Label htmlFor="terms" className="text-sm">
+              I agree to the privacy policy
+            </Label>
+          </div>
+
+          <Button className="w-full bg-emerald-800 hover:bg-emerald-700 text-white h-12 text-lg font-semibold">
+            Submit Booking Request
+          </Button>
+        </form>
+      </motion.div>
+    );
+  }
+);
+
+CallbackForm.displayName = "CallbackForm";

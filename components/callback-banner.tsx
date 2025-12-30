@@ -1,8 +1,9 @@
 "use client";
+
 import { Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-export function CallbackBanner() {
+export function CallbackBanner({ onRequest }: { onRequest: () => void }) {
   return (
     <div className="w-full max-w-4xl mx-auto my-12 overflow-hidden rounded-2xl">
       <div className="flex flex-col md:flex-row items-center justify-between px-8 py-4 gap-4 bg-gradient-to-r from-[#FEF9C3] via-[#FBCFE8] to-[#F5D0FE]">
@@ -14,8 +15,9 @@ export function CallbackBanner() {
             Send a query
           </span>
         </div>
+
         <Button
-          onClick={() => window.open("https://wa.me/+919805633007", "_blank")}
+          onClick={onRequest}
           className="bg-white/40 hover:bg-white/60 text-emerald-950 border border-white/50 backdrop-blur-md rounded-full px-8 py-6 text-lg font-medium shadow-sm transition-all"
         >
           Request Callback

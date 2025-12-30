@@ -21,7 +21,7 @@ import POOLDECKPREMIUMROOMS from "@/public/assets/POOL DECK PREMIUM ROOMS/room1.
 import superdeluxrooms from "@/public/assets/superdeluxrooms/room1.png";
 import deluxs3bedroom from "@/public/assets/DELUXE 3-BEDROOM APARTMENT/image.png";
 import Logo from "../public/assets/LOGO.png";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 import Room604 from "../app/villas/Room604/20220120-_DSC4337.jpg";
 import Room605 from "../app/villas/Room605/20220121-_DSC4953.jpg";
@@ -194,6 +194,10 @@ export default function Navbar() {
   }, []);
 
   const router = useRouter();
+
+  const pathname = usePathname();
+
+  if (pathname.startsWith("/booking")) return null;
   return (
     <div className="sticky z-50 " ref={navRef}>
       <motion.nav

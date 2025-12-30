@@ -320,7 +320,7 @@ interface OurRoomsProps {
 }
 
 export const OurRoomsBooking = ({
-  subtitle = "Carefully designed luxury Rooms",
+  subtitle = "Luxury Rooms",
   items = roomsData,
   className = "",
 }: OurRoomsProps) => {

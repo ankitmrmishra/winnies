@@ -1,5 +1,4 @@
 import { CheckCircle2, MinusCircle, XCircle, Info } from "lucide-react";
-import { Button } from "@/components/ui/button";
 
 export function RefundPolicy() {
   return (
@@ -53,7 +52,7 @@ export function RefundPolicy() {
         </div>
       </div>
 
-      <div className="flex flex-wrap gap-4 mb-8">
+      {/* <div className="flex flex-wrap gap-4 mb-8">
         <Button
           variant="outline"
           className="bg-[#E9F0FE] hover:bg-[#D8E6FD] text-gray-900 border-none rounded-xl px-8 py-6 h-auto font-medium"
@@ -66,7 +65,7 @@ export function RefundPolicy() {
         >
           Home Rules and Policy
         </Button>
-      </div>
+      </div> */}
 
       <div className="space-y-4 pt-4 border-t border-gray-100">
         <p className="text-gray-900 font-medium">

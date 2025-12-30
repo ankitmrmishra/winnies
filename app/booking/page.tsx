@@ -1,54 +1,111 @@
+"use client";
+
 import { About } from "@/components/About";
 import Amenities from "@/components/Amenities";
-import { CallbackForm } from "@/components/booking-form";
-import BookingForm from "@/components/CalenderBook";
+import { CallbackForm, CallbackFormHandle } from "@/components/booking-form";
 import { CallbackBanner } from "@/components/callback-banner";
 import CTA from "@/components/CTA";
 import ExperiencesGrid from "@/components/Experience";
-
-import { HeroComponent } from "@/components/HeroComponent";
 import { OurVillasBooking } from "@/components/open-villas-card";
 import { OurRoomsBooking } from "@/components/our-rooms-card";
-import { OurMVPS } from "@/components/OurMVPS";
-
 import { RefundPolicy } from "@/components/refund-policy";
 import { SocialMedia } from "@/components/SocialMedia";
 import Testimonials from "@/components/Testimonials";
+import { HeroComponentBooking } from "./HeroComponent";
+import BookingNavbar from "./bookingnav";
+import TopCallBanner from "./components/top-banner";
+import { useRef, useState, useEffect } from "react";
 
 export default function Home() {
-  return (
-    <div className="">
-      <HeroComponent />
+  const desktopFormRef = useRef<CallbackFormHandle>(null);
+  const mobileFormRef = useRef<CallbackFormHandle>(null);
 
-      {/* Mobile CallbackForm - shows after hero on small screens */}
-      <div className="lg:hidden">
-        <CallbackForm />
+  const [active, setActive] = useState(false);
+  const [triggerKey, setTriggerKey] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+
+  /* detect screen size */
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 1024);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
+
+  const handleRequestCallback = () => {
+    const ref = isMobile ? mobileFormRef : desktopFormRef;
+
+    // 📜 First, scroll the form into view
+    ref.current?.scrollIntoView?.({
+      behavior: "smooth",
+      block: "center",
+    });
+
+    // ⏱️ Wait for scroll to complete, then trigger animation
+    setTimeout(() => {
+      setActive(true);
+      setTriggerKey((k) => k + 1);
+
+      // 🎯 Focus input after animation starts
+      setTimeout(() => {
+        ref.current?.focus();
+      }, 100);
+
+      // ⏱ Auto-remove glow after 2.5s
+      setTimeout(() => setActive(false), 2500);
+    }, 500); // Give scroll time to start
+  };
+
+  const handleUserInteraction = () => {
+    setActive(false);
+  };
+
+  return (
+    <div>
+      <TopCallBanner />
+      <BookingNavbar onRequest={handleRequestCallback} />
+      <HeroComponentBooking />
+
+      {/* 📱 Mobile */}
+      <div className="lg:hidden px-4">
+        <CallbackForm
+          ref={mobileFormRef}
+          active={active}
+          triggerKey={triggerKey}
+          onUserInteraction={handleUserInteraction}
+        />
       </div>
 
-      {/* Grid layout for desktop */}
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-          {/* Left content - takes 8 columns on large screens */}
+          {/* Left */}
           <div className="lg:col-span-8">
-            <BookingForm />
-            <About />
-            <OurMVPS />
-            <ExperiencesGrid />
-            <CallbackBanner />
-            <Amenities />
             <OurRoomsBooking />
             <OurVillasBooking />
+            <CallbackBanner onRequest={handleRequestCallback} />
             <RefundPolicy />
-            <CallbackBanner />
+            <ExperiencesGrid />
+
+            <CallbackBanner onRequest={handleRequestCallback} />
+
+            <Amenities />
+
             <Testimonials />
             <SocialMedia />
-            <CTA />
+            <CallbackBanner onRequest={handleRequestCallback} />
+            <About onRequest={handleRequestCallback} />
+            <CTA onRequest={handleRequestCallback} />
           </div>
 
-          {/* Right sidebar - takes 4 columns, sticky on large screens */}
+          {/* 🖥 Desktop sticky */}
           <div className="hidden lg:block lg:col-span-4">
             <div className="sticky top-24">
-              <CallbackForm />
+              <CallbackForm
+                ref={desktopFormRef}
+                active={active}
+                triggerKey={triggerKey}
+                onUserInteraction={handleUserInteraction}
+              />
             </div>
           </div>
         </div>

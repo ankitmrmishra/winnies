@@ -1,14 +1,30 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { useRouter } from "next/navigation";
 
-export default function CTA() {
+import { Phone } from "lucide-react";
+
+const PHONE_NUMBER = "+91 98056 33007"; // change this
+
+export default function CTA({ onRequest }: { onRequest: () => void }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
-  const router = useRouter();
+  const [copied, setCopied] = useState(false);
+
+  const handleClick = async () => {
+    // Mobile devices → open dialer
+    if (/Mobi|Android|iPhone/i.test(navigator.userAgent)) {
+      window.location.href = `tel:${PHONE_NUMBER.replace(/\s+/g, "")}`;
+      return;
+    }
+
+    // Desktop → copy number
+    await navigator.clipboard.writeText(PHONE_NUMBER);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
   return (
     <div className="lg:p-20 md:p-20 bg-[#faf9f6] p-5 ">
@@ -60,20 +76,16 @@ export default function CTA() {
             >
               <Button
                 className="bg-white text-black hover:bg-white/90 text-base px-8 py-3 rounded-full"
-                onClick={() =>
-                  router.push(
-                    "https://bookings.resavenue.com/resBooking/availsearch?regCode=GATE0402"
-                  )
-                }
+                onClick={onRequest}
               >
                 Reserve Now
               </Button>
               <Button
-                onClick={() => router.push("/rooms")}
-                variant="outline"
-                className="border-2 border-emerald-800 text-white bg-transparent hover:bg-white text-base px-8 py-3 rounded-full"
+                onClick={handleClick}
+                className="flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-1.5 rounded-full transition"
               >
-                Browse all Rooms
+                <Phone size={16} />
+                <span>{copied ? "Copied!" : PHONE_NUMBER}</span>
               </Button>
             </motion.div>
           </div>

@@ -1,3 +1,5 @@
+"use client";
+
 import { About } from "@/components/About";
 import Amenities from "@/components/Amenities";
 import BookingForm from "@/components/CalenderBook";
@@ -11,11 +13,14 @@ import { SocialMedia } from "@/components/SocialMedia";
 import Testimonials from "@/components/Testimonials";
 
 export default function Home() {
+  const onhandle = () => {
+    console.log("clicked ");
+  };
   return (
     <div className="">
       <HeroComponent />
       <BookingForm />
-      <About />
+      <About onRequest={onhandle} />
       <OurMVPS />
       <ExperiencesGrid />
       <Amenities />
@@ -23,7 +28,7 @@ export default function Home() {
 
       <Testimonials />
       <SocialMedia />
-      <CTA />
+      <CTA onRequest={onhandle} />
     </div>
   );
 }
