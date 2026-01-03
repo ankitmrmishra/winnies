@@ -363,12 +363,14 @@ export const OurRoomsBooking = ({
 
 function RoomCard({ room }: { room: RoomData }) {
   const router = useRouter();
+
   return (
     <motion.div
       whileHover={{ y: -5 }}
       className="bg-white rounded-xl overflow-hidden h-full flex flex-col shadow-sm border border-gray-100 cursor-pointer"
       onClick={() => router.push(`/rooms/${room.id}`)}
     >
+      {/* IMAGE */}
       <div className="relative aspect-[16/10]">
         <Image
           src={room.imageUrl || "/placeholder.svg"}
@@ -376,17 +378,28 @@ function RoomCard({ room }: { room: RoomData }) {
           fill
           className="object-cover"
         />
+
+        {/* PRICE OVERLAY */}
+        <div className="absolute bottom-3 left-3 bg-white/95 backdrop-blur px-3 py-1.5 rounded-md shadow-sm">
+          <div className="text-[11px] uppercase tracking-wide text-gray-500 font-medium">
+            Member Rate
+          </div>
+          <div className="text-lg font-semibold text-gray-900 leading-tight">
+            ₹ {formatINR(room.pricePerNight)}
+            <span className="text-sm font-normal text-gray-600"> / Night</span>
+          </div>
+        </div>
       </div>
+
+      {/* CONTENT */}
       <div className="p-5 flex flex-col flex-1 space-y-3">
         <h3 className="text-xl font-bold text-gray-900">{room.title}</h3>
+
         <p className="text-gray-600 line-clamp-2 text-sm leading-relaxed">
           {room.description}
         </p>
 
-        <div className="flex items-center justify-between pt-4 mt-auto">
-          <div className="text-emerald-700 font-bold text-lg">
-            Price Per Night: {room.pricePerNight}
-          </div>
+        <div className="pt-4 mt-auto">
           <Button className="bg-emerald-800 hover:bg-emerald-700 text-white rounded-full px-4 py-1.5 flex items-center gap-2 h-auto text-sm">
             View Details
             <ChevronRight className="w-3.5 h-3.5" />
@@ -397,62 +410,4 @@ function RoomCard({ room }: { room: RoomData }) {
   );
 }
 
-// const defaultRooms: RoomData[] = [
-//   {
-//     id: "1",
-//     title: "Deluxe Rooms",
-//     description:
-//       "Experience comfort and style in our Deluxe Rooms, offering a perfect blend of modern amenities.",
-//     details: "1 Bedroom",
-//     price: "₹15,000 / night",
-//     imageUrl: deluxeRoom,
-//   },
-//   {
-//     id: "2",
-//     title: "Super Deluxe Rooms",
-//     description:
-//       "Indulge in luxury with our Super Deluxe Rooms, featuring spacious interiors and premium furnishings.",
-//     details: "1 Bedroom",
-//     price: "₹18,000 / night",
-//     imageUrl: superDeluxeRoom,
-//   },
-//   {
-//     id: "3",
-//     title: "Enchanted",
-//     description:
-//       "A cozy two-bedroom villa with enchanting views and private sit-out area.",
-//     details: "2 Bedrooms",
-//     price: "₹35,000 / night",
-//     imageUrl: "/resort-room-with-valley-view.jpg",
-//   },
-// ];
-
-// export const villaData: RoomData[] = [
-//   {
-//     id: "v1",
-//     title: "Royal Villa",
-//     description:
-//       "Our signature villa offering unparalleled luxury with private butler service.",
-//     details: "4 Bedrooms",
-//     price: "₹75,000 / night",
-//     imageUrl: "/three-bedroom-luxury-villa.jpg",
-//   },
-//   {
-//     id: "v2",
-//     title: "Garden Villa",
-//     description:
-//       "Surround yourself with lush greenery and blooming flowers in our private garden villa.",
-//     details: "3 Bedrooms",
-//     price: "₹55,000 / night",
-//     imageUrl: "/two-bedroom-resort-suite.jpg",
-//   },
-//   {
-//     id: "v3",
-//     title: "Pool Villa",
-//     description:
-//       "Features a private infinity pool overlooking the valley for ultimate relaxation.",
-//     details: "2 Bedrooms",
-//     price: "₹45,000 / night",
-//     imageUrl: "/resort-room-with-pool-access.jpg",
-//   },
-// ];
+const formatINR = (amount: number) => amount.toLocaleString("en-IN");

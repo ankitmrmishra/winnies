@@ -123,12 +123,14 @@ export const OurVillasBooking = ({
 
 function RoomCard({ room }: { room: RoomData }) {
   const router = useRouter();
+
   return (
     <motion.div
       whileHover={{ y: -5 }}
       className="bg-white rounded-xl overflow-hidden h-full flex flex-col shadow-sm border border-gray-100 cursor-pointer"
       onClick={() => router.push(`/villas/${room.id}`)}
     >
+      {/* IMAGE */}
       <div className="relative aspect-[16/10]">
         <Image
           src={room.imageUrl || "/placeholder.svg"}
@@ -136,18 +138,28 @@ function RoomCard({ room }: { room: RoomData }) {
           fill
           className="object-cover"
         />
+
+        {/* PRICE OVERLAY */}
+        <div className="absolute bottom-3 left-3 bg-white/95 backdrop-blur px-3 py-1.5 rounded-md shadow-sm">
+          <div className="text-[11px] uppercase tracking-wide text-gray-500 font-medium">
+            Member Rate
+          </div>
+          <div className="text-lg font-semibold text-gray-900 leading-tight">
+            ₹ {formatINR(room.pricePerNight)}
+            <span className="text-sm font-normal text-gray-600"> / Night</span>
+          </div>
+        </div>
       </div>
+
+      {/* CONTENT */}
       <div className="p-5 flex flex-col flex-1 space-y-3">
         <h3 className="text-xl font-bold text-gray-900">{room.title}</h3>
+
         <p className="text-gray-600 line-clamp-2 text-sm leading-relaxed">
           {room.description}
         </p>
 
-        <div className="flex items-center justify-between pt-4 mt-auto">
-          <div className="text-emerald-700 font-bold text-lg">
-            Number Of Rooms:
-            {room.bedrooms}
-          </div>
+        <div className="pt-4 mt-auto">
           <Button className="bg-emerald-800 hover:bg-emerald-700 text-white rounded-full px-4 py-1.5 flex items-center gap-2 h-auto text-sm">
             View Details
             <ChevronRight className="w-3.5 h-3.5" />
@@ -157,3 +169,5 @@ function RoomCard({ room }: { room: RoomData }) {
     </motion.div>
   );
 }
+
+const formatINR = (amount: number) => amount.toLocaleString("en-IN");

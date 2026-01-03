@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { Button } from "../../components/ui/button";
-import { ChevronRight, Phone, Star } from "lucide-react";
+import { Phone, Star } from "lucide-react";
 import { Playfair_Display } from "next/font/google";
 import Image from "next/image";
 
@@ -9,6 +9,7 @@ const playfair = Playfair_Display({ subsets: ["latin"] });
 
 // Fallback image import
 import FallbackImage from "../../public/WINNIWS.jpg";
+import { BsWhatsapp } from "react-icons/bs";
 
 // Optimized Cloudinary video URL
 const CLOUDINARY_VIDEO_URL =
@@ -84,12 +85,10 @@ export const HeroComponentBooking = () => {
           <h1
             className={`text-4xl md:text-6xl font-bold mb-4 ${playfair.className}`}
           >
-            Luxury Awaits <br />
-            in <span className="text-emerald-500">Kasauli</span>
+            Winnies Holiday Resort & Spa <br />
           </h1>
           <p className="text-xl md:text-2xl mb-8">
-            Discover serenity at{" "}
-            <span className="text-emerald-400">Winnies Resort</span>
+            <span className="text-emerald-500">Kasauli, Himachal Pradesh</span>
           </p>
           <div className="flex md:flex-row gap-3">
             <Button
@@ -99,7 +98,7 @@ export const HeroComponentBooking = () => {
               className="bg-emerald-800 hover:bg-emerald-700 text-white"
             >
               Chat With Us
-              <ChevronRight className="ml-2 h-4 w-4" />
+              <BsWhatsapp className=" h-4 w-4" />
             </Button>{" "}
             <Button
               onClick={handleClick}

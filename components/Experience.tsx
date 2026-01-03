@@ -6,7 +6,7 @@ import { Playfair_Display, Inter } from "next/font/google";
 import { ChevronRight, ChevronLeft } from "lucide-react";
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
-import Activities from "../public/assets/Activities/ropewalking1.jpg";
+import Pooltable1 from "../public/assets/Activities/childrenplay.jpg";
 import Bar from "../public/assets/Bar/DSC02396.jpg";
 import cozycorners from "@/public/assets/CozyCorners/K81A0416-HDR.png";
 import Pool from "../public/assets/Pool/DSC02149.jpg";
@@ -26,16 +26,11 @@ interface Facility {
 export const facilitiesData: Facility[] = [
   {
     title: "Activities",
-    image: Activities,
+    image: Pooltable1,
     link: "Activities",
     description:
       "Experience a wide range of thrilling activities amidst the beautiful Kasauli hills.",
-    features: [
-      "High Ropes Course",
-
-      "Indoor Games Room",
-      "Modern Fitness Center",
-    ],
+    features: ["Indoor Games Room", "Modern Fitness Center"],
   },
   {
     title: "Bar",

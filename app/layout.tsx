@@ -6,7 +6,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Whatsapp } from "@/components/ui/Whatsapp";
-import { PackageModal } from "@/components/PackagePopup";
+// import { PackageModal } from "@/components/PackagePopup";
 
 /* -------------------- Fonts -------------------- */
 const geistSans = localFont({
@@ -132,7 +132,7 @@ export default function RootLayout({
         <main>
           <Whatsapp />
           {children}
-          <PackageModal />
+          {/* <PackageModal /> */}
         </main>
 
         <Footer />

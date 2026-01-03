@@ -201,13 +201,14 @@ export default function Navbar() {
   return (
     <div className="sticky z-50 " ref={navRef}>
       <motion.nav
-        className="fixed w-full top-0 z-50 drop-shadow-2xl"
+        className="fixed w-full top-0 z-50 "
         initial={{ backgroundColor: "rgba(0, 0, 0, 0)", color: "white" }}
         animate={{
           backgroundColor: isScrolled
             ? "rgba(250, 249, 246, 1)"
             : "rgba(0, 0, 0, 0)",
           color: isScrolled ? "black" : "white",
+          border: isScrolled ? "rgba(239, 239, 255) 2px solid" : "",
         }}
         transition={{ duration: 0.3 }}
       >

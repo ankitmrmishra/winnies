@@ -5,7 +5,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Playfair_Display } from "next/font/google";
-import { Mountain, GamepadIcon, Dumbbell } from "lucide-react";
+import { GamepadIcon, Dumbbell } from "lucide-react";
 import Gym1 from "../../public/assets/Activities/gym.jpg";
 import Gym2 from "../../public/assets/Activities/gym2.jpg";
 // import Gym3 from "../../public/assets/Activities/gym3.jpg";
@@ -16,8 +16,7 @@ import Pooltable1 from "../../public/assets/Activities/pool.jpg";
 import ftbl from "../../public/assets/Activities/ftbl.jpg";
 // import Manwalking from "../../public/assets/Activities/Manwalking.jpg";
 // import Manwalking2 from "../../public/assets/Activities/ManWalking2.jpg";
-import ropewalking from "../../public/assets/Activities/ropewalking.jpg";
-import ropewalking1 from "../../public/assets/Activities/ropewalking1.jpg";
+
 // import ropewalking2 from "../../public/assets/Activities/ropewalking2.jpg";
 // import ropewalking3 from "../../public/assets/Activities/ropewalking3.jpg";
 // import tt from "../../public/assets/Activities/tt.jpg";
@@ -25,26 +24,6 @@ const playfair = Playfair_Display({ subsets: ["latin"], style: ["italic"] });
 
 export default function ActivitiesPage() {
   const activities = [
-    {
-      category: "Adventure Activities",
-      icon: Mountain,
-      description:
-        "Test your limits with exhilarating outdoor activities, surrounded by majestic mountain views",
-      items: [
-        {
-          title: "High Ropes Course",
-          description:
-            "Conquer your fears on our high ropes course, with expert instructors and fully secure safety equipment.",
-          image: ropewalking,
-        },
-        // {
-        //   title: "Children's Play Area",
-        //   description:
-        //     "A safe and fun environment for children to play and explore.",
-        //   image: childrenplay,
-        // },
-      ],
-    },
     {
       category: "Indoor Recreation",
       icon: GamepadIcon,
@@ -92,7 +71,7 @@ export default function ActivitiesPage() {
     <div className="min-h-screen  ">
       <section className="relative h-[100vh]">
         <Image
-          src={ropewalking1}
+          src={ftbl}
           alt="Adventure Activities at Winnies"
           layout="fill"
           objectFit="cover"
