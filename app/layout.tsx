@@ -6,6 +6,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Whatsapp } from "@/components/ui/Whatsapp";
+import { Toaster } from "@/components/ui/toaster";
 // import { PackageModal } from "@/components/PackagePopup";
 
 /* -------------------- Fonts -------------------- */
@@ -136,6 +137,7 @@ export default function RootLayout({
         </main>
 
         <Footer />
+        <Toaster />
       </body>
     </html>
   );

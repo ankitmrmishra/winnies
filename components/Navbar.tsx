@@ -8,7 +8,7 @@ import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 
 import Bar from "@/public/assets/Bar/DSC02395.jpg";
-import Activities from "@/public/assets/Activities/childrenplay.jpg";
+import Activities from "@/public/assets/Activities/pool.jpg";
 import MeetingHalls from "@/public/assets/Confrenceroom/DSC02387.jpg";
 import PoolImages from "@/public/assets/Pool/DSC02120.jpg";
 import SkyDeck from "@/public/assets/OpenDeck/DSC02105.jpg";
