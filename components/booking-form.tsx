@@ -342,7 +342,11 @@ export const CallbackForm = forwardRef<CallbackFormHandle, Props>(
             <Label>I agree to the privacy policy</Label>
           </div>
 
-          <Button disabled={loading} className="w-full bg-emerald-600">
+          <Button
+            id="form_submission_button"
+            disabled={loading}
+            className="w-full bg-emerald-600"
+          >
             {loading ? "Submitting..." : "Submit Booking Request"}
           </Button>
         </form>
