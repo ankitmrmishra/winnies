@@ -107,8 +107,8 @@ export async function POST(req: Request) {
       }
     }
 
-    const portalId = "244752727";
-    const formGuid = "11f7ae7a-9d56-4715-bb12-38eee9a9f6c7";
+    const portalId = process.env.HUBSPOT_PORTAL_ID;
+    const formGuid = process.env.HUBSPOT_FORM_GUID;
 
     const hubspotUrl = `https://api.hsforms.com/submissions/v3/integration/submit/${portalId}/${formGuid}`;
 
@@ -127,10 +127,10 @@ export async function POST(req: Request) {
           ? [{ name: "mobilephone", value: body.phone.trim() }]
           : []),
         ...(body.checkIn
-          ? [{ name: "check_in_date_nbsp_", value: formatDate(body.checkIn) }]
+          ? [{ name: "checkintime", value: formatDate(body.checkIn) }]
           : []),
         ...(body.checkOut
-          ? [{ name: "check_out_date", value: formatDate(body.checkOut) }]
+          ? [{ name: "checkoutime", value: formatDate(body.checkOut) }]
           : []),
         ...(body.guests ? [{ name: "total_guests", value: body.guests }] : []),
         ...(body.accommodation
@@ -145,7 +145,7 @@ export async function POST(req: Request) {
           : []),
       ],
       context: {
-        pageUri: "https://localhost:3000/booking",
+        pageUri: "https://winnies.in/booking",
         pageName: "Booking Callback",
       },
     };
