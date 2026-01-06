@@ -124,11 +124,19 @@ export const CallbackForm = forwardRef<CallbackFormHandle, Props>(
     const handleSubmit = async (e: React.FormEvent) => {
       e.preventDefault();
 
-      // Validate required fields
-      if (!formData.name || !formData.email) {
+      // Validate all required fields
+      if (
+        !formData.name ||
+        !formData.email ||
+        !formData.phone ||
+        !formData.checkIn ||
+        !formData.checkOut ||
+        !formData.guests ||
+        !formData.accommodation
+      ) {
         toast({
           title: "Missing Required Fields",
-          description: "Name and email are required.",
+          description: "All fields are required.",
           variant: "destructive",
         });
         return;
@@ -145,35 +153,31 @@ export const CallbackForm = forwardRef<CallbackFormHandle, Props>(
         return;
       }
 
-      // Validate dates if both are provided
-      if (formData.checkIn && formData.checkOut) {
-        const checkInDate = new Date(formData.checkIn);
-        const checkOutDate = new Date(formData.checkOut);
+      // Validate dates
+      const checkInDate = new Date(formData.checkIn);
+      const checkOutDate = new Date(formData.checkOut);
 
-        if (checkOutDate <= checkInDate) {
-          toast({
-            title: "Invalid Dates",
-            description: "Check-out date must be after check-in date.",
-            variant: "destructive",
-          });
-          return;
-        }
+      if (checkOutDate <= checkInDate) {
+        toast({
+          title: "Invalid Dates",
+          description: "Check-out date must be after check-in date.",
+          variant: "destructive",
+        });
+        return;
       }
 
       // Validate check-in is not in the past
-      if (formData.checkIn) {
-        const checkInDate = new Date(formData.checkIn);
-        const today = new Date();
-        today.setHours(0, 0, 0, 0);
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      checkInDate.setHours(0, 0, 0, 0);
 
-        if (checkInDate < today) {
-          toast({
-            title: "Invalid Check-in Date",
-            description: "Check-in date cannot be in the past.",
-            variant: "destructive",
-          });
-          return;
-        }
+      if (checkInDate < today) {
+        toast({
+          title: "Invalid Check-in Date",
+          description: "Check-in date cannot be in the past.",
+          variant: "destructive",
+        });
+        return;
       }
 
       setLoading(true);
@@ -263,19 +267,20 @@ export const CallbackForm = forwardRef<CallbackFormHandle, Props>(
           </div>
 
           <div className="space-y-2">
-            <Label>Phone</Label>
+            <Label>Phone *</Label>
             <Input
               type="tel"
               value={formData.phone}
               onChange={(e) =>
                 setFormData({ ...formData, phone: e.target.value })
               }
+              required
             />
           </div>
 
           <div className="grid grid-cols-2 gap-4">
             <DatePicker
-              label="Check-in"
+              label="Check-in *"
               date={checkIn}
               setDate={setCheckIn}
               disabled={(date) => {
@@ -283,9 +288,10 @@ export const CallbackForm = forwardRef<CallbackFormHandle, Props>(
                 today.setHours(0, 0, 0, 0);
                 return date < today;
               }}
+              required
             />
             <DatePicker
-              label="Check-out"
+              label="Check-out *"
               date={checkOut}
               setDate={setCheckOut}
               disabled={(date) => {
@@ -298,40 +304,49 @@ export const CallbackForm = forwardRef<CallbackFormHandle, Props>(
                 }
                 return false;
               }}
+              required
             />
           </div>
+          <div className="flex justify-between align-middle items-center gap-2">
+            <div className="space-y-2 w-full">
+              <Label>Guests *</Label>
+              <Select
+                value={formData.guests}
+                onValueChange={(v) => setFormData({ ...formData, guests: v })}
+                required
+              >
+                <SelectTrigger>
+                  <SelectValue placeholder="Guests" />
+                </SelectTrigger>
+                <SelectContent>
+                  {["1 Guest", "2 Guests", "3 Guests", "4+ Guests"].map((n) => (
+                    <SelectItem key={n} value={String(n)}>
+                      {n}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
 
-          <Select
-            value={formData.guests}
-            onValueChange={(v) => setFormData({ ...formData, guests: v })}
-          >
-            <SelectTrigger>
-              <SelectValue placeholder="Guests" />
-            </SelectTrigger>
-            <SelectContent>
-              {["1 Guest", "2 Guests", "3 Guests", "4+ Guests"].map((n) => (
-                <SelectItem key={n} value={String(n)}>
-                  {n}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-
-          <Select
-            value={formData.accommodation}
-            onValueChange={(v) =>
-              setFormData({ ...formData, accommodation: v })
-            }
-          >
-            <SelectTrigger>
-              <SelectValue placeholder="Room / Villa" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="room">Room</SelectItem>
-              <SelectItem value="villa">Villa</SelectItem>
-            </SelectContent>
-          </Select>
-
+            <div className="space-y-2 w-full">
+              <Label>Accommodation *</Label>
+              <Select
+                value={formData.accommodation}
+                onValueChange={(v) =>
+                  setFormData({ ...formData, accommodation: v })
+                }
+                required
+              >
+                <SelectTrigger>
+                  <SelectValue placeholder="Room/Villa" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="room">Room</SelectItem>
+                  <SelectItem value="villa">Villa</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+          </div>
           <div className="flex items-center gap-2">
             <Checkbox
               checked={formData.consent}
@@ -368,13 +383,20 @@ function DatePicker({
   date?: Date;
   setDate: (d?: Date) => void;
   disabled?: (date: Date) => boolean;
+  required?: boolean;
 }) {
   return (
     <div className="space-y-2">
       <Label>{label}</Label>
       <Popover>
         <PopoverTrigger asChild>
-          <Button variant="outline" className="w-full justify-start">
+          <Button
+            variant="outline"
+            className={cn(
+              "w-full justify-start",
+              !date && "text-muted-foreground"
+            )}
+          >
             <CalendarIcon className="mr-2 h-4 w-4" />
             {date ? format(date, "dd MMM") : "Pick date"}
           </Button>

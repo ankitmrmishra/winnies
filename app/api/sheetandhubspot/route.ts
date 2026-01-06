@@ -37,15 +37,26 @@ export async function POST(req: Request) {
       );
     }
 
-    // Validate phone if provided
-    if (body.phone && typeof body.phone !== "string") {
+    // Validate phone (now required)
+    if (
+      !body.phone ||
+      typeof body.phone !== "string" ||
+      body.phone.trim() === ""
+    ) {
       return NextResponse.json(
-        { error: "Phone must be a valid string" },
+        { error: "Phone is required and must be a valid string" },
         { status: 400 }
       );
     }
 
-    // Validate dates if provided
+    // Validate dates (now required)
+    if (!body.checkIn || !body.checkOut) {
+      return NextResponse.json(
+        { error: "Check-in and check-out dates are required" },
+        { status: 400 }
+      );
+    }
+
     if (body.checkIn && body.checkOut) {
       const checkInDate = new Date(body.checkIn);
       const checkOutDate = new Date(body.checkOut);
@@ -83,7 +94,14 @@ export async function POST(req: Request) {
       }
     }
 
-    // Validate guests if provided
+    // Validate guests (now required)
+    if (!body.guests) {
+      return NextResponse.json(
+        { error: "Number of guests is required" },
+        { status: 400 }
+      );
+    }
+
     if (body.guests) {
       const validGuests = ["1 Guest", "2 Guests", "3 Guests", "4+ Guests"];
       if (!validGuests.includes(body.guests)) {
@@ -94,7 +112,14 @@ export async function POST(req: Request) {
       }
     }
 
-    // Validate accommodation if provided
+    // Validate accommodation (now required)
+    if (!body.accommodation) {
+      return NextResponse.json(
+        { error: "Accommodation type is required" },
+        { status: 400 }
+      );
+    }
+
     if (body.accommodation) {
       const validAccommodation = ["room", "villa"];
       if (!validAccommodation.includes(body.accommodation.toLowerCase())) {
