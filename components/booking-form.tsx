@@ -179,7 +179,7 @@ export const CallbackForm = forwardRef<CallbackFormHandle, Props>(
       setLoading(true);
 
       try {
-        const res = await fetch("/api/hubspot/submit", {
+        const res = await fetch("/api/sheetandhubspot", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(formData),
