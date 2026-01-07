@@ -20,7 +20,7 @@ export function CallbackBanner({ onRequest }: { onRequest: () => void }) {
           onClick={onRequest}
           className="bg-white/40 hover:bg-white/60 text-emerald-950 border border-white/50 backdrop-blur-md rounded-full px-8 py-6 text-lg font-medium shadow-sm transition-all"
         >
-          Request Callback
+          Book Your Stay
         </Button>
       </div>
     </div>

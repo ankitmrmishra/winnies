@@ -84,7 +84,7 @@ export default function Home() {
             <OurRoomsBooking />
             <OurVillasBooking />
             <CallbackBanner onRequest={handleRequestCallback} />
-            <RefundPolicy />
+
             <ExperiencesGrid />
 
             <CallbackBanner onRequest={handleRequestCallback} />
@@ -98,7 +98,7 @@ export default function Home() {
             <GoogleMapEmbed />
             <CTA onRequest={handleRequestCallback} />
           </div>
-
+          <RefundPolicy />
           {/* 🖥 Desktop sticky */}
           <div className="hidden lg:block lg:col-span-4">
             <div className="sticky top-24">

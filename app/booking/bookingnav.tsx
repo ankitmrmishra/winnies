@@ -55,7 +55,7 @@ export default function BookingNavbar({
             onClick={onRequest}
             className="bg-emerald-800 hover:bg-emerald-700 text-white px-6 py-2"
           >
-            Request A CallBack
+            Book Your Stay
           </Button>
         </div>
       </div>
