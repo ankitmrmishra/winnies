@@ -97,8 +97,9 @@ export default function Home() {
             <About onRequest={handleRequestCallback} />
             <GoogleMapEmbed />
             <CTA onRequest={handleRequestCallback} />
+            <RefundPolicy />
           </div>
-          <RefundPolicy />
+
           {/* 🖥 Desktop sticky */}
           <div className="hidden lg:block lg:col-span-4">
             <div className="sticky top-24">
