@@ -237,7 +237,7 @@ export const CallbackForm = forwardRef<CallbackFormHandle, Props>(
         <h3
           className={`${playfair.className} text-2xl text-emerald-800 mb-6 text-center`}
         >
-          Request a Callback
+          Book Your Stay
         </h3>
 
         <form id="callback_form" className="space-y-4" onSubmit={handleSubmit}>
