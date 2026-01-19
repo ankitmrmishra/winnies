@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { Phone } from "lucide-react";
+import { Phone, FileText } from "lucide-react";
 
 import Logo from "@/public/assets/LOGO.png";
 
@@ -107,13 +107,25 @@ export default function BookingNavbar({
               <span className="hidden lg:inline">Call Now</span>
             </Button>
 
+            {/* View Brochure Button - PDF Icon on mobile, text on desktop */}
+            <Button
+              onClick={() => window.open("/Winnies Kasauli Experience.pdf", "_blank")}
+              className="bg-red-600/20 hover:bg-red-700 border border-red-600/40 text-white px-4 py-2"
+            >
+              <FileText color="red" size={20} className="md:hidden" />
+              <span className="hidden md:flex items-center gap-2 text-black">
+                <FileText color="red" size={16} />
+                View Brochure
+              </span>
+            </Button>
+
             {/* Get Quote Button */}
             <Button
               onClick={onRequest}
               className="bg-emerald-800 hover:bg-emerald-700 text-white px-4 md:px-6 py-2"
             >
-              <span className="hidden sm:inline">Get Quote</span>
-              <span className="sm:hidden">Quote</span>
+              <span className=" ">Get Quote</span>
+            
             </Button>
           </div>
         </div>

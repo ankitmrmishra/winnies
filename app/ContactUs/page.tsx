@@ -20,7 +20,6 @@ import { z } from "zod";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import emailjs from "@emailjs/browser";
 import ContactUsImage from "../../public/4.png";
 
 const playfair = Playfair_Display({ subsets: ["latin"], style: ["italic"] });
@@ -28,6 +27,13 @@ const playfair = Playfair_Display({ subsets: ["latin"], style: ["italic"] });
 const schema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
   email: z.string().email("Invalid email address"),
+  mobile: z
+    .string()
+    .min(10, "Mobile number must be at least 10 digits")
+    .regex(
+      /^(\+91)?[6-9]\d{9}$/,
+      "Please enter a valid Indian mobile number"
+    ),
   message: z.string().min(10, "Message must be at least 10 characters"),
 });
 
@@ -55,24 +61,27 @@ export default function ContactPage() {
 
   const onSubmit = async (data: FormData) => {
     try {
-      // Replace with your actual EmailJS service ID, template ID, and public key
-      const result = await emailjs.send(
-        "service_trpydjs",
-        "template_ad8nctu",
-
-        {
-          from_name: data.name,
-          from_email: data.email,
-          message: data.message,
+      const response = await fetch("/api/send-contact-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
         },
-        "5-LMOJkK5EWs-8oJf"
-      );
+        body: JSON.stringify({
+          name: data.name,
+          email: data.email,
+          mobile: data.mobile,
+          message: data.message,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to send message");
+      }
 
       setSubmitStatus({
         success: true,
-        message: "Message sent successfully!",
+        message: "Message sent successfully! We'll get back to you soon.",
       });
-      console.log(result);
 
       // Reset the form
       reset();
@@ -232,6 +241,21 @@ export default function ContactPage() {
                   {errors.email && (
                     <p className="text-red-500 text-sm mt-1">
                       {errors.email.message}
+                    </p>
+                  )}
+                </div>
+                <div>
+                  <Label htmlFor="mobile">Mobile Number</Label>
+                  <Input
+                    id="mobile"
+                    type="tel"
+                    placeholder="+91 9876543210"
+                    {...register("mobile")}
+                    className="w-full"
+                  />
+                  {errors.mobile && (
+                    <p className="text-red-500 text-sm mt-1">
+                      {errors.mobile.message}
                     </p>
                   )}
                 </div>
