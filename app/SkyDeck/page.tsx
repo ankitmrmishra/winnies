@@ -54,9 +54,10 @@ export default function SkyDeckPage() {
             <p className="text-xl mb-8">Bask in Nature&apos;s Splendor</p>
             <Button
               size="lg"
+              onClick={() => window.location.href = "/booking"}
               className="text-white border-white bg-emerald-800 hover:bg-white hover:text-black"
             >
-              Reserve Your Table
+              Get Quote
             </Button>
           </div>
         </div>
@@ -210,9 +211,10 @@ export default function SkyDeckPage() {
             </p>
             <Button
               size="lg"
+              onClick={() => window.location.href = "/booking"}
               className="text-white bg-emerald-800 hover:bg-emerald-700"
             >
-              Book Your Table
+              Get Quote
             </Button>
           </motion.div>
         </div>

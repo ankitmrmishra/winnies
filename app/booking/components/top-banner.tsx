@@ -22,7 +22,7 @@ export default function TopCallBanner() {
   };
 
   return (
-    <div className="w-full bg-gray-900 text-white text-sm">
+    <div className="w-full bg-emerald-600  text-white text-sm">
       <div className="max-w-7xl mx-auto px-4 py-2 flex justify-end items-center">
         <button
           onClick={handleClick}

@@ -126,9 +126,10 @@ export default function SpaPage() {
             </p>
             <Button
               size="lg"
+              onClick={() => window.location.href = "/booking"}
               className="text-white border-white bg-emerald-800 hover:bg-white hover:text-black"
             >
-              Book Your Spa Session
+              Get Quote
             </Button>
           </div>
         </div>

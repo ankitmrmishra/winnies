@@ -378,16 +378,12 @@ export default function Navbar() {
               </Link>
             </div>
 
-            {/* Book Now Button */}
+            {/* Get Quote Button */}
             <Button
-              onClick={() =>
-                router.push(
-                  "https://bookings.resavenue.com/resBooking/availsearch?regCode=GATE0402"
-                )
-              }
+              onClick={() => router.push("/booking")}
               className=" bg-emerald-800 hover:bg-emerald-700 text-white"
             >
-              Book Now
+              Get Quote
             </Button>
 
             {/* Mobile Menu Button */}

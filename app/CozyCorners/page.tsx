@@ -56,9 +56,10 @@ export default function CozyCornersPage() {
             <p className="text-xl mb-8">Your Personal Nook of Comfort</p>
             <Button
               size="lg"
+              onClick={() => window.location.href = "/booking"}
               className="text-white border-white bg-emerald-800 hover:bg-white hover:text-black"
             >
-              Reserve Your Corner
+              Get Quote
             </Button>
           </div>
         </div>
@@ -219,9 +220,10 @@ export default function CozyCornersPage() {
             </p>
             <Button
               size="lg"
+              onClick={() => window.location.href = "/booking"}
               className="text-white bg-emerald-800 hover:bg-emerald-700"
             >
-              Make a Reservation
+              Get Quote
             </Button>
           </motion.div>
         </div>

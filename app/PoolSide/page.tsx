@@ -64,9 +64,10 @@ export default function PoolsidePage() {
             <p className="text-xl mb-8">Dive Into Relaxation</p>
             <Button
               size="lg"
+              onClick={() => window.location.href = "/booking"}
               className="bg-emerald-800 hover:bg-emerald-700 text-white"
             >
-              Book Your Stay
+              Get Quote
             </Button>
           </div>
         </div>
@@ -240,9 +241,10 @@ export default function PoolsidePage() {
             </div>
             <Button
               size="lg"
+              onClick={() => window.location.href = "/booking"}
               className="bg-white text-emerald-800 hover:bg-gray-100"
             >
-              View Pool Guidelines
+              Get Quote
             </Button>
           </motion.div>
         </div>

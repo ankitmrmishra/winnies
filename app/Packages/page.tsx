@@ -154,14 +154,10 @@ export default function PackagePage() {
               Experience luxury at Winnies Resort and Spa
             </p>
             <Button
-              onClick={() =>
-                router.push(
-                  "https://bookings.resavenue.com/resBooking/availsearch?regCode=GATE0402"
-                )
-              }
+              onClick={() => router.push("/booking")}
               className="w-full md:max-w-max bg-emerald-800 hover:bg-emerald-700 text-white"
             >
-              Book Now
+              Get Quote
               <ChevronRight className="ml-2 h-4 w-4" />
             </Button>
           </div>
@@ -232,14 +228,10 @@ export default function PackagePage() {
                   ))}
                 </ul>
                 <Button
-                  onClick={() =>
-                    router.push(
-                      "https://bookings.resavenue.com/resBooking/availsearch?regCode=GATE0402"
-                    )
-                  }
+                  onClick={() => router.push("/booking")}
                   className="w-full bg-emerald-800 hover:bg-emerald-700 text-white"
                 >
-                  Book Now
+                  Get Quote
                   <ChevronRight className="ml-2 h-4 w-4" />
                 </Button>
               </motion.div>
@@ -290,14 +282,10 @@ export default function PackagePage() {
                   ))}
                 </ul>
                 <Button
-                  onClick={() =>
-                    router.push(
-                      "https://bookings.resavenue.com/resBooking/availsearch?regCode=GATE0402"
-                    )
-                  }
+                  onClick={() => router.push("/booking")}
                   className="w-full bg-emerald-800 hover:bg-emerald-700 text-white"
                 >
-                  Book Now
+                  Get Quote
                   <ChevronRight className="ml-2 h-4 w-4" />
                 </Button>
               </motion.div>

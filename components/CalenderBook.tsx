@@ -51,11 +51,7 @@ const BookingForm = () => {
     }
 
     if (isValidForm) {
-      const formattedCheckIn = format(parseISO(checkInDate), "dd/MM/yyyy");
-      const formattedCheckOut = format(parseISO(checkOutDate), "dd/MM/yyyy");
-
-      const url = `https://bookings.resavenue.com/resBooking4/searchRooms?targetTemplate=4&arrDate=${formattedCheckIn}&depDate=${formattedCheckOut}&regCode=GATE0402&curr=INR&arr_date=${formattedCheckIn}&dep_date=${formattedCheckOut}`;
-      window.location.href = url;
+      window.location.href = "/booking";
     }
   };
 

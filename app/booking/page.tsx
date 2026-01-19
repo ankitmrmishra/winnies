@@ -13,7 +13,6 @@ import { SocialMedia } from "@/components/SocialMedia";
 import Testimonials from "@/components/Testimonials";
 import { HeroComponentBooking } from "./HeroComponent";
 import BookingNavbar from "./bookingnav";
-import TopCallBanner from "./components/top-banner";
 import { useRef, useState, useEffect } from "react";
 import { GoogleMapEmbed } from "@/components/GoogleMApEmbedd";
 
@@ -63,7 +62,7 @@ export default function Home() {
 
   return (
     <div>
-      <TopCallBanner />
+      
       <BookingNavbar onRequest={handleRequestCallback} />
       <HeroComponentBooking />
 

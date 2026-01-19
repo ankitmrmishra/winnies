@@ -56,14 +56,10 @@ export function PackageModal() {
               className=""
             />
             <Button
-              onClick={() =>
-                router.push(
-                  "https://bookings.resavenue.com/resBooking/availsearch?regCode=GATE0402"
-                )
-              }
+              onClick={() => router.push("/booking")}
               className="w-full bg-emerald-800 hover:bg-emerald-700 text-white"
             >
-              Book Now
+              Get Quote
             </Button>
           </div>
 

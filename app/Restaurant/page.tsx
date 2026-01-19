@@ -99,6 +99,13 @@ export default function RestaurantPage() {
             <p className="text-xl mb-8">
               Exquisite cuisine with a view to match
             </p>
+             <Button
+                 onClick={() => window.location.href = "/booking"}
+                size="lg"
+                className="text-white border-white bg-emerald-800 hover:bg-white hover:text-black"
+              >
+                Book Your Stay
+              </Button>
           </div>
         </div>
       </section>

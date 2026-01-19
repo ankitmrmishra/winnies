@@ -86,9 +86,10 @@ export default function ActivitiesPage() {
             <p className="text-xl mb-8">Experience surprises at each step</p>
             <Button
               size="lg"
+              onClick={() => window.location.href = "/booking"}
               className="bg-emerald-800 hover:bg-emerald-700 text-white"
             >
-              Explore Activities
+              Get Quote
             </Button>
           </div>
         </div>
@@ -170,9 +171,10 @@ export default function ActivitiesPage() {
               </p>
               <Button
                 size="lg"
+                onClick={() => window.location.href = "/booking"}
                 className="bg-white text-emerald-800 hover:bg-gray-100"
               >
-                Book Your Adventure
+                Get Quote
               </Button>
             </motion.div>
           </div>

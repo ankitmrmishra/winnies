@@ -136,14 +136,10 @@ export default function Footer() {
             <div className="space-y-4">
               <div className="text-2xl font-bold">Winnies</div>
               <Button
-                onClick={() =>
-                  router.push(
-                    "https://bookings.resavenue.com/resBooking/availsearch?regCode=GATE0402"
-                  )
-                }
+                onClick={() => router.push("/booking")}
                 className="bg-white text-[#0B3B2D] hover:bg-gray-100"
               >
-                Reserve now
+                Get Quote
               </Button>
             </div>
           </div>

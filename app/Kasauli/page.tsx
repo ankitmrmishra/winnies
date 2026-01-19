@@ -39,6 +39,7 @@ export default function KasauliPage() {
                 Discover the picturesque hill station of Himachal Pradesh
               </p>
               <Button
+                 onClick={() => window.location.href = "/booking"}
                 size="lg"
                 className="text-white border-white bg-emerald-800 hover:bg-white hover:text-black"
               >

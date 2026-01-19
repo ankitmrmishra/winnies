@@ -80,6 +80,7 @@ export default function Weddings() {
               Resort and Spa
             </p>
             <Button
+               onClick={() => window.location.href = "/booking"}
               size="lg"
               className="text-white border-white bg-emerald-800 hover:bg-white hover:text-black"
             >
