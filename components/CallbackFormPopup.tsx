@@ -16,10 +16,7 @@ export function CallbackFormPopup() {
     console.log("CallbackFormPopup mounted, pathname:", pathname);
 
     // Don't show auto popup on booking page
-    if (pathname?.startsWith("/booking")) {
-      console.log("Skipping auto popup on booking page");
-      return;
-    }
+   
 
     // Check if popup was shown today (localStorage persists across sessions)
     const lastShown = localStorage.getItem("callbackPopupLastShown");
@@ -56,7 +53,7 @@ export function CallbackFormPopup() {
   const shouldShowPopup = isOpen || autoPopupShown;
 
   // Don't render anything on booking page
-  if (pathname?.startsWith("/booking")) return null;
+  // if (pathname?.startsWith("/booking")) return null;
 
   return (
     <AnimatePresence>
