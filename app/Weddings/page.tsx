@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Playfair_Display } from "next/font/google";
 import { useState } from "react";
+import { useCallbackPopup } from "@/lib/callback-popup-context";
 
 const playfair = Playfair_Display({ subsets: ["latin"], style: ["italic"] });
 interface ImageType {
@@ -23,6 +24,7 @@ import Image8 from "./8.png";
 
 export default function Weddings() {
   const [selectedImage, setSelectedImage] = useState<ImageType | null>(null);
+  const { openPopup } = useCallbackPopup();
 
   const images: ImageType[] = [
     {
@@ -80,7 +82,7 @@ export default function Weddings() {
               Resort and Spa
             </p>
             <Button
-               onClick={() => window.location.href = "/booking"}
+               onClick={openPopup}
               size="lg"
               className="text-white border-white bg-emerald-800 hover:bg-white hover:text-black"
             >

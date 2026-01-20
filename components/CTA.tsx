@@ -2,14 +2,17 @@
 import React, { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { Button } from "@/components/ui/button";
-
+import { useCallbackPopup } from "@/lib/callback-popup-context";
 import { Phone } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 const PHONE_NUMBER = "+91 98056 33007"; // change this
 
 export default function CTA({ onRequest }: { onRequest: () => void }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
+  const pathname = usePathname();
+  const { openPopup } = useCallbackPopup();
 
   const [copied, setCopied] = useState(false);
 
@@ -24,6 +27,16 @@ export default function CTA({ onRequest }: { onRequest: () => void }) {
     await navigator.clipboard.writeText(PHONE_NUMBER);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
+  };
+
+  const handleReserveClick = () => {
+    // If on booking page, use the existing onRequest handler
+    if (pathname?.startsWith("/booking")) {
+      onRequest();
+    } else {
+      // Otherwise, open the popup
+      openPopup();
+    }
   };
 
   return (
@@ -76,7 +89,7 @@ export default function CTA({ onRequest }: { onRequest: () => void }) {
             >
               <Button
                 className="bg-white text-black hover:bg-white/90 text-base px-8 py-3 rounded-full"
-                onClick={onRequest}
+                onClick={handleReserveClick}
               >
                 Reserve Now
               </Button>

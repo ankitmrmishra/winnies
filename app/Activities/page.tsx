@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Playfair_Display } from "next/font/google";
 import { GamepadIcon, Dumbbell } from "lucide-react";
+import { useCallbackPopup } from "@/lib/callback-popup-context";
 import Gym1 from "../../public/assets/Activities/gym.jpg";
 import Gym2 from "../../public/assets/Activities/gym2.jpg";
 // import Gym3 from "../../public/assets/Activities/gym3.jpg";
@@ -23,6 +24,7 @@ import ftbl from "../../public/assets/Activities/ftbl.jpg";
 const playfair = Playfair_Display({ subsets: ["latin"], style: ["italic"] });
 
 export default function ActivitiesPage() {
+  const { openPopup } = useCallbackPopup();
   const activities = [
     {
       category: "Indoor Recreation",
@@ -86,7 +88,7 @@ export default function ActivitiesPage() {
             <p className="text-xl mb-8">Experience surprises at each step</p>
             <Button
               size="lg"
-              onClick={() => window.location.href = "/booking"}
+              onClick={openPopup}
               className="bg-emerald-800 hover:bg-emerald-700 text-white"
             >
               Get Quote
@@ -171,7 +173,7 @@ export default function ActivitiesPage() {
               </p>
               <Button
                 size="lg"
-                onClick={() => window.location.href = "/booking"}
+                onClick={openPopup}
                 className="bg-white text-emerald-800 hover:bg-gray-100"
               >
                 Get Quote

@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Playfair_Display } from "next/font/google";
 import { Leaf, Clock, DollarSign, X } from "lucide-react";
+import { useCallbackPopup } from "@/lib/callback-popup-context";
 import Spa from "../../public/assets/Spa/Spa2.png";
 import Spaa from "../../public/assets/Spa/image.png";
 import Spa1 from "../../public/assets/Spa/DSC02358.jpg";
@@ -50,6 +51,7 @@ const menuImages = [
 ];
 
 export default function SpaPage() {
+  const { openPopup } = useCallbackPopup();
   const [selectedImage, setSelectedImage] = useState<ImageType | null>(null);
   const [showAllMenuImages, setShowAllMenuImages] = useState(false);
   const [selectedMenuImage, setSelectedMenuImage] =
@@ -126,7 +128,7 @@ export default function SpaPage() {
             </p>
             <Button
               size="lg"
-              onClick={() => window.location.href = "/booking"}
+              onClick={openPopup}
               className="text-white border-white bg-emerald-800 hover:bg-white hover:text-black"
             >
               Get Quote

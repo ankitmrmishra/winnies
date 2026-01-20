@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 import { Whatsapp } from "@/components/ui/Whatsapp";
 import { Toaster } from "@/components/ui/toaster";
 import { CallbackFormPopup } from "@/components/CallbackFormPopup";
+import { CallbackPopupProvider } from "@/lib/callback-popup-context";
 // import { PackageModal } from "@/components/PackagePopup";
 
 /* -------------------- Fonts -------------------- */
@@ -129,17 +130,19 @@ export default function RootLayout({
           />
         </noscript>
 
-        <Navbar />
+        <CallbackPopupProvider>
+          <Navbar />
 
-        <main>
-          <Whatsapp />
-          <CallbackFormPopup />
-          {children}
-          {/* <PackageModal /> */}
-        </main>
+          <main>
+            <Whatsapp />
+            <CallbackFormPopup />
+            {children}
+            {/* <PackageModal /> */}
+          </main>
 
-        <Footer />
-        <Toaster />
+          <Footer />
+          <Toaster />
+        </CallbackPopupProvider>
       </body>
     </html>
   );

@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Playfair_Display } from "next/font/google";
 import { Coffee, Moon, Sun, Star, X } from "lucide-react";
+import { useCallbackPopup } from "@/lib/callback-popup-context";
 import Restaurant1 from "../../public/assets/Restaurant/DSC02111.jpg";
 import RestaurantImage from "./DSC03223.jpg";
 
@@ -52,6 +53,7 @@ const menuImages = [
 export default function RestaurantPage() {
   const [selectedImage, setSelectedImage] = useState<StaticImageData>();
   const [showAllImages, setShowAllImages] = useState(false);
+  const { openPopup } = useCallbackPopup();
   const features = [
     {
       icon: Coffee,
@@ -100,7 +102,7 @@ export default function RestaurantPage() {
               Exquisite cuisine with a view to match
             </p>
              <Button
-                 onClick={() => window.location.href = "/booking"}
+                 onClick={openPopup}
                 size="lg"
                 className="text-white border-white bg-emerald-800 hover:bg-white hover:text-black"
               >

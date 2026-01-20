@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Playfair_Display } from "next/font/google";
 import { Flame, Moon, Wine, Star } from "lucide-react";
+import { useCallbackPopup } from "@/lib/callback-popup-context";
 import cozycorners from "@/public/assets/CozyCorners/K81A0416-HDR.png";
 import jamison from "@/public/assets/CozyCorners/image.png";
 
@@ -14,6 +15,7 @@ import SD from "@/public/assets/CozyCorners/SD.png";
 const playfair = Playfair_Display({ subsets: ["latin"], style: ["italic"] });
 
 export default function CozyCornersPage() {
+  const { openPopup } = useCallbackPopup();
   const features = [
     {
       icon: Flame,
@@ -56,7 +58,7 @@ export default function CozyCornersPage() {
             <p className="text-xl mb-8">Your Personal Nook of Comfort</p>
             <Button
               size="lg"
-              onClick={() => window.location.href = "/booking"}
+              onClick={openPopup}
               className="text-white border-white bg-emerald-800 hover:bg-white hover:text-black"
             >
               Get Quote
@@ -220,7 +222,7 @@ export default function CozyCornersPage() {
             </p>
             <Button
               size="lg"
-              onClick={() => window.location.href = "/booking"}
+              onClick={openPopup}
               className="text-white bg-emerald-800 hover:bg-emerald-700"
             >
               Get Quote

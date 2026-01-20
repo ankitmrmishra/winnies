@@ -11,11 +11,13 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 // import { packages } from "@/data/packages";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
+import { useCallbackPopup } from "@/lib/callback-popup-context";
 
 export function PackageModal() {
   const [isOpen, setIsOpen] = useState(false);
+  const { openPopup } = useCallbackPopup();
   // const [currentPackageIndex, setCurrentPackageIndex] = useState(0);
 
   useEffect(() => {
@@ -35,7 +37,6 @@ export function PackageModal() {
   //     (prevIndex) => (prevIndex - 1 + packages.length) % packages.length
   //   );
   // };
-  const router = useRouter();
 
   const pathname = usePathname();
 
@@ -56,7 +57,7 @@ export function PackageModal() {
               className=""
             />
             <Button
-              onClick={() => router.push("/booking")}
+              onClick={openPopup}
               className="w-full bg-emerald-800 hover:bg-emerald-700 text-white"
             >
               Get Quote

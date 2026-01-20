@@ -18,6 +18,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Playfair_Display } from "next/font/google";
 import { cn } from "@/lib/utils";
+import { useCallbackPopup } from "@/lib/callback-popup-context";
 import {
   Carousel,
   CarouselContent,
@@ -26,8 +27,6 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
-import { useRouter } from "next/navigation";
-
 // Import Villa 601 (Enchanted) images
 import Villa601_1 from "../Room601/20220120-_DSC4399.jpeg";
 import Villa601_6 from "../Room601/20220120-_DSC4555.jpg";
@@ -417,7 +416,7 @@ interface PageProps {
 }
 
 export default function VillaPage({ params }: PageProps) {
-  const router = useRouter();
+  const { openPopup } = useCallbackPopup();
   const plugin = React.useRef(
     Autoplay({ delay: 2000, stopOnInteraction: true })
   );
@@ -515,7 +514,7 @@ export default function VillaPage({ params }: PageProps) {
                 </span>
               </p>
               <Button
-                onClick={() => router.push("/booking")}
+                onClick={openPopup}
                 className="bg-emerald-800 hover:bg-emerald-700 text-white"
               >
                 Get Quote

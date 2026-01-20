@@ -20,6 +20,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Playfair_Display } from "next/font/google";
 import { cn } from "@/lib/utils";
+import { useCallbackPopup } from "@/lib/callback-popup-context";
 import {
   Carousel,
   CarouselContent,
@@ -148,7 +149,7 @@ import LuxurywithJacuzzi5 from "../Luxuryroomsiwthjcuzzi/5.jpg";
 import LuxurywithJacuzzi6 from "../Luxuryroomsiwthjcuzzi/6.jpg";
 import LuxurywithJacuzzi7 from "../Luxuryroomsiwthjcuzzi/7.jpg";
 
-import { useRouter } from "next/navigation";
+// import { useRouter } from "next/navigation";
 
 const playfair = Playfair_Display({ subsets: ["latin"] });
 
@@ -639,7 +640,7 @@ function DynamicRoomInfo({ room }: { room: RoomData }) {
 }
 
 export default function RoomPage({ params }: PageProps) {
-  const router = useRouter();
+  const { openPopup } = useCallbackPopup();
   const plugin = React.useRef(
     Autoplay({ delay: 2000, stopOnInteraction: true })
   );
@@ -743,7 +744,7 @@ export default function RoomPage({ params }: PageProps) {
                 </span>
               </p>
               <Button
-                onClick={() => router.push("/booking")}
+                onClick={openPopup}
                 className=" bg-emerald-800 hover:bg-emerald-700 text-white"
               >
                 Get Quote

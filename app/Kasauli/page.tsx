@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Sun, Cloud, Droplet, Snowflake, Wind, Train, Car } from "lucide-react";
+import { useCallbackPopup } from "@/lib/callback-popup-context";
 
 import { motion } from "framer-motion";
 
@@ -17,6 +18,7 @@ import { FocusCardsComponent } from "./FocusCardsComponent";
 import Imagekasuali from "./Kasauli 1.png";
 
 export default function KasauliPage() {
+  const { openPopup } = useCallbackPopup();
   return (
     <div className="min-h-screen  ">
       <main>
@@ -39,7 +41,7 @@ export default function KasauliPage() {
                 Discover the picturesque hill station of Himachal Pradesh
               </p>
               <Button
-                 onClick={() => window.location.href = "/booking"}
+                 onClick={openPopup}
                 size="lg"
                 className="text-white border-white bg-emerald-800 hover:bg-white hover:text-black"
               >

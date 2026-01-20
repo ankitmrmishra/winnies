@@ -3,11 +3,25 @@
 import { ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Playfair_Display, Inter } from "next/font/google";
+import { useCallbackPopup } from "@/lib/callback-popup-context";
+import { usePathname } from "next/navigation";
 
 const playfair = Playfair_Display({ subsets: ["latin"] });
 const inter = Inter({ subsets: ["latin"] });
 
 export function About({ onRequest }: { onRequest: () => void }) {
+  const pathname = usePathname();
+  const { openPopup } = useCallbackPopup();
+
+  const handleLearnMoreClick = () => {
+    // If on booking page, use the existing onRequest handler
+    if (pathname?.startsWith("/booking")) {
+      onRequest();
+    } else {
+      // Otherwise, open the popup
+      openPopup();
+    }
+  };
   return (
     <section
       className={`py-20 md:py-10 px-6 md:px-20 bg-[#faf9f6] text-black max-h-max gap-5 flex flex-col justify-start align-middle items-start overflow-hidden ${inter.className}`}
@@ -29,7 +43,7 @@ export function About({ onRequest }: { onRequest: () => void }) {
           embrace.
         </p>
         <Button
-          onClick={onRequest}
+          onClick={handleLearnMoreClick}
           variant="outline"
           className="border-emerald-700 text-black hover:bg-emerald-600 hover:text-white transition-colors duration-300"
         >

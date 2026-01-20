@@ -13,7 +13,7 @@ import {
   Clock,
   ChevronRight,
 } from "lucide-react";
-import { useRouter } from "next/navigation";
+import { useCallbackPopup } from "@/lib/callback-popup-context";
 import PackageImage from "../../public/4.png";
 
 const playfair = Playfair_Display({ subsets: ["latin"], style: ["italic"] });
@@ -134,7 +134,7 @@ export default function PackagePage() {
     },
   ];
 
-  const router = useRouter();
+  const { openPopup } = useCallbackPopup();
 
   return (
     <div className="min-h-screen ">
@@ -154,7 +154,7 @@ export default function PackagePage() {
               Experience luxury at Winnies Resort and Spa
             </p>
             <Button
-              onClick={() => router.push("/booking")}
+              onClick={openPopup}
               className="w-full md:max-w-max bg-emerald-800 hover:bg-emerald-700 text-white"
             >
               Get Quote
@@ -228,7 +228,7 @@ export default function PackagePage() {
                   ))}
                 </ul>
                 <Button
-                  onClick={() => router.push("/booking")}
+                  onClick={openPopup}
                   className="w-full bg-emerald-800 hover:bg-emerald-700 text-white"
                 >
                   Get Quote
@@ -282,7 +282,7 @@ export default function PackagePage() {
                   ))}
                 </ul>
                 <Button
-                  onClick={() => router.push("/booking")}
+                  onClick={openPopup}
                   className="w-full bg-emerald-800 hover:bg-emerald-700 text-white"
                 >
                   Get Quote

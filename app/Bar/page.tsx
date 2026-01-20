@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Playfair_Display } from "next/font/google";
 import { Wine, Clock, Mountain, Star } from "lucide-react";
+import { useCallbackPopup } from "@/lib/callback-popup-context";
 // import Bar1 from "../../public/assets/Bar/DSC02395.jpg";
 import Bar2 from "../../public/assets/Bar/DSC02396.jpg";
 import Bar3 from "../../public/assets/Bar/DSC02397.jpg";
@@ -14,6 +15,7 @@ import Bar3 from "../../public/assets/Bar/DSC02397.jpg";
 const playfair = Playfair_Display({ subsets: ["latin"], style: ["italic"] });
 
 export default function BarPage() {
+  const { openPopup } = useCallbackPopup();
   const features = [
     {
       icon: Wine,
@@ -57,6 +59,7 @@ export default function BarPage() {
             </h1>
             <p className="text-xl mb-8">Sip & Savor with Stunning Views</p>
             <Button
+              onClick={openPopup}
               size="lg"
               className="bg-emerald-800 hover:bg-emerald-700 text-white"
             >
@@ -218,6 +221,7 @@ export default function BarPage() {
               </p>
             </div>
             <Button
+              onClick={openPopup}
               size="lg"
               className="bg-emerald-300 text-gray-900 hover:bg-emerald-600"
             >

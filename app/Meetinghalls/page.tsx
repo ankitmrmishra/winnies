@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Playfair_Display } from "next/font/google";
 import { Users, Presentation, Wifi, Coffee } from "lucide-react";
+import { useCallbackPopup } from "@/lib/callback-popup-context";
 import Meetinghall from "../../public/assets/Confrenceroom/DSC02387.jpg";
 import Meetinghall2 from "../../public/assets/Confrenceroom/DSC02390.jpg";
 import theatre from "../../public/assets/Confrenceroom/theatre.png";
@@ -12,6 +13,7 @@ import theatre from "../../public/assets/Confrenceroom/theatre.png";
 const playfair = Playfair_Display({ subsets: ["latin"], style: ["italic"] });
 
 export default function ConferencePage() {
+  const { openPopup } = useCallbackPopup();
   const features = [
     {
       icon: Users,
@@ -74,6 +76,7 @@ export default function ConferencePage() {
             </h1>
             <p className="text-xl mb-8">Business Meets Pleasure</p>
             <Button
+              onClick={openPopup}
               size="lg"
               className="text-white border-white bg-emerald-800 hover:bg-white hover:text-black"
             >
@@ -223,6 +226,7 @@ export default function ConferencePage() {
               corporate gathering. Contact us for customized solutions.
             </p>
             <Button
+              onClick={openPopup}
               size="lg"
               className="text-white bg-emerald-800 hover:bg-emerald-700"
             >

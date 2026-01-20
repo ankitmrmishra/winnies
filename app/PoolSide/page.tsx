@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Playfair_Display } from "next/font/google";
+import { useCallbackPopup } from "@/lib/callback-popup-context";
 import Pool1 from "../../public/assets/Pool/DSC02120.jpg";
 import Pool2 from "../../public/assets/Pool/DSC02122.jpg";
 import Pool3 from "../../public/assets/Pool/DSC02123.jpg";
@@ -20,6 +21,7 @@ import Pool9 from "../../public/assets/Pool/DSC02149.jpg";
 const playfair = Playfair_Display({ subsets: ["latin"], style: ["italic"] });
 
 export default function PoolsidePage() {
+  const { openPopup } = useCallbackPopup();
   // const features = [
   //   {
   //     icon: Waves,
@@ -64,7 +66,7 @@ export default function PoolsidePage() {
             <p className="text-xl mb-8">Dive Into Relaxation</p>
             <Button
               size="lg"
-              onClick={() => window.location.href = "/booking"}
+              onClick={openPopup}
               className="bg-emerald-800 hover:bg-emerald-700 text-white"
             >
               Get Quote
@@ -241,7 +243,7 @@ export default function PoolsidePage() {
             </div>
             <Button
               size="lg"
-              onClick={() => window.location.href = "/booking"}
+              onClick={openPopup}
               className="bg-white text-emerald-800 hover:bg-gray-100"
             >
               Get Quote

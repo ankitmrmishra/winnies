@@ -2,11 +2,12 @@
 import { Facebook, Globe, Instagram, Mail, Phone, Twitter } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { useRouter } from "next/navigation";
+import { useCallbackPopup } from "@/lib/callback-popup-context";
 import Link from "next/link";
 
 export default function Footer() {
   const year = new Date().getFullYear();
+  const { openPopup } = useCallbackPopup();
 
   // Link arrays matching navbar structure
   const footerLinks = [
@@ -36,8 +37,6 @@ export default function Footer() {
     { Icon: Instagram, href: "https://www.instagram.com/winniesresorts/" },
     // { Icon: Linkedin, href: "#" },
   ];
-
-  const router = useRouter();
 
   return (
     <div className="lg:p-20 bg-[#faf9f6]">
@@ -136,7 +135,7 @@ export default function Footer() {
             <div className="space-y-4">
               <div className="text-2xl font-bold">Winnies</div>
               <Button
-                onClick={() => router.push("/booking")}
+                onClick={openPopup}
                 className="bg-white text-[#0B3B2D] hover:bg-gray-100"
               >
                 Get Quote

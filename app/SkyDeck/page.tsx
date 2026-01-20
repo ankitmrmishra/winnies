@@ -6,12 +6,14 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Playfair_Display } from "next/font/google";
 import { Cloud, Sunset, Users, UtensilsCrossed } from "lucide-react";
+import { useCallbackPopup } from "@/lib/callback-popup-context";
 import Skydeck from "../../public/assets/OpenDeck/DSC02105.jpg";
 import Skydeck1 from "../../public/assets/OpenDeck/DSC02106.jpg";
 
 const playfair = Playfair_Display({ subsets: ["latin"], style: ["italic"] });
 
 export default function SkyDeckPage() {
+  const { openPopup } = useCallbackPopup();
   const features = [
     {
       icon: Sunset,
@@ -54,7 +56,7 @@ export default function SkyDeckPage() {
             <p className="text-xl mb-8">Bask in Nature&apos;s Splendor</p>
             <Button
               size="lg"
-              onClick={() => window.location.href = "/booking"}
+              onClick={openPopup}
               className="text-white border-white bg-emerald-800 hover:bg-white hover:text-black"
             >
               Get Quote
@@ -211,7 +213,7 @@ export default function SkyDeckPage() {
             </p>
             <Button
               size="lg"
-              onClick={() => window.location.href = "/booking"}
+              onClick={openPopup}
               className="text-white bg-emerald-800 hover:bg-emerald-700"
             >
               Get Quote

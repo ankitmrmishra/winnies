@@ -4,14 +4,14 @@ import { Button } from "./ui/button";
 import { ChevronRight } from "lucide-react";
 import { Playfair_Display } from "next/font/google";
 import Image from "next/image";
+import { useCallbackPopup } from "@/lib/callback-popup-context";
 
 const playfair = Playfair_Display({ subsets: ["latin"] });
 
 import MainImage from "../public/WINNIWS.jpg";
-import { useRouter } from "next/navigation";
 
 export const HeroComponent = () => {
-  const router = useRouter();
+  const { openPopup } = useCallbackPopup();
   return (
     <div className="h-screen relative">
       <Image
@@ -36,7 +36,7 @@ export const HeroComponent = () => {
           <span className="text-emerald-400">Winnies Resort</span>
         </p>
         <Button
-          onClick={() => router.push("/booking")}
+          onClick={openPopup}
           className=" bg-emerald-800 hover:bg-emerald-700 text-white"
         >
           Get Quote

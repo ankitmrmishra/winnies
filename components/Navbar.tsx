@@ -6,6 +6,7 @@ import { ChevronDown, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
+import { useCallbackPopup } from "@/lib/callback-popup-context";
 
 import Bar from "@/public/assets/Bar/DSC02395.jpg";
 import Activities from "@/public/assets/Activities/pool.jpg";
@@ -21,7 +22,7 @@ import POOLDECKPREMIUMROOMS from "@/public/assets/POOL DECK PREMIUM ROOMS/room1.
 import superdeluxrooms from "@/public/assets/superdeluxrooms/room1.png";
 import deluxs3bedroom from "@/public/assets/DELUXE 3-BEDROOM APARTMENT/image.png";
 import Logo from "../public/assets/LOGO.png";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 
 import Room604 from "../app/villas/Room604/20220120-_DSC4337.jpg";
 import Room605 from "../app/villas/Room605/20220121-_DSC4953.jpg";
@@ -164,6 +165,7 @@ export default function Navbar() {
   const [isVillasOpen, setIsVillasOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const { openPopup } = useCallbackPopup();
 
   const navRef = useRef<HTMLDivElement>(null);
   const { scrollY } = useScroll();
@@ -192,8 +194,6 @@ export default function Navbar() {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
-
-  const router = useRouter();
 
   const pathname = usePathname();
 
@@ -380,7 +380,7 @@ export default function Navbar() {
 
             {/* Get Quote Button */}
             <Button
-              onClick={() => router.push("/booking")}
+              onClick={openPopup}
               className=" bg-emerald-800 hover:bg-emerald-700 text-white"
             >
               Get Quote
