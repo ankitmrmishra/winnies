@@ -84,9 +84,15 @@ export async function POST(req: Request) {
 
       // Use UTC dates for comparison to avoid timezone issues
       const today = new Date();
-      
+      const todayUTC = Date.UTC(today.getUTCFullYear(), today.getUTCMonth(), today.getUTCDate());
+      const checkInUTC = Date.UTC(checkInDate.getUTCFullYear(), checkInDate.getUTCMonth(), checkInDate.getUTCDate());
 
-     
+      if (checkInUTC < todayUTC) {
+        return NextResponse.json(
+          { error: "Check-in date cannot be in the past" },
+          { status: 400 }
+        );
+      }
     }
 
     // Validate guests (now required)

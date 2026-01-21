@@ -181,12 +181,19 @@ export const CallbackForm = forwardRef<CallbackFormHandle, Props>(
         return;
       }
 
-      // ✅ FIXED: Use local date strings to avoid timezone issues
+      // Validate check-in is not in the past (allow today) - use UTC to avoid timezone issues
       const today = new Date();
-      const todayStr = getLocalDateString(today);
-      const checkInStr = getLocalDateString(checkInDate);
+      const todayUTC = Date.UTC(today.getUTCFullYear(), today.getUTCMonth(), today.getUTCDate());
+      const checkInUTC = Date.UTC(checkInDate.getUTCFullYear(), checkInDate.getUTCMonth(), checkInDate.getUTCDate());
 
-     
+      if (checkInUTC < todayUTC) {
+        toast({
+          title: "Invalid Check-in Date",
+          description: "Check-in date cannot be in the past.",
+          variant: "destructive",
+        });
+        return;
+      }
 
       setLoading(true);
 
