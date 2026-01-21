@@ -286,7 +286,9 @@ export const CallbackForm = forwardRef<CallbackFormHandle, Props>(
               disabled={(date) => {
                 const today = new Date();
                 today.setHours(0, 0, 0, 0);
-                return date < today;
+                const dateToCheck = new Date(date);
+                dateToCheck.setHours(0, 0, 0, 0);
+                return dateToCheck < today;
               }}
               required
             />
@@ -297,7 +299,9 @@ export const CallbackForm = forwardRef<CallbackFormHandle, Props>(
               disabled={(date) => {
                 const today = new Date();
                 today.setHours(0, 0, 0, 0);
-                if (date < today) return true;
+                const dateToCheck = new Date(date);
+                dateToCheck.setHours(0, 0, 0, 0);
+                if (dateToCheck < today) return true;
                 if (checkIn) {
                   // Check-out must be at least 1 day after check-in
                   return date <= checkIn;
