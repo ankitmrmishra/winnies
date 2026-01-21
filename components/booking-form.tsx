@@ -175,13 +175,12 @@ export const CallbackForm = forwardRef<CallbackFormHandle, Props>(
         return;
       }
 
-      // Validate check-in is not in the past (allow today)
+      // Validate check-in is not in the past (allow today) - use UTC to avoid timezone issues
       const today = new Date();
-      today.setHours(0, 0, 0, 0);
-      const checkInDateNormalized = new Date(checkInDate);
-      checkInDateNormalized.setHours(0, 0, 0, 0);
+      const todayUTC = Date.UTC(today.getUTCFullYear(), today.getUTCMonth(), today.getUTCDate());
+      const checkInUTC = Date.UTC(checkInDate.getUTCFullYear(), checkInDate.getUTCMonth(), checkInDate.getUTCDate());
 
-      if (checkInDateNormalized < today) {
+      if (checkInUTC < todayUTC) {
         toast({
           title: "Invalid Check-in Date",
           description: "Check-in date cannot be in the past.",
