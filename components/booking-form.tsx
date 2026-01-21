@@ -53,14 +53,6 @@ const variants = {
   },
 };
 
-// Helper function to get date string in local timezone (YYYY-MM-DD)
-const getLocalDateString = (date: Date): string => {
-  const year = date.getFullYear();
-  const month = String(date.getMonth() + 1).padStart(2, '0');
-  const day = String(date.getDate()).padStart(2, '0');
-  return `${year}-${month}-${day}`;
-};
-
 export const CallbackForm = forwardRef<CallbackFormHandle, Props>(
   ({ active, triggerKey, onUserInteraction }, ref) => {
     const containerRef = useRef<HTMLDivElement>(null);
@@ -181,20 +173,6 @@ export const CallbackForm = forwardRef<CallbackFormHandle, Props>(
         return;
       }
 
-      // Validate check-in is not in the past (allow today) - use UTC to avoid timezone issues
-      const today = new Date();
-      const todayUTC = Date.UTC(today.getUTCFullYear(), today.getUTCMonth(), today.getUTCDate());
-      const checkInUTC = Date.UTC(checkInDate.getUTCFullYear(), checkInDate.getUTCMonth(), checkInDate.getUTCDate());
-
-      if (checkInUTC < todayUTC) {
-        toast({
-          title: "Invalid Check-in Date",
-          description: "Check-in date cannot be in the past.",
-          variant: "destructive",
-        });
-        return;
-      }
-
       setLoading(true);
 
       try {
@@ -300,12 +278,6 @@ export const CallbackForm = forwardRef<CallbackFormHandle, Props>(
               setDate={setCheckIn}
               open={checkInOpen}
               onOpenChange={setCheckInOpen}
-              disabled={(date) => {
-                const today = new Date();
-                const todayStr = getLocalDateString(today);
-                const dateStr = getLocalDateString(date);
-                return dateStr < todayStr;
-              }}
               required
             />
             <DatePicker
@@ -315,10 +287,6 @@ export const CallbackForm = forwardRef<CallbackFormHandle, Props>(
               open={checkOutOpen}
               onOpenChange={setCheckOutOpen}
               disabled={(date) => {
-                const today = new Date();
-                const todayStr = getLocalDateString(today);
-                const dateStr = getLocalDateString(date);
-                if (dateStr < todayStr) return true;
                 if (checkIn) {
                   return date <= checkIn;
                 }
