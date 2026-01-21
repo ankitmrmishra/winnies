@@ -63,6 +63,8 @@ export const CallbackForm = forwardRef<CallbackFormHandle, Props>(
     const [checkIn, setCheckIn] = useState<Date>();
     const [checkOut, setCheckOut] = useState<Date>();
     const [loading, setLoading] = useState(false);
+    const [checkInOpen, setCheckInOpen] = useState(false);
+    const [checkOutOpen, setCheckOutOpen] = useState(false);
 
     const [formData, setFormData] = useState({
       name: "",
@@ -98,13 +100,20 @@ export const CallbackForm = forwardRef<CallbackFormHandle, Props>(
 
     /* 🔹 Sync dates */
     useEffect(() => {
-      if (checkIn)
+      if (checkIn) {
         setFormData((p) => ({ ...p, checkIn: checkIn.toISOString() }));
+        // Auto-open checkout calendar after check-in is selected
+        setCheckInOpen(false);
+        setTimeout(() => setCheckOutOpen(true), 300);
+      }
     }, [checkIn]);
 
     useEffect(() => {
-      if (checkOut)
+      if (checkOut) {
         setFormData((p) => ({ ...p, checkOut: checkOut.toISOString() }));
+        // Auto-close checkout calendar after selection
+        setCheckOutOpen(false);
+      }
     }, [checkOut]);
 
     /* 🔹 Prevent invalid checkout - Clear checkout if it's before check-in */
@@ -283,6 +292,8 @@ export const CallbackForm = forwardRef<CallbackFormHandle, Props>(
               label="Check-in *"
               date={checkIn}
               setDate={setCheckIn}
+              open={checkInOpen}
+              onOpenChange={setCheckInOpen}
               disabled={(date) => {
                 const today = new Date();
                 today.setHours(0, 0, 0, 0);
@@ -296,6 +307,8 @@ export const CallbackForm = forwardRef<CallbackFormHandle, Props>(
               label="Check-out *"
               date={checkOut}
               setDate={setCheckOut}
+              open={checkOutOpen}
+              onOpenChange={setCheckOutOpen}
               disabled={(date) => {
                 const today = new Date();
                 today.setHours(0, 0, 0, 0);
@@ -382,17 +395,21 @@ function DatePicker({
   date,
   setDate,
   disabled,
+  open,
+  onOpenChange,
 }: {
   label: string;
   date?: Date;
   setDate: (d?: Date) => void;
   disabled?: (date: Date) => boolean;
   required?: boolean;
+  open?: boolean;
+  onOpenChange?: (open: boolean) => void;
 }) {
   return (
     <div className="space-y-2">
       <Label>{label}</Label>
-      <Popover>
+      <Popover open={open} onOpenChange={onOpenChange}>
         <PopoverTrigger asChild>
           <Button
             variant="outline"
