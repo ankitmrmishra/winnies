@@ -175,12 +175,13 @@ export const CallbackForm = forwardRef<CallbackFormHandle, Props>(
         return;
       }
 
-      // Validate check-in is not in the past
+      // Validate check-in is not in the past (allow today)
       const today = new Date();
       today.setHours(0, 0, 0, 0);
-      checkInDate.setHours(0, 0, 0, 0);
+      const checkInDateNormalized = new Date(checkInDate);
+      checkInDateNormalized.setHours(0, 0, 0, 0);
 
-      if (checkInDate < today) {
+      if (checkInDateNormalized < today) {
         toast({
           title: "Invalid Check-in Date",
           description: "Check-in date cannot be in the past.",
