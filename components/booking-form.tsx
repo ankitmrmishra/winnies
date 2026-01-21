@@ -186,14 +186,7 @@ export const CallbackForm = forwardRef<CallbackFormHandle, Props>(
       const todayStr = getLocalDateString(today);
       const checkInStr = getLocalDateString(checkInDate);
 
-      if (checkInStr < todayStr) {
-        toast({
-          title: "Invalid Check-in Date",
-          description: "Check-in date cannot be in the past.",
-          variant: "destructive",
-        });
-        return;
-      }
+     
 
       setLoading(true);
 
