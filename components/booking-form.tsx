@@ -102,7 +102,6 @@ export const CallbackForm = forwardRef<CallbackFormHandle, Props>(
     useEffect(() => {
       if (checkIn) {
         setFormData((p) => ({ ...p, checkIn: checkIn.toISOString() }));
-        // Auto-open checkout calendar after check-in is selected
         setCheckInOpen(false);
         setTimeout(() => setCheckOutOpen(true), 300);
       }
@@ -111,12 +110,11 @@ export const CallbackForm = forwardRef<CallbackFormHandle, Props>(
     useEffect(() => {
       if (checkOut) {
         setFormData((p) => ({ ...p, checkOut: checkOut.toISOString() }));
-        // Auto-close checkout calendar after selection
         setCheckOutOpen(false);
       }
     }, [checkOut]);
 
-    /* 🔹 Prevent invalid checkout - Clear checkout if it's before check-in */
+    /* 🔹 Prevent invalid checkout */
     useEffect(() => {
       if (checkIn && checkOut && checkOut <= checkIn) {
         setCheckOut(undefined);
@@ -175,12 +173,12 @@ export const CallbackForm = forwardRef<CallbackFormHandle, Props>(
         return;
       }
 
-      // Validate check-in is not in the past (allow today) - use UTC to avoid timezone issues
+      // ✅ FIXED: Use date string comparison to avoid timezone issues
       const today = new Date();
-      const todayUTC = Date.UTC(today.getUTCFullYear(), today.getUTCMonth(), today.getUTCDate());
-      const checkInUTC = Date.UTC(checkInDate.getUTCFullYear(), checkInDate.getUTCMonth(), checkInDate.getUTCDate());
+      const todayStr = today.toISOString().split('T')[0]; // YYYY-MM-DD
+      const checkInStr = checkInDate.toISOString().split('T')[0];
 
-      if (checkInUTC < todayUTC) {
+      if (checkInStr < todayStr) {
         toast({
           title: "Invalid Check-in Date",
           description: "Check-in date cannot be in the past.",
@@ -296,10 +294,9 @@ export const CallbackForm = forwardRef<CallbackFormHandle, Props>(
               onOpenChange={setCheckInOpen}
               disabled={(date) => {
                 const today = new Date();
-                today.setHours(0, 0, 0, 0);
-                const dateToCheck = new Date(date);
-                dateToCheck.setHours(0, 0, 0, 0);
-                return dateToCheck < today;
+                const todayStr = today.toISOString().split('T')[0];
+                const dateStr = date.toISOString().split('T')[0];
+                return dateStr < todayStr;
               }}
               required
             />
@@ -311,12 +308,10 @@ export const CallbackForm = forwardRef<CallbackFormHandle, Props>(
               onOpenChange={setCheckOutOpen}
               disabled={(date) => {
                 const today = new Date();
-                today.setHours(0, 0, 0, 0);
-                const dateToCheck = new Date(date);
-                dateToCheck.setHours(0, 0, 0, 0);
-                if (dateToCheck < today) return true;
+                const todayStr = today.toISOString().split('T')[0];
+                const dateStr = date.toISOString().split('T')[0];
+                if (dateStr < todayStr) return true;
                 if (checkIn) {
-                  // Check-out must be at least 1 day after check-in
                   return date <= checkIn;
                 }
                 return false;
