@@ -53,6 +53,14 @@ const variants = {
   },
 };
 
+// Helper function to get date string in local timezone (YYYY-MM-DD)
+const getLocalDateString = (date: Date): string => {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
+};
+
 export const CallbackForm = forwardRef<CallbackFormHandle, Props>(
   ({ active, triggerKey, onUserInteraction }, ref) => {
     const containerRef = useRef<HTMLDivElement>(null);
@@ -173,10 +181,10 @@ export const CallbackForm = forwardRef<CallbackFormHandle, Props>(
         return;
       }
 
-      // ✅ FIXED: Use date string comparison to avoid timezone issues
+      // ✅ FIXED: Use local date strings to avoid timezone issues
       const today = new Date();
-      const todayStr = today.toISOString().split('T')[0]; // YYYY-MM-DD
-      const checkInStr = checkInDate.toISOString().split('T')[0];
+      const todayStr = getLocalDateString(today);
+      const checkInStr = getLocalDateString(checkInDate);
 
       if (checkInStr < todayStr) {
         toast({
@@ -294,8 +302,8 @@ export const CallbackForm = forwardRef<CallbackFormHandle, Props>(
               onOpenChange={setCheckInOpen}
               disabled={(date) => {
                 const today = new Date();
-                const todayStr = today.toISOString().split('T')[0];
-                const dateStr = date.toISOString().split('T')[0];
+                const todayStr = getLocalDateString(today);
+                const dateStr = getLocalDateString(date);
                 return dateStr < todayStr;
               }}
               required
@@ -308,8 +316,8 @@ export const CallbackForm = forwardRef<CallbackFormHandle, Props>(
               onOpenChange={setCheckOutOpen}
               disabled={(date) => {
                 const today = new Date();
-                const todayStr = today.toISOString().split('T')[0];
-                const dateStr = date.toISOString().split('T')[0];
+                const todayStr = getLocalDateString(today);
+                const dateStr = getLocalDateString(date);
                 if (dateStr < todayStr) return true;
                 if (checkIn) {
                   return date <= checkIn;
