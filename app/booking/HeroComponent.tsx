@@ -8,7 +8,7 @@ import Image from "next/image";
 const playfair = Playfair_Display({ subsets: ["latin"] });
 
 // Fallback image import
-import FallbackImage from "../../public/WINNIWS.jpg";
+import FallbackImage from "../../public/WINNIES.png";
 import { BsWhatsapp } from "react-icons/bs";
 
 // Optimized Cloudinary video URL

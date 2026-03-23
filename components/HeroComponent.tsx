@@ -8,7 +8,7 @@ import { useCallbackPopup } from "@/lib/callback-popup-context";
 
 const playfair = Playfair_Display({ subsets: ["latin"] });
 
-import MainImage from "../public/WINNIWS.jpg";
+import MainImage from "../public/WINNIES.png";
 
 export const HeroComponent = () => {
   const { openPopup } = useCallbackPopup();
