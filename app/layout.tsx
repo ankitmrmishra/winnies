@@ -5,7 +5,6 @@ import Script from "next/script";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Whatsapp } from "@/components/ui/Whatsapp";
 import { Toaster } from "@/components/ui/toaster";
 import { CallbackFormPopup } from "@/components/CallbackFormPopup";
 import { CallbackPopupProvider } from "@/lib/callback-popup-context";
@@ -115,6 +114,16 @@ export default function RootLayout({
             })(window,document,'script','dataLayer','GTM-MXKL8JK7');
           `}
         </Script>
+
+        {/* -------- Botpress Chatbot -------- */}
+        <Script
+          src="https://cdn.botpress.cloud/webchat/v3.6/inject.js"
+          strategy="afterInteractive"
+        />
+        <Script
+          src="https://files.bpcontent.cloud/2026/03/02/13/20260302130816-L4LY4ZE3.js"
+          strategy="afterInteractive"
+        />
       </head>
 
       <body
@@ -134,7 +143,6 @@ export default function RootLayout({
           <Navbar />
 
           <main>
-            <Whatsapp />
             <CallbackFormPopup />
             {children}
             {/* <PackageModal /> */}
