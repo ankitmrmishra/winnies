@@ -28,12 +28,10 @@ export const HeroComponent = () => {
         <h1
           className={`text-4xl md:text-6xl font-bold mb-4 ${playfair.className}`}
         >
-          Luxury Awaits <br />
-          in <span className="text-emerald-500">Kasauli</span>
+          Winnies Holiday Resort & Spa
         </h1>
         <p className="text-xl md:text-2xl mb-8">
-          Discover serenity at{" "}
-          <span className="text-emerald-400">Winnies Resort</span>
+          Kasauli, Himachal Pradesh
         </p>
         <Button
           onClick={openPopup}

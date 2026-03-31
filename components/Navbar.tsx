@@ -22,6 +22,7 @@ import POOLDECKPREMIUMROOMS from "@/public/assets/POOL DECK PREMIUM ROOMS/room1.
 import superdeluxrooms from "@/public/assets/superdeluxrooms/room1.png";
 import deluxs3bedroom from "@/public/assets/DELUXE 3-BEDROOM APARTMENT/image.png";
 import Logo from "../public/assets/LOGO.png";
+import LogoWhite from "../public/assets/whitelogo.png";
 import { usePathname } from "next/navigation";
 
 import Room604 from "../app/villas/Room604/20220120-_DSC4337.jpg";
@@ -222,12 +223,12 @@ export default function Navbar() {
               whileTap={{ scale: 0.95 }}
             >
               <Image
-                src={Logo}
-                className="md:size-20 size-16 ml-6   p-2  "
+                src={isScrolled ? Logo : LogoWhite}
+                className="md:size-24 size-16 ml-6   p-2  "
                 objectFit="cover"
                 width={500}
                 height={500}
-                alt=""
+                alt="Winnies Resort Logo"
               />
             </motion.a>
 

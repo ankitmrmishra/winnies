@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 import { Toaster } from "@/components/ui/toaster";
 import { CallbackFormPopup } from "@/components/CallbackFormPopup";
 import { CallbackPopupProvider } from "@/lib/callback-popup-context";
+import { ChatbotIndicator } from "@/components/ChatbotIndicator";
 // import { PackageModal } from "@/components/PackagePopup";
 
 /* -------------------- Fonts -------------------- */
@@ -124,6 +125,43 @@ export default function RootLayout({
           src="https://files.bpcontent.cloud/2026/03/02/13/20260302130816-L4LY4ZE3.js"
           strategy="afterInteractive"
         />
+        <Script id="botpress-auto-open" strategy="afterInteractive">
+          {`
+            (function() {
+              var checkBotpress = setInterval(function() {
+                if (window.botpressWebChat) {
+                  clearInterval(checkBotpress);
+                  window.botpressWebChat.sendEvent({ type: 'show' });
+                }
+              }, 100);
+              setTimeout(function() { clearInterval(checkBotpress); }, 5000);
+            })();
+          `}
+        </Script>
+        <style>{`
+          /* Botpress chat button - light green override */
+          #bp-web-widget-container button,
+          #bp-web-widget-container [role="button"],
+          div[id^="bp-"] button,
+          div[class*="bp-"] button {
+            background-color: #4ade80 !important;
+            background: #4ade80 !important;
+          }
+          #bp-web-widget-container button:hover,
+          #bp-web-widget-container [role="button"]:hover,
+          div[id^="bp-"] button:hover,
+          div[class*="bp-"] button:hover {
+            background-color: #22c55e !important;
+            background: #22c55e !important;
+          }
+          /* Target the floating button specifically */
+          button[aria-label*="Toggle"],
+          button[aria-label*="chat"],
+          button[aria-label*="Open"] {
+            background-color: #4ade80 !important;
+            background: #4ade80 !important;
+          }
+        `}</style>
       </head>
 
       <body
@@ -144,6 +182,7 @@ export default function RootLayout({
 
           <main>
             <CallbackFormPopup />
+            <ChatbotIndicator />
             {children}
             {/* <PackageModal /> */}
           </main>
