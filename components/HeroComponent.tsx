@@ -96,6 +96,7 @@ export const HeroComponent = () => {
           >
             <Button
               onClick={handleCallClick}
+              id="hero-call-button"
               className="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-4 sm:px-8 sm:py-5 text-base sm:text-lg rounded-full shadow-2xl hover:shadow-emerald-500/50 transition-all flex items-center justify-center gap-2 sm:gap-3 w-full sm:w-auto min-h-[52px] sm:min-h-[60px]"
             >
               <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -105,6 +106,7 @@ export const HeroComponent = () => {
             </Button>
             <Button
               variant="outline"
+              id="hero-whatsapp-button"
               className="bg-white/20 backdrop-blur-md hover:bg-white/30 text-white border-white/40 px-6 py-4 sm:px-8 sm:py-5 text-base sm:text-lg rounded-full w-full sm:w-auto flex items-center justify-center gap-2 sm:gap-3 min-h-[52px] sm:min-h-[60px] font-semibold"
               onClick={() => window.open('https://wa.me/919805633007', '_blank')}
             >

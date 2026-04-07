@@ -22,6 +22,7 @@ export function FloatingCallButton() {
   return (
     <button
       onClick={handleCall}
+      id="floating-call-button"
       className="fixed right-0 top-1/2 -translate-y-1/2 z-40 bg-emerald-600 hover:bg-emerald-700 text-white py-6 pl-4 pr-6 shadow-lg transition-colors group z-50"
       style={{
         borderTopLeftRadius: "24px",
