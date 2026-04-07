@@ -43,7 +43,7 @@ export const OurRooms = () => {
         <div
           className={`text-white md:text-5xl md:w-[30rem] font-bold text-3xl ${playfair.className}`}
         >
-          Carefully designed luxury Rooms
+          Luxury Rooms & Suites
         </div>
         <div className="w-full max-w-max">
           <Carousel

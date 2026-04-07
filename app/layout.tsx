@@ -9,6 +9,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { CallbackFormPopup } from "@/components/CallbackFormPopup";
 import { CallbackPopupProvider } from "@/lib/callback-popup-context";
 import { ChatbotIndicator } from "@/components/ChatbotIndicator";
+import { FloatingCallButton } from "@/components/ui/FloatingCallButton";
 // import { PackageModal } from "@/components/PackagePopup";
 
 /* -------------------- Fonts -------------------- */
@@ -183,6 +184,7 @@ export default function RootLayout({
           <main>
             <CallbackFormPopup />
             <ChatbotIndicator />
+            <FloatingCallButton />
             {children}
             {/* <PackageModal /> */}
           </main>

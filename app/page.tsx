@@ -9,6 +9,7 @@ import ExperiencesGrid from "@/components/Experience";
 import { HeroComponent } from "@/components/HeroComponent";
 import { OurMVPS } from "@/components/OurMVPS";
 import { OurRooms } from "@/components/OurRooms";
+import { OurVillas } from "@/components/OurVillas";
 import { SocialMedia } from "@/components/SocialMedia";
 import Testimonials from "@/components/Testimonials";
 
@@ -25,6 +26,7 @@ export default function Home() {
       <ExperiencesGrid />
       <Amenities />
       <OurRooms />
+      <OurVillas />
 
       <Testimonials />
       <SocialMedia />
