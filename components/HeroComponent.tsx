@@ -1,10 +1,9 @@
 "use client";
 import React from "react";
 import { Button } from "./ui/button";
-import { ChevronRight, MapPin } from "lucide-react";
+import { MapPin } from "lucide-react";
 import { Playfair_Display } from "next/font/google";
 import Image from "next/image";
-import { useCallbackPopup } from "@/lib/callback-popup-context";
 import { motion } from "framer-motion";
 
 const playfair = Playfair_Display({ subsets: ["latin"] });
@@ -12,7 +11,6 @@ const playfair = Playfair_Display({ subsets: ["latin"] });
 import MainImage from "../public/WINNIES.png";
 
 export const HeroComponent = () => {
-  const { openPopup } = useCallbackPopup();
   const phoneNumber = "9805633007";
   const [showNumber, setShowNumber] = React.useState(false);
 
@@ -22,8 +20,8 @@ export const HeroComponent = () => {
       setShowNumber(true);
       
       // Track number reveal in Google Analytics
-      if (typeof window !== "undefined" && (window as any).gtag) {
-        (window as any).gtag("event", "reveal_phone_number", {
+      if (typeof window !== "undefined" && (window as Window & { gtag?: (...args: unknown[]) => void }).gtag) {
+        (window as unknown as Window & { gtag: (...args: unknown[]) => void }).gtag("event", "reveal_phone_number", {
           event_category: "engagement",
           event_label: "Hero Call Button",
           phone_number: phoneNumber,
@@ -31,8 +29,8 @@ export const HeroComponent = () => {
       }
     } else {
       // Second click - initiate call
-      if (typeof window !== "undefined" && (window as any).gtag) {
-        (window as any).gtag("event", "click_to_call", {
+      if (typeof window !== "undefined" && (window as Window & { gtag?: (...args: unknown[]) => void }).gtag) {
+        (window as unknown as Window & { gtag: (...args: unknown[]) => void }).gtag("event", "click_to_call", {
           event_category: "engagement",
           event_label: "Hero Call Button",
           phone_number: phoneNumber,

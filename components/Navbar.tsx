@@ -6,7 +6,7 @@ import { ChevronDown, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
-import { useCallbackPopup } from "@/lib/callback-popup-context";
+
 
 import Bar from "@/public/assets/Bar/DSC02395.jpg";
 import Activities from "@/public/assets/Activities/pool.jpg";
@@ -86,10 +86,10 @@ export default function Navbar() {
   const [isVillasOpen, setIsVillasOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const { openPopup } = useCallbackPopup();
 
   const navRef = useRef<HTMLDivElement>(null);
   const { scrollY } = useScroll();
+  
 
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
   const toggleFacilities = () => setIsFacilitiesOpen(!isFacilitiesOpen);
@@ -100,8 +100,8 @@ export default function Navbar() {
 
   const handleCallClick = () => {
     // Track call click in Google Analytics
-    if (typeof window !== "undefined" && (window as any).gtag) {
-      (window as any).gtag("event", "click_to_call", {
+    if (typeof window !== "undefined" && (window as Window & { gtag?: (...args: unknown[]) => void }).gtag) {
+      (window as unknown as Window & { gtag: (...args: unknown[]) => void }).gtag("event", "click_to_call", {
         event_category: "engagement",
         event_label: "Navbar Call Button",
         phone_number: phoneNumber,

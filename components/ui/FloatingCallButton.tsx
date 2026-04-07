@@ -7,8 +7,8 @@ export function FloatingCallButton() {
 
   const handleCall = () => {
     // Track call click in Google Analytics
-    if (typeof window !== "undefined" && (window as any).gtag) {
-      (window as any).gtag("event", "click_to_call", {
+    if (typeof window !== "undefined" && (window as Window & { gtag?: (...args: unknown[]) => void }).gtag) {
+      (window as unknown as Window & { gtag: (...args: unknown[]) => void }).gtag("event", "click_to_call", {
         event_category: "engagement",
         event_label: "Floating Call Button",
         phone_number: phoneNumber,
