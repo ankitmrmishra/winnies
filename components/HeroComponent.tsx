@@ -25,6 +25,8 @@ export const HeroComponent = () => {
           event_category: "engagement",
           event_label: "Hero Call Button",
           phone_number: phoneNumber,
+          click_id: "hero-call-button",
+          button_location: "hero_section",
         });
       }
     } else {
@@ -34,6 +36,8 @@ export const HeroComponent = () => {
           event_category: "engagement",
           event_label: "Hero Call Button",
           phone_number: phoneNumber,
+          click_id: "hero-call-button",
+          button_location: "hero_section",
         });
       }
       window.location.href = `tel:+91${phoneNumber}`;

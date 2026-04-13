@@ -12,6 +12,8 @@ export function FloatingCallButton() {
         event_category: "engagement",
         event_label: "Floating Call Button",
         phone_number: phoneNumber,
+        click_id: "floating-call-button",
+        button_location: "floating_sidebar",
       });
     }
 

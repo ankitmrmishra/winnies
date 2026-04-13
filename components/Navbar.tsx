@@ -105,6 +105,8 @@ export default function Navbar() {
         event_category: "engagement",
         event_label: "Navbar Call Button",
         phone_number: phoneNumber,
+        click_id: "navbar-call-button",
+        button_location: "navbar",
       });
     }
     window.location.href = `tel:+91${phoneNumber}`;
