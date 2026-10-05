@@ -13,12 +13,13 @@ const playfair = Playfair_Display({ subsets: ["latin"] });
 
 // Your client's Instagram post URLs
 const instagramPostUrls = [
-  "https://www.instagram.com/p/DR4TUN1kpuU/",
-  "https://www.instagram.com/p/DR3RJInD8MM/",
-  "https://www.instagram.com/p/DRzOPJmD3Yt/",
-  "https://www.instagram.com/p/DRuMQpkD2OQ/",
-  "https://www.instagram.com/p/DRoWg3uD8s0/",
-  "https://www.instagram.com/reel/DRoVD8gD1ve/",
+  "https://www.instagram.com/p/Ddx6t72CPBG/?hl=en",
+  "https://www.instagram.com/p/Dd0tiYon1QB/?hl=en&img_index=1",
+  "https://www.instagram.com/p/DaqPTlJCKDY/?hl=en&img_index=1",
+  "https://www.instagram.com/p/DaiYE43CKsH/?hl=en&img_index=4",
+  "https://www.instagram.com/p/DXUhgoiCeMl/?hl=en&img_index=1",
+  "https://www.instagram.com/p/DUXVKbtE9x0/?hl=en&img_index=1",
+  "https://www.instagram.com/p/Db2r4vwCGT4/?hl=en&img_index=1",
 ];
 
 const CARD_WIDTH = 400;
