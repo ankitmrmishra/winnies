@@ -30,16 +30,12 @@ export function FloatingCallButton() {
     <button
       onClick={handleWhatsAppClick}
       id="floating-whatsapp-button"
-      className="fixed right-0 top-1/2 -translate-y-1/2 z-50 bg-[#25D366] hover:bg-[#20BA5A] text-white py-6 pl-4 pr-6 shadow-lg transition-colors group"
-      style={{
-        borderTopLeftRadius: "24px",
-        borderBottomLeftRadius: "24px",
-      }}
+      className="fixed right-4 top-1/2 -translate-y-1/2 z-50 bg-[#25D366] hover:bg-[#20BA5A] text-white p-4 shadow-lg transition-colors group rounded-full"
       aria-label="Contact us on WhatsApp"
     >
       <div className="flex flex-col items-center gap-2">
         <svg
-          className="w-6 h-6"
+          className="w-8 h-8"
           fill="currentColor"
           viewBox="0 0 24 24"
           xmlns="http://www.w3.org/2000/svg"

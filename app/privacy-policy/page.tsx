@@ -323,8 +323,8 @@ export default function PrivacyPolicy() {
             </li>
           </ul>
 
-          <div className="mt-6 bg-amber-50 border-l-4 border-amber-500 p-6 rounded-r-lg">
-            <h3 className="font-semibold text-amber-900 mb-2">
+          <div className="mt-6 bg-gray-50 border-l-4 border-gray-500 p-6 rounded-r-lg">
+            <h3 className="font-semibold text-gray-900 mb-2">
               Other Uses and Disclosures
             </h3>
             <p className="text-gray-700">

@@ -67,8 +67,7 @@ export default function CTA({ onRequest }: { onRequest: () => void }) {
               transition={{ delay: 0.2, duration: 0.5 }}
               className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4 max-w-2xl"
             >
-              Nature Reimagined{" "}
-              <span className="text-amber-400">Visit us.</span>
+              Nature Reimagined <span className="text-white">Visit us.</span>
             </motion.h2>
 
             <motion.p

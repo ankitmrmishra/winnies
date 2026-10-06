@@ -41,7 +41,7 @@ export default function KasauliPage() {
                 Discover the picturesque hill station of Himachal Pradesh
               </p>
               <Button
-                 onClick={openPopup}
+                onClick={openPopup}
                 size="lg"
                 className="text-white border-white bg-emerald-800 hover:bg-white hover:text-black"
               >
@@ -228,7 +228,7 @@ export default function KasauliPage() {
                         </p>
                         <div className="grid md:grid-cols-2 gap-6 text-white">
                           <div className="flex items-center gap-4 bg-emerald-800 p-4 rounded-lg shadow-sm">
-                            <Sun className="w-10 h-10 text-yellow-500" />
+                            <Sun className="w-10 h-10 text-white" />
                             <div>
                               <p className="font-medium">Annual Temperature</p>
                               <p className="text-white">12°C to 28°C</p>
@@ -276,7 +276,7 @@ export default function KasauliPage() {
                         </p>
                         <div className="grid md:grid-cols-2 gap-6">
                           <div className="flex items-center gap-4 bg-emerald-800 p-4 rounded-lg shadow-sm">
-                            <Sun className="w-10 h-10 text-yellow-500" />
+                            <Sun className="w-10 h-10 text-white" />
                             <div>
                               <p className="font-medium text-white">
                                 Temperature
@@ -333,7 +333,7 @@ export default function KasauliPage() {
                             </div>
                           </div>
                           <div className="flex items-center gap-4 bg-emerald-800 p-4 rounded-lg shadow-sm">
-                            <Sun className="w-10 h-10 text-yellow-500" />
+                            <Sun className="w-10 h-10 text-white" />
                             <div>
                               <p className="font-medium text-white">
                                 Temperature

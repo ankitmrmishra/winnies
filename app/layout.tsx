@@ -179,9 +179,8 @@ export default function RootLayout({
         </noscript>
 
         <CallbackPopupProvider>
-          <Navbar />
-
           <main>
+            <Navbar />
             <CallbackFormPopup />
             <ChatbotIndicator />
             <FloatingCallButton />

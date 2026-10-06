@@ -30,7 +30,7 @@ export function RefundPolicy() {
         {/* 50% Refund */}
         <div className="relative flex gap-6 items-start">
           <div className="z-10 bg-white rounded-full">
-            <MinusCircle className="w-8 h-8 text-amber-500 fill-amber-50" />
+            <MinusCircle className="w-8 h-8 text-gray-600 fill-gray-50" />
           </div>
           <div>
             <h3 className="font-bold text-lg text-gray-900">

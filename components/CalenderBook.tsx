@@ -10,7 +10,7 @@ const BookingForm = () => {
 
   const [checkInDate, setCheckInDate] = useState(format(today, "yyyy-MM-dd"));
   const [checkOutDate, setCheckOutDate] = useState(
-    format(tomorrow, "yyyy-MM-dd")
+    format(tomorrow, "yyyy-MM-dd"),
   );
   const [error, setError] = useState({ checkIn: false, checkOut: false });
 
@@ -64,7 +64,7 @@ const BookingForm = () => {
             <div className="sm:col-span-2 lg:col-span-1 mb-2 lg:mb-0">
               <h2 className="text-lg sm:text-xl font-bold leading-tight">
                 BOOK YOUR
-                <span className="block text-[#FFA500]">IDEAL STAY</span>
+                <span className="block text-white">IDEAL STAY</span>
               </h2>
             </div>
 
@@ -122,7 +122,7 @@ const BookingForm = () => {
             {/* Book Now Button */}
             <button
               type="submit"
-              className="w-full sm:w-auto bg-[#FFA500] text-white px-6 py-2 rounded-md hover:bg-[#ff9100] transition-colors duration-200 font-semibold text-sm"
+              className="w-full sm:w-auto bg-white text-black px-6 py-2 rounded-md hover:bg-gray-100 transition-colors duration-200 font-semibold text-sm border border-gray-300"
             >
               BOOK NOW
             </button>

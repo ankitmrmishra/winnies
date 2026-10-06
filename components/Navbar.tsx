@@ -7,7 +7,6 @@ import { Button } from "@/components/ui/button";
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 
-
 import Bar from "@/public/assets/Bar/DSC02395.jpg";
 import Activities from "@/public/assets/Activities/pool.jpg";
 import MeetingHalls from "@/public/assets/Confrenceroom/DSC02387.jpg";
@@ -67,7 +66,11 @@ export const roomsData: Room[] = [
   { id: "2", title: "Super Deluxe Rooms", imageUrl: superdeluxrooms },
   { id: "3", title: "Premium Valley View Rooms", imageUrl: Premiumroom },
   { id: "4", title: "Premium Pool Deck Rooms", imageUrl: POOLDECKPREMIUMROOMS },
-  { id: "5", title: "2-Bedroom Premium Suite", imageUrl: PREMIUM2BEDROOMAPARTMENT },
+  {
+    id: "5",
+    title: "2-Bedroom Premium Suite",
+    imageUrl: PREMIUM2BEDROOMAPARTMENT,
+  },
   { id: "6", title: "3-Bedroom Deluxe Suite", imageUrl: deluxs3bedroom },
   { id: "7", title: "Family Room", imageUrl: deluxroom },
 ];
@@ -85,11 +88,10 @@ export default function Navbar() {
   const [isRoomsOpen, setIsRoomsOpen] = useState(false);
   const [isVillasOpen, setIsVillasOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(true);
 
   const navRef = useRef<HTMLDivElement>(null);
   const { scrollY } = useScroll();
-  
 
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
   const toggleFacilities = () => setIsFacilitiesOpen(!isFacilitiesOpen);
@@ -100,8 +102,13 @@ export default function Navbar() {
 
   const handleCallClick = () => {
     // Track call click in Google Analytics
-    if (typeof window !== "undefined" && (window as Window & { gtag?: (...args: unknown[]) => void }).gtag) {
-      (window as unknown as Window & { gtag: (...args: unknown[]) => void }).gtag("event", "click_to_call", {
+    if (
+      typeof window !== "undefined" &&
+      (window as Window & { gtag?: (...args: unknown[]) => void }).gtag
+    ) {
+      (
+        window as unknown as Window & { gtag: (...args: unknown[]) => void }
+      ).gtag("event", "click_to_call", {
         event_category: "engagement",
         event_label: "Navbar Call Button",
         phone_number: phoneNumber,
@@ -113,7 +120,7 @@ export default function Navbar() {
   };
 
   useMotionValueEvent(scrollY, "change", (latest) => {
-    setIsScrolled(latest > 50);
+    setIsScrolled(latest > -10);
   });
 
   useEffect(() => {
@@ -134,12 +141,12 @@ export default function Navbar() {
   if (pathname.startsWith("/booking")) return null;
 
   return (
-    <div className="sticky z-50" ref={navRef}>
+    <div className=" z-50" ref={navRef}>
       <motion.nav
         className="fixed w-full top-0 z-50 backdrop-blur-[1px]"
         initial={{ backgroundColor: "rgba(0, 0, 0, 0.3)" }}
         animate={{
-          backgroundColor: isScrolled ? "rgba(255, 255, 255, 0.95)" : "rgba(0, 0, 0, 0.3)",
+          backgroundColor: isScrolled ? "rgba(255, 255, 255, 0.95)" : "",
           boxShadow: isScrolled ? "0 4px 20px rgba(0, 0, 0, 0.08)" : "none",
         }}
         transition={{ duration: 0.3 }}
@@ -169,13 +176,17 @@ export default function Navbar() {
               <div className="relative">
                 <motion.button
                   className={`flex items-center space-x-1 px-3 py-2 rounded-lg transition-all font-medium text-sm ${
-                    isScrolled ? "text-gray-700 hover:text-emerald-600 hover:bg-emerald-50" : "text-white hover:text-emerald-400"
+                    isScrolled
+                      ? "text-gray-700 hover:text-emerald-600 hover:bg-emerald-50"
+                      : "text-white hover:text-emerald-400"
                   }`}
                   onClick={toggleRooms}
                   whileHover={{ y: -2 }}
                 >
                   <span>Rooms</span>
-                  <ChevronDown className={`w-4 h-4 transition-transform ${isRoomsOpen ? "rotate-180" : ""}`} />
+                  <ChevronDown
+                    className={`w-4 h-4 transition-transform ${isRoomsOpen ? "rotate-180" : ""}`}
+                  />
                 </motion.button>
                 {isRoomsOpen && (
                   <motion.div
@@ -196,7 +207,9 @@ export default function Navbar() {
                           height={64}
                           className="w-14 h-14 object-cover rounded-lg flex-shrink-0"
                         />
-                        <span className="font-medium text-sm">{room.title}</span>
+                        <span className="font-medium text-sm">
+                          {room.title}
+                        </span>
                       </Link>
                     ))}
                   </motion.div>
@@ -207,13 +220,17 @@ export default function Navbar() {
               <div className="relative">
                 <motion.button
                   className={`flex items-center space-x-1 px-3 py-2 rounded-lg transition-all font-medium text-sm ${
-                    isScrolled ? "text-gray-700 hover:text-emerald-600 hover:bg-emerald-50" : "text-white hover:text-emerald-400"
+                    isScrolled
+                      ? "text-gray-700 hover:text-emerald-600 hover:bg-emerald-50"
+                      : "text-white hover:text-emerald-400"
                   }`}
                   onClick={toggleVillas}
                   whileHover={{ y: -2 }}
                 >
                   <span>Villas</span>
-                  <ChevronDown className={`w-4 h-4 transition-transform ${isVillasOpen ? "rotate-180" : ""}`} />
+                  <ChevronDown
+                    className={`w-4 h-4 transition-transform ${isVillasOpen ? "rotate-180" : ""}`}
+                  />
                 </motion.button>
                 {isVillasOpen && (
                   <motion.div
@@ -234,7 +251,9 @@ export default function Navbar() {
                           height={64}
                           className="w-14 h-14 object-cover rounded-lg flex-shrink-0"
                         />
-                        <span className="font-medium text-sm">{villa.title}</span>
+                        <span className="font-medium text-sm">
+                          {villa.title}
+                        </span>
                       </Link>
                     ))}
                   </motion.div>
@@ -253,7 +272,9 @@ export default function Navbar() {
                   <Link
                     href={link.href}
                     className={`px-3 py-2 rounded-lg transition-all font-medium text-sm ${
-                      isScrolled ? "text-gray-700 hover:text-emerald-600 hover:bg-emerald-50" : "text-white hover:text-emerald-400"
+                      isScrolled
+                        ? "text-gray-700 hover:text-emerald-600 hover:bg-emerald-50"
+                        : "text-white hover:text-emerald-400"
                     }`}
                   >
                     {link.label}
@@ -265,13 +286,17 @@ export default function Navbar() {
               <div className="relative">
                 <motion.button
                   className={`flex items-center space-x-1 px-3 py-2 rounded-lg transition-all font-medium text-sm ${
-                    isScrolled ? "text-gray-700 hover:text-emerald-600 hover:bg-emerald-50" : "text-white hover:text-emerald-400"
+                    isScrolled
+                      ? "text-gray-700 hover:text-emerald-600 hover:bg-emerald-50"
+                      : "text-white hover:text-emerald-400"
                   }`}
                   onClick={toggleFacilities}
                   whileHover={{ y: -2 }}
                 >
                   <span>Facilities</span>
-                  <ChevronDown className={`w-4 h-4 transition-transform ${isFacilitiesOpen ? "rotate-180" : ""}`} />
+                  <ChevronDown
+                    className={`w-4 h-4 transition-transform ${isFacilitiesOpen ? "rotate-180" : ""}`}
+                  />
                 </motion.button>
                 {isFacilitiesOpen && (
                   <motion.div
@@ -289,7 +314,9 @@ export default function Navbar() {
                             height={64}
                             className="w-14 h-14 object-cover rounded-lg flex-shrink-0"
                           />
-                          <span className="font-medium text-sm">{facility.title}</span>
+                          <span className="font-medium text-sm">
+                            {facility.title}
+                          </span>
                         </div>
                       </Link>
                     ))}
@@ -301,7 +328,9 @@ export default function Navbar() {
                 <Link
                   href="/ContactUs"
                   className={`px-3 py-2 rounded-lg transition-all font-medium text-sm ${
-                    isScrolled ? "text-gray-700 hover:text-emerald-600 hover:bg-emerald-50" : "text-white hover:text-emerald-400"
+                    isScrolled
+                      ? "text-gray-700 hover:text-emerald-600 hover:bg-emerald-50"
+                      : "text-white hover:text-emerald-400"
                   }`}
                 >
                   Contact
@@ -311,14 +340,27 @@ export default function Navbar() {
 
             {/* CTA and Mobile Menu */}
             <div className="flex items-center space-x-3">
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
                 <Button
                   onClick={handleCallClick}
                   id="navbar-call-button"
-                  className="bg-emerald-600 hover:bg-emerald-700 text-white px-4 md:px-6 py-2 rounded-full font-medium shadow-lg hover:shadow-xl transition-all text-sm flex items-center gap-2"
+                  className="bg-emerald-600 hover:bg-gray-100 text-white hover:text-black px-4 md:px-6 py-2 rounded-full font-medium shadow-lg hover:shadow-xl transition-all text-sm flex items-center gap-2"
                 >
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  <svg
+                    className="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                    />
                   </svg>
                   <span className="hidden md:inline">Call: {phoneNumber}</span>
                   <span className="md:hidden">Talk to Us</span>
@@ -347,8 +389,17 @@ export default function Navbar() {
         >
           <div className="flex flex-col h-full">
             <div className="p-6 border-b flex justify-between items-center">
-              <Image src={Logo} alt="Logo" width={80} height={80} className="h-12 w-auto" />
-              <button onClick={toggleMobileMenu} className="p-2 hover:bg-gray-100 rounded-lg">
+              <Image
+                src={Logo}
+                alt="Logo"
+                width={80}
+                height={80}
+                className="h-12 w-auto"
+              />
+              <button
+                onClick={toggleMobileMenu}
+                className="p-2 hover:bg-gray-100 rounded-lg"
+              >
                 <X size={24} className="text-gray-700" />
               </button>
             </div>
@@ -360,13 +411,18 @@ export default function Navbar() {
                     className="flex items-center justify-between w-full text-gray-700 hover:text-emerald-600 py-3 font-medium"
                   >
                     Rooms
-                    <ChevronDown className={`w-4 h-4 transition-transform ${isRoomsOpen ? "rotate-180" : ""}`} />
+                    <ChevronDown
+                      className={`w-4 h-4 transition-transform ${isRoomsOpen ? "rotate-180" : ""}`}
+                    />
                   </button>
                   {isRoomsOpen && (
                     <ul className="space-y-1 pl-4 mt-2">
                       {roomsData.map((room) => (
                         <li key={room.id}>
-                          <Link href={`/rooms/${room.id}`} className="block py-2 text-sm text-gray-600 hover:text-emerald-600">
+                          <Link
+                            href={`/rooms/${room.id}`}
+                            className="block py-2 text-sm text-gray-600 hover:text-emerald-600"
+                          >
                             {room.title}
                           </Link>
                         </li>
@@ -380,13 +436,18 @@ export default function Navbar() {
                     className="flex items-center justify-between w-full text-gray-700 hover:text-emerald-600 py-3 font-medium"
                   >
                     Villas
-                    <ChevronDown className={`w-4 h-4 transition-transform ${isVillasOpen ? "rotate-180" : ""}`} />
+                    <ChevronDown
+                      className={`w-4 h-4 transition-transform ${isVillasOpen ? "rotate-180" : ""}`}
+                    />
                   </button>
                   {isVillasOpen && (
                     <ul className="space-y-1 pl-4 mt-2">
                       {villasData.map((villa) => (
                         <li key={villa.id}>
-                          <Link href={`/villas/${villa.id}`} className="block py-2 text-sm text-gray-600 hover:text-emerald-600">
+                          <Link
+                            href={`/villas/${villa.id}`}
+                            className="block py-2 text-sm text-gray-600 hover:text-emerald-600"
+                          >
                             {villa.title}
                           </Link>
                         </li>
@@ -402,7 +463,10 @@ export default function Navbar() {
                   { href: "/Packages", label: "Packages" },
                 ].map((link) => (
                   <li key={link.href}>
-                    <Link href={link.href} className="block text-gray-700 hover:text-emerald-600 py-3 font-medium">
+                    <Link
+                      href={link.href}
+                      className="block text-gray-700 hover:text-emerald-600 py-3 font-medium"
+                    >
                       {link.label}
                     </Link>
                   </li>
@@ -413,13 +477,18 @@ export default function Navbar() {
                     className="flex items-center justify-between w-full text-gray-700 hover:text-emerald-600 py-3 font-medium"
                   >
                     Facilities
-                    <ChevronDown className={`w-4 h-4 transition-transform ${isFacilitiesOpen ? "rotate-180" : ""}`} />
+                    <ChevronDown
+                      className={`w-4 h-4 transition-transform ${isFacilitiesOpen ? "rotate-180" : ""}`}
+                    />
                   </button>
                   {isFacilitiesOpen && (
                     <ul className="space-y-1 pl-4 mt-2">
                       {facilitiesData.map((facility) => (
                         <li key={facility.title}>
-                          <Link href={facility.link} className="block py-2 text-sm text-gray-600 hover:text-emerald-600">
+                          <Link
+                            href={facility.link}
+                            className="block py-2 text-sm text-gray-600 hover:text-emerald-600"
+                          >
                             {facility.title}
                           </Link>
                         </li>
@@ -428,7 +497,10 @@ export default function Navbar() {
                   )}
                 </li>
                 <li>
-                  <Link href="/ContactUs" className="block text-gray-700 hover:text-emerald-600 py-3 font-medium">
+                  <Link
+                    href="/ContactUs"
+                    className="block text-gray-700 hover:text-emerald-600 py-3 font-medium"
+                  >
                     Contact Us
                   </Link>
                 </li>
