@@ -56,17 +56,14 @@ const BookingForm = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-3">
+    <div className="md:max-w-4xl max-w-2xl mx-auto px-8 sm:px-6 lg:px-8 mt-8 md:mt-3">
       <div className="bg-[#0B3B2D] text-white rounded-lg shadow-xl overflow-hidden">
         <form onSubmit={handleSubmit} className="p-4 sm:p-6">
           <div className="grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1fr_auto_1fr_auto_1fr] items-end">
             {/* Heading - Title: Arial 16px Medium, Subtitle: 12px Regular on mobile */}
             <div className="sm:col-span-2 lg:col-span-1 mb-2 lg:mb-0">
-              <h2 className="text-[16px] sm:text-xl font-medium leading-tight font-sans">
-                BOOK YOUR
-                <span className="block text-white text-[12px] sm:text-base font-normal">
-                  IDEAL STAY
-                </span>
+              <h2 className="text-[16px] sm:text-xl font-medium leading-tight font-sans font-medium">
+                BOOK YOUR STAY
               </h2>
             </div>
 
