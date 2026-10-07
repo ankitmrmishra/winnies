@@ -27,15 +27,18 @@ export function About({ onRequest }: { onRequest: () => void }) {
       className={`py-20 md:py-10 px-6 md:px-20 bg-[#faf9f6] text-black max-h-max gap-5 flex flex-col justify-start align-middle items-start overflow-hidden ${inter.className}`}
     >
       <div className="max-w-4xl mx-auto text-center z-10">
-        <span className="italic font-medium text-lg mb-4 block">
+        {/* 1st line - 16px */}
+        <span className="italic font-medium text-[16px] md:text-lg mb-4 block font-sans">
           Experience the Essence of Nature, Wrapped in Luxury
         </span>
+        {/* 2nd line Title - 36px (Playfair Display) */}
         <h2
-          className={`text-4xl md:text-5xl font-heading text-emerald-800 mb-6 ${playfair.className}`}
+          className={`text-[36px] md:text-5xl font-normal text-emerald-800 mb-6 ${playfair.className}`}
         >
           Winnies Holiday Resort & Spa
         </h2>
-        <p className="text-lg mb-8 max-w-2xl mx-auto font-body">
+        {/* 3rd line description - 14px */}
+        <p className="text-[14px] md:text-lg mb-8 max-w-2xl mx-auto font-normal font-sans">
           Set in the quiet beauty of Kasauli&apos;s hills, Winnies Resort is
           your retreat for peace and comfort. With luxurious amenities and
           stunning natural surroundings, this haven offers the ideal escape from

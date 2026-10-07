@@ -60,17 +60,21 @@ const BookingForm = () => {
       <div className="bg-[#0B3B2D] text-white rounded-lg shadow-xl overflow-hidden">
         <form onSubmit={handleSubmit} className="p-4 sm:p-6">
           <div className="grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1fr_auto_1fr_auto_1fr] items-end">
-            {/* Heading */}
+            {/* Heading - Title: Arial 16px Medium, Subtitle: 12px Regular on mobile */}
             <div className="sm:col-span-2 lg:col-span-1 mb-2 lg:mb-0">
-              <h2 className="text-lg sm:text-xl font-bold leading-tight">
+              <h2 className="text-[16px] sm:text-xl font-medium leading-tight font-sans">
                 BOOK YOUR
-                <span className="block text-white">IDEAL STAY</span>
+                <span className="block text-white text-[12px] sm:text-base font-normal">
+                  IDEAL STAY
+                </span>
               </h2>
             </div>
 
-            {/* Check-in Date */}
+            {/* Check-in Date - Label: 12px Regular */}
             <div className="relative">
-              <label className="block text-sm font-medium mb-1">CHECK-IN</label>
+              <label className="block text-[12px] sm:text-sm font-normal mb-1 font-sans">
+                CHECK-IN
+              </label>
               <div className="relative">
                 <input
                   type="date"
@@ -95,9 +99,9 @@ const BookingForm = () => {
               <div className="w-px h-8 bg-gray-400"></div>
             </div>
 
-            {/* Check-out Date */}
+            {/* Check-out Date - Label: 12px Regular */}
             <div className="relative">
-              <label className="block text-sm font-medium mb-1">
+              <label className="block text-[12px] sm:text-sm font-normal mb-1 font-sans">
                 CHECK-OUT
               </label>
               <div className="relative">
@@ -119,10 +123,10 @@ const BookingForm = () => {
               )}
             </div>
 
-            {/* Book Now Button */}
+            {/* Book Now Button - CTA: 14px Regular */}
             <button
               type="submit"
-              className="w-full sm:w-auto bg-white text-black px-6 py-2 rounded-md hover:bg-gray-100 transition-colors duration-200 font-semibold text-sm border border-gray-300"
+              className="w-full sm:w-auto bg-white text-black px-6 py-2 rounded-md hover:bg-gray-100 transition-colors duration-200 font-normal text-[14px] border border-gray-300 font-sans"
             >
               BOOK NOW
             </button>
