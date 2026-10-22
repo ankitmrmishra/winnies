@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { headers } from "next/headers";
 import localFont from "next/font/local";
 import Script from "next/script";
 
@@ -26,76 +27,76 @@ const geistMono = localFont({
 });
 
 /* -------------------- Metadata -------------------- */
-export const metadata: Metadata = {
-  title: {
-    default: "Winnies Holiday Resort and Spa | Luxury Getaway in Kasauli",
-    template: "%s | Winnies Resort",
-  },
-  description:
-    "Experience luxury and serenity at Winnies Holiday Resort and Spa in Kasauli. Perfect for vacations, weddings, and rejuvenating retreats.",
-  keywords: [
-    "Kasauli resort",
-    "luxury spa",
-    "holiday resort",
-    "Winnies Resort",
-    "mountain getaway",
-    "wedding venue",
-  ],
-  authors: [{ name: "Winnies Resort" }],
-  creator: "Winnies Resort",
-  publisher: "Winnies Resort",
+export async function generateMetadata(): Promise<Metadata> {
+  const pathname = (await headers()).get("x-winnies-pathname") ?? "/";
+  const title = "Winnies Holiday Resort and Spa | Luxury Getaway in Kasauli";
+  const description =
+    "Experience luxury and serenity at Winnies Holiday Resort and Spa in Kasauli. Perfect for vacations, weddings, and rejuvenating retreats.";
 
-  metadataBase: new URL("https://winnies.in"),
-  alternates: {
-    canonical: "/",
-  },
-
-  openGraph: {
-    title: "Winnies Holiday Resort and Spa | Luxury Getaway in Kasauli",
-    description:
-      "Experience luxury and serenity at Winnies Holiday Resort and Spa in Kasauli.",
-    url: "https://winnies.in",
-    siteName: "Winnies Resort",
-    images: [
-      {
-        url: "https://winnies.in/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Winnies Holiday Resort and Spa",
-      },
+  return {
+    title: {
+      default: title,
+      template: "%s | Winnies Resort",
+    },
+    description,
+    keywords: [
+      "Kasauli resort",
+      "luxury spa",
+      "holiday resort",
+      "Winnies Resort",
+      "mountain getaway",
+      "wedding venue",
     ],
-    locale: "en_US",
-    type: "website",
-  },
-
-  twitter: {
-    card: "summary_large_image",
-    title: "Winnies Holiday Resort and Spa | Luxury Getaway in Kasauli",
-    description:
-      "Experience luxury and serenity at Winnies Holiday Resort and Spa in Kasauli.",
-    images: ["https://winnies.in/og-image.jpg"],
-    creator: "@Ankitmishraexe",
-  },
-
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
+    authors: [{ name: "Winnies Resort" }],
+    creator: "Winnies Resort",
+    publisher: "Winnies Resort",
+    metadataBase: new URL("https://winnies.in"),
+    alternates: {
+      canonical: pathname,
+    },
+    openGraph: {
+      title,
+      description:
+        "Experience luxury and serenity at Winnies Holiday Resort and Spa in Kasauli.",
+      url: pathname,
+      siteName: "Winnies Resort",
+      images: [
+        {
+          url: "/opengraph-image.png",
+          width: 1200,
+          height: 630,
+          alt: "Winnies Holiday Resort and Spa",
+        },
+      ],
+      locale: "en_US",
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description:
+        "Experience luxury and serenity at Winnies Holiday Resort and Spa in Kasauli.",
+      images: ["/twitter-image.png"],
+      creator: "@Ankitmishraexe",
+    },
+    robots: {
       index: true,
       follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
     },
-  },
-
-  /* -------- Facebook Domain Verification -------- */
-  verification: {
-    other: {
-      "facebook-domain-verification": "9kv9rtygxi1fdmudmokg642hbxmk1c",
+    verification: {
+      other: {
+        "facebook-domain-verification": "9kv9rtygxi1fdmudmokg642hbxmk1c",
+      },
     },
-  },
-};
+  };
+}
 
 /* -------------------- Layout -------------------- */
 export default function RootLayout({
