@@ -5,7 +5,7 @@ import Image, { StaticImageData } from "next/image";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Playfair_Display } from "next/font/google";
-import { Leaf, Clock, DollarSign, X } from "lucide-react";
+import {  Clock, DollarSign, X } from "lucide-react";
 import { useCallbackPopup } from "@/lib/callback-popup-context";
 import Spa from "../../public/assets/Spa/Spa2.png";
 import Spaa from "../../public/assets/Spa/image.png";
@@ -121,7 +121,7 @@ export default function SpaPage() {
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="text-center text-white">
             <h1 className={`text-4xl md:text-5xl font-bold mb-4 `}>
-              Tender Leaves Spa & Wellness
+               Spa & Wellness
             </h1>
             <p className="text-xl mb-8">
               Indulge in pure relaxation and rejuvenation
@@ -156,7 +156,7 @@ export default function SpaPage() {
               Quality. We only use oils which are 100% Natural and without
               chemical preservatives.
             </p>
-            <div className="grid grid-cols-3 gap-4">
+            {/* <div className="grid grid-cols-3 gap-4">
               {[
                 "Shea Butter",
                 "Avocado Oil",
@@ -176,7 +176,7 @@ export default function SpaPage() {
                   <span className="text-sm">{ingredient}</span>
                 </div>
               ))}
-            </div>
+            </div> */}
           </motion.div>
         </div>
       </section>

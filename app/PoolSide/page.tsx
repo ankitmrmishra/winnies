@@ -229,11 +229,11 @@ export default function PoolsidePage() {
             <h2 className={`text-4xl ${playfair.className} mb-6`}>
               Pool Hours
             </h2>
-            <p className="text-xl mb-8">Open daily from 7:00 AM to 7:00 PM</p>
+            <p className="text-xl mb-8">Open daily from 9:00 AM to 6:00 PM</p>
             <div className="max-w-xl mx-auto text-center mb-8">
               <p className="mb-4">
-                Enjoy our temperature-controlled pool year-round. Poolside
-                service is available from 10:00 AM to 6:00 PM for your comfort
+                Enjoy our pool year-round. Poolside
+                service is available from 9:00 AM to 6:00 PM for your comfort
                 and convenience.
               </p>
               <p>
