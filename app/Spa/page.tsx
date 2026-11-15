@@ -113,9 +113,10 @@ export default function SpaPage() {
         <Image
           src={Spa}
           alt="Spa atmosphere"
-          layout="fill"
-          objectFit="cover"
+          fill
           priority
+          sizes="100vw"
+          className="object-cover"
         />
         <div className="absolute inset-0 bg-black/40" />
         <div className="absolute inset-0 flex items-center justify-center">
@@ -344,7 +345,7 @@ export default function SpaPage() {
                   alt="spa"
                   width={500}
                   height={300}
-                  objectFit="cover"
+                  sizes="(max-width: 768px) 100vw, 33vw"
                   className="w-full h-64 object-cover"
                 />
                 <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300"></div>

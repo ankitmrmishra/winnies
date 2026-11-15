@@ -46,10 +46,10 @@ export default function BarPage() {
         <Image
           src={Bar2}
           alt="Cliffhouzz Bar"
-          layout="fill"
-          objectFit="cover"
+          fill
           priority
-          className=""
+          sizes="100vw"
+          className="object-cover"
         />
         <div className="absolute inset-0 bg-black/60" />
         <div className="absolute inset-0 flex items-center justify-center">
@@ -99,9 +99,9 @@ export default function BarPage() {
                 <Image
                   src={Bar3}
                   alt="Bar interior"
-                  layout="fill"
-                  objectFit="cover"
-                  className="rounded-lg"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="rounded-lg object-cover"
                 />
               </div>
             </motion.div>

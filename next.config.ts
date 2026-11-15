@@ -2,6 +2,9 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
+    formats: ["image/avif", "image/webp"],
+    deviceSizes: [640, 750, 828, 1080, 1200, 1400, 1600, 1920],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     domains: [
       "images.unsplash.com",
       "sjc6.discourse-cdn.com",
@@ -13,7 +16,6 @@ const nextConfig: NextConfig = {
       "www.exoticmiles.com",
     ],
   },
-  /* other config options here */
 };
 
 export default nextConfig;

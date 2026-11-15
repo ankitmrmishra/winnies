@@ -22,6 +22,7 @@ export const HeroComponent = () => {
           width={1920}
           height={1080}
           priority
+          sizes="100vw"
           className="object-cover w-full h-full absolute inset-0"
         />
 

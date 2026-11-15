@@ -64,9 +64,10 @@ export default function ConferencePage() {
         <Image
           src={Meetinghall}
           alt="Conference Hall"
-          layout="fill"
-          objectFit="cover"
+          fill
           priority
+          sizes="100vw"
+          className="object-cover"
         />
         <div className="absolute inset-0 bg-black/40" />
         <div className="absolute inset-0 flex items-center justify-center">
@@ -135,8 +136,9 @@ export default function ConferencePage() {
                   <Image
                     src={config.image}
                     alt={config.title}
-                    layout="fill"
-                    objectFit="cover"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="object-cover"
                   />
                 </div>
                 <div className="p-6">

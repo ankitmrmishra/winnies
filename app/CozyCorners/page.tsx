@@ -45,9 +45,10 @@ export default function CozyCornersPage() {
         <Image
           src={cozycorners}
           alt="Cozy Corner at Night"
-          layout="fill"
-          objectFit="cover"
+          fill
           priority
+          sizes="100vw"
+          className="object-cover"
         />
         <div className="absolute inset-0 bg-black/40" />
         <div className="absolute inset-0 flex items-center justify-center">
@@ -104,9 +105,9 @@ export default function CozyCornersPage() {
               <Image
                 src={jamison}
                 alt="Jameson Corner"
-                layout="fill"
-                objectFit="cover"
-                className="rounded-lg"
+                fill
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="rounded-lg object-cover"
               />
               <div className="absolute inset-0 bg-black/20 hover:bg-black/40 transition-all duration-300">
                 <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
@@ -128,9 +129,9 @@ export default function CozyCornersPage() {
               <Image
                 src={SD}
                 alt="Romantic Dining Setup"
-                layout="fill"
-                objectFit="cover"
-                className="rounded-lg"
+                fill
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="rounded-lg object-cover"
               />
               <div className="absolute inset-0 bg-black/20 hover:bg-black/40 transition-all duration-300">
                 <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
@@ -152,9 +153,9 @@ export default function CozyCornersPage() {
               <Image
                 src={cozycorners}
                 alt="Evening Firepit"
-                layout="fill"
-                objectFit="cover"
-                className="rounded-lg"
+                fill
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="rounded-lg object-cover"
               />
               <div className="absolute inset-0 bg-black/20 hover:bg-black/40 transition-all duration-300">
                 <div className="absolute bottom-0 left-0 right-0 p-6 text-white">

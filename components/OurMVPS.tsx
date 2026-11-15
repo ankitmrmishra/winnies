@@ -21,8 +21,9 @@ export const OurMVPS = () => {
             <Image
               src={Room}
               alt="Luxurious room interior"
-              layout="fill"
-              objectFit="cover"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 33vw"
             />
           </div>
           <CardContent className="p-6">
@@ -52,8 +53,9 @@ export const OurMVPS = () => {
             <Image
               src={Restaurant3}
               alt="Elegant dining area with a view"
-              layout="fill"
-              objectFit="cover"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 33vw"
             />
           </div>
           <CardContent className="p-6">
@@ -84,8 +86,9 @@ export const OurMVPS = () => {
             <Image
               src={Spa3}
               alt="Spa treatment room"
-              layout="fill"
-              objectFit="cover"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 33vw"
             />
           </div>
           <CardContent className="p-6">

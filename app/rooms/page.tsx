@@ -339,8 +339,9 @@ export default function RoomsPage() {
                 <Image
                   src={room.imageUrl}
                   alt={room.title}
-                  objectFit="cover"
-                  className="h-64"
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  className="h-64 object-cover"
                 />
               </div>
               <div className="p-6">

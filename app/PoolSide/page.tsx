@@ -53,9 +53,10 @@ export default function PoolsidePage() {
         <Image
           src={Pool9}
           alt="Poolside at Winnies Resort"
-          layout="fill"
-          objectFit="cover"
+          fill
           priority
+          sizes="100vw"
+          className="object-cover"
         />
         <div className="absolute inset-0 bg-black/40" />
         <div className="absolute inset-0 flex items-center justify-center">
@@ -106,72 +107,72 @@ export default function PoolsidePage() {
                 <Image
                   src={Pool1}
                   alt="Pool with waterfall"
-                  layout="fill"
-                  objectFit="cover"
-                  className="rounded-lg"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="rounded-lg object-cover"
                 />
               </div>
               <div className="relative h-80 rounded-lg overflow-hidden">
                 <Image
                   src={Pool2}
                   alt="Poolside loungers"
-                  layout="fill"
-                  objectFit="cover"
-                  className="rounded-lg"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="rounded-lg object-cover"
                 />
               </div>
               <div className="relative h-80 rounded-lg overflow-hidden">
                 <Image
                   src={Pool3}
                   alt="Poolside loungers"
-                  layout="fill"
-                  objectFit="cover"
-                  className="rounded-lg"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="rounded-lg object-cover"
                 />
               </div>
               <div className="relative h-80 rounded-lg overflow-hidden">
                 <Image
                   src={Pool4}
                   alt="Poolside loungers"
-                  layout="fill"
-                  objectFit="cover"
-                  className="rounded-lg"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="rounded-lg object-cover"
                 />
               </div>
               <div className="relative h-80 rounded-lg overflow-hidden">
                 <Image
                   src={Pool5}
                   alt="Poolside loungers"
-                  layout="fill"
-                  objectFit="cover"
-                  className="rounded-lg"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="rounded-lg object-cover"
                 />
               </div>
               <div className="relative h-80 rounded-lg overflow-hidden">
                 <Image
                   src={Pool6}
                   alt="Poolside loungers"
-                  layout="fill"
-                  objectFit="cover"
-                  className="rounded-lg"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="rounded-lg object-cover"
                 />
               </div>
               <div className="relative h-80 rounded-lg overflow-hidden">
                 <Image
                   src={Pool8}
                   alt="Poolside loungers"
-                  layout="fill"
-                  objectFit="cover"
-                  className="rounded-lg"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="rounded-lg object-cover"
                 />
               </div>
               <div className="relative h-80 rounded-lg overflow-hidden">
                 <Image
                   src={Pool9}
                   alt="Poolside loungers"
-                  layout="fill"
-                  objectFit="cover"
-                  className="rounded-lg"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="rounded-lg object-cover"
                 />
               </div>
             </motion.div>

@@ -54,6 +54,7 @@ export const HeroComponentBooking = () => {
           alt="Winnies Resort"
           fill
           priority
+          sizes="100vw"
           className={`object-cover transition-opacity duration-500 ${
             videoLoaded && !videoError ? "opacity-0" : "opacity-100"
           }`}

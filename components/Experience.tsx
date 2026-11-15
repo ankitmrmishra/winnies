@@ -130,8 +130,9 @@ const ResortExperiences: React.FC = () => {
                 <Image
                   src={facilitiesData[currentExperience].image}
                   alt={facilitiesData[currentExperience].title}
-                  layout="fill"
-                  objectFit="cover"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>
               <div className="w-full md:w-1/2 space-y-4">

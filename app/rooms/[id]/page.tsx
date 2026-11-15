@@ -685,9 +685,9 @@ export default function RoomPage({ params }: PageProps) {
                     <Image
                       src={image || "/placeholder.svg"}
                       alt={`${room.title} - Image ${index + 1}`}
-                      objectFit="cover"
                       width={800}
                       height={800}
+                      sizes="(max-width: 1024px) 100vw, 50vw"
                       className="rounded-lg max-h-96 object-cover"
                     />
                   </div>

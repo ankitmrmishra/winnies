@@ -27,9 +27,10 @@ export default function KasauliPage() {
           <Image
             src={Imagekasuali}
             alt="Scenic view of Kasauli"
-            layout="fill"
-            objectFit="cover"
+            fill
+            className="object-cover"
             priority
+            sizes="100vw"
           />
           <div className="absolute inset-0 bg-black/40" />
           <div className="absolute inset-0 flex items-center justify-center">
@@ -104,7 +105,8 @@ export default function KasauliPage() {
                   src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/10/a1/43/07/img-20170517-082248-359.jpg?w=900&h=-1&s=1"
                   alt="Monkey Point in Kasauli"
                   fill
-                  className="object-cover   h-96 rounded-2xl"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className="object-cover h-96 rounded-2xl"
                 />
                 <p className="text-xl text-white hidden group-hover:block font-semibold mb-4 absolute z-40 bottom-0">
                   The highest point in Kasauli, offering breathtaking views of
@@ -121,6 +123,7 @@ export default function KasauliPage() {
                   src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0d/29/f8/12/christ-church.jpg?w=1000&h=-1&s=1"
                   alt="Christ Church in Kasauli"
                   fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
                   className="rounded-xl w-full aspect-4/3 object-cover mb-4"
                 />
                 <p className="text-xl text-white hidden group-hover:block font-semibold mb-4 absolute z-40 bottom-0">
@@ -137,6 +140,7 @@ export default function KasauliPage() {
                   src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/81/db/e6/gilbert-trail.jpg?w=1000&h=-1&s=1"
                   alt="Gilbert Trail"
                   fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
                   className="rounded-xl w-full aspect-4/3 object-cover mb-4"
                 />
                 <p className="text-xl text-white hidden group-hover:block font-semibold mb-4 absolute z-40 bottom-0">
@@ -153,6 +157,7 @@ export default function KasauliPage() {
                   src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/e5/03/8a/caption.jpg?w=1000&h=-1&s=1"
                   alt="Sunset Point in Kasauli"
                   fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
                   className="rounded-xl w-full aspect-4/3 object-cover mb-4"
                 />
                 <p className="text-xl text-white hidden group-hover:block font-semibold mb-4 absolute z-40 bottom-0">

@@ -177,10 +177,16 @@ export async function POST(req: Request) {
           body: JSON.stringify(payload),
         });
 
+        const responseBody = await res.text();
+        console.log("HubSpot response body:", { res });
+        console.info("HubSpot submission response:", {
+          status: res.status,
+          statusText: res.statusText,
+          body: responseBody,
+        });
+
         if (!res.ok) {
-          const text = await res.text();
-          console.error("HubSpot response:", text);
-          throw new Error("HubSpot submission failed");
+          throw new Error(`HubSpot submission failed with status ${res.status}`);
         }
 
         return { service: "HubSpot", success: true };

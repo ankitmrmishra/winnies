@@ -75,9 +75,10 @@ export default function ActivitiesPage() {
         <Image
           src={ftbl}
           alt="Adventure Activities at Winnies"
-          layout="fill"
-          objectFit="cover"
+          fill
+          className="object-cover"
           priority
+          sizes="100vw"
         />
         <div className="absolute inset-0 bg-black/40" />
         <div className="absolute inset-0 flex items-center justify-center">
@@ -135,9 +136,9 @@ export default function ActivitiesPage() {
                       <Image
                         src={item.image}
                         alt={item.title}
-                        layout="fill"
-                        objectFit="cover"
-                        className="w-full h-full"
+                        fill
+                        className="w-full h-full object-cover"
+                        sizes="(max-width: 768px) 100vw, 50vw"
                       />
                     </div>
                     <div className="p-6">

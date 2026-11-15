@@ -121,11 +121,11 @@ export default function RootLayout({
         {/* -------- Botpress Chatbot -------- */}
         <Script
           src="https://cdn.botpress.cloud/webchat/v3.6/inject.js"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
         <Script
           src="https://files.bpcontent.cloud/2026/03/02/13/20260302130816-L4LY4ZE3.js"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
         <Script id="botpress-auto-open" strategy="afterInteractive">
           {`

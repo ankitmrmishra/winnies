@@ -97,6 +97,9 @@ function RoomCard({ room }: { room: RoomData }) {
         <Image
           src={room.imageUrl}
           alt={room.title}
+          width={1200}
+          height={800}
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           className="w-full h-[400px] object-cover"
         />
         <motion.button

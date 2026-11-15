@@ -88,9 +88,10 @@ export default function RestaurantPage() {
         <Image
           src={RestaurantImage}
           alt="Winnies Resort Restaurant"
-          layout="fill"
-          objectFit="cover"
+          fill
           priority
+          sizes="100vw"
+          className="object-cover"
         />
         <div className="absolute inset-0 bg-black/40" />
         <div className="absolute inset-0 flex items-center justify-center">
