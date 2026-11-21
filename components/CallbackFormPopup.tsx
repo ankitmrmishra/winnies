@@ -1,63 +1,30 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 import { CallbackForm } from "./booking-form";
-import { usePathname } from "next/navigation";
 import { useCallbackPopup } from "@/lib/callback-popup-context";
+import { usePathname } from "next/navigation";
 
 export function CallbackFormPopup() {
-  const [autoPopupShown, setAutoPopupShown] = useState(false);
+  const { isOpen, openPopup, closePopup } = useCallbackPopup();
   const pathname = usePathname();
-  const { isOpen, closePopup } = useCallbackPopup();
 
   useEffect(() => {
-    console.log("CallbackFormPopup mounted, pathname:", pathname);
+    const delay = Math.random() * 2000 + 6000;
+    const timer = setTimeout(openPopup, delay);
 
-    // Don't show auto popup on booking page
-   
-
-    // Check if popup was shown today (localStorage persists across sessions)
-    const lastShown = localStorage.getItem("callbackPopupLastShown");
-    const today = new Date().toDateString();
-    
-    if (lastShown === today) {
-      console.log("Auto popup already shown today");
-      return;
-    }
-
-    // Random delay between 6-8 seconds
-    const delay = Math.random() * 2000 + 6000; // 6000ms to 8000ms
-    console.log(`Auto popup will show in ${(delay / 1000).toFixed(1)} seconds`);
-
-    const timer = setTimeout(() => {
-      console.log("Showing auto popup now");
-      setAutoPopupShown(true);
-      localStorage.setItem("callbackPopupLastShown", today);
-    }, delay);
-
-    return () => {
-      console.log("Cleaning up auto popup timer");
-      clearTimeout(timer);
-    };
-  }, [pathname]);
+    return () => clearTimeout(timer);
+  }, [pathname, openPopup]);
 
   const handleClose = () => {
-    console.log("Closing popup");
-    setAutoPopupShown(false);
     closePopup();
   };
 
-  // Show popup if either auto-triggered or manually triggered
-  const shouldShowPopup = isOpen || autoPopupShown;
-
-  // Don't render anything on booking page
-  // if (pathname?.startsWith("/booking")) return null;
-
   return (
     <AnimatePresence>
-      {shouldShowPopup && (
+      {isOpen && (
         <>
           {/* Backdrop */}
           <motion.div

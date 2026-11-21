@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 // import { Users, ChevronLeft, ChevronRight } from "lucide-react";
 // import { motion } from "framer-motion";
 import {
@@ -19,14 +19,6 @@ export function PackageModal() {
   const [isOpen, setIsOpen] = useState(false);
   const { openPopup } = useCallbackPopup();
   // const [currentPackageIndex, setCurrentPackageIndex] = useState(0);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsOpen(true);
-    }, 2000);
-
-    return () => clearTimeout(timer);
-  }, []);
 
   // const nextPackage = () => {
   //   setCurrentPackageIndex((prevIndex) => (prevIndex + 1) % packages.length);

@@ -11,7 +11,6 @@ import { CallbackFormPopup } from "@/components/CallbackFormPopup";
 import { CallbackPopupProvider } from "@/lib/callback-popup-context";
 import { ChatbotIndicator } from "@/components/ChatbotIndicator";
 import { FloatingCallButton } from "@/components/ui/FloatingCallButton";
-// import { PackageModal } from "@/components/PackagePopup";
 
 /* -------------------- Fonts -------------------- */
 const geistSans = localFont({
@@ -127,39 +126,17 @@ export default function RootLayout({
           src="https://files.bpcontent.cloud/2026/03/02/13/20260302130816-L4LY4ZE3.js"
           strategy="lazyOnload"
         />
-        <Script id="botpress-auto-open" strategy="afterInteractive">
-          {`
-            (function() {
-              var checkBotpress = setInterval(function() {
-                if (window.botpressWebChat) {
-                  clearInterval(checkBotpress);
-                  window.botpressWebChat.sendEvent({ type: 'show' });
-                }
-              }, 100);
-              setTimeout(function() { clearInterval(checkBotpress); }, 5000);
-            })();
-          `}
-        </Script>
         <style>{`
-          /* Botpress chat button - light green override */
+          #bp-web-widget-container,
+          div[id^="bp-"],
+          [class*="bpw-"] {
+            position: fixed !important;
+            z-index: 9997 !important;
+          }
           #bp-web-widget-container button,
           #bp-web-widget-container [role="button"],
           div[id^="bp-"] button,
           div[class*="bp-"] button {
-            background-color: #4ade80 !important;
-            background: #4ade80 !important;
-          }
-          #bp-web-widget-container button:hover,
-          #bp-web-widget-container [role="button"]:hover,
-          div[id^="bp-"] button:hover,
-          div[class*="bp-"] button:hover {
-            background-color: #22c55e !important;
-            background: #22c55e !important;
-          }
-          /* Target the floating button specifically */
-          button[aria-label*="Toggle"],
-          button[aria-label*="chat"],
-          button[aria-label*="Open"] {
             background-color: #4ade80 !important;
             background: #4ade80 !important;
           }
@@ -186,7 +163,6 @@ export default function RootLayout({
             <ChatbotIndicator />
             <FloatingCallButton />
             {children}
-            {/* <PackageModal /> */}
           </main>
 
           <Footer />

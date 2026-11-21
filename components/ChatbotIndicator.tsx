@@ -1,33 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
-
 export function ChatbotIndicator() {
-  const [isVisible, setIsVisible] = useState(true);
-
-  useEffect(() => {
-    // Hide the indicator after 15 seconds or when user clicks on the chatbot area
-    const timer = setTimeout(() => {
-      setIsVisible(false);
-    }, 15000);
-
-    const handleClick = (e: MouseEvent) => {
-      // Hide if clicking near bottom-right (where chatbot is)
-      if (window.innerWidth - e.clientX < 200 && window.innerHeight - e.clientY < 200) {
-        setIsVisible(false);
-      }
-    };
-
-    document.addEventListener("click", handleClick);
-
-    return () => {
-      clearTimeout(timer);
-      document.removeEventListener("click", handleClick);
-    };
-  }, []);
-
-  if (!isVisible) return null;
-
   return (
     <div className="fixed bottom-28 right-8 z-[9998] pointer-events-none">
       <div className="relative">
