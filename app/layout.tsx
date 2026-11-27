@@ -8,6 +8,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Toaster } from "@/components/ui/toaster";
 import { CallbackFormPopup } from "@/components/CallbackFormPopup";
+import { PackageModal } from "@/components/PackagePopup";
 import { CallbackPopupProvider } from "@/lib/callback-popup-context";
 import { ChatbotIndicator } from "@/components/ChatbotIndicator";
 import { FloatingCallButton } from "@/components/ui/FloatingCallButton";
@@ -160,6 +161,7 @@ export default function RootLayout({
           <main>
             <Navbar />
             <CallbackFormPopup />
+            <PackageModal />
             <ChatbotIndicator />
             <FloatingCallButton />
             {children}

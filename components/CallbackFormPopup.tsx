@@ -1,22 +1,12 @@
 "use client";
 
-import { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 import { CallbackForm } from "./booking-form";
 import { useCallbackPopup } from "@/lib/callback-popup-context";
-import { usePathname } from "next/navigation";
 
 export function CallbackFormPopup() {
-  const { isOpen, openPopup, closePopup } = useCallbackPopup();
-  const pathname = usePathname();
-
-  useEffect(() => {
-    const delay = Math.random() * 2000 + 6000;
-    const timer = setTimeout(openPopup, delay);
-
-    return () => clearTimeout(timer);
-  }, [pathname, openPopup]);
+  const { isOpen, closePopup } = useCallbackPopup();
 
   const handleClose = () => {
     closePopup();
@@ -32,7 +22,7 @@ export function CallbackFormPopup() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={handleClose}
-            className="fixed mx-auto  inset-0 bg-black/60 backdrop-blur-sm z-50"
+            className="fixed inset-0 z-[60] bg-black/60 backdrop-blur-sm"
           />
 
           {/* Popup */}
@@ -41,13 +31,13 @@ export function CallbackFormPopup() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
             transition={{ type: "spring", duration: 0.5 }}
-            className="fixed mx-auto  w-screen h-screen flex justify-center align-middle items-center z-50  max-h-[100vh]  "
+            className="fixed inset-0 z-[61] flex items-center justify-center overflow-y-auto p-4"
           >
-            <div className="relative  max-w-max flex justify-center align-middle item-center rounded-2xl shadow-2xl p-6">
+            <div className="relative w-full max-w-md">
               {/* Close Button */}
               <button
                 onClick={handleClose}
-                className="absolute top-8 right-8 p-2 rounded-full hover:bg-gray-100 transition-colors z-10"
+                className="absolute right-8 top-8 z-10 rounded-full p-2 transition-colors hover:bg-gray-100"
                 aria-label="Close popup"
               >
                 <X className="w-5 h-5 text-gray-600" />
